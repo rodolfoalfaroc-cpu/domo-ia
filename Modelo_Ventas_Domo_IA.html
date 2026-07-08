@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Domo IA — Modelos de Venta: HOGAR y Motor VENDE</title>
+<style>
+  :root{
+    --bg:#f6f7fb; --surface:#ffffff; --surface2:#eef1f8;
+    --text:#1c2333; --muted:#5b6478; --border:#dde2ee;
+    --brand:#2f5fd0; --brand2:#7c3aed; --accent:#0e9f6e; --warn:#d97706;
+    --chip:#e8eefc; --chipText:#2f5fd0;
+    --shadow:0 2px 10px rgba(20,30,60,.08);
+  }
+  [data-theme="dark"]{
+    --bg:#12151d; --surface:#1a1f2b; --surface2:#232a3a;
+    --text:#e8ebf4; --muted:#9aa3b8; --border:#313a4f;
+    --brand:#7ea2f2; --brand2:#b08df5; --accent:#3ecf94; --warn:#f0a44a;
+    --chip:#26334f; --chipText:#9db9f5;
+    --shadow:0 2px 10px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif; background:var(--bg); color:var(--text); line-height:1.6;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 20px 80px;}
+
+  header.hero{background:linear-gradient(135deg,var(--brand),var(--brand2)); color:#fff; padding:44px 20px 56px; text-align:center;}
+  header.hero h1{font-size:1.9rem; margin-bottom:8px;}
+  header.hero p{max-width:760px; margin:0 auto; opacity:.92;}
+  header.hero .tagline{display:inline-block; margin-top:14px; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.35); padding:4px 14px; border-radius:99px; font-size:.85rem;}
+
+  nav.tabs{position:sticky; top:0; z-index:50; background:var(--surface); border-bottom:1px solid var(--border); box-shadow:var(--shadow);}
+  nav.tabs .inner{max-width:1080px; margin:0 auto; display:flex; gap:4px; overflow-x:auto; padding:8px 12px;}
+  nav.tabs button{flex:0 0 auto; border:none; background:transparent; color:var(--muted); font:inherit; font-size:.92rem; font-weight:600; padding:8px 14px; border-radius:10px; cursor:pointer; white-space:nowrap;}
+  nav.tabs button:hover{background:var(--surface2); color:var(--text);}
+  nav.tabs button.active{background:var(--chip); color:var(--chipText);}
+  nav.tabs .theme{margin-left:auto;}
+
+  section.tab{display:none; padding-top:34px;}
+  section.tab.active{display:block;}
+  h2{font-size:1.45rem; margin-bottom:6px;}
+  h3{font-size:1.12rem; margin:26px 0 10px;}
+  .lead{color:var(--muted); max-width:820px; margin-bottom:22px;}
+
+  .grid{display:grid; gap:14px;}
+  .grid.c2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr));}
+  .grid.c3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+
+  .card{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px; box-shadow:var(--shadow);}
+  .card h4{font-size:1rem; margin-bottom:4px;}
+  .card .autor{font-size:.82rem; color:var(--muted); margin-bottom:10px;}
+  .badge{display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.4px; text-transform:uppercase; padding:2px 10px; border-radius:99px; background:var(--chip); color:var(--chipText); margin-bottom:8px;}
+  .badge.green{background:rgba(14,159,110,.14); color:var(--accent);}
+  .badge.purple{background:rgba(124,58,237,.12); color:var(--brand2);}
+  .badge.orange{background:rgba(217,119,6,.14); color:var(--warn);}
+
+  details{background:var(--surface); border:1px solid var(--border); border-radius:14px; margin-bottom:12px; overflow:hidden;}
+  details summary{cursor:pointer; padding:15px 18px; font-weight:600; list-style:none; display:flex; align-items:center; gap:10px;}
+  details summary::-webkit-details-marker{display:none;}
+  details summary .arrow{margin-left:auto; transition:transform .2s; color:var(--muted);}
+  details[open] summary .arrow{transform:rotate(90deg);}
+  details .body{padding:0 18px 18px; border-top:1px solid var(--border); padding-top:14px;}
+  details .body p{margin-bottom:10px;}
+  details .body ul{margin:0 0 10px 20px;}
+  details .body li{margin-bottom:4px;}
+  .mini-label{font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--muted); margin:12px 0 4px;}
+  .ia-box{background:var(--surface2); border-left:3px solid var(--accent); border-radius:8px; padding:10px 14px; font-size:.9rem;}
+
+  .fase{border-left:4px solid var(--brand); background:var(--surface); border-radius:0 14px 14px 0; padding:16px 18px; margin-bottom:14px; border-top:1px solid var(--border); border-right:1px solid var(--border); border-bottom:1px solid var(--border);}
+  .fase h4{display:flex; align-items:center; gap:10px; margin-bottom:8px;}
+  .fase .letra{display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:10px; background:var(--brand); color:#fff; font-weight:800; font-size:1.05rem; flex:0 0 auto;}
+  .fase ul{margin:8px 0 10px 20px;}
+  .fase li{margin-bottom:4px;}
+
+  /* Desplegable práctico de las fases HOGAR */
+  .teoria-toggle{display:inline-flex; align-items:center; gap:6px; margin:2px 0 8px; border:1px solid var(--border); background:var(--surface2); color:var(--chipText); font:600 .82rem "Segoe UI",sans-serif; padding:6px 12px; border-radius:99px; cursor:pointer;}
+  .teoria-toggle:hover{border-color:var(--brand);}
+  .teoria-toggle .caret{transition:transform .25s; display:inline-block;}
+  .teoria-toggle.open .caret{transform:rotate(180deg);}
+  .teoria-panel{max-height:0; overflow:hidden; transition:max-height .35s ease;}
+  .teoria-panel.open{max-height:250px; overflow-y:auto;}
+  .teoria-panel .inner-t{background:var(--surface2); border:1px dashed var(--border); border-radius:10px; padding:12px 14px; margin:4px 0 10px; font-size:.87rem;}
+  .teoria-panel .inner-t ol{margin:6px 0 0 18px;}
+  .teoria-panel .inner-t li{margin-bottom:5px;}
+
+  /* Tooltip de módulos del Motor VENDE */
+  .modg{cursor:help;}
+  .modg:hover rect{stroke:var(--brand); stroke-width:2;}
+  #svgtip{position:fixed; z-index:99; max-width:280px; background:var(--text); color:var(--bg); padding:9px 12px; border-radius:10px; font-size:.8rem; line-height:1.45; box-shadow:var(--shadow); pointer-events:none; opacity:0; transition:opacity .12s;}
+  #svgtip.show{opacity:1;}
+  #svgtip b{display:block; margin-bottom:3px;}
+
+  /* Barra e interpretación del ajuste en el configurador */
+  .ajuste-line{display:flex; align-items:center; gap:10px; margin:8px 0 2px;}
+  .bar{flex:1; height:8px; background:var(--surface2); border-radius:99px; overflow:hidden;}
+  .bar-fill{height:100%; border-radius:99px; transition:width .3s;}
+  .como-leer{background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--brand2); border-radius:12px; padding:14px 16px; margin-bottom:16px; font-size:.88rem;}
+  .como-leer ul{margin:8px 0 0 18px;}
+  .como-leer li{margin-bottom:4px;}
+
+  .flow{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0;}
+  .flow .step{flex:1 1 150px; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:12px; text-align:center; position:relative;}
+  .flow .step .n{display:inline-flex; width:26px; height:26px; border-radius:50%; background:var(--brand); color:#fff; align-items:center; justify-content:center; font-size:.8rem; font-weight:700; margin-bottom:6px;}
+  .flow .step strong{display:block; font-size:.92rem;}
+  .flow .step span{font-size:.78rem; color:var(--muted);}
+
+  table{width:100%; border-collapse:collapse; font-size:.9rem; background:var(--surface); border-radius:12px; overflow:hidden;}
+  th,td{padding:10px 12px; border-bottom:1px solid var(--border); text-align:left; vertical-align:top;}
+  th{background:var(--surface2); font-size:.8rem; text-transform:uppercase; letter-spacing:.4px;}
+  tr:last-child td{border-bottom:none;}
+  .tbl-scroll{overflow-x:auto; border:1px solid var(--border); border-radius:12px;}
+
+  .svgbox{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px; margin:14px 0; overflow-x:auto;}
+  .svgbox svg{display:block; margin:0 auto; max-width:100%; height:auto;}
+  .svgbox .cap{text-align:center; font-size:.82rem; color:var(--muted); margin-top:8px;}
+
+  /* Configurador */
+  .config{display:grid; grid-template-columns:340px 1fr; gap:18px;}
+  @media(max-width:820px){.config{grid-template-columns:1fr;}}
+  .panel{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px;}
+  .panel label{display:block; font-size:.85rem; font-weight:600; margin:14px 0 2px;}
+  .panel .ends{display:flex; justify-content:space-between; font-size:.72rem; color:var(--muted);}
+  input[type=range]{width:100%; accent-color:var(--brand);}
+  select,button.primary{font:inherit;}
+  select{width:100%; padding:9px 10px; border-radius:10px; border:1px solid var(--border); background:var(--surface2); color:var(--text);}
+  .rec-card{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px 18px; margin-bottom:12px;}
+  .rec-card .stage-name{display:flex; align-items:center; gap:10px; font-weight:700; margin-bottom:6px;}
+  .rec-card .stage-name .letra{width:30px; height:30px; border-radius:9px; background:var(--brand2); color:#fff; display:inline-flex; align-items:center; justify-content:center; font-weight:800;}
+  .rec-card .frase{background:var(--surface2); border-radius:8px; padding:8px 12px; font-style:italic; font-size:.9rem; margin:8px 0;}
+  .rec-card .meta{font-size:.82rem; color:var(--muted);}
+  .rec-card .kpi{font-size:.85rem; margin-top:6px;}
+  .rec-card .kpi b{color:var(--accent);}
+
+  /* Diálogos */
+  .dialogo{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px; margin-bottom:16px;}
+  .linea{margin-bottom:10px; display:flex; gap:10px;}
+  .linea .quien{flex:0 0 92px; font-weight:700; font-size:.82rem; padding-top:2px;}
+  .linea.vendedor .quien{color:var(--brand);}
+  .linea.cliente .quien{color:var(--warn);}
+  .linea .texto{flex:1;}
+  .nota-tecnica{background:var(--surface2); border-left:3px solid var(--brand2); border-radius:8px; padding:8px 12px; font-size:.82rem; color:var(--muted); margin:6px 0 14px 102px;}
+  @media(max-width:640px){.nota-tecnica{margin-left:0;}}
+
+  footer{margin-top:50px; padding-top:20px; border-top:1px solid var(--border); font-size:.82rem; color:var(--muted); text-align:center;}
+</style>
+</head>
+<body data-theme="light">
+
+<header class="hero">
+  <h1>Domo IA · Arquitectura de Modelos de Venta</h1>
+  <p>Síntesis de 14 obras de referencia en ventas en dos modelos operativos: <strong>HOGAR</strong> (especializado en el mercado inmobiliario) y el <strong>Motor VENDE</strong> (genérico y modular, adaptable a cualquier rubro). Cada componente incluye señales medibles por el agente auditor de IA.</p>
+  <span class="tagline">Marco teórico · Modelos gráficos · Configurador interactivo · Ejemplos prácticos</span>
+</header>
+
+<nav class="tabs">
+  <div class="inner">
+    <button data-tab="marco" class="active">📚 Marco Teórico</button>
+    <button data-tab="hogar">🏠 Modelo HOGAR (Inmobiliario)</button>
+    <button data-tab="vende">⚙️ Motor VENDE (Modular)</button>
+    <button data-tab="config">🎛️ Configurador por Rubro</button>
+    <button data-tab="generacion">👥 Enfoque Generacional</button>
+    <button data-tab="ejemplos">💬 Ejemplos Prácticos</button>
+    <button class="theme" id="themeBtn" title="Cambiar tema">🌙</button>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<!-- ============ TAB 1: MARCO TEÓRICO ============ -->
+<section class="tab active" id="tab-marco">
+  <h2>Marco Teórico</h2>
+  <p class="lead">Las 12 teorías extraídas de la biblioteca, agrupadas por la función que cumplen dentro del ciclo de venta. Ninguna metodología cubre todo el ciclo: por eso los modelos Domo IA toman el componente más fuerte de cada una. Despliega cada tarjeta para ver la idea central, sus componentes y qué se incorpora al modelo.</p>
+
+  <h3>1 · Comportamiento del comprador (por qué compra la gente)</h3>
+
+  <details>
+    <summary><span class="badge purple">Demanda</span> Demand-Side Sales 101 — Bob Moesta <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Idea central:</strong> la gente no compra productos, <em>contrata soluciones para progresar</em> en su vida (Jobs to be Done). Vender es ayudar al cliente a avanzar en su propia línea de tiempo de decisión, no empujar un producto. Dato clave para inmobiliario: Moesta desarrolló este marco estudiando <em>compradores de viviendas</em>.</p>
+      <div class="mini-label">Componentes clave</div>
+      <ul>
+        <li><strong>Las 4 Fuerzas del Progreso:</strong> el empuje de la situación actual (push) y la atracción de la nueva solución (pull) impulsan el cambio; la ansiedad ante lo nuevo y el hábito de lo actual lo frenan.</li>
+        <li><strong>Línea de tiempo del comprador:</strong> primer pensamiento → búsqueda pasiva → búsqueda activa → decisión → uso → satisfacción.</li>
+        <li><strong>El "evento gatillador":</strong> siempre hay algo que pasó (un hijo, un trabajo nuevo, un arriendo que subió) que inició la búsqueda.</li>
+      </ul>
+      <div class="mini-label">Qué tomamos para el modelo</div>
+      <p>La entrevista de "hallazgo del trabajo": descubrir el evento gatillador y mapear las 4 fuerzas antes de mostrar nada.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> ¿el vendedor identificó el evento gatillador? ¿Nombró explícitamente ansiedades del cliente? ¿En qué etapa de la línea de tiempo está el lead?</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="badge purple">Demanda</span> The Challenger Customer — Adamson &amp; Dixon <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Idea central:</strong> en compras B2B participan en promedio <strong>5,4 decisores</strong> y los acuerdos mueren por falta de consenso interno, no por la competencia. La clave es encontrar y equipar a los <em>movilizadores</em> (personas que impulsan el cambio dentro de la organización), no a los contactos simpáticos que solo conversan.</p>
+      <div class="mini-label">Componentes clave</div>
+      <ul>
+        <li>Perfil de <strong>movilizador</strong> vs. "conversador" vs. "amigo" — a quién dedicar tiempo.</li>
+        <li><strong>Aprendizaje colectivo:</strong> contenido diseñado para alinear al comité, no para convencer a una persona.</li>
+        <li>El acuerdo se gana o pierde en las conversaciones internas donde el vendedor no está.</li>
+      </ul>
+      <div class="mini-label">Qué tomamos para el modelo</div>
+      <p>El módulo de consenso grupal para ventas con comité de decisión.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> nº de stakeholders identificados en la reunión, ¿se planificó cómo el champion venderá internamente?</div>
+    </div>
+  </details>
+
+  <h3>2 · Calificación y estrategia de cuenta (a quién y cómo abordar)</h3>
+
+  <details>
+    <summary><span class="badge">Calificación</span> El Sistema Sandler (7 pasos) — David H. Sandler <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Idea central:</strong> el vendedor debe comportarse como un consultor con igual estatus que el comprador. El sistema de 7 pasos (vínculo, contrato previo, dolor, presupuesto, decisión, cumplimiento, post-venta) protege el tiempo del vendedor y elimina la "consultoría gratis".</p>
+      <div class="mini-label">Componentes clave</div>
+      <ul>
+        <li><strong>Contrato previo:</strong> acordar al inicio de cada reunión la agenda, el tiempo y qué se decidirá al final. Elimina el "lo voy a pensar".</li>
+        <li><strong>Embudo del dolor:</strong> secuencia de preguntas que profundiza desde el síntoma hasta el impacto personal ("¿cuánto te ha costado esto?", "¿cómo te hace sentir?").</li>
+        <li><strong>Ir por el no:</strong> es mejor un "no" temprano que un "quizás" eterno; el cliente puede decir que no sin presión.</li>
+        <li><strong>Post-venta:</strong> blindar la decisión contra el remordimiento del comprador antes de que aparezca.</li>
+      </ul>
+      <div class="mini-label">Qué tomamos para el modelo</div>
+      <p>El contrato previo como estándar de <em>toda</em> reunión, el embudo del dolor como técnica de profundización y el post-sell como cierre emocional.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> ¿se estableció contrato previo en los primeros 5 minutos? ¿La reunión terminó con próximo paso agendado con fecha?</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="badge">Calificación</span> Venta Estratégica — Miller &amp; Heiman <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Idea central:</strong> en la venta compleja no se vende a una empresa sino a <em>personas con roles distintos</em>. Ganar exige mapear a todos los influenciadores de compra y asegurar un "gana-resultado" para cada uno.</p>
+      <div class="mini-label">Componentes clave</div>
+      <ul>
+        <li><strong>4 influenciadores de compra:</strong> Económico (autoriza el gasto), Usuario (usará la solución), Técnico (filtra y puede vetar) y Coach (te guía por dentro).</li>
+        <li><strong>Modos de respuesta:</strong> crecimiento, problema, ecuanimidad, exceso de confianza — solo los dos primeros compran.</li>
+        <li><strong>Banderas rojas:</strong> información faltante o influenciadores no cubiertos = riesgo del acuerdo.</li>
+        <li><strong>Win-Results:</strong> cada influenciador necesita un resultado de negocio Y una ganancia personal.</li>
+      </ul>
+      <div class="mini-label">Qué tomamos para el modelo</div>
+      <p>El mapa de influenciadores como módulo de calificación para ventas con múltiples decisores.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> ¿cuántos de los 4 roles están identificados y contactados? Banderas rojas abiertas por oportunidad.</div>
+    </div>
+  </details>
+
+  <h3>3 · Descubrimiento y diagnóstico (entender el problema)</h3>
+
+  <details>
+    <summary><span class="badge green">Diagnóstico</span> SPIN Selling — Neil Rackham <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Idea central:</strong> basado en el análisis de 35.000 visitas de venta: en ventas grandes, los cierres agresivos <em>reducen</em> la efectividad. Lo que predice el éxito es la calidad de las preguntas, en la secuencia S-P-I-N.</p>
+      <div class="mini-label">Componentes clave</div>
+      <ul>
+        <li><strong>S — Situación:</strong> contexto (usar con moderación, aburren al cliente).</li>
+        <li><strong>P — Problema:</strong> dificultades e insatisfacciones.</li>
+        <li><strong>I — Implicación:</strong> consecuencias del problema — las preguntas que más correlacionan con el éxito.</li>
+        <li><strong>N — Necesidad-Beneficio:</strong> hacer que el <em>cliente</em> verbalice el valor de resolver.</li>
+      </ul>
+      <div class="mini-label">Qué tomamos para el modelo</div>
+      <p>La secuencia de preguntas como columna vertebral del descubrimiento consultivo, y su taxonomía como sistema de clasificación automática de preguntas en las reuniones auditadas.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> distribución S/P/I/N de las preguntas del vendedor; ratio de preguntas de implicación vs. situación.</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="badge green">Diagnóstico</span> Gap Selling — Keenan <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Idea central:</strong> "los problemas son la moneda de la venta". El valor de una venta es el tamaño de la <strong>brecha</strong> entre el estado actual del cliente (hechos, problemas, impacto) y su estado futuro deseado. Sin diagnóstico cuantificado no hay venta, solo cotización.</p>
+      <div class="mini-label">Componentes clave</div>
+      <ul>
+        <li><strong>Estado actual:</strong> hechos físicos y literales + problemas + impacto (financiero y emocional).</li>
+        <li><strong>Estado futuro:</strong> cómo se ve la vida/operación del cliente resuelta, en sus palabras.</li>
+        <li><strong>La brecha:</strong> cuantificada en dinero, tiempo o riesgo — es lo que justifica el precio.</li>
+      </ul>
+      <div class="mini-label">Qué tomamos para el modelo</div>
+      <p>La ficha de brecha (actual → futuro → costo de no actuar) como entregable obligatorio del descubrimiento en ventas racionales de ticket alto.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> ¿la brecha quedó cuantificada en cifras? ¿Se registró el costo de la inacción?</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="badge green">Diagnóstico</span> Solution Selling + Fieldbook — Bosworth / Eades <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Idea central:</strong> "sin dolor no hay cambio". El vendedor debe llevar el dolor de latente a admitido, y luego co-crear con el cliente una <em>visión de solución</em> donde el producto propio es la respuesta natural.</p>
+      <div class="mini-label">Componentes clave</div>
+      <ul>
+        <li><strong>Escalera del dolor:</strong> dolor latente → dolor admitido → visión de solución.</li>
+        <li><strong>Modelo de 9 casillas:</strong> preguntas abiertas, de control y de confirmación cruzadas con razón, impacto y visión.</li>
+        <li><strong>Cadena de dolor:</strong> cómo el dolor de una persona impacta a otras en la organización.</li>
+        <li><strong>Plan de evaluación (Fieldbook):</strong> cronograma escrito y compartido de hitos hasta el cierre.</li>
+      </ul>
+      <div class="mini-label">Qué tomamos para el modelo</div>
+      <p>El plan de evaluación conjunto como herramienta de control del cierre en ciclos largos, y la visión de solución como puente entre diagnóstico y propuesta.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> ¿existe plan de cierre con fechas compartido con el cliente? ¿La visión fue verbalizada por el cliente o impuesta por el vendedor?</div>
+    </div>
+  </details>
+
+  <h3>4 · Persuasión y narrativa (demostrar valor)</h3>
+
+  <details>
+    <summary><span class="badge orange">Persuasión</span> The Challenger Sale — Dixon &amp; Adamson <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Idea central:</strong> estudio de 6.000 vendedores: en venta compleja, el perfil que más gana no es el que construye relaciones sino el <strong>desafiante</strong>: el que enseña algo nuevo, personaliza el mensaje y toma control de la conversación (incluido el precio).</p>
+      <div class="mini-label">Componentes clave</div>
+      <ul>
+        <li><strong>Enseñar:</strong> aportar un insight comercial que reencuadre cómo el cliente ve su negocio.</li>
+        <li><strong>Personalizar:</strong> adaptar el mensaje a la persona y su rol.</li>
+        <li><strong>Tomar control:</strong> hablar de dinero sin miedo y mantener tensión constructiva.</li>
+        <li><strong>Reencuadre:</strong> "lo que crees que es tu problema no es tu verdadero problema".</li>
+      </ul>
+      <div class="mini-label">Qué tomamos para el modelo</div>
+      <p>La "enseñanza comercial": los insights de mercado que genera la capa 1 de Domo IA (análisis de competencia y datos del rubro) son la munición del vendedor desafiante.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> ¿el vendedor aportó al menos un insight que el cliente no sabía? ¿Reaccionó el cliente con sorpresa o reflexión ("no lo había pensado así")?</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="badge orange">Persuasión</span> Building a StoryBrand 2.0 — Donald Miller <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Idea central:</strong> el cliente es el <strong>héroe</strong> de la historia; la marca (y el vendedor) es el <strong>guía</strong>. La claridad vence a la creatividad: si el mensaje confunde, el cliente no compra.</p>
+      <div class="mini-label">Componentes clave (marco SB7)</div>
+      <ul>
+        <li>Un <strong>personaje</strong> (cliente) con un <strong>problema</strong> externo, interno y filosófico…</li>
+        <li>…conoce a un <strong>guía</strong> (empatía + autoridad) que le da un <strong>plan</strong> simple de 3 pasos…</li>
+        <li>…lo llama a la <strong>acción</strong>, le muestra qué <strong>fracaso evita</strong> y qué <strong>éxito alcanza</strong>.</li>
+      </ul>
+      <div class="mini-label">Qué tomamos para el modelo</div>
+      <p>La postura de guía (no de héroe) para el vendedor, y el plan de 3 pasos como formato de propuesta. También alimenta los copys de la capa 1 (Meta Ads).</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> ratio hablar/escuchar (el guía escucha más), ¿se comunicó un plan simple con pasos numerados?</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="badge orange">Persuasión</span> Vendes o Vendes — Grant Cardone <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Idea central:</strong> la venta es transferencia de convicción: nadie compra de alguien que duda de su propio producto. El precio casi nunca es la verdadera objeción; la falta de confianza y de valor percibido sí.</p>
+      <div class="mini-label">Componentes clave</div>
+      <ul>
+        <li><strong>Escala de convicción:</strong> el vendedor debe estar "vendido" primero.</li>
+        <li><strong>Regla de concordancia:</strong> acordar siempre con el cliente antes de redirigir (nunca discutir).</li>
+        <li><strong>El mito del precio:</strong> subir el valor percibido antes de tocar el precio.</li>
+        <li><strong>Acción masiva:</strong> volumen de actividad como ventaja competitiva.</li>
+      </ul>
+      <div class="mini-label">Qué tomamos para el modelo</div>
+      <p>El manejo de la objeción de precio (valor primero) y la disciplina de actividad para ventas transaccionales de ciclo corto.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> ¿el vendedor contradijo al cliente? ¿Habló de precio antes de establecer valor? Nivel de certeza en el lenguaje (muletillas de duda).</div>
+    </div>
+  </details>
+
+  <h3>5 · Negociación y cierre</h3>
+
+  <details>
+    <summary><span class="badge">Negociación</span> Never Split the Difference — Chris Voss <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Idea central:</strong> del negociador jefe de secuestros del FBI: la negociación es un juego emocional, no racional. La <strong>empatía táctica</strong> — demostrar que entiendes la posición del otro — desarma la resistencia mejor que cualquier argumento.</p>
+      <div class="mini-label">Componentes clave</div>
+      <ul>
+        <li><strong>Espejo (mirroring):</strong> repetir las últimas 2-3 palabras del otro para que profundice.</li>
+        <li><strong>Etiquetas:</strong> "parece que te preocupa que…" — nombrar la emoción la disuelve.</li>
+        <li><strong>El poder del "no":</strong> buscar el "no" da control y seguridad al otro; el "así es" (no un simple "sí") señala el punto de inflexión.</li>
+        <li><strong>Preguntas calibradas:</strong> "¿cómo se supone que haga eso?" — hacen que el otro resuelva tu problema.</li>
+        <li><strong>Auditoría de acusaciones:</strong> nombrar antes todo lo negativo que el otro puede pensar de ti.</li>
+      </ul>
+      <div class="mini-label">Qué tomamos para el modelo</div>
+      <p>El kit completo de negociación para momentos de alta tensión: precio, condiciones, y en inmobiliario, la mediación comprador-vendedor.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> uso de etiquetas y espejos detectables en la transcripción; ¿el cliente llegó a un "así es"? Tono y ritmo de voz en momentos de objeción.</div>
+    </div>
+  </details>
+
+  <h3>6 · Sistema de negocio inmobiliario</h3>
+
+  <details>
+    <summary><span class="badge purple">Inmobiliario</span> El Agente de Bienes Raíces Millonario (MREA) — Gary Keller <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Idea central:</strong> el corretaje exitoso no es un talento, es un <em>sistema de negocio</em> con tres palancas — las <strong>Tres L</strong>: Leads (generación constante), Listings (captaciones, el activo de mayor apalancamiento) y Leverage (personas, sistemas y herramientas).</p>
+      <div class="mini-label">Componentes clave</div>
+      <ul>
+        <li><strong>Generación de leads sistemática:</strong> nunca dejar de prospectar, sin importar cuán ocupado estés.</li>
+        <li><strong>Base de datos como activo:</strong> contactos clasificados (conocidos / no conocidos) con planes de contacto sistemáticos — la fórmula 8x8 (8 toques en 8 semanas para nuevos contactos) y 33 toques al año para la base establecida.</li>
+        <li><strong>Las captaciones mandan:</strong> un listing genera más leads (letrero, portal, visitas) que cualquier otra actividad.</li>
+        <li><strong>Modelos económicos:</strong> saber cuántos leads → citas → captaciones → cierres necesitas para tu meta.</li>
+      </ul>
+      <div class="mini-label">Qué tomamos para el modelo</div>
+      <p>Toda la capa de sistema del modelo HOGAR: embudo cuantificado, base de datos con cadencias 8x8/33 toques y prioridad estratégica en captaciones.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> conversión por etapa del embudo, cumplimiento de cadencias de contacto, referidos generados por transacción cerrada.</div>
+    </div>
+  </details>
+
+  <h3>Mapa comparativo: qué cubre cada teoría</h3>
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>Teoría</th><th>Calificar</th><th>Descubrir</th><th>Demostrar valor</th><th>Negociar</th><th>Cerrar / Fidelizar</th></tr></thead>
+    <tbody>
+      <tr><td>SPIN Selling</td><td>◔</td><td><b>●</b></td><td>◑</td><td>—</td><td>—</td></tr>
+      <tr><td>Sandler</td><td><b>●</b></td><td><b>●</b></td><td>◔</td><td>◑</td><td><b>●</b></td></tr>
+      <tr><td>Solution Selling</td><td>◑</td><td><b>●</b></td><td><b>●</b></td><td>◔</td><td>◑</td></tr>
+      <tr><td>Challenger Sale</td><td>◔</td><td>◑</td><td><b>●</b></td><td><b>●</b></td><td>—</td></tr>
+      <tr><td>Challenger Customer</td><td><b>●</b></td><td>◔</td><td>◑</td><td><b>●</b></td><td>—</td></tr>
+      <tr><td>Gap Selling</td><td>◑</td><td><b>●</b></td><td><b>●</b></td><td>◔</td><td>—</td></tr>
+      <tr><td>Demand-Side Sales</td><td><b>●</b></td><td><b>●</b></td><td>◑</td><td>◔</td><td>—</td></tr>
+      <tr><td>Never Split the Difference</td><td>—</td><td>◔</td><td>—</td><td><b>●</b></td><td>◑</td></tr>
+      <tr><td>StoryBrand</td><td>◑</td><td>—</td><td><b>●</b></td><td>—</td><td>◔</td></tr>
+      <tr><td>Vendes o Vendes</td><td>◔</td><td>—</td><td>◑</td><td><b>●</b></td><td>◑</td></tr>
+      <tr><td>Venta Estratégica</td><td><b>●</b></td><td>◑</td><td>◔</td><td>◑</td><td><b>●</b></td></tr>
+      <tr><td>MREA (Keller)</td><td><b>●</b></td><td>—</td><td>—</td><td>—</td><td><b>●</b></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:.8rem; color:var(--muted); margin-top:6px;">● fortaleza principal · ◑ cobertura parcial · ◔ toca el tema · — no lo cubre. Esta matriz justifica el diseño modular: se toma cada teoría donde es más fuerte.</p>
+</section>
+
+<!-- ============ TAB 2: MODELO HOGAR ============ -->
+<section class="tab" id="tab-hogar">
+  <h2>Modelo HOGAR · Venta Inmobiliaria</h2>
+  <p class="lead">Modelo especializado para corretaje y venta de propiedades. Integra el sistema de negocio de Keller (MREA), el descubrimiento del "trabajo" de Moesta (desarrollado justamente estudiando compradores de vivienda), la brecha de Keenan, la postura de guía de StoryBrand/Challenger y la negociación de Voss. Se llama HOGAR porque cada letra es una fase — y porque eso es lo que el cliente realmente compra: no una propiedad, sino la vida que imagina en ella.</p>
+
+  <div class="svgbox">
+    <svg viewBox="0 0 460 360" width="460" height="360" role="img" aria-label="Diagrama del modelo HOGAR en forma de casa">
+      <defs>
+        <style>
+          .lay{stroke:var(--border); stroke-width:1.5;}
+          .lbl{font:700 15px 'Segoe UI',sans-serif; fill:#fff;}
+          .sub{font:400 11px 'Segoe UI',sans-serif; fill:rgba(255,255,255,.85);}
+        </style>
+      </defs>
+      <!-- Chimenea: R -->
+      <rect class="lay" x="318" y="42" width="44" height="78" rx="4" fill="#0e9f6e"/>
+      <text class="lbl" x="340" y="70" text-anchor="middle">R</text>
+      <text class="sub" x="340" y="86" text-anchor="middle">Relación</text>
+      <!-- Techo: A -->
+      <polygon class="lay" points="230,18 425,168 35,168" fill="#7c3aed"/>
+      <text class="lbl" x="230" y="130" text-anchor="middle">A · Acuerdo</text>
+      <text class="sub" x="230" y="148" text-anchor="middle">negociación con empatía táctica</text>
+      <!-- Muro superior: G -->
+      <rect class="lay" x="60" y="172" width="340" height="56" fill="#2f5fd0"/>
+      <text class="lbl" x="230" y="196" text-anchor="middle">G · Guía</text>
+      <text class="sub" x="230" y="214" text-anchor="middle">insight de mercado + plan simple + curaduría</text>
+      <!-- Muro inferior: O -->
+      <rect class="lay" x="60" y="232" width="340" height="56" fill="#4577dd"/>
+      <text class="lbl" x="230" y="256" text-anchor="middle">O · Objetivo</text>
+      <text class="sub" x="230" y="274" text-anchor="middle">brecha: vida actual → vida deseada, con números</text>
+      <!-- Cimiento: H -->
+      <rect class="lay" x="38" y="292" width="384" height="52" rx="6" fill="#1f3f8f"/>
+      <text class="lbl" x="230" y="314" text-anchor="middle">H · Hallazgo</text>
+      <text class="sub" x="230" y="331" text-anchor="middle">el "trabajo": evento gatillador + 4 fuerzas del progreso</text>
+    </svg>
+    <div class="cap">El modelo se construye como una casa: sin el cimiento (entender por qué se mudan), todo lo demás se cae. La chimenea (Relación) es lo que mantiene el negocio vivo: referidos y base de datos.</div>
+  </div>
+
+  <h3>Las 5 fases en detalle</h3>
+
+  <div class="fase">
+    <h4><span class="letra">H</span> Hallazgo — descubrir el "trabajo" detrás de la compra</h4>
+    <p><em>Base teórica: Demand-Side Sales (Moesta) + preguntas S y P de SPIN.</em></p>
+    <button class="teoria-toggle" type="button">📖 Ver cómo se aplica en la práctica <span class="caret">▾</span></button>
+    <div class="teoria-panel"><div class="inner-t">
+      <b>Guión mínimo de la fase H (primeros 10-15 min de la reunión):</b>
+      <ol>
+        <li><b>Pregunta gatillo:</b> "¿Qué pasó que los hizo empezar a buscar justo ahora?" — anota el evento textual (viene un hijo, subió el arriendo, trabajo nuevo).</li>
+        <li><b>Empuje y atracción:</b> "¿Qué es lo que ya no aguantan de donde están?" y "¿Cómo se imaginan viviendo en 2 años?"</li>
+        <li><b>Frenos:</b> "¿Qué es lo que más susto les da de este paso?" — la ansiedad que no se nombra aquí reaparece en la notaría.</li>
+        <li><b>Etapa del viaje:</b> clasifica al cliente: curioseando / buscando activo / listo para decidir. Si está curioseando, todavía no muestres propiedades: nutre con información.</li>
+      </ol>
+    </div></div>
+    <p>Nadie compra una casa porque sí: algo pasó. El primer objetivo no es mostrar propiedades, es entender la <strong>mudanza</strong>: qué evento inició la búsqueda (push), qué vida imaginan (pull), qué les da miedo (ansiedad) y qué los ata a donde están (hábito).</p>
+    <ul>
+      <li>Pregunta de apertura: <em>"¿Qué pasó que los hizo empezar a buscar justo ahora?"</em></li>
+      <li>Ubicar al cliente en la línea de tiempo: ¿mirando por curiosidad, buscando activamente o listos para decidir? El tratamiento es distinto en cada etapa.</li>
+      <li>Registrar las 4 fuerzas en la ficha del cliente — la ansiedad no nombrada es la que mata la venta en la notaría.</li>
+    </ul>
+    <div class="ia-box">🤖 <strong>KPIs del agente auditor:</strong> evento gatillador identificado (sí/no) · etapa de la línea de tiempo registrada · nº de ansiedades detectadas y nombradas.</div>
+  </div>
+
+  <div class="fase">
+    <h4><span class="letra">O</span> Objetivo — cuantificar la brecha entre la vida actual y la deseada</h4>
+    <p><em>Base teórica: Gap Selling (Keenan) + presupuesto y decisión de Sandler.</em></p>
+    <button class="teoria-toggle" type="button">📖 Ver cómo se aplica en la práctica <span class="caret">▾</span></button>
+    <div class="teoria-panel"><div class="inner-t">
+      <b>Cómo construir la ficha de brecha, paso a paso:</b>
+      <ol>
+        <li><b>Estado actual con números:</b> arriendo o dividendo actual, m², minutos de traslado diarios, qué les duele y cuánto les cuesta al mes.</li>
+        <li><b>Estado futuro:</b> que el cliente lo describa con sus propias palabras; tú solo lo anotas y se lo repites.</li>
+        <li><b>La resta:</b> "hoy pagan $650.000 que no construyen patrimonio; con pie de UF 300 el dividendo es $720.000 y una parte es capital suyo" — la brecha queda en cifras concretas.</li>
+        <li><b>Presupuesto sin vergüenza (Sandler):</b> pie disponible, pre-aprobación bancaria y tope de dividendo <em>antes</em> de la primera visita, no después.</li>
+        <li><b>¿Quién decide?</b> Pareja, suegros, socio: todos presentes en la visita clave, o esa no es la visita clave.</li>
+      </ol>
+    </div></div>
+    <p>Se construye la <strong>ficha de brecha</strong>: estado actual (dónde viven, qué pagan, qué les duele: espacio, conmutación, arriendo que sube) versus estado futuro (la vida que quieren). La brecha se cuantifica: en dinero (arriendo vs. dividendo, plusvalía), en tiempo (horas de traslado al año) y en emoción.</p>
+    <ul>
+      <li>Presupuesto a la Sandler: hablar de números reales temprano y sin vergüenza — pie disponible, pre-aprobación bancaria, tope de dividendo. Evita meses mostrando propiedades inalcanzables.</li>
+      <li>Proceso de decisión: ¿quiénes deciden? (pareja, suegros que "vienen a ver", socio). Todos deben estar en la visita clave.</li>
+      <li>Para el <strong>propietario que vende</strong> (captación), la misma lógica: su brecha es qué le impide pasar a su siguiente etapa mientras la propiedad no se venda.</li>
+    </ul>
+    <div class="ia-box">🤖 <strong>KPIs del agente auditor:</strong> brecha cuantificada en cifras (sí/no) · presupuesto y pre-aprobación confirmados · todos los decisores identificados.</div>
+  </div>
+
+  <div class="fase">
+    <h4><span class="letra">G</span> Guía — posicionarse como guía con criterio, no como mostrador de propiedades</h4>
+    <p><em>Base teórica: StoryBrand (Miller) + Challenger Sale (Dixon &amp; Adamson) + curaduría MREA.</em></p>
+    <button class="teoria-toggle" type="button">📖 Ver cómo se aplica en la práctica <span class="caret">▾</span></button>
+    <div class="teoria-panel"><div class="inner-t">
+      <b>Cómo ejercer de guía en la práctica:</b>
+      <ol>
+        <li><b>Prepara 1 insight por reunión:</b> un dato que el cliente no sepa (plusvalía del barrio, error típico del comprador primerizo). Domo IA se lo entrega al vendedor antes de cada cita.</li>
+        <li><b>Reencuadra una creencia:</b> "Buscan 3 dormitorios, pero por el teletrabajo su problema real es un espacio de trabajo — y eso abre 2 comunas mejores y más baratas."</li>
+        <li><b>Anuncia el plan de 3 pasos y ponle fechas:</b> perfil y pre-aprobación → 4-5 visitas curadas → decisión con datos sobre la mesa.</li>
+        <li><b>Cura, no muestres catálogo:</b> máximo 5 propiedades por ciclo, y cada descarte se explica con un criterio ("esta la descarté porque…"). Eso demuestra autoridad.</li>
+      </ol>
+    </div></div>
+    <p>El cliente es el héroe; el agente es el guía con <strong>empatía y autoridad</strong>. La autoridad se demuestra enseñando: datos de plusvalía por barrio, tendencias de precio, errores típicos del comprador — insights que idealmente genera la capa de análisis de Domo IA.</p>
+    <ul>
+      <li><strong>Reencuadre desafiante:</strong> <em>"Ustedes buscan 3 dormitorios en X comuna, pero por lo que me contaron del teletrabajo, el problema real es un espacio de trabajo — y eso abre dos comunas mejores y más baratas."</em></li>
+      <li><strong>Plan de 3 pasos</strong> comunicado explícitamente: (1) afinamos el perfil, (2) visitamos solo 4-5 propiedades curadas, (3) decidimos con datos. La claridad reduce la ansiedad.</li>
+      <li><strong>Curaduría, no catálogo:</strong> mostrar pocas propiedades muy bien elegidas señala criterio profesional (y ahorra semanas).</li>
+    </ul>
+    <div class="ia-box">🤖 <strong>KPIs del agente auditor:</strong> insights de mercado aportados por reunión · plan comunicado con pasos numerados · ratio propiedades mostradas / visitas hasta oferta.</div>
+  </div>
+
+  <div class="fase">
+    <h4><span class="letra">A</span> Acuerdo — negociar con empatía táctica</h4>
+    <p><em>Base teórica: Never Split the Difference (Voss) + manejo del precio de Cardone.</em></p>
+    <button class="teoria-toggle" type="button">📖 Ver cómo se aplica en la práctica <span class="caret">▾</span></button>
+    <div class="teoria-panel"><div class="inner-t">
+      <b>Protocolo de negociación, en este orden:</b>
+      <ol>
+        <li><b>Etiqueta primero:</b> "Parece que les preocupa pagar de más" — nunca argumentes contra una emoción sin nombrarla antes.</li>
+        <li><b>Espejo cuando el otro se cierra:</b> repite sus últimas 2-3 palabras en tono de pregunta… y guarda silencio.</li>
+        <li><b>Pregunta calibrada en vez de contraoferta:</b> "¿Cómo podemos estructurar esto para que funcione para ambas partes?"</li>
+        <li><b>Si la oferta es incómoda, audita las acusaciones:</b> di tú primero lo malo que van a pensar ("le va a parecer que no refleja el valor de su casa…").</li>
+        <li><b>Precio al final (Cardone):</b> re-sube el valor (ubicación, plusvalía, costo de seguir esperando) antes de tocar el número; cede en plazos o inventario antes que en precio.</li>
+      </ol>
+    </div></div>
+    <p>La fase más delicada: el agente media entre comprador, vendedor y banco, con las emociones al máximo. Aquí se aplica el kit Voss completo:</p>
+    <ul>
+      <li><strong>Etiquetas</strong> para las ansiedades: <em>"Parece que les preocupa estar pagando de más"</em> — nombrarla la desactiva.</li>
+      <li><strong>Preguntas calibradas</strong> con la contraparte: <em>"¿Cómo podemos estructurar esto para que funcione para ambas partes?"</em></li>
+      <li><strong>Auditoría de acusaciones</strong> al presentar una oferta baja: <em>"Le va a parecer que esta oferta no refleja el cariño que le tiene a su casa…"</em></li>
+      <li><strong>No partir la diferencia</strong> por reflejo: anclar con datos de mercado (tasación, comparables) y ceder en condiciones (plazos, inventario) antes que en precio.</li>
+      <li>Precio a la Cardone: nunca defender el precio con descuento inmediato; primero re-subir el valor (ubicación, plusvalía, costo de seguir esperando).</li>
+    </ul>
+    <div class="ia-box">🤖 <strong>KPIs del agente auditor:</strong> etiquetas/espejos detectados en la transcripción · ¿se logró un "así es" del cliente? · diferencia entre precio de lista y cierre · concesiones en condiciones vs. precio.</div>
+  </div>
+
+  <div class="fase">
+    <h4><span class="letra">R</span> Relación — el cierre es el comienzo del negocio</h4>
+    <p><em>Base teórica: MREA (Keller) + post-venta de Sandler.</em></p>
+    <button class="teoria-toggle" type="button">📖 Ver cómo se aplica en la práctica <span class="caret">▾</span></button>
+    <div class="teoria-panel"><div class="inner-t">
+      <b>Sistema de relación, con calendario concreto:</b>
+      <ol>
+        <li><b>Antes de la firma (post-venta Sandler):</b> "Puede que un familiar les diga que pagaron caro. ¿Cómo se sienten con la decisión?" — el remordimiento nombrado a tiempo no cancela promesas.</li>
+        <li><b>Semanas 1 a 8 (fórmula 8x8 de Keller):</b> un contacto de valor por semana: estado del trámite, checklist de mudanza, contactos de servicios del barrio, invitación a evaluar el servicio.</li>
+        <li><b>En el peak de satisfacción (entrega de llaves):</b> pide 2 referidos con nombre y apellido, no un tibio "si conocen a alguien…".</li>
+        <li><b>Cada año (33 toques):</b> aniversario de compra + informe de plusvalía de <em>su</em> propiedad (Domo IA lo genera automático) + saludos en fechas clave.</li>
+      </ol>
+    </div></div>
+    <p>En inmobiliario el cliente compra cada 7-10 años, pero <strong>refiere todos los años</strong>. La fase R convierte cada cierre en un nodo de la base de datos:</p>
+    <ul>
+      <li><strong>Post-venta Sandler antes de la firma:</strong> blindar contra el remordimiento — <em>"Entre hoy y la escritura puede que un familiar les diga que pagaron caro. ¿Cómo se sienten con la decisión?"</em> El remordimiento nombrado a tiempo no cancela promesas.</li>
+      <li><strong>Cadencia 8x8:</strong> 8 contactos de valor en las 8 semanas post-cierre (estado del trámite, recomendaciones de mudanza, contactos de servicios).</li>
+      <li><strong>33 toques al año</strong> a la base establecida: aniversario de compra, informe anual de plusvalía de <em>su</em> propiedad (dato que Domo IA puede generar automático), saludos clave.</li>
+      <li><strong>Pedir referidos con sistema</strong>, no con vergüenza: en el peak de satisfacción (entrega de llaves).</li>
+    </ul>
+    <div class="ia-box">🤖 <strong>KPIs del agente auditor:</strong> referidos pedidos y obtenidos por cierre · cumplimiento de cadencias 8x8 / 33 toques · NPS post-entrega.</div>
+  </div>
+
+  <h3>Doble cliente: cómo cambia el modelo en captación vs. colocación</h3>
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>Fase</th><th>Con el comprador</th><th>Con el propietario que vende (captación)</th></tr></thead>
+    <tbody>
+      <tr><td><b>H</b> Hallazgo</td><td>¿Qué evento inició la búsqueda? ¿Qué vida imaginan?</td><td>¿Por qué vende y para qué necesita ese dinero/espacio? Su urgencia real define la estrategia de precio.</td></tr>
+      <tr><td><b>O</b> Objetivo</td><td>Brecha vida actual → deseada + presupuesto real.</td><td>Brecha entre su expectativa de precio y el mercado. Reencuadre con comparables desde el día 1.</td></tr>
+      <tr><td><b>G</b> Guía</td><td>Curaduría de propiedades + insights de barrio.</td><td>Plan de comercialización de 3 pasos: preparación, difusión (aquí entra la capa Meta Ads de Domo IA), gestión de visitas.</td></tr>
+      <tr><td><b>A</b> Acuerdo</td><td>Presentar ofertas defendibles con datos.</td><td>Gestionar el apego emocional: etiquetas de Voss para el precio-recuerdo ("parece que esta casa significa mucho más que un número").</td></tr>
+      <tr><td><b>R</b> Relación</td><td>Referidos + informe anual de plusvalía.</td><td>El vendedor de hoy es el comprador de mañana: seguimiento de su siguiente proyecto.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>El sistema alrededor del modelo (capa MREA)</h3>
+  <div class="flow">
+    <div class="step"><span class="n">1</span><strong>Leads</strong><span>Meta Ads (capa 1 Domo IA) + base de datos + referidos</span></div>
+    <div class="step"><span class="n">2</span><strong>Citas</strong><span>agente chat califica y agenda (capa 2)</span></div>
+    <div class="step"><span class="n">3</span><strong>HOGAR</strong><span>el modelo en cada reunión (capa 3), auditado por IA (capa 4)</span></div>
+    <div class="step"><span class="n">4</span><strong>Cierres</strong><span>análisis de patrones del vendedor tras 15-20 reuniones</span></div>
+    <div class="step"><span class="n">5</span><strong>Base de datos</strong><span>8x8 · 33 toques · referidos → vuelve al paso 1</span></div>
+  </div>
+  <p class="lead" style="margin-top:8px;">Keller lo cuantificaría así: define la meta anual de cierres, divide por la tasa de conversión de cada etapa y obtienes cuántos leads necesita generar la capa 1 cada mes. Ese es el modelo económico que Domo IA puede calcular y monitorear en vivo.</p>
+</section>
+
+<!-- ============ TAB 3: MOTOR VENDE ============ -->
+<section class="tab" id="tab-vende">
+  <h2>Motor VENDE · Modelo genérico modular</h2>
+  <p class="lead">Un modelo de dos niveles: una <strong>columna vertebral fija de 5 etapas</strong> (válida para cualquier rubro) y <strong>módulos intercambiables</strong> en cada etapa, extraídos de las teorías del marco. La configuración se elige según 5 variables del rubro. HOGAR es, de hecho, el Motor VENDE pre-configurado para inmobiliario — eso demuestra el enfoque: un solo motor, muchos rubros.</p>
+
+  <div class="svgbox">
+    <svg viewBox="0 0 940 300" width="940" height="300" role="img" aria-label="Diagrama del Motor VENDE: 5 etapas fijas con módulos intercambiables">
+      <defs>
+        <style>
+          .stg{fill:var(--brand); }
+          .stgT{font:800 17px 'Segoe UI',sans-serif; fill:#fff;}
+          .stgS{font:400 10.5px 'Segoe UI',sans-serif; fill:rgba(255,255,255,.85);}
+          .mod{fill:var(--surface2); stroke:var(--border);}
+          .modT{font:600 10.5px 'Segoe UI',sans-serif; fill:var(--text);}
+          .slot{font:700 10px 'Segoe UI',sans-serif; fill:var(--muted); letter-spacing:1px;}
+        </style>
+      </defs>
+      <!-- Etapas (chevrons) -->
+      <g>
+        <polygon class="stg" points="10,20 168,20 190,55 168,90 10,90 32,55"/>
+        <text class="stgT" x="100" y="50" text-anchor="middle">V · Vincular</text>
+        <text class="stgS" x="100" y="70" text-anchor="middle">conectar y calificar</text>
+
+        <polygon class="stg" points="196,20 354,20 376,55 354,90 196,90 218,55"/>
+        <text class="stgT" x="286" y="50" text-anchor="middle">E · Explorar</text>
+        <text class="stgS" x="286" y="70" text-anchor="middle">diagnosticar el problema</text>
+
+        <polygon class="stg" points="382,20 540,20 562,55 540,90 382,90 404,55"/>
+        <text class="stgT" x="472" y="50" text-anchor="middle">N · Narrar</text>
+        <text class="stgS" x="472" y="70" text-anchor="middle">demostrar valor</text>
+
+        <polygon class="stg" points="568,20 726,20 748,55 726,90 568,90 590,55"/>
+        <text class="stgT" x="658" y="50" text-anchor="middle">D · Destrabar</text>
+        <text class="stgS" x="658" y="70" text-anchor="middle">objeciones y negociación</text>
+
+        <polygon class="stg" points="754,20 912,20 934,55 912,90 754,90 776,55"/>
+        <text class="stgT" x="844" y="50" text-anchor="middle">E · Expandir</text>
+        <text class="stgS" x="844" y="70" text-anchor="middle">cerrar, fidelizar, referir</text>
+      </g>
+      <text class="slot" x="470" y="118" text-anchor="middle">▼ MÓDULOS INTERCAMBIABLES POR RUBRO ▼</text>
+      <!-- Slots de módulos -->
+      <g>
+        <g class="modg" data-tip="Contrato Previo (Sandler)|Acordar al inicio de cada reunión la agenda, el tiempo disponible y qué se decidirá al final. Elimina el “lo voy a pensar” porque la decisión ya estaba pactada."><rect class="mod" x="14" y="132" width="172" height="30" rx="8"/><text class="modT" x="100" y="151" text-anchor="middle">Contrato Previo (Sandler)</text></g>
+        <g class="modg" data-tip="Mapa de Influenciadores (Miller-Heiman)|Identificar a los 4 roles que deciden — económico (autoriza el gasto), usuario, técnico (puede vetar) y coach (te guía por dentro) — antes de avanzar en la venta."><rect class="mod" x="14" y="168" width="172" height="30" rx="8"/><text class="modT" x="100" y="187" text-anchor="middle">Mapa Influenciadores (M-H)</text></g>
+        <g class="modg" data-tip="Línea de Tiempo del Comprador (Moesta)|Ubicar al cliente en su viaje de decisión (curioseando → buscando activo → decidiendo) y descubrir el evento que inició la búsqueda. El trato cambia según la etapa."><rect class="mod" x="14" y="204" width="172" height="30" rx="8"/><text class="modT" x="100" y="223" text-anchor="middle">Línea de Tiempo (Moesta)</text></g>
+        <g class="modg" data-tip="Filtro de Marca (StoryBrand)|Un mensaje tan claro — “ayudamos a X a lograr Y sin Z” — que atrae solo a los leads correctos. La calificación empieza en el aviso, no en la reunión."><rect class="mod" x="14" y="240" width="172" height="30" rx="8"/><text class="modT" x="100" y="259" text-anchor="middle">Filtro de Marca (StoryBrand)</text></g>
+
+        <g class="modg" data-tip="Preguntas SPIN (Rackham)|Secuencia Situación → Problema → Implicación → Necesidad-beneficio. Las preguntas de implicación agrandan el problema y las de necesidad hacen que el cliente verbalice el valor él mismo."><rect class="mod" x="200" y="132" width="172" height="30" rx="8"/><text class="modT" x="286" y="151" text-anchor="middle">Preguntas SPIN (Rackham)</text></g>
+        <g class="modg" data-tip="Embudo del Dolor (Sandler)|Preguntas que profundizan del síntoma al costo real: ¿hace cuánto? ¿qué han intentado? ¿cuánto les ha costado? ¿cómo te afecta a ti? El dolor personal es el que mueve la compra."><rect class="mod" x="200" y="168" width="172" height="30" rx="8"/><text class="modT" x="286" y="187" text-anchor="middle">Embudo del Dolor (Sandler)</text></g>
+        <g class="modg" data-tip="Ficha de Brecha (Gap Selling)|Documentar el estado actual (hechos + problemas + impacto) y el estado futuro deseado, y cuantificar la diferencia en dinero o tiempo. Esa brecha es el valor que justifica el precio."><rect class="mod" x="200" y="204" width="172" height="30" rx="8"/><text class="modT" x="286" y="223" text-anchor="middle">Ficha de Brecha (Gap Selling)</text></g>
+        <g class="modg" data-tip="4 Fuerzas del Progreso (Moesta)|Mapear qué empuja al cambio (el dolor actual y la atracción de lo nuevo) y qué lo frena (la ansiedad y el hábito). Se vende amplificando las primeras y desactivando las segundas."><rect class="mod" x="200" y="240" width="172" height="30" rx="8"/><text class="modT" x="286" y="259" text-anchor="middle">4 Fuerzas (Moesta)</text></g>
+
+        <g class="modg" data-tip="Reencuadre Desafiante (Challenger)|Enseñar al cliente un insight que cambia cómo define su propio problema: “lo que crees que es tu problema no es tu verdadero problema”. La sorpresa abre la venta."><rect class="mod" x="386" y="132" width="172" height="30" rx="8"/><text class="modT" x="472" y="151" text-anchor="middle">Reencuadre (Challenger)</text></g>
+        <g class="modg" data-tip="Visión de Solución (Bosworth)|Co-crear con el cliente la imagen de “cómo se vería el problema resuelto”, en sus palabras. Cuando el cliente describe la solución, ya se está convenciendo solo."><rect class="mod" x="386" y="168" width="172" height="30" rx="8"/><text class="modT" x="472" y="187" text-anchor="middle">Visión de Solución (Bosworth)</text></g>
+        <g class="modg" data-tip="Cliente Héroe + Plan Simple (StoryBrand)|El cliente es el héroe de la historia; el vendedor es el guía con empatía y autoridad, que entrega un plan simple de 3 pasos. La claridad vence a la elocuencia."><rect class="mod" x="386" y="204" width="172" height="30" rx="8"/><text class="modT" x="472" y="223" text-anchor="middle">Cliente Héroe (StoryBrand)</text></g>
+        <g class="modg" data-tip="Convicción y Valor (Cardone)|La venta es transferencia de certeza: el vendedor debe estar “vendido” primero. Siempre acordar antes de redirigir, y presentar el valor completo antes de hablar de precio."><rect class="mod" x="386" y="240" width="172" height="30" rx="8"/><text class="modT" x="472" y="259" text-anchor="middle">Convicción y Valor (Cardone)</text></g>
+
+        <g class="modg" data-tip="Empatía Táctica (Voss)|Kit de negociación del FBI: etiquetas (“parece que te preocupa…”), espejos (repetir las últimas palabras) y preguntas calibradas (“¿cómo hacemos que funcione?”). Nombrar la emoción la desactiva."><rect class="mod" x="572" y="132" width="172" height="30" rx="8"/><text class="modT" x="658" y="151" text-anchor="middle">Empatía Táctica (Voss)</text></g>
+        <g class="modg" data-tip="El Mito del Precio (Cardone)|La objeción de precio casi nunca es de precio: es falta de valor percibido o de confianza. Antes de negociar el número, volver a subir el valor. Jamás descuento reflejo."><rect class="mod" x="572" y="168" width="172" height="30" rx="8"/><text class="modT" x="658" y="187" text-anchor="middle">Mito del Precio (Cardone)</text></g>
+        <g class="modg" data-tip="Consenso del Comité (Challenger Customer)|En ventas con 5+ decisores, el acuerdo muere en las conversaciones internas. Este módulo equipa al movilizador para vender por dentro: objeciones previstas, material para cada rol."><rect class="mod" x="572" y="204" width="172" height="30" rx="8"/><text class="modT" x="658" y="223" text-anchor="middle">Consenso Comité (Ch. Customer)</text></g>
+        <g class="modg" data-tip="Ir por el No (Sandler)|Buscar decisiones claras: un “no” temprano vale más que un “quizás” eterno. Darle permiso al cliente para decir que no baja la presión y acelera el pipeline."><rect class="mod" x="572" y="240" width="172" height="30" rx="8"/><text class="modT" x="658" y="259" text-anchor="middle">Ir por el No (Sandler)</text></g>
+
+        <g class="modg" data-tip="Plan de Evaluación Conjunto (Eades)|Cronograma escrito y compartido con el cliente: demo, piloto, revisión legal, firma — cada hito con fecha. Convierte el cierre en un proceso administrado, no en una esperanza."><rect class="mod" x="758" y="132" width="172" height="30" rx="8"/><text class="modT" x="844" y="151" text-anchor="middle">Plan de Evaluación (Eades)</text></g>
+        <g class="modg" data-tip="Base de Datos + Referidos (Keller)|Cada cierre alimenta la base de contactos con cadencias sistemáticas: 8 toques en 8 semanas para nuevos, 33 toques al año para la base. Los referidos se piden con sistema, no con suerte."><rect class="mod" x="758" y="168" width="172" height="30" rx="8"/><text class="modT" x="844" y="187" text-anchor="middle">Base Datos + Referidos (Keller)</text></g>
+        <g class="modg" data-tip="Post-Venta Anti-remordimiento (Sandler)|Blindar la decisión antes de la firma: nombrar uno mismo el arrepentimiento que vendrá (“alguien les dirá que se apuraron…”) para que no cancele el trato después."><rect class="mod" x="758" y="204" width="172" height="30" rx="8"/><text class="modT" x="844" y="223" text-anchor="middle">Post-Venta (Sandler)</text></g>
+        <g class="modg" data-tip="Win-Results (Miller-Heiman)|Verificar que cada influenciador obtuvo su resultado de negocio Y su ganancia personal. Es lo que convierte una venta puntual en una cuenta recurrente."><rect class="mod" x="758" y="240" width="172" height="30" rx="8"/><text class="modT" x="844" y="259" text-anchor="middle">Win-Results (Miller-Heiman)</text></g>
+      </g>
+    </svg>
+    <div class="cap">La columna V-E-N-D-E nunca cambia. Los módulos de cada etapa se seleccionan según el perfil del rubro (usa la pestaña Configurador). <strong>Pasa el cursor sobre cada módulo (o tócalo) para ver una reseña de su concepto.</strong></div>
+  </div>
+
+  <h3>Las 5 variables de configuración</h3>
+  <p class="lead">Todo rubro puede describirse con 5 dimensiones. Con ellas, el motor selecciona el módulo óptimo por etapa. Estas mismas variables son las que Domo IA le preguntaría a un cliente nuevo en el onboarding para generar su modelo a medida.</p>
+  <div class="grid c3">
+    <div class="card"><span class="badge">V1</span><h4>Ticket promedio</h4><p style="font-size:.88rem;">A mayor ticket, más diagnóstico (Gap, SPIN) y menos empuje transaccional.</p></div>
+    <div class="card"><span class="badge">V2</span><h4>Largo del ciclo</h4><p style="font-size:.88rem;">Ciclos largos exigen plan de evaluación y gestión del consenso; ciclos cortos, convicción y cierre.</p></div>
+    <div class="card"><span class="badge">V3</span><h4>N° de decisores</h4><p style="font-size:.88rem;">Con comité: mapa de influenciadores y movilizadores. Con un decisor: velocidad y emoción.</p></div>
+    <div class="card"><span class="badge">V4</span><h4>Carga emocional</h4><p style="font-size:.88rem;">Compras emocionales (casa, auto, educación) piden Moesta + Voss + StoryBrand; compras racionales piden Gap + datos.</p></div>
+    <div class="card"><span class="badge">V5</span><h4>Recurrencia</h4><p style="font-size:.88rem;">Si el cliente recompra (SaaS, insumos), la etapa Expandir pesa más que el cierre puntual.</p></div>
+  </div>
+
+  <h3>Diagramas de los dos módulos de diagnóstico centrales</h3>
+  <div class="grid c2">
+    <div class="svgbox" style="margin:0;">
+      <svg viewBox="0 0 440 250" width="440" height="250" role="img" aria-label="Diagrama de las 4 fuerzas del progreso">
+        <style>.fT{font:700 12px 'Segoe UI',sans-serif; fill:var(--text);} .fS{font:400 10px 'Segoe UI',sans-serif; fill:var(--muted);} .arrG{stroke:#0e9f6e; stroke-width:5; marker-end:url(#agr);} .arrR{stroke:#d97706; stroke-width:5; marker-end:url(#aor);}</style>
+        <defs>
+          <marker id="agr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#0e9f6e"/></marker>
+          <marker id="aor" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#d97706"/></marker>
+        </defs>
+        <rect x="160" y="95" width="120" height="60" rx="12" fill="var(--brand)"/>
+        <text x="220" y="121" text-anchor="middle" style="font:700 13px 'Segoe UI',sans-serif" fill="#fff">DECISIÓN</text>
+        <text x="220" y="138" text-anchor="middle" style="font:400 10px 'Segoe UI',sans-serif" fill="rgba(255,255,255,.85)">de cambiar</text>
+        <line class="arrG" x1="45" y1="80" x2="152" y2="105"/>
+        <text class="fT" x="20" y="58">EMPUJE (push)</text><text class="fS" x="20" y="72">la situación actual duele</text>
+        <line class="arrG" x1="45" y1="175" x2="152" y2="147"/>
+        <text class="fT" x="20" y="200">ATRACCIÓN (pull)</text><text class="fS" x="20" y="214">la nueva solución ilusiona</text>
+        <line class="arrR" x1="400" y1="80" x2="288" y2="105"/>
+        <text class="fT" x="300" y="58">ANSIEDAD</text><text class="fS" x="300" y="72">"¿y si sale mal?"</text>
+        <line class="arrR" x1="400" y1="175" x2="288" y2="147"/>
+        <text class="fT" x="300" y="200">HÁBITO</text><text class="fS" x="300" y="214">lo conocido retiene</text>
+      </svg>
+      <div class="cap">4 Fuerzas del Progreso (Moesta). El vendedor amplifica las verdes y desactiva las naranjas — en ese orden.</div>
+    </div>
+    <div class="svgbox" style="margin:0;">
+      <svg viewBox="0 0 440 250" width="440" height="250" role="img" aria-label="Diagrama de la brecha de Gap Selling">
+        <style>.gT{font:700 12.5px 'Segoe UI',sans-serif;} .gS{font:400 10px 'Segoe UI',sans-serif; fill:var(--muted);}</style>
+        <rect x="16" y="60" width="150" height="110" rx="12" fill="var(--surface2)" stroke="var(--border)"/>
+        <text class="gT" x="91" y="88" text-anchor="middle" fill="var(--text)">ESTADO ACTUAL</text>
+        <text class="gS" x="91" y="110" text-anchor="middle">hechos y datos</text>
+        <text class="gS" x="91" y="126" text-anchor="middle">problemas</text>
+        <text class="gS" x="91" y="142" text-anchor="middle">impacto $ y emocional</text>
+        <rect x="274" y="60" width="150" height="110" rx="12" fill="rgba(14,159,110,.12)" stroke="#0e9f6e"/>
+        <text class="gT" x="349" y="88" text-anchor="middle" fill="#0e9f6e">ESTADO FUTURO</text>
+        <text class="gS" x="349" y="110" text-anchor="middle">cómo se ve resuelto</text>
+        <text class="gS" x="349" y="126" text-anchor="middle">en palabras del cliente</text>
+        <text class="gS" x="349" y="142" text-anchor="middle">resultado deseado</text>
+        <line x1="170" y1="115" x2="270" y2="115" stroke="var(--brand2)" stroke-width="4" stroke-dasharray="7 5"/>
+        <text class="gT" x="220" y="100" text-anchor="middle" fill="var(--brand2)">LA BRECHA</text>
+        <text class="gS" x="220" y="196" text-anchor="middle">brecha cuantificada = valor de tu solución = justificación del precio</text>
+        <text class="gS" x="220" y="214" text-anchor="middle">si la brecha es chica, no hay venta — y está bien saberlo temprano</text>
+      </svg>
+      <div class="cap">Ficha de Brecha (Keenan). El precio se defiende con el tamaño de la brecha, no con descuentos.</div>
+    </div>
+  </div>
+
+  <h3>Reglas transversales del motor (aplican en todo rubro y toda etapa)</h3>
+  <div class="grid c2">
+    <div class="card"><span class="badge green">Regla 1</span><h4>Contrato previo siempre</h4><p style="font-size:.9rem;">Toda reunión abre acordando agenda, tiempo y qué se decide al final (Sandler). Es el KPI más fácil de auditar y el que más reduce los "lo voy a pensar".</p></div>
+    <div class="card"><span class="badge green">Regla 2</span><h4>Escuchar más que hablar</h4><p style="font-size:.9rem;">Objetivo: el cliente habla ~60% del tiempo. El guía pregunta y escucha (StoryBrand + SPIN); el que más habla, menos vende.</p></div>
+    <div class="card"><span class="badge green">Regla 3</span><h4>Nada de propuesta sin brecha</h4><p style="font-size:.9rem;">No se presenta precio ni solución hasta que el problema esté admitido y dimensionado (Bosworth + Keenan). La propuesta prematura convierte al vendedor en cotizador.</p></div>
+    <div class="card"><span class="badge green">Regla 4</span><h4>Todo termina en próximo paso</h4><p style="font-size:.9rem;">Ninguna interacción termina sin un compromiso concreto con fecha (Sandler + Eades). "Quedamos en contacto" = bandera roja automática para el agente auditor.</p></div>
+  </div>
+</section>
+
+<!-- ============ TAB 4: CONFIGURADOR ============ -->
+<section class="tab" id="tab-config">
+  <h2>Configurador por Rubro</h2>
+  <p class="lead">Elige un rubro (o mueve las 5 variables a mano) y el motor recomienda el módulo óptimo para cada etapa V-E-N-D-E, con una frase de ejemplo y el KPI que el agente auditor de Domo IA mediría. Esto simula exactamente lo que haría la plataforma en el onboarding de un cliente nuevo.</p>
+
+  <div class="como-leer">
+    <strong>📐 ¿Qué significa el "% de ajuste"?</strong>
+    <p style="margin-top:4px;">Cada módulo tiene un <em>perfil ideal</em>: la combinación de las 5 variables (ticket, ciclo, decisores, emoción, recurrencia) para la que esa técnica fue diseñada. El configurador compara el perfil de tu rubro con el perfil ideal de cada módulo, variable por variable: <strong>100% significa coincidencia perfecta en las 5</strong>; el porcentaje baja 5 puntos por cada nivel de diferencia en cualquier variable. Un ajuste de 85%, por ejemplo, significa que el módulo calza con tu rubro en casi todo, con una desviación leve en una o dos variables (bajo cada tarjeta se indica cuáles).</p>
+    <ul>
+      <li><b style="color:var(--accent);">90–100% · Ajuste nativo:</b> el módulo fue diseñado para un rubro como el tuyo — aplícalo tal cual.</li>
+      <li><b style="color:var(--brand);">75–89% · Buen ajuste:</b> funciona bien; solo revisa la variable donde difiere y adapta el tono.</li>
+      <li><b style="color:var(--warn);">60–74% · Ajuste parcial:</b> la técnica sirve, pero el guión debe adaptarse al contexto de tu rubro.</li>
+      <li><b style="color:#d05050;">Menos de 60% · Ajuste bajo:</b> el módulo no fue pensado para este perfil — prefiere la alternativa indicada.</li>
+    </ul>
+  </div>
+
+  <div class="config">
+    <div class="panel">
+      <label for="rubro">Rubro predefinido</label>
+      <select id="rubro">
+        <option value="inmobiliario">🏠 Inmobiliario (= modelo HOGAR)</option>
+        <option value="saas">💻 SaaS / Software B2B</option>
+        <option value="servicios">🧑‍💼 Servicios profesionales / Consultoría</option>
+        <option value="retail">🛍️ Retail / E-commerce</option>
+        <option value="seguros">🛡️ Seguros / Servicios financieros</option>
+        <option value="automotriz">🚗 Automotriz</option>
+        <option value="industrial">🏭 Industrial / B2B enterprise</option>
+        <option value="educacion">🎓 Educación</option>
+        <option value="custom">✏️ Personalizado (mueve las variables)</option>
+      </select>
+
+      <label for="v1">V1 · Ticket promedio: <span id="v1val"></span></label>
+      <input type="range" id="v1" min="1" max="5" value="5">
+      <div class="ends"><span>Bajo</span><span>Alto</span></div>
+
+      <label for="v2">V2 · Largo del ciclo: <span id="v2val"></span></label>
+      <input type="range" id="v2" min="1" max="5" value="4">
+      <div class="ends"><span>Días</span><span>Meses</span></div>
+
+      <label for="v3">V3 · N° de decisores: <span id="v3val"></span></label>
+      <input type="range" id="v3" min="1" max="5" value="2">
+      <div class="ends"><span>Uno</span><span>Comité</span></div>
+
+      <label for="v4">V4 · Carga emocional: <span id="v4val"></span></label>
+      <input type="range" id="v4" min="1" max="5" value="5">
+      <div class="ends"><span>Racional</span><span>Emocional</span></div>
+
+      <label for="v5">V5 · Recurrencia: <span id="v5val"></span></label>
+      <input type="range" id="v5" min="1" max="5" value="1">
+      <div class="ends"><span>Compra única</span><span>Recurrente</span></div>
+    </div>
+
+    <div id="resultado"></div>
+  </div>
+</section>
+
+<!-- ============ TAB 5: ENFOQUE GENERACIONAL ============ -->
+<section class="tab" id="tab-generacion">
+  <h2>Aproximación por Generación</h2>
+  <p class="lead">La generación del comprador <strong>no cambia el modelo</strong> — las etapas V-E-N-D-E se mantienen — pero sí cambia el <strong>canal, el ritmo, el tono y la evidencia</strong> que convence. Es una capa de personalización que se aplica <em>sobre</em> el módulo elegido: el mismo Gap Selling se presenta con una planilla comparativa a un Gen X y con un video corto de caso real a un Gen Z. Referencia: "¿Cómo venderle a cada generación?" (@andresbilbao) + investigación de marketing generacional.</p>
+
+  <details>
+    <summary><span class="badge">1946–1964</span> Baby Boomers — hoy ~62 a 80 años <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Cómo compran:</strong> valoran la relación personal, la formalidad y el respeto por su tiempo y experiencia. Confían en la trayectoria y las instituciones. Deciden más lento, pero son los más leales y los que más refieren. Alta aversión al riesgo: el remordimiento post-compra pesa mucho.</p>
+      <div class="mini-label">Cómo aproximarse</div>
+      <ul>
+        <li><b>Canal:</b> llamada telefónica y reunión presencial. El WhatsApp sirve para coordinar, no para vender. Documentos impresos o PDF formal suman.</li>
+        <li><b>Tono:</b> tratamiento formal de entrada ("usted") hasta que ellos propongan lo contrario; nada de jerga tecnológica sin explicar.</li>
+        <li><b>Evidencia que convence:</b> años de trayectoria, testimonios de pares de su edad, respaldo institucional.</li>
+        <li><b>Error fatal:</b> apurarlos o tratarlos con condescendencia ("esto es muy fácil, no se preocupe").</li>
+      </ul>
+      <div class="mini-label">Módulos del modelo que más rinden</div>
+      <p>Vínculo y contrato previo de <b>Sandler</b> (respeto ceremonial del tiempo), <b>post-venta anti-remordimiento</b> (crítico por su aversión al riesgo) y <b>referidos de Keller</b> (son la generación que más refiere). En inmobiliario: suelen <em>vender</em> la casa familiar — carga emocional máxima, usar etiquetas de Voss para el precio-recuerdo.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> ritmo de habla del vendedor (¿se adaptó a un ritmo más pausado?), formalidad del tratamiento, ¿se ofreció resumen escrito/impreso post-reunión?</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="badge">1965–1980</span> Generación X — hoy ~46 a 61 años <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Cómo compran:</strong> escépticos y autosuficientes: investigan por su cuenta antes de hablar contigo y detectan el discurso de venta a kilómetros. Valoran la eficiencia, la honestidad directa y odian perder el tiempo. Comparan alternativas siempre. <strong>Son los dueños y gerentes de la mayoría de las pymes chilenas: probablemente tu decisor B2B principal.</strong></p>
+      <div class="mini-label">Cómo aproximarse</div>
+      <ul>
+        <li><b>Canal:</b> correo con la información concreta + llamada o reunión agendada con agenda explícita. Puntualidad estricta.</li>
+        <li><b>Tono:</b> directo, sin rodeos ni entusiasmo inflado. Reconocer lo que tu producto NO hace suma credibilidad.</li>
+        <li><b>Evidencia que convence:</b> números, comparativas contra alternativas, garantías y condiciones sin letra chica.</li>
+        <li><b>Error fatal:</b> hacerles perder tiempo con small talk largo o presentaciones corporativas de 40 láminas.</li>
+      </ul>
+      <div class="mini-label">Módulos del modelo que más rinden</div>
+      <p><b>Contrato previo</b> (agenda y tiempo acordados = respeto), <b>Ficha de Brecha de Gap Selling</b> (quieren el caso de negocio en cifras) y <b>reencuadre Challenger con datos duros</b>. El "ir por el no" de Sandler funciona muy bien: aprecian poder decir que no sin presión.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> duración de la reunión vs. lo acordado, densidad de datos/cifras en la presentación, ¿se entregó comparativa contra alternativas?</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="badge">1981–1996</span> Millennials — hoy ~30 a 45 años <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Cómo compran:</strong> llegan a la reunión habiendo investigado todo online: reseñas, precios, alternativas y tus redes. Valoran la autenticidad, el propósito y la experiencia de compra; desconfían de la venta dura y de los precios ocultos. Esperan respuesta rápida y procesos digitales sin fricción.</p>
+      <div class="mini-label">Cómo aproximarse</div>
+      <ul>
+        <li><b>Canal:</b> WhatsApp y videollamada; agendamiento online sin llamadas innecesarias. Si tardas horas en responder, ya compraron en otra parte.</li>
+        <li><b>Tono:</b> cercano y auténtico; el vendedor como asesor/guía, jamás como "cerrador". Transparencia total de precios desde temprano.</li>
+        <li><b>Evidencia que convence:</b> reseñas y calificaciones, casos de clientes reales, presencia digital coherente.</li>
+        <li><b>Error fatal:</b> repetirles la información que ya leyeron en tu web, u ocultar el precio "para la reunión".</li>
+      </ul>
+      <div class="mini-label">Módulos del modelo que más rinden</div>
+      <p><b>StoryBrand</b> (el cliente héroe: quieren protagonizar su historia de progreso), <b>línea de tiempo y 4 fuerzas de Moesta</b> (compran progreso de vida, no productos) y la <b>capa 2 de Domo IA</b> (respuesta inmediata + agendamiento automático es exactamente lo que esperan). En inmobiliario: primera vivienda con ansiedad financiera — educar antes de empujar.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> tiempo de primera respuesta al lead, ¿el vendedor aportó algo más allá de lo publicado en la web?, transparencia de precio en la primera reunión.</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="badge">1997–2012</span> Generación Z — hoy ~14 a 29 años <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Cómo compran:</strong> nativos digitales absolutos: video-first, atención selectiva y alergia declarada al discurso corporativo y a la llamada en frío. La decisión se forma <em>antes</em> de hablar con un humano — con contenido, comunidad y creadores. Valoran la inmediatez, la personalización y que la marca tenga valores coherentes.</p>
+      <div class="mini-label">Cómo aproximarse</div>
+      <ul>
+        <li><b>Canal:</b> Instagram/TikTok para descubrir, mensajería asíncrona para conversar. La llamada telefónica no solicitada es intrusiva; el audio de WhatsApp, aceptable.</li>
+        <li><b>Tono:</b> genuino, breve y visual. Reuniones cortas y al grano; demo antes que presentación.</li>
+        <li><b>Evidencia que convence:</b> video-testimonios, contenido de creadores, comunidad activa, poder probar antes de comprometerse.</li>
+        <li><b>Error fatal:</b> guiones corporativos, presión de cierre y cualquier cosa que huela a "técnica de venta de los 90".</li>
+      </ul>
+      <div class="mini-label">Módulos del modelo que más rinden</div>
+      <p>Para Gen Z <b>la venta empieza en la capa 1</b> (ads con contenido nativo, no institucional) y se juega en la <b>capa 2</b> (el agente de chat inmediato es el canal natural, no un sustituto). En la reunión: <b>Moesta</b> (entender su "trabajo") y <b>preguntas calibradas de Voss</b> en formato conversacional. Hoy son comprador emergente (primera moto, primer depto en verde, primer seguro): el que los atiende bien ahora se queda con su ciclo de vida completo.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> duración de la reunión (¿breve y enfocada?), uso de apoyo visual/demo vs. presentación hablada, continuidad asíncrona post-reunión (¿se siguió por el canal que el cliente eligió?).</div>
+    </div>
+  </details>
+
+  <h3>Tabla rápida: el mismo modelo, cuatro sintonías</h3>
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>Dimensión</th><th>Boomers</th><th>Gen X</th><th>Millennials</th><th>Gen Z</th></tr></thead>
+    <tbody>
+      <tr><td><b>Canal preferido</b></td><td>Teléfono y presencial</td><td>Email + reunión agendada</td><td>WhatsApp y videollamada</td><td>RRSS + mensajería asíncrona</td></tr>
+      <tr><td><b>Ritmo de decisión</b></td><td>Lento y deliberado</td><td>Eficiente: rápido si hay datos</td><td>Rápido si hay confianza digital</td><td>Inmediato o nunca</td></tr>
+      <tr><td><b>Evidencia que convence</b></td><td>Trayectoria y pares</td><td>Números y comparativas</td><td>Reseñas y casos reales</td><td>Video, creadores y prueba</td></tr>
+      <tr><td><b>Rol del vendedor</b></td><td>Persona de confianza</td><td>Experto eficiente</td><td>Asesor auténtico</td><td>Facilitador casi invisible</td></tr>
+      <tr><td><b>Error fatal</b></td><td>Apurar o condescender</td><td>Hacer perder tiempo</td><td>Ocultar precio o repetir la web</td><td>Guión corporativo y presión</td></tr>
+      <tr><td><b>Módulo estrella</b></td><td>Sandler + post-venta + referidos</td><td>Gap Selling + Challenger</td><td>StoryBrand + Moesta</td><td>Capas 1-2 + Moesta conversacional</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="grid c2" style="margin-top:18px;">
+    <div class="card"><span class="badge orange">Advertencia</span><h4>La generación es hipótesis, no estereotipo</h4><p style="font-size:.9rem;">Hay boomers que compran por WhatsApp y Gen Z que exigen reunión formal. La generación define la <em>primera jugada</em> (canal y tono de apertura); el individuo define el resto. La regla del modelo: abre con la sintonía generacional y ajusta con lo que la persona te muestre en los primeros 5 minutos.</p></div>
+    <div class="card"><span class="badge green">Domo IA</span><h4>De heurística a dato</h4><p style="font-size:.9rem;">Aquí el sistema convierte la intuición en evidencia: el agente de chat (capa 2) registra la edad aproximada o cohorte del lead, el auditor (capa 4) etiqueta qué sintonía usó el vendedor, y el agente de patrones cruza ambas con los cierres. Al cabo de 2-3 meses sabrás <em>con tus datos</em> si en tu rubro los Gen X realmente cierran más con comparativas — y el configurador dejará de asumir para empezar a saber.</p></div>
+  </div>
+</section>
+
+<!-- ============ TAB 6: EJEMPLOS ============ -->
+<section class="tab" id="tab-ejemplos">
+  <h2>Ejemplos Prácticos</h2>
+  <p class="lead">Tres conversaciones anotadas. Las notas moradas indican qué técnica se está aplicando — exactamente el tipo de etiquetado que haría el agente auditor de Domo IA sobre la transcripción de una reunión real.</p>
+
+  <h3>Ejemplo 1 · Inmobiliario: primera reunión con compradores (modelo HOGAR, fases H-O-G)</h3>
+  <div class="dialogo">
+    <div class="linea vendedor"><div class="quien">Corredora</div><div class="texto">Antes de mostrarles nada: propongo usar estos 40 minutos para entender bien qué buscan, y al final decidimos juntos si tiene sentido que les prepare una selección de propiedades. ¿Les parece?</div></div>
+    <div class="nota-tecnica">📌 Contrato previo (Sandler): agenda + tiempo + decisión al final. KPI: ✅ contrato en los primeros 5 min.</div>
+    <div class="linea vendedor"><div class="quien">Corredora</div><div class="texto">Cuéntenme, ¿qué pasó que los hizo empezar a buscar justo ahora?</div></div>
+    <div class="nota-tecnica">📌 Evento gatillador (Moesta, fase H): no pregunta "¿qué buscan?" sino "¿qué pasó?".</div>
+    <div class="linea cliente"><div class="quien">Cliente</div><div class="texto">Viene el segundo hijo y en el departamento ya no cabemos. Además el arriendo subió de nuevo…</div></div>
+    <div class="linea vendedor"><div class="quien">Corredora</div><div class="texto">¿Subió de nuevo?</div></div>
+    <div class="nota-tecnica">📌 Espejo (Voss): repite las últimas palabras para que el cliente profundice solo.</div>
+    <div class="linea cliente"><div class="quien">Cliente</div><div class="texto">Sí, 12% este año. Estamos pagando $650.000 por algo que ya nos queda chico. Pero nos da susto meternos en un dividendo con las tasas como están.</div></div>
+    <div class="linea vendedor"><div class="quien">Corredora</div><div class="texto">Parece que les preocupa comprometerse con un dividendo alto justo cuando la familia crece.</div></div>
+    <div class="nota-tecnica">📌 Etiqueta (Voss): nombra la ansiedad (fuerza que frena, Moesta). KPI: ✅ ansiedad detectada y verbalizada.</div>
+    <div class="linea cliente"><div class="quien">Cliente</div><div class="texto">Exacto, eso es.</div></div>
+    <div class="nota-tecnica">📌 "Así es" logrado — señal de confianza. El auditor lo marca como punto de inflexión de la reunión.</div>
+    <div class="linea vendedor"><div class="quien">Corredora</div><div class="texto">Hagamos números reales: hoy pagan $650.000 que no construyen nada. Un departamento de 3 dormitorios en el sector que me nombran, con un pie de UF 300, da un dividendo de unos $720.000 — $70.000 más que su arriendo, pero de eso una parte es capital suyo, y la plusvalía promedio del sector fue 4,1% anual los últimos 5 años. La brecha real entre seguir arrendando y comprar es de varios millones a 5 años, a favor de comprar.</div></div>
+    <div class="nota-tecnica">📌 Ficha de brecha cuantificada (Gap Selling, fase O) + insight de datos (Challenger, fase G). KPI: ✅ brecha en cifras.</div>
+    <div class="linea vendedor"><div class="quien">Corredora</div><div class="texto">Mi propuesta es simple, 3 pasos: esta semana afinamos el perfil y la pre-aprobación con el banco; la próxima visitamos solo 4 propiedades que yo ya habré filtrado; y la tercera semana decidimos con los números sobre la mesa. ¿Avanzamos con el paso uno el jueves?</div></div>
+    <div class="nota-tecnica">📌 Plan de 3 pasos (StoryBrand) + próximo paso con fecha (regla transversal 4). KPI: ✅ reunión cierra con compromiso agendado.</div>
+  </div>
+
+  <h3>Ejemplo 2 · SaaS B2B: descubrimiento con gerente de operaciones (Motor VENDE: SPIN + Gap + Challenger)</h3>
+  <div class="dialogo">
+    <div class="linea vendedor"><div class="quien">Ejecutivo</div><div class="texto">¿Cómo gestionan hoy el seguimiento de sus 200 despachos diarios? <em>(Situación)</em> ¿Y qué pasa cuando un cliente llama a preguntar dónde viene su pedido? <em>(Problema)</em></div></div>
+    <div class="linea cliente"><div class="quien">Cliente</div><div class="texto">Uf, alguien del equipo tiene que llamar al transportista, revisar planillas… se pierde fácil media hora por consulta.</div></div>
+    <div class="linea vendedor"><div class="quien">Ejecutivo</div><div class="texto">¿Y qué efecto tiene eso en el resto del área? ¿Cuántas consultas así reciben a la semana?</div></div>
+    <div class="nota-tecnica">📌 Pregunta de Implicación (SPIN) — la categoría que más correlaciona con el éxito según Rackham. El auditor mide la distribución S/P/I/N: aquí va 1-1-1.</div>
+    <div class="linea cliente"><div class="quien">Cliente</div><div class="texto">Unas 60 semanales. O sea… 30 horas de gente calificada haciendo de call center.</div></div>
+    <div class="linea vendedor"><div class="quien">Ejecutivo</div><div class="texto">30 horas semanales, unos $1,4 millones al mes en costo de personal, sin contar los clientes que no recompran por la mala experiencia. Ese es su estado actual. ¿Cómo se vería el escenario ideal para ti?</div></div>
+    <div class="nota-tecnica">📌 Ficha de brecha (Gap Selling): estado actual cuantificado; pide el estado futuro en palabras del cliente. KPI: ✅ impacto en $.</div>
+    <div class="linea cliente"><div class="quien">Cliente</div><div class="texto">Que el cliente vea su pedido solo, sin llamarnos, y mi equipo se dedique a operaciones.</div></div>
+    <div class="linea vendedor"><div class="quien">Ejecutivo</div><div class="texto">Te comparto algo que vemos en el rubro: las empresas de tu tamaño que automatizaron el tracking no ganaron principalmente por el ahorro de horas — ganaron porque la tasa de recompra sube en torno al 15% cuando el cliente tiene visibilidad. El problema que describes como "consultas repetidas" es en realidad un problema de retención de clientes.</div></div>
+    <div class="nota-tecnica">📌 Reencuadre (Challenger): enseña un insight que cambia cómo el cliente define su problema. KPI: ✅ insight aportado + reacción del cliente.</div>
+  </div>
+
+  <h3>Ejemplo 3 · Seguros de vida: manejo de la indecisión (Motor VENDE: 4 Fuerzas + Voss + Cardone)</h3>
+  <div class="dialogo">
+    <div class="linea cliente"><div class="quien">Cliente</div><div class="texto">Está caro. Lo voy a pensar y te aviso.</div></div>
+    <div class="linea vendedor"><div class="quien">Asesora</div><div class="texto">Tiene toda la razón en evaluarlo con calma — es una decisión importante. ¿Le puedo hacer una última pregunta? ¿Qué parte le hace más ruido: el monto mensual, o no tener claro si de verdad lo va a necesitar?</div></div>
+    <div class="nota-tecnica">📌 Concordancia (Cardone: nunca discutir) + pregunta calibrada (Voss) para separar la objeción real del "está caro" reflejo.</div>
+    <div class="linea cliente"><div class="quien">Cliente</div><div class="texto">Es que llevo 20 años sin seguro y no ha pasado nada…</div></div>
+    <div class="linea vendedor"><div class="quien">Asesora</div><div class="texto">Claro: lo conocido pesa — 20 años funcionando así. Y a la vez, usted mismo me contó que lo que lo hizo cotizar fue el infarto de su socio, con hijos de la misma edad que los suyos. Parece que la pregunta de fondo no es si el seguro es caro, sino cuánto costaría para su familia no tenerlo.</div></div>
+    <div class="nota-tecnica">📌 Nombra el hábito (fuerza que frena) y reactiva el empuje con el evento gatillador del propio cliente (Moesta) + etiqueta y reencuadre de valor antes de defender el precio (Cardone: el mito del precio). KPI del auditor: objeción de precio manejada sin ofrecer descuento: ✅.</div>
+    <div class="linea cliente"><div class="quien">Cliente</div><div class="texto">…Sí, eso es verdad. ¿Cómo era la cobertura para los niños?</div></div>
+    <div class="nota-tecnica">📌 El cliente reabre la conversación solo. El auditor marca la secuencia completa como "mejor práctica" para la biblioteca de patrones del equipo.</div>
+  </div>
+
+  <h3>Cómo usa Domo IA estos ejemplos</h3>
+  <div class="grid c3">
+    <div class="card"><span class="badge">Capa 3</span><h4>Modelo por cliente</h4><p style="font-size:.88rem;">El configurador genera el modelo del rubro; estos guiones anotados se convierten en el playbook de entrenamiento del equipo.</p></div>
+    <div class="card"><span class="badge">Capa 4</span><h4>Auditoría de reuniones</h4><p style="font-size:.88rem;">El agente etiqueta cada transcripción con las mismas notas moradas: técnicas usadas, KPIs cumplidos, banderas rojas.</p></div>
+    <div class="card"><span class="badge">Capa 5</span><h4>Patrones de cierre</h4><p style="font-size:.88rem;">Con 15-20 reuniones auditadas (y ≥5 con resultado conocido), el agente de patrones identifica qué secuencias de técnicas cierran más en ese rubro y retroalimenta el modelo.</p></div>
+  </div>
+</section>
+
+<footer>
+  Domo IA · Modelos de venta construidos sobre: Rackham, Sandler, Bosworth, Eades, Dixon &amp; Adamson, Keenan, Moesta, Voss, Miller, Cardone, Miller &amp; Heiman y Keller. Documento de trabajo interno — generado en julio de 2026.
+</footer>
+
+</div><!-- /wrap -->
+
+<script>
+// ---------- Tabs ----------
+const tabs = document.querySelectorAll('nav.tabs button[data-tab]');
+tabs.forEach(btn => btn.addEventListener('click', () => {
+  tabs.forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('section.tab').forEach(s => s.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  window.scrollTo({top:0});
+}));
+
+// ---------- Tema ----------
+const themeBtn = document.getElementById('themeBtn');
+const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+function setTheme(t){ document.body.dataset.theme = t; themeBtn.textContent = t === 'dark' ? '☀️' : '🌙'; }
+setTheme(prefersDark ? 'dark' : 'light');
+themeBtn.addEventListener('click', () => setTheme(document.body.dataset.theme === 'dark' ? 'light' : 'dark'));
+
+// ---------- Configurador ----------
+// Cada módulo: etapa, nombre, fuente, perfil ideal [ticket, ciclo, decisores, emoción, recurrencia], frase, kpi
+const MODULOS = [
+  // V — Vincular
+  {e:0, n:"Contrato Previo", f:"Sandler", p:[3,3,2,3,3], frase:"Propongo usar estos 30 minutos para revisar X, y al final decidimos juntos si tiene sentido un siguiente paso. ¿De acuerdo?", kpi:"Contrato previo establecido en los primeros 5 minutos de la reunión."},
+  {e:0, n:"Mapa de Influenciadores", f:"Venta Estratégica (Miller-Heiman)", p:[5,5,5,2,4], frase:"Además de ti, ¿quién más se ve afectado por esta decisión y quién firma finalmente el presupuesto?", kpi:"4 roles (económico, usuario, técnico, coach) identificados por oportunidad."},
+  {e:0, n:"Línea de Tiempo del Comprador", f:"Demand-Side Sales (Moesta)", p:[3,3,1,5,2], frase:"¿Qué pasó que los hizo empezar a buscar justo ahora?", kpi:"Evento gatillador identificado y etapa del comprador registrada."},
+  {e:0, n:"Filtro de Marca / Mensaje claro", f:"StoryBrand (Miller)", p:[1,1,1,4,3], frase:"Ayudamos a [cliente] a lograr [resultado] sin [dolor] — ¿es tu caso?", kpi:"% de leads calificados que llegan por el mensaje correcto (mide la capa de ads)."},
+  // E — Explorar
+  {e:1, n:"Preguntas SPIN", f:"SPIN Selling (Rackham)", p:[4,4,3,2,3], frase:"¿Qué consecuencias tiene ese problema en el resto del equipo? ¿Y qué ganarían si desapareciera?", kpi:"Distribución S/P/I/N de las preguntas; ratio de implicación sobre situación."},
+  {e:1, n:"Embudo del Dolor", f:"Sandler", p:[3,3,2,4,3], frase:"¿Cuánto tiempo llevan con esto? ¿Qué han intentado? ¿Cuánto les ha costado? ¿Cómo te hace sentir?", kpi:"Profundidad del embudo alcanzada (síntoma → costo → impacto personal)."},
+  {e:1, n:"Ficha de Brecha", f:"Gap Selling (Keenan)", p:[4,4,3,1,4], frase:"Hoy están en A y quieren llegar a B: la diferencia son $X al mes. ¿Es correcto?", kpi:"Brecha cuantificada en cifras y validada por el cliente."},
+  {e:1, n:"4 Fuerzas del Progreso", f:"Demand-Side Sales (Moesta)", p:[2,3,1,5,2], frase:"¿Qué es lo que más los ilusiona del cambio… y qué es lo que más susto les da?", kpi:"Las 4 fuerzas (empuje, atracción, ansiedad, hábito) registradas en la ficha."},
+  // N — Narrar
+  {e:2, n:"Reencuadre Desafiante", f:"The Challenger Sale", p:[5,4,4,2,4], frase:"Lo que describes como problema de costos, en los datos del rubro aparece como un problema de retención. Te muestro por qué.", kpi:"Insight comercial aportado por reunión + reacción del cliente."},
+  {e:2, n:"Visión de Solución", f:"Solution Selling (Bosworth)", p:[4,5,4,2,3], frase:"¿Y si cada vez que ocurre X, el sistema hiciera Y automáticamente — qué significaría para tu área?", kpi:"Visión verbalizada por el cliente (no impuesta por el vendedor)."},
+  {e:2, n:"Cliente Héroe + Plan Simple", f:"StoryBrand (Miller)", p:[2,2,1,5,3], frase:"El plan es simple: paso 1 esta semana, paso 2 la próxima, y en 15 días estás viendo resultados.", kpi:"Plan de 3 pasos comunicado; ratio hablar/escuchar del vendedor ≤ 40%."},
+  {e:2, n:"Convicción y Valor", f:"Vendes o Vendes (Cardone)", p:[1,1,1,3,2], frase:"Entiendo perfectamente. Y justamente por eso este producto es la mejor decisión: déjame mostrarte el valor completo antes de hablar de precio.", kpi:"Valor presentado antes que el precio; lenguaje sin muletillas de duda."},
+  // D — Destrabar
+  {e:3, n:"Empatía Táctica", f:"Never Split the Difference (Voss)", p:[4,3,2,5,2], frase:"Parece que les preocupa comprometerse y arrepentirse después. ¿Qué tendría que pasar para que esto funcionara para ustedes?", kpi:"Etiquetas y espejos detectados; ¿se llegó a un 'así es'?"},
+  {e:3, n:"El Mito del Precio", f:"Vendes o Vendes (Cardone)", p:[2,1,1,3,2], frase:"Tiene razón en fijarse en el precio. ¿Le parece si primero revisamos qué obtiene exactamente, y ahí evaluamos si el número tiene sentido?", kpi:"Objeción de precio manejada sin ofrecer descuento inmediato."},
+  {e:3, n:"Consenso del Comité", f:"The Challenger Customer", p:[5,5,5,1,4], frase:"Cuando presentes esto internamente, ¿qué objeción crees que pondrá finanzas? Preparémosla juntos.", kpi:"Plan de venta interna co-creado con el movilizador; stakeholders cubiertos."},
+  {e:3, n:"Ir por el No", f:"Sandler", p:[3,2,2,3,3], frase:"Si esto no les hace sentido, díganmelo sin problema — un 'no' claro nos ahorra tiempo a ambos. ¿Dónde estamos?", kpi:"Cero 'lo voy a pensar' sin fecha; decisiones explícitas (sí o no)."},
+  // E — Expandir
+  {e:4, n:"Plan de Evaluación Conjunto", f:"Solution Selling Fieldbook (Eades)", p:[5,5,4,1,3], frase:"Les propongo este cronograma compartido: demo el 12, prueba piloto el 20, decisión de directorio el 30. ¿Ajustamos fechas?", kpi:"Plan de cierre con hitos y fechas compartido y aceptado por el cliente."},
+  {e:4, n:"Base de Datos + Referidos", f:"MREA (Keller)", p:[3,2,1,4,2], frase:"Me encantó trabajar con ustedes. ¿A quién de su círculo le serviría lo mismo? Con dos nombres me ayudan un montón.", kpi:"Referidos pedidos/obtenidos por cierre; cumplimiento de cadencia 8x8 y 33 toques."},
+  {e:4, n:"Post-Venta Anti-remordimiento", f:"Sandler", p:[3,2,2,4,2], frase:"Entre hoy y la firma alguien les va a decir que se apuraron. ¿Cómo se sienten con la decisión? Repasemos por qué la tomaron.", kpi:"Post-sell realizado antes de la firma; tasa de caída entre acuerdo y firma."},
+  {e:4, n:"Win-Results de Cuenta", f:"Venta Estratégica (Miller-Heiman)", p:[5,5,5,1,5], frase:"A 90 días del arranque: ¿logramos el resultado de negocio que definimos, y te dejó bien parado a ti internamente?", kpi:"Win-result documentado por influenciador; revisión trimestral de cuenta agendada."}
+];
+
+const ETAPAS = [
+  {l:"V", n:"Vincular", d:"conectar y calificar"},
+  {l:"E", n:"Explorar", d:"diagnosticar el problema"},
+  {l:"N", n:"Narrar", d:"demostrar valor"},
+  {l:"D", n:"Destrabar", d:"objeciones y negociación"},
+  {l:"E", n:"Expandir", d:"cerrar, fidelizar, referir"}
+];
+
+const PRESETS = {
+  inmobiliario:[5,4,2,5,1],
+  saas:[4,4,4,2,5],
+  servicios:[4,3,3,3,4],
+  retail:[1,1,1,4,3],
+  seguros:[3,3,2,4,4],
+  automotriz:[4,2,2,4,2],
+  industrial:[5,5,5,1,5],
+  educacion:[3,3,2,4,1]
+};
+
+const NIVELES = ["", "Muy bajo", "Bajo", "Medio", "Alto", "Muy alto"];
+const sliders = [1,2,3,4,5].map(i => document.getElementById('v'+i));
+const rubroSel = document.getElementById('rubro');
+
+function perfilActual(){ return sliders.map(s => parseInt(s.value,10)); }
+
+function score(mod, perfil){
+  let dist = 0;
+  for(let d=0; d<5; d++) dist += Math.abs(mod.p[d] - perfil[d]);
+  return 20 - dist; // máx 20
+}
+
+const DIMS = ["ticket", "largo del ciclo", "n° de decisores", "carga emocional", "recurrencia"];
+
+function etiquetaAjuste(pct){
+  if (pct >= 90) return ["Ajuste nativo", "var(--accent)"];
+  if (pct >= 75) return ["Buen ajuste", "var(--brand)"];
+  if (pct >= 60) return ["Ajuste parcial", "var(--warn)"];
+  return ["Ajuste bajo", "#d05050"];
+}
+
+function detalleAjuste(mod, perfil){
+  const coincide = [], difiere = [];
+  for(let d=0; d<5; d++){
+    const diff = mod.p[d] - perfil[d];
+    if (Math.abs(diff) <= 1) coincide.push(DIMS[d]);
+    else difiere.push(DIMS[d] + (diff > 0 ? " (la técnica rinde más con un nivel mayor)" : " (la técnica rinde más con un nivel menor)"));
+  }
+  if (difiere.length === 0) return "✔ Coincide plenamente con las 5 variables de tu rubro.";
+  return "✔ Coincide en: " + coincide.join(", ") + ". ✖ Difiere en: " + difiere.join(" y ") + ".";
+}
+
+function render(){
+  const perfil = perfilActual();
+  sliders.forEach((s,i) => document.getElementById('v'+(i+1)+'val').textContent = NIVELES[s.value]);
+  const out = document.getElementById('resultado');
+  let html = "";
+  for(let e=0; e<5; e++){
+    const mods = MODULOS.filter(m => m.e === e)
+      .map(m => ({...m, s: score(m, perfil)}))
+      .sort((a,b) => b.s - a.s);
+    const top = mods[0], alt = mods[1];
+    const pct = Math.round((top.s / 20) * 100);
+    const [label, color] = etiquetaAjuste(pct);
+    html += `
+      <div class="rec-card">
+        <div class="stage-name"><span class="letra">${ETAPAS[e].l}</span> ${ETAPAS[e].n} <span style="font-weight:400; color:var(--muted); font-size:.85rem;">· ${ETAPAS[e].d}</span></div>
+        <div><span class="badge">${top.f}</span> <strong>${top.n}</strong></div>
+        <div class="ajuste-line">
+          <div class="bar"><div class="bar-fill" style="width:${pct}%; background:${color};"></div></div>
+          <span style="font-weight:700; color:${color}; font-size:.85rem; white-space:nowrap;">${pct}% · ${label}</span>
+        </div>
+        <div class="meta">${detalleAjuste(top, perfil)}</div>
+        <div class="frase">“${top.frase}”</div>
+        <div class="kpi">🤖 <b>KPI del agente auditor:</b> ${top.kpi}</div>
+        <div class="meta" style="margin-top:6px;">Módulo alternativo: ${alt.n} (${alt.f})</div>
+      </div>`;
+  }
+  out.innerHTML = html;
+}
+
+rubroSel.addEventListener('change', () => {
+  const p = PRESETS[rubroSel.value];
+  if(p) sliders.forEach((s,i) => s.value = p[i]);
+  render();
+});
+sliders.forEach(s => s.addEventListener('input', () => {
+  rubroSel.value = 'custom';
+  render();
+}));
+
+// ---------- Desplegables prácticos (fases HOGAR) ----------
+document.querySelectorAll('.teoria-toggle').forEach(btn => btn.addEventListener('click', () => {
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
+}));
+
+// ---------- Tooltips de módulos (Motor VENDE) ----------
+const tip = document.createElement('div');
+tip.id = 'svgtip';
+document.body.appendChild(tip);
+
+function posTip(x, y){
+  const pad = 14;
+  const r = tip.getBoundingClientRect();
+  let left = x + pad, top = y + pad;
+  if (left + r.width > window.innerWidth - 8) left = x - r.width - pad;
+  if (top + r.height > window.innerHeight - 8) top = y - r.height - pad;
+  tip.style.left = Math.max(8, left) + 'px';
+  tip.style.top = Math.max(8, top) + 'px';
+}
+
+document.querySelectorAll('.modg').forEach(g => {
+  const sep = g.dataset.tip.indexOf('|');
+  const titulo = g.dataset.tip.slice(0, sep);
+  const cuerpo = g.dataset.tip.slice(sep + 1);
+  const mostrar = () => { tip.innerHTML = '<b>' + titulo + '</b>' + cuerpo; tip.classList.add('show'); };
+  g.addEventListener('mouseenter', e => { mostrar(); posTip(e.clientX, e.clientY); });
+  g.addEventListener('mousemove', e => posTip(e.clientX, e.clientY));
+  g.addEventListener('mouseleave', () => tip.classList.remove('show'));
+  // Soporte táctil: un toque muestra la reseña unos segundos
+  g.addEventListener('click', e => { mostrar(); posTip(e.clientX, e.clientY); clearTimeout(tip._t); tip._t = setTimeout(() => tip.classList.remove('show'), 4000); });
+});
+
+// Estado inicial: inmobiliario
+sliders.forEach((s,i) => s.value = PRESETS.inmobiliario[i]);
+render();
+</script>
+</body>
+</html>

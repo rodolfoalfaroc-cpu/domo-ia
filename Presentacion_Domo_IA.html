@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Domo IA · Presentación Corporativa</title>
+<style>
+  :root{
+    --bg:#0e1220; --surface:#1a2135; --surface2:#232c47; --border:#32405f;
+    --text:#eef1f9; --muted:#9aa7c4;
+    --brand:#5b8cf5; --brand2:#a07df8; --accent:#3ecf94; --warn:#f0a44a; --red:#ef7070;
+    --grad:linear-gradient(120deg,#3b6ae0,#8b5cf6);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif; background:var(--bg); color:var(--text); overflow:hidden;}
+
+  .deck{position:relative; width:100vw; height:100vh;}
+  .slide{position:absolute; inset:0; display:none; flex-direction:column; justify-content:center; padding:7vh 7vw; opacity:0; transition:opacity .3s;}
+  .slide.active{display:flex; opacity:1;}
+
+  .kicker{font-size:clamp(.7rem,1.4vw,.85rem); font-weight:800; letter-spacing:2.5px; text-transform:uppercase; color:var(--brand); margin-bottom:14px;}
+  .kicker .num{display:inline-block; background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:2px 10px; margin-right:10px; color:var(--brand2);}
+  h1{font-size:clamp(1.9rem,5vw,3.6rem); line-height:1.12; margin-bottom:16px;}
+  h2{font-size:clamp(1.5rem,3.4vw,2.5rem); line-height:1.18; margin-bottom:14px;}
+  h2 .hl, h1 .hl{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .sub{font-size:clamp(.95rem,1.8vw,1.25rem); color:var(--muted); max-width:52ch; line-height:1.55;}
+
+  .cards{display:grid; gap:16px; margin-top:28px;}
+  .cards.c2{grid-template-columns:repeat(2,1fr);}
+  .cards.c3{grid-template-columns:repeat(3,1fr);}
+  .cards.c4{grid-template-columns:repeat(4,1fr);}
+  .card{background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:clamp(14px,2vw,24px);}
+  .card .ico{font-size:clamp(1.3rem,2.4vw,1.9rem); margin-bottom:10px; display:block;}
+  .card h3{font-size:clamp(.95rem,1.7vw,1.15rem); margin-bottom:6px;}
+  .card p{font-size:clamp(.8rem,1.4vw,.95rem); color:var(--muted); line-height:1.5;}
+  .card.hero{border-color:var(--brand); box-shadow:0 0 0 1px var(--brand);}
+  .card .big{font-size:clamp(1.4rem,3vw,2.2rem); font-weight:800; color:var(--accent);}
+
+  ul.list{margin:22px 0 0 0; list-style:none; max-width:70ch;}
+  ul.list li{font-size:clamp(.92rem,1.7vw,1.15rem); padding:9px 0 9px 38px; position:relative; line-height:1.5;}
+  ul.list li::before{content:"▸"; position:absolute; left:8px; color:var(--accent); font-weight:800;}
+  ul.list li b{color:var(--text);}
+  ul.list li{color:var(--muted);}
+
+  .pill{display:inline-block; background:var(--surface2); border:1px solid var(--border); border-radius:99px; padding:6px 16px; font-size:clamp(.75rem,1.3vw,.9rem); margin:4px 6px 4px 0; color:var(--text);}
+  .pill b{color:var(--brand);}
+
+  .layers{display:flex; align-items:stretch; gap:0; margin-top:30px; flex-wrap:wrap;}
+  .layer{flex:1 1 0; min-width:150px; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px 14px; text-align:center; position:relative; margin-right:34px;}
+  .layer:last-child{margin-right:0;}
+  .layer::after{content:"→"; position:absolute; right:-27px; top:50%; transform:translateY(-50%); font-size:1.5rem; color:var(--brand); font-weight:800;}
+  .layer:last-child::after{content:"";}
+  .layer .n{display:inline-flex; width:34px; height:34px; border-radius:10px; background:var(--grad); color:#fff; align-items:center; justify-content:center; font-weight:800; margin-bottom:10px;}
+  .layer h3{font-size:clamp(.85rem,1.5vw,1.05rem); margin-bottom:6px;}
+  .layer p{font-size:clamp(.72rem,1.2vw,.85rem); color:var(--muted); line-height:1.45;}
+  .loopnote{margin-top:22px; background:rgba(62,207,148,.08); border:1px dashed var(--accent); border-radius:12px; padding:12px 18px; font-size:clamp(.85rem,1.5vw,1rem); color:var(--accent); text-align:center;}
+
+  .kpirow{display:flex; gap:14px; margin-top:24px; flex-wrap:wrap;}
+  .kpi{background:var(--surface2); border:1px solid var(--border); border-radius:12px; padding:10px 18px; font-size:clamp(.78rem,1.4vw,.92rem);}
+  .kpi b{color:var(--accent); display:block; font-size:.85em; text-transform:uppercase; letter-spacing:1px; margin-bottom:2px;}
+
+  .split{display:grid; grid-template-columns:1.1fr 1fr; gap:40px; align-items:center;}
+  @media(max-width:900px){.split{grid-template-columns:1fr;}}
+
+  .quote{border-left:4px solid var(--brand2); padding:8px 0 8px 20px; font-size:clamp(1rem,2vw,1.35rem); font-style:italic; color:var(--text); margin-top:26px; max-width:60ch;}
+  .quote span{display:block; font-size:.75em; font-style:normal; color:var(--muted); margin-top:8px;}
+
+  .steps{display:flex; gap:16px; margin-top:30px; flex-wrap:wrap;}
+  .step{flex:1 1 200px; background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:20px;}
+  .step .tag{display:inline-block; background:var(--grad); color:#fff; font-weight:700; font-size:.78rem; border-radius:99px; padding:3px 14px; margin-bottom:12px;}
+  .step h3{font-size:clamp(.95rem,1.7vw,1.15rem); margin-bottom:8px;}
+  .step p{font-size:clamp(.8rem,1.4vw,.92rem); color:var(--muted); line-height:1.5;}
+
+  /* Portada y cierre */
+  .slide.cover{text-align:center; align-items:center; background:radial-gradient(ellipse at 50% 120%, rgba(91,140,245,.25), transparent 60%), radial-gradient(ellipse at 80% -10%, rgba(160,125,248,.18), transparent 55%), var(--bg);}
+  .logo{font-size:clamp(2.6rem,7vw,5rem); font-weight:900; letter-spacing:-1px;}
+  .logo .ia{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .cover .sub{margin:18px auto 0;}
+  .cover .cta-chip{margin-top:44px; display:inline-block; background:var(--grad); color:#fff; padding:12px 34px; border-radius:99px; font-weight:700; font-size:clamp(.9rem,1.8vw,1.1rem);}
+
+  /* Navegación */
+  .navbar{position:fixed; bottom:0; left:0; right:0; z-index:10;}
+  .progress{height:4px; background:var(--surface2);}
+  .progress .fill{height:100%; background:var(--grad); width:0%; transition:width .25s;}
+  .navctl{display:flex; justify-content:space-between; align-items:center; padding:8px 18px; font-size:.8rem; color:var(--muted);}
+  .navctl .btns button{background:var(--surface); border:1px solid var(--border); color:var(--text); border-radius:10px; padding:6px 16px; font:inherit; cursor:pointer; margin-left:8px;}
+  .navctl .btns button:hover{border-color:var(--brand);}
+  .hint{font-size:.75rem;}
+
+  /* SVG flywheel */
+  .fly{display:block; margin:10px auto 0; max-width:min(46vh,420px);}
+
+  @media print{
+    body{overflow:visible; background:#0e1220;}
+    .deck{width:auto; height:auto;}
+    .slide{display:flex !important; opacity:1 !important; position:relative; inset:auto; width:100%; height:100vh; page-break-after:always;}
+    .navbar{display:none;}
+  }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <!-- 1 · PORTADA -->
+  <section class="slide cover active">
+    <div class="logo">DOMO <span class="ia">IA</span></div>
+    <p class="sub" style="font-size:clamp(1.1rem,2.6vw,1.6rem); color:var(--text); font-weight:600;">Tu fuerza de ventas, potenciada por inteligencia artificial.</p>
+    <p class="sub">Un solo sistema que conecta la prospección, la conversión de leads, el método de venta y el coaching de tu equipo — y que aprende de cada venta para mejorar la siguiente.</p>
+    <span class="cta-chip">Presentación para nuevos clientes</span>
+  </section>
+
+  <!-- 2 · EL PROBLEMA -->
+  <section class="slide">
+    <div class="kicker"><span class="num">01</span>El problema</div>
+    <h2>Vender hoy es más caro y más difícil.<br>Y el problema <span class="hl">no es tu equipo</span>.</h2>
+    <div class="cards c4">
+      <div class="card"><span class="ico">💸</span><h3>Leads cada vez más caros</h3><p>La inversión en publicidad sube, pero los leads llegan fríos, mal calificados o se enfrían esperando respuesta.</p></div>
+      <div class="card"><span class="ico">🎲</span><h3>Cada vendedor vende "a su manera"</h3><p>Sin un método común, el resultado depende del talento individual: la brecha entre tu mejor y tu peor vendedor es enorme.</p></div>
+      <div class="card"><span class="ico">🕳️</span><h3>Las reuniones son una caja negra</h3><p>Nadie sabe qué se dijo, qué funcionó ni por qué se perdió esa venta. Solo se ve el resultado final.</p></div>
+      <div class="card"><span class="ico">🚪</span><h3>El conocimiento se va</h3><p>Cuando un buen vendedor renuncia, se lleva consigo todo lo que aprendió. La empresa empieza de cero.</p></div>
+    </div>
+  </section>
+
+  <!-- 3 · EL COSTO -->
+  <section class="slide">
+    <div class="kicker"><span class="num">02</span>El costo de no actuar</div>
+    <h2>Cada mes sin sistema, <span class="hl">el embudo gotea</span> por cuatro lados.</h2>
+    <p class="sub">Haz este ejercicio con tus propios números — es exactamente el diagnóstico que hacemos en la primera reunión:</p>
+    <div class="cards c2">
+      <div class="card"><h3>💰 Inversión publicitaria desaprovechada</h3><p>% de leads que nunca reciben respuesta a tiempo o no califican × tu presupuesto mensual de ads = dinero quemado en atraer gente que nadie convierte.</p></div>
+      <div class="card"><h3>📉 Reuniones que no avanzan</h3><p>% de reuniones que terminan en "quedamos en contacto" sin próximo paso × costo por reunión (sueldo + tiempo + lead) = pipeline que se evapora.</p></div>
+      <div class="card"><h3>⚖️ La brecha entre vendedores</h3><p>Si tu mejor vendedor cierra 2 o 3 veces más que el promedio, cada vendedor bajo el promedio está dejando esa diferencia sobre la mesa, todos los meses.</p></div>
+      <div class="card"><h3>🔁 Aprendizaje que no se acumula</h3><p>Sin registro ni análisis de reuniones, los errores se repiten y los aciertos no se replican. El equipo no mejora: rota.</p></div>
+    </div>
+  </section>
+
+  <!-- 4 · LA SOLUCIÓN -->
+  <section class="slide">
+    <div class="kicker"><span class="num">03</span>La solución</div>
+    <h2>Domo IA: <span class="hl">un sistema de 4 capas</span> que cubre todo el ciclo comercial.</h2>
+    <div class="layers">
+      <div class="layer"><span class="n">1</span><h3>Prospección inteligente</h3><p>Agentes IA analizan tu competencia y generan campañas de Meta Ads con los mensajes que convierten.</p></div>
+      <div class="layer"><span class="n">2</span><h3>Conversión de leads</h3><p>Un agente conversacional responde en segundos, califica y agenda reuniones directo en el calendario.</p></div>
+      <div class="layer"><span class="n">3</span><h3>Método de venta a medida</h3><p>Un modelo consultivo construido para tu rubro sobre 12 metodologías probadas.</p></div>
+      <div class="layer"><span class="n">4</span><h3>Coaching con IA</h3><p>Un agente audita cada reunión, mide la ejecución del método y entrega feedback a cada vendedor.</p></div>
+    </div>
+    <div class="loopnote">♻️ Y una quinta pieza que lo cambia todo: un agente que detecta los <b>patrones que cierran ventas en tu rubro</b> y retroalimenta las otras cuatro capas. El sistema mejora solo.</div>
+  </section>
+
+  <!-- 5 · CAPA 1 -->
+  <section class="slide">
+    <div class="kicker"><span class="num">04</span>Capa 1 · Prospección inteligente</div>
+    <h2>Deja de adivinar qué anuncio funciona: <span class="hl">la IA ya estudió a tu competencia</span>.</h2>
+    <ul class="list">
+      <li><b>Análisis competitivo continuo:</b> agentes IA monitorean los anuncios, ofertas y mensajes de tu competencia en tu mercado.</li>
+      <li><b>Copys y creativos optimizados:</b> generación de variantes con los ángulos que están convirtiendo en tu rubro, listas para Meta Ads.</li>
+      <li><b>Aprendizaje de tu propio embudo:</b> los mensajes se refinan con datos de qué leads terminaron comprando — no solo cuáles hicieron clic.</li>
+    </ul>
+    <div class="kpirow">
+      <div class="kpi"><b>Medimos</b>Costo por lead calificado</div>
+      <div class="kpi"><b>Medimos</b>% de leads que llegan a reunión</div>
+      <div class="kpi"><b>Medimos</b>Costo por venta por campaña y ángulo</div>
+    </div>
+  </section>
+
+  <!-- 6 · CAPA 2 -->
+  <section class="slide">
+    <div class="kicker"><span class="num">05</span>Capa 2 · Conversión de leads</div>
+    <h2>El lead que espera, <span class="hl">se enfría</span>. El nuestro recibe respuesta en segundos.</h2>
+    <ul class="list">
+      <li><b>Atención inmediata 24/7:</b> el agente conversacional responde al instante por WhatsApp o web, a cualquier hora — cuando el interés está en su punto máximo.</li>
+      <li><b>Calificación inteligente:</b> conversa de forma natural y captura las variables que importan en tu negocio (presupuesto, urgencia, quién decide) sin parecer un formulario.</li>
+      <li><b>Agendamiento automático:</b> propone horarios y agenda directo en el calendario del vendedor correcto, con recordatorios que reducen el no-show.</li>
+      <li><b>Traspaso con contexto:</b> el vendedor entra a la reunión sabiendo quién es el lead, qué busca y por qué ahora.</li>
+    </ul>
+    <div class="kpirow">
+      <div class="kpi"><b>Medimos</b>Tiempo de primera respuesta</div>
+      <div class="kpi"><b>Medimos</b>% lead → reunión agendada</div>
+      <div class="kpi"><b>Medimos</b>Tasa de no-show</div>
+    </div>
+  </section>
+
+  <!-- 7 · CAPA 3 -->
+  <section class="slide">
+    <div class="kicker"><span class="num">06</span>Capa 3 · Método de venta a medida</div>
+    <h2>No un curso más: <span class="hl">un método construido para tu rubro</span>.</h2>
+    <div class="split">
+      <div>
+        <ul class="list">
+          <li><b>Base científica:</b> sintetizamos 12 metodologías probadas — SPIN, Sandler, Challenger, Gap Selling, negociación del FBI (Voss), StoryBrand y más.</li>
+          <li><b>Motor VENDE:</b> 5 etapas fijas (Vincular · Explorar · Narrar · Destrabar · Expandir) con técnicas intercambiables según tu negocio.</li>
+          <li><b>Configurado con 5 variables de tu rubro:</b> ticket, ciclo de venta, número de decisores, carga emocional y recurrencia.</li>
+          <li><b>Playbook operativo:</b> guiones, preguntas exactas y respuestas a objeciones — no teoría, herramientas de uso diario.</li>
+        </ul>
+      </div>
+      <div class="card hero">
+        <span class="ico">🏠</span>
+        <h3>Ejemplo real: modelo HOGAR</h3>
+        <p>Nuestra configuración para el rubro inmobiliario: Hallazgo · Objetivo · Guía · Acuerdo · Relación. Desde descubrir por qué el cliente se muda hasta el sistema de referidos post-entrega.</p>
+        <p style="margin-top:10px; color:var(--brand);">Tu rubro tendrá el suyo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · CAPA 4 -->
+  <section class="slide">
+    <div class="kicker"><span class="num">07</span>Capa 4 · Coaching con IA</div>
+    <h2>Como tener un <span class="hl">coach de ventas en cada reunión</span> — sin contratar uno.</h2>
+    <ul class="list">
+      <li><b>Escucha y analiza cada reunión</b> (siempre con consentimiento informado): transcribe, etiqueta las técnicas usadas y las oportunidades perdidas.</li>
+      <li><b>Mide la ejecución del método:</b> ¿se acordó agenda al inicio? ¿cuánto habló el vendedor vs. el cliente? ¿se cuantificó el problema? ¿la reunión terminó con próximo paso y fecha?</li>
+      <li><b>Feedback individual y accionable:</b> cada vendedor recibe sus buenas prácticas y sus 2-3 mejoras concretas — por reunión, no en la evaluación anual.</li>
+      <li><b>Visibilidad para el líder:</b> panel comparativo del equipo: adherencia al método, evolución individual y alertas tempranas de oportunidades en riesgo.</li>
+    </ul>
+    <div class="kpirow">
+      <div class="kpi"><b>Medimos</b>Adherencia al modelo por vendedor</div>
+      <div class="kpi"><b>Medimos</b>Ratio escucha / habla</div>
+      <div class="kpi"><b>Medimos</b>% reuniones con próximo paso agendado</div>
+    </div>
+  </section>
+
+  <!-- 9 · PATRONES -->
+  <section class="slide">
+    <div class="kicker"><span class="num">08</span>La quinta pieza · Inteligencia de patrones</div>
+    <h2>Después de 15-20 reuniones, el sistema sabe <span class="hl">qué cierra ventas en TU negocio</span>.</h2>
+    <div class="split">
+      <div>
+        <ul class="list">
+          <li><b>Detección de patrones ganadores:</b> cruza las reuniones auditadas con sus resultados (venta / no venta) e identifica qué secuencias de técnicas, preguntas y momentos concretan más cierres.</li>
+          <li><b>Insights preliminares desde la reunión 10,</b> análisis robusto desde la 20 — con nivel de confianza explícito, sin conclusiones infladas.</li>
+          <li><b>El hallazgo se convierte en acción:</b> lo que funciona se incorpora al playbook del equipo, al entrenamiento de cada vendedor y a los mensajes de las campañas.</li>
+        </ul>
+        <div class="quote">"El conocimiento comercial deja de vivir en la cabeza de tu mejor vendedor y pasa a ser un activo de la empresa."<span>La promesa central de Domo IA</span></div>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:14px;">📈 Lo que descubre, por ejemplo:</h3>
+        <p>• Las reuniones donde se cuantificó el problema en dinero cierran el doble.<br><br>• Tu vendedor top hace 3× más preguntas de implicación que el promedio.<br><br>• Las oportunidades sin próximo paso agendado mueren en un 80%.<br><br><span style="color:var(--muted); font-style:italic;">(Ejemplos ilustrativos del tipo de patrón que el sistema detecta con tus datos reales.)</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · FLYWHEEL -->
+  <section class="slide">
+    <div class="kicker"><span class="num">09</span>El ciclo completo</div>
+    <h2 style="text-align:center;">Cada venta hace <span class="hl">más inteligente a la siguiente</span>.</h2>
+    <svg class="fly" viewBox="0 0 420 420" role="img" aria-label="Ciclo de mejora continua de Domo IA">
+      <defs>
+        <marker id="farr" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 z" fill="#5b8cf5"/></marker>
+      </defs>
+      <circle cx="210" cy="210" r="128" fill="none" stroke="#32405f" stroke-width="2" stroke-dasharray="6 7"/>
+      <path d="M 210 82 A 128 128 0 0 1 331.7 172.4" fill="none" stroke="#5b8cf5" stroke-width="3" marker-end="url(#farr)"/>
+      <path d="M 331.7 247.6 A 128 128 0 0 1 285.2 313.6" fill="none" stroke="#5b8cf5" stroke-width="3" marker-end="url(#farr)"/>
+      <path d="M 134.8 313.6 A 128 128 0 0 1 88.3 247.6" fill="none" stroke="#5b8cf5" stroke-width="3" marker-end="url(#farr)"/>
+      <path d="M 88.3 172.4 A 128 128 0 0 1 210 82" fill="none" stroke="#5b8cf5" stroke-width="3" marker-end="url(#farr)"/>
+      <g font-family="Segoe UI,sans-serif" text-anchor="middle">
+        <g><rect x="140" y="42" width="140" height="42" rx="21" fill="#1a2135" stroke="#5b8cf5"/><text x="210" y="62" fill="#eef1f9" font-size="13" font-weight="700">Mejores anuncios</text><text x="210" y="77" fill="#9aa7c4" font-size="10">capa 1</text></g>
+        <g><rect x="286" y="182" width="128" height="42" rx="21" fill="#1a2135" stroke="#5b8cf5"/><text x="350" y="202" fill="#eef1f9" font-size="13" font-weight="700">Mejores leads</text><text x="350" y="217" fill="#9aa7c4" font-size="10">capa 2</text></g>
+        <g><rect x="196" y="322" width="168" height="42" rx="21" fill="#1a2135" stroke="#5b8cf5"/><text x="280" y="342" fill="#eef1f9" font-size="13" font-weight="700">Reuniones con método</text><text x="280" y="357" fill="#9aa7c4" font-size="10">capa 3</text></g>
+        <g><rect x="52" y="322" width="132" height="42" rx="21" fill="#1a2135" stroke="#5b8cf5"/><text x="118" y="342" fill="#eef1f9" font-size="13" font-weight="700">Auditoría IA</text><text x="118" y="357" fill="#9aa7c4" font-size="10">capa 4</text></g>
+        <g><rect x="8" y="182" width="130" height="42" rx="21" fill="#1a2135" stroke="#3ecf94"/><text x="73" y="202" fill="#3ecf94" font-size="13" font-weight="700">Patrones de cierre</text><text x="73" y="217" fill="#9aa7c4" font-size="10">inteligencia</text></g>
+        <text x="210" y="204" fill="#eef1f9" font-size="15" font-weight="800">TU EMPRESA</text>
+        <text x="210" y="224" fill="#9aa7c4" font-size="11">vende más cada ciclo</text>
+      </g>
+    </svg>
+  </section>
+
+  <!-- 11 · MÉTRICAS -->
+  <section class="slide">
+    <div class="kicker"><span class="num">10</span>Visibilidad total</div>
+    <h2>Desde el día 1, <span class="hl">un solo panel</span> con todo el embudo.</h2>
+    <p class="sub">Nada de sensaciones: cada capa reporta sus métricas y todas conversan entre sí. Por primera vez podrás responder con datos: ¿dónde se pierde la venta?</p>
+    <div class="cards c4">
+      <div class="card"><h3>📣 Prospección</h3><p>Costo por lead calificado · rendimiento por ángulo de mensaje · comparativa vs. competencia</p></div>
+      <div class="card"><h3>💬 Conversión</h3><p>Velocidad de respuesta · % lead→reunión · no-show · calidad de calificación</p></div>
+      <div class="card"><h3>🎯 Ejecución</h3><p>Adherencia al método · ratio escucha/habla · próximos pasos agendados · objeciones resueltas</p></div>
+      <div class="card"><h3>🏆 Resultados</h3><p>Tasa de cierre por vendedor y por etapa · velocidad del pipeline · patrones ganadores detectados</p></div>
+    </div>
+  </section>
+
+  <!-- 12 · BASE METODOLÓGICA -->
+  <section class="slide">
+    <div class="kicker"><span class="num">11</span>Respaldo metodológico</div>
+    <h2>No inventamos la rueda: <span class="hl">la sistematizamos</span>.</h2>
+    <p class="sub">El método que configuramos para tu empresa se construye sobre las metodologías de venta más validadas de las últimas décadas — cada una aportando la etapa donde es más fuerte:</p>
+    <div style="margin-top:26px;">
+      <span class="pill"><b>SPIN Selling</b> · Rackham — el arte de preguntar (35.000 visitas de venta analizadas)</span>
+      <span class="pill"><b>Sistema Sandler</b> — contratos previos y embudo del dolor</span>
+      <span class="pill"><b>The Challenger Sale</b> · Dixon &amp; Adamson — enseñar, personalizar, tomar control</span>
+      <span class="pill"><b>Gap Selling</b> · Keenan — el diagnóstico cuantificado</span>
+      <span class="pill"><b>Solution Selling</b> · Bosworth — de dolor a visión de solución</span>
+      <span class="pill"><b>Demand-Side Sales</b> · Moesta — por qué la gente realmente compra</span>
+      <span class="pill"><b>Never Split the Difference</b> · Voss — negociación del FBI</span>
+      <span class="pill"><b>StoryBrand</b> · Miller — claridad de mensaje</span>
+      <span class="pill"><b>Venta Estratégica</b> · Miller-Heiman — ventas con múltiples decisores</span>
+      <span class="pill"><b>Vendes o Vendes</b> · Cardone — convicción y manejo del precio</span>
+      <span class="pill"><b>MREA</b> · Keller — sistema de negocio y referidos</span>
+      <span class="pill"><b>Challenger Customer</b> — la venta al comité</span>
+    </div>
+    <div class="quote">"El agente auditor no evalúa con criterios inventados: mide contra técnicas con décadas de evidencia."</div>
+  </section>
+
+  <!-- 13 · RUBROS -->
+  <section class="slide">
+    <div class="kicker"><span class="num">12</span>Hecho para tu rubro</div>
+    <h2>El mismo motor, <span class="hl">configurado para tu negocio</span>.</h2>
+    <p class="sub">Cinco variables definen tu configuración: ticket promedio, largo del ciclo, número de decisores, carga emocional y recurrencia de compra.</p>
+    <div class="cards c3">
+      <div class="card"><span class="ico">🏠</span><h3>Inmobiliario</h3><p>Modelo HOGAR: del evento que gatilla la mudanza al sistema de referidos. Doble cliente: comprador y propietario.</p></div>
+      <div class="card"><span class="ico">💻</span><h3>SaaS y tecnología B2B</h3><p>Diagnóstico cuantificado, venta al comité y planes de evaluación para ciclos largos con varios decisores.</p></div>
+      <div class="card"><span class="ico">🛡️</span><h3>Seguros y financiero</h3><p>Venta emocional-racional: manejo de la indecisión, las 4 fuerzas del cambio y negociación empática.</p></div>
+      <div class="card"><span class="ico">🚗</span><h3>Automotriz</h3><p>Ticket alto, decisión rápida y emocional: convicción, valor antes que precio y post-venta que genera recompra.</p></div>
+      <div class="card"><span class="ico">🧑‍💼</span><h3>Servicios profesionales</h3><p>Posicionamiento como guía experto, sin regalar consultoría en la reunión de venta.</p></div>
+      <div class="card"><span class="ico">🎓</span><h3>Educación</h3><p>Decisión familiar y emocional: descubrimiento del "trabajo" real detrás de la matrícula.</p></div>
+    </div>
+  </section>
+
+  <!-- 14 · IMPLEMENTACIÓN -->
+  <section class="slide">
+    <div class="kicker"><span class="num">13</span>Implementación</div>
+    <h2>Operativo en semanas, <span class="hl">aprendiendo desde el primer mes</span>.</h2>
+    <div class="steps">
+      <div class="step"><span class="tag">Fase 1 · Semanas 1-2</span><h3>Diagnóstico y configuración</h3><p>Levantamos tu línea base (embudo, métricas, grabaciones si existen), configuramos el modelo de venta con las 5 variables de tu rubro y lanzamos las primeras campañas.</p></div>
+      <div class="step"><span class="tag">Fase 2 · Semanas 3-6</span><h3>Sistema en marcha</h3><p>Agente conversacional atendiendo y agendando; equipo entrenado en el método; primeras reuniones auditadas con feedback individual por vendedor.</p></div>
+      <div class="step"><span class="tag">Fase 3 · Semanas 7-12</span><h3>Inteligencia activada</h3><p>Con 15-20 reuniones por vendedor, el agente de patrones entrega los primeros hallazgos y el ciclo de mejora continua queda funcionando.</p></div>
+    </div>
+    <div class="loopnote">🎯 Al día 90: embudo completo medido, equipo vendiendo con método y el sistema optimizándose con tus propios datos.</div>
+  </section>
+
+  <!-- 15 · POR QUÉ DOMO IA -->
+  <section class="slide">
+    <div class="kicker"><span class="num">14</span>Por qué Domo IA</div>
+    <h2>Herramientas sueltas hay muchas. <span class="hl">Sistemas completos, uno.</span></h2>
+    <div class="cards c2">
+      <div class="card"><span class="ico">🔗</span><h3>Todo el embudo, conectado</h3><p>No es un chatbot + una agencia de ads + un curso de ventas: es un solo sistema donde cada capa alimenta a las demás con datos.</p></div>
+      <div class="card"><span class="ico">🧬</span><h3>Método a medida, no genérico</h3><p>Tu modelo de venta se configura con las variables de tu rubro y evoluciona con los patrones de tus propias reuniones.</p></div>
+      <div class="card"><span class="ico">📊</span><h3>Medible en cada eslabón</h3><p>Del costo por lead a la técnica exacta que faltó en la reunión perdida: visibilidad que ninguna agencia ni CRM te da.</p></div>
+      <div class="card"><span class="ico">🏛️</span><h3>El conocimiento queda en tu empresa</h3><p>Playbooks, patrones y aprendizajes son un activo tuyo. Los vendedores rotan; tu sistema comercial permanece y mejora.</p></div>
+    </div>
+    <div class="quote">"Potenciamos a tus vendedores, no los reemplazamos: la IA hace el trabajo invisible para que ellos hagan el trabajo humano."</div>
+  </section>
+
+  <!-- 16 · CTA -->
+  <section class="slide cover">
+    <div class="kicker" style="text-align:center;"><span class="num">15</span>Siguiente paso</div>
+    <h1>¿Dónde gotea <span class="hl">tu embudo</span>?</h1>
+    <p class="sub" style="margin:0 auto;">Agenda un <b style="color:var(--text);">diagnóstico gratuito de tu proceso comercial</b>: en 45 minutos revisamos tus números con la misma metodología de esta presentación y te mostramos las 2-3 brechas más caras de tu embudo. Sin compromiso — el diagnóstico es tuyo, decidas lo que decidas.</p>
+    <span class="cta-chip">📅 Agendar diagnóstico gratuito</span>
+    <p class="sub" style="margin-top:34px; font-size:clamp(.8rem,1.5vw,.95rem);">
+      DOMO IA · [nombre de contacto] · [correo@domoia.cl] · [+56 9 XXXX XXXX] · [www.domoia.cl]
+    </p>
+  </section>
+
+</div>
+
+<div class="navbar">
+  <div class="progress"><div class="fill" id="fill"></div></div>
+  <div class="navctl">
+    <span class="hint">Navega con ← → o espacio · <b>F</b> pantalla completa · Ctrl+P exporta a PDF</span>
+    <span id="counter"></span>
+    <span class="btns">
+      <button id="prev">← Anterior</button>
+      <button id="next">Siguiente →</button>
+    </span>
+  </div>
+</div>
+
+<script>
+const slides = Array.from(document.querySelectorAll('.slide'));
+let idx = 0;
+
+function show(i){
+  idx = Math.max(0, Math.min(slides.length - 1, i));
+  slides.forEach((s, k) => s.classList.toggle('active', k === idx));
+  document.getElementById('fill').style.width = ((idx + 1) / slides.length * 100) + '%';
+  document.getElementById('counter').textContent = (idx + 1) + ' / ' + slides.length;
+}
+
+document.getElementById('next').addEventListener('click', () => show(idx + 1));
+document.getElementById('prev').addEventListener('click', () => show(idx - 1));
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(idx + 1); }
+  else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(idx - 1); }
+  else if (e.key === 'Home') show(0);
+  else if (e.key === 'End') show(slides.length - 1);
+  else if (e.key.toLowerCase() === 'f') {
+    if (document.fullscreenElement) document.exitFullscreen();
+    else document.documentElement.requestFullscreen();
+  }
+});
+
+// Clic en la mitad derecha avanza, mitad izquierda retrocede (útil al presentar)
+document.getElementById('deck').addEventListener('click', e => {
+  if (e.target.closest('a, button')) return;
+  const x = e.clientX / window.innerWidth;
+  if (x > 0.66) show(idx + 1);
+  else if (x < 0.15) show(idx - 1);
+});
+
+// Gestos táctiles
+let touchX = null;
+document.addEventListener('touchstart', e => touchX = e.touches[0].clientX);
+document.addEventListener('touchend', e => {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  if (dx < -50) show(idx + 1);
+  else if (dx > 50) show(idx - 1);
+  touchX = null;
+});
+
+show(0);
+</script>
+</body>
+</html>
