@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Domo IA — Modelos de Venta: HOGAR y Motor VENDE</title>
+<title>Domo IA — Modelos de Venta 2.0: HOGAR y Motor VENDE</title>
 <style>
   :root{
     --bg:#f6f7fb; --surface:#ffffff; --surface2:#eef1f8;
@@ -98,6 +98,41 @@
   .como-leer ul{margin:8px 0 0 18px;}
   .como-leer li{margin-bottom:4px;}
 
+  /* Pestaña Configuración por Rubro */
+  .rubro-nav{display:flex; gap:8px; flex-wrap:wrap; margin:18px 0;}
+  .rubro-btn{border:1px solid var(--border); background:var(--surface); color:var(--text); font:600 .9rem "Segoe UI",sans-serif; padding:9px 16px; border-radius:12px; cursor:pointer;}
+  .rubro-btn:hover{border-color:var(--brand);}
+  .rubro-btn.active{background:var(--brand); border-color:var(--brand); color:#fff;}
+  .rubro-panel{display:none;}
+  .rubro-panel.active{display:block;}
+  .critico{background:rgba(217,119,6,.1); border:1px solid var(--warn); border-radius:12px; padding:12px 16px; margin:12px 0; font-size:.9rem;}
+  .critico b{color:var(--warn);}
+  .etapa-mod{display:flex; gap:12px; align-items:baseline; padding:9px 0; border-bottom:1px dashed var(--border); font-size:.92rem;}
+  .etapa-mod:last-child{border-bottom:none;}
+  .etapa-mod .el{flex:0 0 28px; height:28px; border-radius:8px; background:var(--brand2); color:#fff; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:.85rem;}
+  .etapa-mod .mods small{display:block; color:var(--muted); font-size:.82rem;}
+  .nuevo-chip{display:inline-block; font-size:.68rem; font-weight:800; color:var(--accent); border:1px dashed var(--accent); border-radius:99px; padding:0 8px; margin-left:6px; vertical-align:middle; white-space:nowrap;}
+
+  /* Módulos nuevos 2.0 en el diagrama SVG */
+  .modg .nuevo{stroke:var(--accent); stroke-dasharray:5 3;}
+
+  /* Tono por rubro en el diagrama del Motor VENDE */
+  .tono-btn{border:1px solid var(--border); background:var(--surface); color:var(--text); font:600 .85rem "Segoe UI",sans-serif; padding:8px 14px; border-radius:12px; cursor:pointer;}
+  .tono-btn:hover{border-color:var(--brand);}
+  .tono-btn.active{background:var(--brand); border-color:var(--brand); color:#fff;}
+  #motorSvg.filtrado .modg{opacity:.25; transition:opacity .2s;}
+  #motorSvg.filtrado .modg.hl{opacity:1;}
+  #motorSvg .modg.hl rect{stroke:var(--brand); stroke-width:2.4; fill:var(--chip);}
+
+  /* Etapas desplegables en la matriz por rubro */
+  details.etapa-x{background:transparent; border:none; border-radius:0; margin:0; border-bottom:1px dashed var(--border);}
+  details.etapa-x:last-child{border-bottom:none;}
+  details.etapa-x summary{padding:11px 4px; gap:12px; align-items:baseline;}
+  details.etapa-x summary .mods small{display:block; color:var(--muted); font-size:.82rem; font-weight:400;}
+  details.etapa-x .det{background:var(--surface2); border-radius:10px; padding:12px 16px; margin:2px 0 14px 40px; font-size:.88rem; line-height:1.55;}
+  details.etapa-x .det .ej{display:block; margin-top:8px; font-style:italic; color:var(--chipText);}
+  @media(max-width:640px){details.etapa-x .det{margin-left:0;}}
+
   .flow{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0;}
   .flow .step{flex:1 1 150px; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:12px; text-align:center; position:relative;}
   .flow .step .n{display:inline-flex; width:26px; height:26px; border-radius:50%; background:var(--brand); color:#fff; align-items:center; justify-content:center; font-size:.8rem; font-weight:700; margin-bottom:6px;}
@@ -147,17 +182,18 @@
 <body data-theme="light">
 
 <header class="hero">
-  <h1>Domo IA · Arquitectura de Modelos de Venta</h1>
-  <p>Síntesis de 14 obras de referencia en ventas en dos modelos operativos: <strong>HOGAR</strong> (especializado en el mercado inmobiliario) y el <strong>Motor VENDE</strong> (genérico y modular, adaptable a cualquier rubro). Cada componente incluye señales medibles por el agente auditor de IA.</p>
-  <span class="tagline">Marco teórico · Modelos gráficos · Configurador interactivo · Ejemplos prácticos</span>
+  <h1>Domo IA · Arquitectura de Modelos de Venta 2.0</h1>
+  <p>Síntesis de 14 obras de referencia en dos modelos operativos: <strong>HOGAR</strong> (mercado inmobiliario) y el <strong>Motor VENDE 2.0</strong> — ahora con <strong>30 módulos</strong> y <strong>5 configuraciones validadas por macrorubro</strong>: SaaS B2B, Servicios Profesionales, Seguros/Financiero, Automotriz e Industrial. Cada componente incluye señales medibles por el agente auditor de IA.</p>
+  <span class="tagline">Marco teórico · Modelos gráficos · 5 configuraciones por rubro · Configurador libre · Ejemplos prácticos</span>
 </header>
 
 <nav class="tabs">
   <div class="inner">
     <button data-tab="marco" class="active">📚 Marco Teórico</button>
     <button data-tab="hogar">🏠 Modelo HOGAR (Inmobiliario)</button>
-    <button data-tab="vende">⚙️ Motor VENDE (Modular)</button>
-    <button data-tab="config">🎛️ Configurador por Rubro</button>
+    <button data-tab="vende">⚙️ Motor VENDE 2.0</button>
+    <button data-tab="rubros">🏭 Configuración por Rubro</button>
+    <button data-tab="config">🎛️ Configurador Libre</button>
     <button data-tab="generacion">👥 Enfoque Generacional</button>
     <button data-tab="ejemplos">💬 Ejemplos Prácticos</button>
     <button class="theme" id="themeBtn" title="Cambiar tema">🌙</button>
@@ -592,8 +628,17 @@
   <h2>Motor VENDE · Modelo genérico modular</h2>
   <p class="lead">Un modelo de dos niveles: una <strong>columna vertebral fija de 5 etapas</strong> (válida para cualquier rubro) y <strong>módulos intercambiables</strong> en cada etapa, extraídos de las teorías del marco. La configuración se elige según 5 variables del rubro. HOGAR es, de hecho, el Motor VENDE pre-configurado para inmobiliario — eso demuestra el enfoque: un solo motor, muchos rubros.</p>
 
+  <div class="rubro-nav" style="margin-bottom:2px;">
+    <span style="align-self:center; font-size:.85rem; color:var(--muted); font-weight:600;">Ver el tono de cada rubro:</span>
+    <button class="tono-btn active" data-tono="todos">Todos los módulos</button>
+    <button class="tono-btn" data-tono="auto">🚗 Automotriz</button>
+    <button class="tono-btn" data-tono="sprof">🧑‍💼 Servicios Prof.</button>
+    <button class="tono-btn" data-tono="saas">💻 SaaS B2B</button>
+    <button class="tono-btn" data-tono="seguros">🛡️ Seguros/Fin.</button>
+    <button class="tono-btn" data-tono="industrial">🏭 Industrial</button>
+  </div>
   <div class="svgbox">
-    <svg viewBox="0 0 940 300" width="940" height="300" role="img" aria-label="Diagrama del Motor VENDE: 5 etapas fijas con módulos intercambiables">
+    <svg id="motorSvg" viewBox="0 0 940 400" width="940" height="400" role="img" aria-label="Diagrama del Motor VENDE 2.0: 5 etapas fijas con 30 módulos intercambiables">
       <defs>
         <style>
           .stg{fill:var(--brand); }
@@ -653,9 +698,25 @@
         <g class="modg" data-tip="Base de Datos + Referidos (Keller)|Cada cierre alimenta la base de contactos con cadencias sistemáticas: 8 toques en 8 semanas para nuevos, 33 toques al año para la base. Los referidos se piden con sistema, no con suerte."><rect class="mod" x="758" y="168" width="172" height="30" rx="8"/><text class="modT" x="844" y="187" text-anchor="middle">Base Datos + Referidos (Keller)</text></g>
         <g class="modg" data-tip="Post-Venta Anti-remordimiento (Sandler)|Blindar la decisión antes de la firma: nombrar uno mismo el arrepentimiento que vendrá (“alguien les dirá que se apuraron…”) para que no cancele el trato después."><rect class="mod" x="758" y="204" width="172" height="30" rx="8"/><text class="modT" x="844" y="223" text-anchor="middle">Post-Venta (Sandler)</text></g>
         <g class="modg" data-tip="Win-Results (Miller-Heiman)|Verificar que cada influenciador obtuvo su resultado de negocio Y su ganancia personal. Es lo que convierte una venta puntual en una cuenta recurrente."><rect class="mod" x="758" y="240" width="172" height="30" rx="8"/><text class="modT" x="844" y="259" text-anchor="middle">Win-Results (Miller-Heiman)</text></g>
+
+        <!-- Módulos nuevos 2.0 (borde verde punteado) -->
+        <g class="modg" data-tip="Criterio de Filtro al Decisor (Nuevo 2.0 · Servicios Profesionales)|Cómo pasar del evaluador junior al socio que decide sin puentear a nadie: convertir al junior en aliado dándole los argumentos exactos que su jefe le va a pedir."><rect class="mod nuevo" x="14" y="276" width="172" height="30" rx="8"/><text class="modT" x="100" y="295" text-anchor="middle">Filtro al Decisor (S. Prof.)</text></g>
+        <g class="modg" data-tip="Mapeo Regulatorio (Nuevo 2.0 · Seguros/Financiero)|Identificar la normativa que obliga al cliente y su plazo. La regulación crea urgencia legítima: el reloj corre aunque el cliente no decida."><rect class="mod nuevo" x="14" y="312" width="172" height="30" rx="8"/><text class="modT" x="100" y="331" text-anchor="middle">Mapeo Regulatorio (Seguros)</text></g>
+
+        <g class="modg" data-tip="Auditoría de Cobertura (Nuevo 2.0 · Seguros/Financiero)|Comparativa entre lo que el cliente tiene cubierto hoy y lo que su situación real exige. La diferencia es su exposición, cuantificada en pesos."><rect class="mod nuevo" x="200" y="276" width="172" height="30" rx="8"/><text class="modT" x="286" y="295" text-anchor="middle">Aud. de Cobertura (Seguros)</text></g>
+        <g class="modg" data-tip="Mapeo de Riesgo Operacional (Nuevo 2.0 · Industrial)|Levantar el costo por hora de detención, historial de paradas y riesgos de seguridad/compliance. En industrial no se vende equipamiento: se vende continuidad operacional."><rect class="mod nuevo" x="200" y="312" width="172" height="30" rx="8"/><text class="modT" x="286" y="331" text-anchor="middle">Riesgo Operacional (Ind.)</text></g>
+
+        <g class="modg" data-tip="Experiencia del Test Drive (Nuevo 2.0 · Automotriz)|Guión para convertir la prueba en emoción vivida: el cliente proyecta su vida con el producto. Es el punto de inflexión medible de la venta automotriz."><rect class="mod nuevo" x="386" y="276" width="172" height="30" rx="8"/><text class="modT" x="472" y="295" text-anchor="middle">Test Drive Experiencial (Auto)</text></g>
+        <g class="modg" data-tip="Retainer vs. Proyecto (Nuevo 2.0 · Servicios Profesionales)|Lógica explícita para proponer proyecto cerrado o acompañamiento mensual según el objetivo del cliente — y convertir ingresos puntuales en recurrentes."><rect class="mod nuevo" x="386" y="312" width="172" height="30" rx="8"/><text class="modT" x="472" y="331" text-anchor="middle">Retainer vs. Proyecto (S. Prof.)</text></g>
+
+        <g class="modg" data-tip="Financiamiento como 2ª Venta (Nuevo 2.0 · Automotriz)|La objeción de cuota es una segunda venta con su propio embudo (pie, plazo, tasa), no un trámite. Se gestiona en las 48 horas post test drive."><rect class="mod nuevo" x="572" y="276" width="172" height="30" rx="8"/><text class="modT" x="658" y="295" text-anchor="middle">Financiamiento 2ª Venta (Auto)</text></g>
+        <g class="modg" data-tip="Validación Técnica Anticipada (Nuevo 2.0 · SaaS/Industrial)|Ofrecer al equipo técnico del cliente probar la integración antes de la decisión comercial. Desactiva el veto de IT cuando aún es barato resolverlo."><rect class="mod nuevo" x="572" y="312" width="172" height="30" rx="8"/><text class="modT" x="658" y="331" text-anchor="middle">Validación Técnica (SaaS/Ind.)</text></g>
+        <g class="modg" data-tip="Auditoría de Integración Técnica (Nuevo 2.0 · Industrial)|Checklist de puntos de integración con la operación actual, validado con el rol técnico antes de la propuesta económica. Elimina las sorpresas del comité."><rect class="mod nuevo" x="572" y="348" width="172" height="30" rx="8"/><text class="modT" x="658" y="367" text-anchor="middle">Aud. Integración Técnica (Ind.)</text></g>
+
+        <g class="modg" data-tip="Plan de Escalabilidad Multi-Planta (Nuevo 2.0 · Industrial)|Diseñar el piloto en una planta con resultados clave medibles y el roadmap de expansión a las demás. El verdadero premio industrial es pasar de 1 a N plantas."><rect class="mod nuevo" x="758" y="276" width="172" height="30" rx="8"/><text class="modT" x="844" y="295" text-anchor="middle">Escalabilidad Multi-Planta (Ind.)</text></g>
       </g>
     </svg>
-    <div class="cap">La columna V-E-N-D-E nunca cambia. Los módulos de cada etapa se seleccionan según el perfil del rubro (usa la pestaña Configurador). <strong>Pasa el cursor sobre cada módulo (o tócalo) para ver una reseña de su concepto.</strong></div>
+    <div class="cap">La columna V-E-N-D-E nunca cambia: los módulos de cada etapa se seleccionan según el perfil de tu negocio. Los de <strong style="color:var(--accent);">borde verde punteado</strong> son módulos especializados por rubro. <strong>Elige un rubro arriba para ver qué módulos se encienden para tu mercado, y pasa el cursor sobre cada módulo para ver su reseña.</strong></div>
   </div>
 
   <h3>Las 5 variables de configuración</h3>
@@ -720,12 +781,184 @@
     <div class="card"><span class="badge green">Regla 3</span><h4>Nada de propuesta sin brecha</h4><p style="font-size:.9rem;">No se presenta precio ni solución hasta que el problema esté admitido y dimensionado (Bosworth + Keenan). La propuesta prematura convierte al vendedor en cotizador.</p></div>
     <div class="card"><span class="badge green">Regla 4</span><h4>Todo termina en próximo paso</h4><p style="font-size:.9rem;">Ninguna interacción termina sin un compromiso concreto con fecha (Sandler + Eades). "Quedamos en contacto" = bandera roja automática para el agente auditor.</p></div>
   </div>
+
+  <h3>Las 3 fases del ciclo del comprador moderno</h3>
+  <div class="flow">
+    <div class="step"><span class="n">1</span><strong>Investigación</strong><span>semanas 1-2 · el comprador investiga solo; el vendedor aún no existe. Aquí compiten tus anuncios y contenido (capas 1-2 de Domo IA)</span></div>
+    <div class="step"><span class="n">2</span><strong>Urgencia</strong><span>semanas 3-4 · entra el vendedor: reencuadre Challenger + brecha cuantificada</span></div>
+    <div class="step"><span class="n">3</span><strong>Alineación interna</strong><span>semanas 5-8 · el negocio se gana o muere en reuniones donde no estás: movilizador equipado + plan de evaluación compartido</span></div>
+  </div>
+  <p style="font-size:.85rem; color:var(--muted); margin-top:6px;">Validado en SaaS; aplica a toda venta B2B investigable. El error clásico que el auditor detecta: aplicar técnicas de la fase 2 cuando el cliente todavía está en la 1, o seguir "vendiendo" en la fase 3 en vez de equipar al movilizador para su venta interna.</p>
 </section>
 
-<!-- ============ TAB 4: CONFIGURADOR ============ -->
+<!-- ============ TAB 4: CONFIGURACIÓN POR RUBRO ============ -->
+<section class="tab" id="tab-rubros">
+  <h2>Configuración por Rubro · 5 macrorubros validados</h2>
+  <p class="lead">Configuraciones del Motor VENDE 2.0 para cinco macrorubros. Cada una define el perfil del comprador, el <strong>punto crítico donde mueren las ventas</strong> de ese mercado, los módulos por etapa y los KPIs que el agente auditor mide. El principio: <strong>el motor V-E-N-D-E es el mismo — lo que cambia es la configuración para tu negocio</strong>. Haz clic en cada etapa de la matriz para ver el detalle y un ejemplo real.</p>
+
+  <div class="rubro-nav">
+    <button class="rubro-btn active" data-rubro="auto">🚗 Automotriz</button>
+    <button class="rubro-btn" data-rubro="sprof">🧑‍💼 Servicios Profesionales</button>
+    <button class="rubro-btn" data-rubro="saas">💻 SaaS B2B</button>
+    <button class="rubro-btn" data-rubro="seguros">🛡️ Seguros / Financiero</button>
+    <button class="rubro-btn" data-rubro="industrial">🏭 Industrial</button>
+  </div>
+
+  <!-- AUTOMOTRIZ -->
+  <div class="rubro-panel active" id="rp-auto">
+    <div class="kpirow">
+      <div class="kpi"><b>Ticket</b>Alto</div>
+      <div class="kpi"><b>Ciclo</b>14 – 45 días</div>
+      <div class="kpi"><b>Decisores</b>2 – 4 (pareja/familia)</div>
+      <div class="kpi"><b>Carga emocional</b>70% — la más alta</div>
+    </div>
+    <div class="critico">⚠️ <b>Punto crítico del rubro:</b> las 48 horas post test drive. El cliente sale emocionado, aparece la objeción de cuota y, sin gestión estructurada del financiamiento, la venta se enfría y no vuelve.</div>
+    <h3>Matriz V-E-N-D-E Automotriz</h3>
+    <div class="card">
+      <details class="etapa-x"><summary><span class="el">V</span><div class="mods"><b>Línea de Tiempo del Comprador + 4 Fuerzas</b><small>Entender el momento de vida antes de hablar del auto.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">La primera conversación no es sobre el auto: es sobre lo que cambió en la vida del cliente — familia que crece, trabajo nuevo, auto actual que empezó a fallar. Con eso el vendedor sabe si está frente a alguien curioseando (nutrir con información) o listo para decidir (acelerar). Tratar igual a ambos es la forma más rápida de perder a los dos.<span class="ej">💬 "¿Qué pasó que los hizo pensar en cambiar el auto justo ahora?"</span></div>
+      </details>
+      <details class="etapa-x"><summary><span class="el">E</span><div class="mods"><b>4 Fuerzas del Progreso (sueño vs. hábito)</b><small>Amplificar la atracción, nombrar el freno.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">Dos fuerzas empujan la compra (los problemas del auto actual y la ilusión del nuevo) y dos la frenan (el apego a lo conocido y el miedo a la cuota). El vendedor amplifica las primeras y nombra las segundas en voz alta — la ansiedad que no se nombra en esta etapa reaparece después como un "lo voy a pensar" del que el cliente no vuelve.<span class="ej">💬 "¿Qué es lo que más los entusiasma del cambio… y qué es lo que más les complica?"</span></div>
+      </details>
+      <details class="etapa-x"><summary><span class="el">N</span><div class="mods"><b>Visión de Solución + Experiencia del Test Drive</b><span class="nuevo-chip">ESPECIALIZADO</span><small>La prueba de manejo como emoción vivida, no como trámite.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">El test drive deja de ser una vuelta a la manzana y se convierte en el momento donde el cliente vive su vida futura: ajusta el asiento y los espejos como propios, conecta su teléfono, maneja la ruta que haría un día normal. Cuando el cliente verbaliza a dónde iría con el auto, la venta cambió de dueño.<span class="ej">💬 "Ajusta el asiento como si ya fuera tuyo… ¿a dónde irías este fin de semana con él?"</span></div>
+      </details>
+      <details class="etapa-x"><summary><span class="el">D</span><div class="mods"><b>Ir por el No + Financiamiento como 2ª Venta</b><span class="nuevo-chip">ESPECIALIZADO</span><small>La cuota es una venta en sí misma, no un trámite.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">La decisión se gestiona dentro de las 48 horas posteriores al test drive, mientras la emoción está viva. Y la objeción de cuota se trabaja como una segunda venta con su propio proceso — pie, plazo, tasa, permuta — nunca con un descuento reflejo que erosiona el margen y la confianza.<span class="ej">💬 "Olvidemos el precio total un momento: ¿qué cuota mensual te acomoda sin apretarte? Armemos el traje desde ahí."</span></div>
+      </details>
+      <details class="etapa-x"><summary><span class="el">E</span><div class="mods"><b>Win-Results + Base de Datos y Referidos</b><small>El referido es inmediato; la recompra, en 3-5 años.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">Tras la entrega, el post-venta blinda la decisión ("¿cómo te has sentido con el auto?") y activa dos motores: el referido inmediato — el comprador feliz de auto nuevo es el mejor vendedor de la marca esa semana — y la cadencia de contacto que asegura que la recompra en 3-5 años llegue a quien mantuvo la relación, no a la competencia.<span class="ej">💬 En la entrega de llaves: "¿A quién de tu círculo le encantaría vivir esto mismo? Con dos nombres me ayudas un montón."</span></div>
+      </details>
+    </div>
+    <div class="ia-box">🤖 <strong>KPIs del auditor para Automotriz:</strong> evento gatillador identificado · vida deseada verbalizada por el cliente · 4 fuerzas mapeadas · ansiedad detectada y nombrada · visión emocional durante el test drive · decisión gestionada dentro de 48h · objeción de cuota manejada sin descuento inmediato · referido pedido.</div>
+  </div>
+
+  <!-- SERVICIOS PROFESIONALES -->
+  <div class="rubro-panel" id="rp-sprof">
+    <div class="kpirow">
+      <div class="kpi"><b>Ticket</b>Medio – Alto</div>
+      <div class="kpi"><b>Ciclo</b>30 – 90 días</div>
+      <div class="kpi"><b>Decisores</b>2 – 3 (evaluador + socio)</div>
+      <div class="kpi"><b>Carga emocional</b>60% — confianza personal</div>
+    </div>
+    <div class="critico">⚠️ <b>Punto crítico del rubro:</b> el filtro junior. La propuesta la evalúa un analista o gerente medio y nunca llega al socio que decide — o llega mal contada. Quien no gestiona ese tránsito pierde la venta sin enterarse de por qué.</div>
+    <h3>Matriz V-E-N-D-E Servicios Profesionales</h3>
+    <div class="card">
+      <details class="etapa-x"><summary><span class="el">V</span><div class="mods"><b>Línea de Tiempo + Contrato Previo + Filtro al Decisor</b><span class="nuevo-chip">ESPECIALIZADO</span><small>Convertir al evaluador junior en aliado hacia el socio.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">Se abre entendiendo qué gatilló la búsqueda del servicio y acordando agenda y decisión (contrato previo). Y se aplica el módulo clave del rubro: el evaluador junior no es un obstáculo, es tu primer cliente — se le entregan los argumentos exactos que su jefe le va a pedir, y se acuerda con él cómo llegar juntos a la mesa del socio.<span class="ej">💬 "Para que tu recomendación sea fácil de defender: ¿qué es lo primero que tu socio te va a preguntar cuando le presentes esto?"</span></div>
+      </details>
+      <details class="etapa-x"><summary><span class="el">E</span><div class="mods"><b>Embudo del Dolor (brecha emocional)</b><small>El riesgo aquí es personal, no solo técnico.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">En servicios se compra expertise, y el riesgo percibido es personal: "¿este consultor me dejará bien parado o me dejará expuesto?". El embudo del dolor profundiza más allá del problema técnico hasta el costo de no resolverlo — incluido el costo reputacional de quien contrata.<span class="ej">💬 "¿Y qué pasa contigo, con tu área, si esto sigue seis meses más sin resolverse?"</span></div>
+      </details>
+      <details class="etapa-x"><summary><span class="el">N</span><div class="mods"><b>Cliente Héroe + Retainer vs. Proyecto</b><span class="nuevo-chip">ESPECIALIZADO</span><small>Demostrar criterio sin regalar la consultoría.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">El equilibrio del rubro: mostrar el <em>cómo lo abordaríamos</em> (criterio, método, casos) sin entregar el <em>qué haríamos exactamente</em> — eso ya es el servicio. Y proponer el modelo de contratación con lógica explícita: proyecto cerrado cuando el objetivo es acotado, acompañamiento mensual cuando el valor está en la continuidad.<span class="ej">💬 "Según tu objetivo, te conviene partir con un diagnóstico cerrado de 6 semanas; el acompañamiento mensual tiene sentido recién con los hallazgos sobre la mesa."</span></div>
+      </details>
+      <details class="etapa-x"><summary><span class="el">D</span><div class="mods"><b>Empatía Táctica</b><small>La objeción se etiqueta y calibra, no se rebate.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">Las objeciones típicas del rubro — "lo podemos hacer internamente", "está caro para lo que es" — no se discuten: se nombran (etiqueta) y se devuelven como pregunta calibrada, para que el propio cliente descubra por qué no lo ha resuelto internamente hasta ahora.<span class="ej">💬 "Parece que les preocupa no ver un retorno concreto. ¿Qué tendría que pasar en los primeros 90 días para que esto haya valido cada peso?"</span></div>
+      </details>
+      <details class="etapa-x"><summary><span class="el">E</span><div class="mods"><b>Post-Venta + Referidos</b><small>El referido socio-a-socio es el canal número uno.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">En servicios profesionales el mejor vendedor es el socio satisfecho hablando con sus pares. El referido se pide con sistema — con nombre y contexto, no con un tibio "si conoces a alguien" — y en el momento exacto: cuando el cliente acaba de ver el resultado.<span class="ej">💬 "¿Con qué otro gerente de tu red debería estar teniendo esta misma conversación?"</span></div>
+      </details>
+    </div>
+    <div class="ia-box">🤖 <strong>KPIs del auditor para Servicios Profesionales:</strong> evento gatillador · etapa de búsqueda identificada · profundidad del embudo del dolor · tono empático (ratio escucha) · consultoría aportada sin regalarla · "así es" del cliente logrado · referido pedido al cierre.</div>
+  </div>
+
+  <!-- SAAS -->
+  <div class="rubro-panel" id="rp-saas">
+    <div class="kpirow">
+      <div class="kpi"><b>Ticket</b>Medio (recurrente)</div>
+      <div class="kpi"><b>Ciclo</b>60 – 120 días</div>
+      <div class="kpi"><b>Decisores</b>4 – 6 roles simultáneos</div>
+      <div class="kpi"><b>Carga emocional</b>30% — racional/técnica</div>
+    </div>
+    <div class="critico">⚠️ <b>Punto crítico del rubro:</b> el movilizador no identificado a tiempo. El negocio muere en la fase de alineación interna, en reuniones donde tu vendedor no está — y para cuando lo nota, ya es tarde.</div>
+    <h3>Matriz V-E-N-D-E SaaS B2B</h3>
+    <div class="card">
+      <details class="etapa-x"><summary><span class="el">V</span><div class="mods"><b>Mapa de Influenciadores (IT / Finanzas / Usuarios)</b><small>Cada rol del comité quiere algo distinto — y en conflicto.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">En SaaS deciden 4-6 roles a la vez y sus objetivos chocan entre sí: IT quiere seguridad, finanzas quiere bajar el costo total, los usuarios quieren facilidad de uso. El mapa se levanta desde el primer contacto, con un contrato previo breve (10-15 minutos) y adaptado a cada rol. La pieza más valiosa: identificar al <b>movilizador</b> — la persona que empujará el cambio por dentro.<span class="ej">💬 "Además de ti, ¿quién evalúa la seguridad y quién firma el presupuesto? Me gustaría entender qué le importa a cada uno antes de proponer nada."</span></div>
+      </details>
+      <details class="etapa-x"><summary><span class="el">E</span><div class="mods"><b>SPIN técnico + financiero</b><small>Doble carril: implicación operativa y costo medible.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">Las preguntas de implicación corren por dos carriles a la vez: las consecuencias operativas para el usuario (fricción, retrabajos, errores) y su traducción a dinero para finanzas — la fórmula simple de horas por semana × costo hora convierte una molestia en un caso de negocio.<span class="ej">💬 "Si cada consulta les toma 30 minutos y reciben 60 a la semana… ¿qué significa eso en costo de equipo al mes?"</span></div>
+      </details>
+      <details class="etapa-x"><summary><span class="el">N</span><div class="mods"><b>Reencuadre sobre el "cómo" + Visión de Solución</b><small>El comprador ya investigó: no cuestiones su problema, cuestiona su proceso.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">El comprador SaaS llega habiendo comparado 3-5 alternativas y leído reseñas, así que el reencuadre clásico ("tu problema real es otro") pierde fuerza. La versión efectiva apunta a la fricción de <em>cómo</em> resuelven hoy. Y si el cliente no tiene herramienta previa, la brecha se construye contra la visión futura: cuánto vale lo que hoy no puede hacer.<span class="ej">💬 "No es que les falte una herramienta: es que el proceso actual esconde el costo repartido en cuatro planillas que nadie mira junta."</span></div>
+      </details>
+      <details class="etapa-x"><summary><span class="el">D</span><div class="mods"><b>Consenso de Comité + Validación Técnica Anticipada</b><span class="nuevo-chip">ESPECIALIZADO</span><small>Desactivar el veto técnico antes de que exista.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">Dos movimientos simultáneos: ofrecer a IT un ambiente de prueba <em>antes</em> de la decisión comercial (el veto técnico se desactiva cuando aún es barato resolverlo) y co-crear con el movilizador su plan de venta interna — anticipando la objeción que pondrá cada rol y preparando la respuesta juntos.<span class="ej">💬 "Propongo que tu equipo técnico pruebe la integración esta semana, antes de hablar de contrato. Y preparemos juntos la pregunta que te hará finanzas."</span></div>
+      </details>
+      <details class="etapa-x"><summary><span class="el">E</span><div class="mods"><b>Plan de Evaluación con prueba piloto</b><small>El cierre es un proceso administrado, no una esperanza.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">El cierre SaaS se administra con un cronograma compartido: prueba piloto con criterios de éxito medibles, hitos con fecha y decisión agendada. Y como el producto es recurrente, la expansión — más usuarios, más módulos — se diseña desde el día uno, no cuando llega la renovación.<span class="ej">💬 "Piloto de 30 días con estas 3 métricas acordadas; si se cumplen, escalamos al resto del equipo dentro del trimestre. ¿Fijamos la fecha de decisión?"</span></div>
+      </details>
+    </div>
+    <div class="ia-box">🤖 <strong>KPIs del auditor para SaaS:</strong> movilizador identificado desde el día 1 · 4+ roles mapeados · impacto cuantificado en $/ROI · 3+ preguntas de implicación · insight Challenger entregado · plan de venta interna co-creado · cronograma de evaluación compartido.</div>
+  </div>
+
+  <!-- SEGUROS -->
+  <div class="rubro-panel" id="rp-seguros">
+    <div class="kpirow">
+      <div class="kpi"><b>Ticket</b>Bajo – Medio (recurrente)</div>
+      <div class="kpi"><b>Ciclo</b>60 – 120 días</div>
+      <div class="kpi"><b>Decisores</b>3 – 5 (incluye comité de riesgo)</div>
+      <div class="kpi"><b>Carga emocional</b>40% — el MIEDO como motor</div>
+    </div>
+    <div class="critico">⚠️ <b>Punto crítico del rubro:</b> el comité de riesgo pide cifras a mitad del proceso. Si para entonces la brecha no está cuantificada en pesos y en exposición regulatoria, la decisión se congela indefinidamente ("lo vemos el próximo trimestre").</div>
+    <h3>Matriz V-E-N-D-E Seguros / Financiero</h3>
+    <div class="card">
+      <details class="etapa-x"><summary><span class="el">V</span><div class="mods"><b>Contrato Previo + Mapa de Influenciadores + Mapeo Regulatorio</b><span class="nuevo-chip">ESPECIALIZADO</span><small>La normativa crea urgencia legítima con plazo propio.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">Además del contrato previo y el mapa de quiénes deciden, en este rubro hay un tercer movimiento de apertura: identificar la normativa que obliga al cliente (CMF, compliance laboral, requisitos de directorio). La regulación es la única urgencia que no depende del ánimo del cliente — el plazo corre igual, decida o no.<span class="ej">💬 "Con la nueva norma, ¿cómo están cubriendo hoy este requisito? Porque el plazo corre igual, decidan o no."</span></div>
+      </details>
+      <details class="etapa-x"><summary><span class="el">E</span><div class="mods"><b>Ficha de Brecha + SPIN + Auditoría de Cobertura</b><span class="nuevo-chip">ESPECIALIZADO</span><small>La exposición del cliente, en pesos y por escrito.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">El corazón del descubrimiento es la auditoría de cobertura: una comparativa entre lo que el cliente tiene cubierto hoy y lo que su situación real exige. La diferencia es su exposición, cuantificada en pesos. Ese documento es exactamente lo que el comité de riesgo va a pedir — llegar con él preparado convierte al vendedor en asesor.<span class="ej">💬 "Hagamos el ejercicio: esto es lo que tienen cubierto y esto lo que su operación exige. La diferencia — $180 millones — es lo que hoy están asumiendo solos."</span></div>
+      </details>
+      <details class="etapa-x"><summary><span class="el">N</span><div class="mods"><b>Reencuadre + Convicción</b><small>El miedo motiva, pero también congela: primero la emoción, después la cifra.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">El error clásico del rubro es golpear con la cifra de exposición de entrada: el cliente se asusta y se paraliza ("lo veo después"). La secuencia correcta es nombrar primero la ansiedad — eso la desactiva — y recién entonces mostrar los números, con la convicción serena de quien ofrece protección, no de quien vende miedo.<span class="ej">💬 "Parece que les inquieta pagar durante años por algo que ojalá nunca usen. Es la pregunta correcta — veamos juntos qué costaría no tenerlo."</span></div>
+      </details>
+      <details class="etapa-x"><summary><span class="el">D</span><div class="mods"><b>El Mito del Precio + Consenso de Comité</b><small>La prima se compara contra la exposición, no contra otras primas.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">La objeción de prima nunca se responde con descuento: se reencuadra contra el costo de la exposición. Y cuando decide un comité, cada rol recibe el material que le habla a él — al gerente de finanzas el análisis de riesgo cuantificado, al fiscal el respaldo normativo, al dueño la tranquilidad operacional.<span class="ej">💬 "Antes de ajustar la prima, comparemos: ¿la prima anual, o la probabilidad de asumir solos una pérdida de $200 millones?"</span></div>
+      </details>
+      <details class="etapa-x"><summary><span class="el">E</span><div class="mods"><b>Post-Venta intenso + Base de Datos</b><small>La renovación se gana durante el año, no en la fecha de renovación.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">Producto recurrente por naturaleza: el verdadero cierre es la renovación, y esa se gana con los siniestros bien atendidos, la revisión anual de cobertura y el contacto que demuestra que el asesor sigue ahí cuando no está vendiendo. El cliente que solo escucha a su corredor en la renovación, cotiza con otro.<span class="ej">💬 "Agendemos la revisión anual desde ya: si tu situación cambió, tu cobertura tiene que cambiar con ella."</span></div>
+      </details>
+    </div>
+    <div class="ia-box">🤖 <strong>KPIs del auditor para Seguros/Financiero:</strong> contrato previo en los primeros 5 min · 3+ stakeholders identificados · brecha cuantificada en $ y en regulación · impacto de la inacción explicitado · insight sectorial aportado · precio defendido por valor · post-venta anti-remordimiento intenso.</div>
+  </div>
+
+  <!-- INDUSTRIAL -->
+  <div class="rubro-panel" id="rp-industrial">
+    <div class="kpirow">
+      <div class="kpi"><b>Ticket</b>Muy Alto</div>
+      <div class="kpi"><b>Ciclo</b>120 – 240 días</div>
+      <div class="kpi"><b>Decisores</b>5 – 8+ (multi-planta)</div>
+      <div class="kpi"><b>Carga emocional</b>20% — miedo operacional</div>
+    </div>
+    <div class="critico">⚠️ <b>Punto crítico del rubro:</b> el stakeholder no mapeado al inicio que aparece a vetar meses después. En ciclos de 6-8 meses, un rol técnico o de seguridad omitido al comienzo destruye medio año de trabajo comercial.</div>
+    <h3>Matriz V-E-N-D-E Industrial</h3>
+    <div class="card">
+      <details class="etapa-x"><summary><span class="el">V</span><div class="mods"><b>Mapa de Influenciadores multi-planta</b><small>7+ roles por planta, y el mapa se revisa cada 2 semanas.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">En industrial deciden operaciones, mantención, seguridad, compras y gerencia — a veces por cada planta. El mapa de influenciadores se levanta al inicio y se revisa cada dos semanas, porque en ciclos de 6-8 meses la organización cambia: gente que rota, roles que aparecen. El costo de un rol omitido es un veto tardío.<span class="ej">💬 "¿Quién más, en cualquiera de las plantas, puede frenar u observar esta decisión? Prefiero conocerlo ahora y no en el mes cinco."</span></div>
+      </details>
+      <details class="etapa-x"><summary><span class="el">E</span><div class="mods"><b>Ficha de Brecha + Mapeo de Riesgo Operacional</b><span class="nuevo-chip">ESPECIALIZADO</span><small>No se vende equipamiento: se vende continuidad operacional.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">La brecha industrial se expresa en el idioma de la planta: porcentaje de uptime, costo por hora de línea detenida, historial de paradas no programadas y exposición en seguridad y compliance. Cuando el problema queda dimensionado en horas de detención y pesos, la conversación deja de ser sobre el precio del equipo.<span class="ej">💬 "¿Cuánto cuesta una hora de esta línea detenida? ¿Y cuándo fue la última parada no programada?"</span></div>
+      </details>
+      <details class="etapa-x"><summary><span class="el">N</span><div class="mods"><b>Reencuadre + Plan de 3 pasos</b><small>Un plan tan simple que un comité de 8 lo repita sin distorsión.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">El insight sectorial (benchmarks de uptime de la industria, prácticas de plantas comparables) reencuadra la conversación, y la propuesta se comunica como un plan de tres pasos deliberadamente simple: en un comité de ocho personas, tu propuesta la contarán personas que no estuvieron en tu reunión — si no la pueden repetir sin distorsionarla, no existe.<span class="ej">💬 "Las plantas comparables operan al 94% de uptime; ustedes hoy al 88%. El plan: auditoría de línea, piloto en una, decisión con datos."</span></div>
+      </details>
+      <details class="etapa-x"><summary><span class="el">D</span><div class="mods"><b>Consenso + Auditoría de Integración Técnica</b><span class="nuevo-chip">ESPECIALIZADO</span><small>Que el comité técnico no encuentre sorpresas.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">Antes de la propuesta económica se valida con el rol técnico un checklist de integración con la operación actual — compatibilidades, paradas necesarias, capacitación. Y las objeciones de cada rol se anticipan y responden por escrito: en industrial, el documento que circula internamente vende más que la reunión.<span class="ej">💬 "Antes de cotizar, levantemos juntos los puntos de integración con su línea actual: que el comité no encuentre ninguna sorpresa."</span></div>
+      </details>
+      <details class="etapa-x"><summary><span class="el">E</span><div class="mods"><b>Win-Results + Escalabilidad Multi-Planta</b><span class="nuevo-chip">ESPECIALIZADO</span><small>El verdadero premio es pasar de 1 a N plantas.</small></div><span class="arrow">▸</span></summary>
+        <div class="det">La primera orden es la puerta de entrada: el negocio industrial real está en la expansión. El cierre se estructura como piloto en una planta con resultados clave medibles y un roadmap explícito hacia las demás, con revisión trimestral donde cada influenciador verifica su resultado — el de negocio y el personal.<span class="ej">💬 "Partamos por la planta con mayor costo de parada; si el piloto cumple los indicadores, el plan contempla las otras cuatro en 18 meses."</span></div>
+      </details>
+    </div>
+    <div class="ia-box">🤖 <strong>KPIs del auditor para Industrial:</strong> 7+ roles mapeados por planta · mapa de stakeholders completo y actualizado · brecha en % de uptime · impacto proyectado en 3+ plantas · insight sectorial · plan de 3 fases comunicado · objeciones pre-identificadas por rol · resultados clave del piloto definidos · revisión trimestral agendada.</div>
+  </div>
+</section>
+
+<!-- ============ TAB 5: CONFIGURADOR LIBRE ============ -->
 <section class="tab" id="tab-config">
   <h2>Configurador por Rubro</h2>
-  <p class="lead">Elige un rubro (o mueve las 5 variables a mano) y el motor recomienda el módulo óptimo para cada etapa V-E-N-D-E, con una frase de ejemplo y el KPI que el agente auditor de Domo IA mediría. Esto simula exactamente lo que haría la plataforma en el onboarding de un cliente nuevo.</p>
+  <p class="lead">Elige un rubro (o mueve las 5 variables a mano) y el motor calcula por afinidad el módulo óptimo para cada etapa V-E-N-D-E — ahora sobre el catálogo completo de <strong>30 módulos</strong> (20 clásicos + 10 nuevos de la versión 2.0). Esto simula el onboarding de la plataforma. <strong>Nota:</strong> para los 5 macrorubros validados, la pestaña 🏭 Configuración por Rubro muestra la matriz curada (autoritativa); este configurador sirve para perfiles personalizados, rubros nuevos o para explorar alternativas.</p>
 
   <div class="como-leer">
     <strong>📐 ¿Qué significa el "% de ajuste"?</strong>
@@ -932,7 +1165,7 @@
 </section>
 
 <footer>
-  Domo IA · Modelos de venta construidos sobre: Rackham, Sandler, Bosworth, Eades, Dixon &amp; Adamson, Keenan, Moesta, Voss, Miller, Cardone, Miller &amp; Heiman y Keller. Documento de trabajo interno — generado en julio de 2026.
+  <strong>Domo IA</strong> · Motor VENDE 2.0 — un método de venta construido sobre las metodologías más validadas de las últimas décadas (Rackham, Sandler, Bosworth, Dixon &amp; Adamson, Keenan, Moesta, Voss, Miller, Cardone, Miller &amp; Heiman, Keller), configurado para tu rubro y medido con IA en cada reunión. © Domo IA 2026.
 </footer>
 
 </div><!-- /wrap -->
@@ -982,7 +1215,18 @@ const MODULOS = [
   {e:4, n:"Plan de Evaluación Conjunto", f:"Solution Selling Fieldbook (Eades)", p:[5,5,4,1,3], frase:"Les propongo este cronograma compartido: demo el 12, prueba piloto el 20, decisión de directorio el 30. ¿Ajustamos fechas?", kpi:"Plan de cierre con hitos y fechas compartido y aceptado por el cliente."},
   {e:4, n:"Base de Datos + Referidos", f:"MREA (Keller)", p:[3,2,1,4,2], frase:"Me encantó trabajar con ustedes. ¿A quién de su círculo le serviría lo mismo? Con dos nombres me ayudan un montón.", kpi:"Referidos pedidos/obtenidos por cierre; cumplimiento de cadencia 8x8 y 33 toques."},
   {e:4, n:"Post-Venta Anti-remordimiento", f:"Sandler", p:[3,2,2,4,2], frase:"Entre hoy y la firma alguien les va a decir que se apuraron. ¿Cómo se sienten con la decisión? Repasemos por qué la tomaron.", kpi:"Post-sell realizado antes de la firma; tasa de caída entre acuerdo y firma."},
-  {e:4, n:"Win-Results de Cuenta", f:"Venta Estratégica (Miller-Heiman)", p:[5,5,5,1,5], frase:"A 90 días del arranque: ¿logramos el resultado de negocio que definimos, y te dejó bien parado a ti internamente?", kpi:"Win-result documentado por influenciador; revisión trimestral de cuenta agendada."}
+  {e:4, n:"Win-Results de Cuenta", f:"Venta Estratégica (Miller-Heiman)", p:[5,5,5,1,5], frase:"A 90 días del arranque: ¿logramos el resultado de negocio que definimos, y te dejó bien parado a ti internamente?", kpi:"Win-result documentado por influenciador; revisión trimestral de cuenta agendada."},
+  // ---- Módulos nuevos 2.0 (validación por rubro, julio 2026) ----
+  {e:0, n:"Criterio de Filtro al Decisor", f:"Nuevo 2.0 · Servicios Profesionales", p:[4,3,3,3,4], frase:"Entiendo que tú evalúas las opciones. Para que tu recomendación sea fácil de defender: ¿qué es lo primero que tu socio va a preguntar?", kpi:"Reunión con el decisor final lograda sin puentear (ni perder) al evaluador junior."},
+  {e:0, n:"Mapeo Regulatorio", f:"Nuevo 2.0 · Seguros/Financiero", p:[3,3,3,3,4], frase:"Con la nueva normativa, ¿cómo están cubriendo hoy este requisito? Porque el plazo corre igual, decidan o no.", kpi:"Requisito normativo y plazo identificados como fuente de urgencia legítima."},
+  {e:1, n:"Auditoría de Cobertura", f:"Nuevo 2.0 · Seguros/Financiero", p:[3,3,2,4,4], frase:"Hagamos el ejercicio: esto es lo que tienen cubierto hoy y esto lo que su situación real exige. La diferencia es su exposición.", kpi:"Comparativa cobertura actual vs. requerida entregada y cuantificada en $."},
+  {e:1, n:"Mapeo de Riesgo Operacional", f:"Nuevo 2.0 · Industrial", p:[5,5,5,1,5], frase:"¿Cuánto cuesta una hora de esta línea detenida? ¿Y cuándo fue la última parada no programada?", kpi:"Brecha expresada en % de uptime, costo de parada y riesgo de seguridad/compliance."},
+  {e:2, n:"Experiencia del Test Drive", f:"Nuevo 2.0 · Automotriz", p:[4,2,2,5,2], frase:"Antes de partir: ajusta el asiento y el espejo como si ya fuera tuyo. ¿A dónde irías este fin de semana con él?", kpi:"Guión de emoción vivida ejecutado; visión de uso verbalizada por el cliente durante la prueba."},
+  {e:2, n:"Retainer vs. Proyecto", f:"Nuevo 2.0 · Servicios Profesionales", p:[4,3,3,3,5], frase:"Podemos hacerlo como proyecto cerrado o como acompañamiento mensual. Según tu objetivo, te muestro cuál te conviene y por qué.", kpi:"Modelo de facturación propuesto con lógica explícita; recurrencia evaluada en cada propuesta."},
+  {e:3, n:"Financiamiento como 2ª Venta", f:"Nuevo 2.0 · Automotriz", p:[4,2,2,4,2], frase:"Olvidemos el precio total un momento: ¿qué cuota mensual te acomoda sin apretarte? Trabajemos desde ahí.", kpi:"Objeción de cuota gestionada con estructura (pie/plazo/tasa) dentro de las 48h post test drive."},
+  {e:3, n:"Validación Técnica Anticipada", f:"Nuevo 2.0 · SaaS/Industrial", p:[4,4,5,1,5], frase:"Propongo que tu equipo técnico pruebe la integración esta semana, antes de cualquier decisión comercial. Sin compromiso.", kpi:"Prueba técnica ofrecida antes del comité; veto de IT desactivado temprano."},
+  {e:3, n:"Auditoría de Integración Técnica", f:"Nuevo 2.0 · Industrial", p:[5,5,5,1,4], frase:"Antes de cotizar, levantemos juntos los puntos de integración con su línea actual: eso elimina las sorpresas del comité técnico.", kpi:"Checklist de integración validado con el rol técnico antes de la propuesta económica."},
+  {e:4, n:"Plan de Escalabilidad Multi-Planta", f:"Nuevo 2.0 · Industrial", p:[5,5,5,1,5], frase:"Partamos con una planta como piloto medible; si cumplimos los resultados clave, el plan contempla las demás en 18 meses.", kpi:"Roadmap 1→N plantas con resultados clave del piloto documentado y acordado."}
 ];
 
 const ETAPAS = [
@@ -1073,6 +1317,37 @@ rubroSel.addEventListener('change', () => {
 sliders.forEach(s => s.addEventListener('input', () => {
   rubroSel.value = 'custom';
   render();
+}));
+
+// ---------- Tono por rubro en el diagrama del Motor VENDE ----------
+const TONO_RUBRO = {
+  auto: ["Línea de Tiempo", "4 Fuerzas", "Visión de Solución", "Test Drive", "Ir por el No", "Financiamiento", "Win-Results", "Base Datos"],
+  sprof: ["Línea de Tiempo", "Contrato Previo", "Filtro al Decisor", "Embudo del Dolor", "Cliente Héroe", "Retainer", "Empatía Táctica", "Post-Venta", "Base Datos"],
+  saas: ["Mapa Influenciadores", "Preguntas SPIN", "Reencuadre", "Visión de Solución", "Consenso Comité", "Empatía Táctica", "Validación Técnica", "Plan de Evaluación"],
+  seguros: ["Contrato Previo", "Mapa Influenciadores", "Mapeo Regulatorio", "Ficha de Brecha", "Preguntas SPIN", "Aud. de Cobertura", "Reencuadre", "Convicción", "Mito del Precio", "Consenso Comité", "Post-Venta", "Base Datos"],
+  industrial: ["Mapa Influenciadores", "Ficha de Brecha", "Riesgo Operacional", "Reencuadre", "Cliente Héroe", "Consenso Comité", "Plan de Evaluación", "Aud. Integración", "Win-Results", "Escalabilidad"]
+};
+const motorSvg = document.getElementById('motorSvg');
+
+function aplicarTono(rubro){
+  document.querySelectorAll('.tono-btn').forEach(b => b.classList.toggle('active', b.dataset.tono === rubro));
+  const lista = TONO_RUBRO[rubro];
+  motorSvg.classList.toggle('filtrado', !!lista);
+  motorSvg.querySelectorAll('.modg').forEach(g => {
+    const txt = g.textContent;
+    g.classList.toggle('hl', !!lista && lista.some(s => txt.includes(s)));
+  });
+}
+
+document.querySelectorAll('.tono-btn').forEach(btn => btn.addEventListener('click', () => aplicarTono(btn.dataset.tono)));
+
+// ---------- Selector de rubros (pestaña Configuración por Rubro) ----------
+document.querySelectorAll('.rubro-btn').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('.rubro-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.rubro-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('rp-' + btn.dataset.rubro).classList.add('active');
+  aplicarTono(btn.dataset.rubro); // sincroniza el tono del diagrama Motor VENDE
 }));
 
 // ---------- Desplegables prácticos (fases HOGAR) ----------
