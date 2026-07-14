@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capacitación Método DOMO · Sesión 45 minutos</title>
+<style>
+  :root{
+    --bg:#1b2340; --surface:#252f55; --surface2:#2d3963; --border:#3d4a7a;
+    --text:#f2ede4; --muted:#a7b0cc;
+    --gold:#e8a951; --gold2:#d98e3a; --goldsoft:#f0c384;
+    --grad:linear-gradient(120deg,#e8a951,#d98e3a);
+    --ok:#3ecf94; --gap:#e07856; --brand:#7e9bde;
+    --shadow:0 2px 12px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif; background:var(--bg); color:var(--text); line-height:1.6;}
+  .wrap{max-width:1060px; margin:0 auto; padding:0 20px 80px;}
+
+  header.hero{background:radial-gradient(ellipse at 50% 135%, rgba(232,169,81,.28), transparent 62%), #161d36; padding:38px 20px 46px; text-align:center;}
+  header.hero .logo-row{display:flex; align-items:center; gap:10px; justify-content:center; margin-bottom:12px;}
+  header.hero .logo-row svg{width:40px; height:auto;}
+  header.hero .wordmark{font-weight:900; letter-spacing:5px; font-size:1rem;}
+  header.hero h1{font-size:clamp(1.5rem,3.5vw,2.1rem); margin-bottom:8px;}
+  header.hero .hl{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  header.hero p{max-width:780px; margin:0 auto; color:var(--muted);}
+  .fichas{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:16px; font-size:.82rem;}
+  .fichas span{background:rgba(255,255,255,.07); border:1px solid rgba(232,169,81,.4); border-radius:99px; padding:4px 14px;}
+  .fichas b{color:var(--goldsoft);}
+
+  nav.tabs{position:sticky; top:0; z-index:50; background:var(--surface); border-bottom:1px solid var(--border); box-shadow:var(--shadow);}
+  nav.tabs .inner{max-width:1060px; margin:0 auto; display:flex; gap:4px; overflow-x:auto; padding:8px 12px; align-items:center;}
+  nav.tabs button{flex:0 0 auto; border:none; background:transparent; color:var(--muted); font:inherit; font-size:.92rem; font-weight:600; padding:8px 14px; border-radius:10px; cursor:pointer; white-space:nowrap;}
+  nav.tabs button:hover{background:var(--surface2); color:var(--text);}
+  nav.tabs button.active{background:var(--surface2); color:var(--goldsoft);}
+  nav.tabs .modo{margin-left:auto; border:1px solid var(--border) !important; border-radius:99px !important; font-size:.8rem !important;}
+
+  section.tab{display:none; padding-top:32px;}
+  section.tab.active{display:block;}
+  h2{font-size:1.45rem; margin-bottom:6px;}
+  h3{font-size:1.1rem; margin:28px 0 10px; color:var(--goldsoft);}
+  .lead{color:var(--muted); max-width:840px; margin-bottom:20px;}
+  .lead b, .lead strong{color:var(--text);}
+
+  .grid{display:grid; gap:14px;}
+  .grid.c2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr));}
+  .grid.c3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+  .card{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px;}
+  .card h4{font-size:1rem; margin-bottom:6px;}
+  .card p{font-size:.9rem; color:var(--muted);}
+  .card p b{color:var(--text);}
+  .badge{display:inline-block; font-size:.72rem; font-weight:800; letter-spacing:.6px; text-transform:uppercase; padding:2px 10px; border-radius:99px; background:rgba(232,169,81,.15); color:var(--goldsoft); margin-bottom:8px;}
+  .badge.verde{background:rgba(62,207,148,.14); color:var(--ok);}
+  .badge.rojo{background:rgba(224,120,86,.15); color:var(--gap);}
+
+  /* Agenda */
+  .agenda{border-left:3px solid var(--gold); margin:16px 0 0 8px;}
+  .paso{position:relative; padding:0 0 22px 26px;}
+  .paso::before{content:""; position:absolute; left:-8px; top:6px; width:13px; height:13px; border-radius:50%; background:var(--gold); border:3px solid var(--bg);}
+  .paso .min{font-size:.75rem; font-weight:800; letter-spacing:1.5px; color:var(--gold); text-transform:uppercase;}
+  .paso h4{margin:2px 0 4px;}
+  .paso p{font-size:.9rem; color:var(--muted); max-width:76ch;}
+  .paso p b{color:var(--text);}
+  .paso .guion{background:var(--surface2); border-left:3px solid var(--gold); border-radius:8px; padding:8px 14px; margin-top:8px; font-size:.88rem; font-style:italic;}
+
+  table{width:100%; border-collapse:collapse; font-size:.88rem; background:var(--surface); border-radius:12px; overflow:hidden;}
+  th,td{padding:10px 12px; border-bottom:1px solid var(--border); text-align:left; vertical-align:top;}
+  th{background:var(--surface2); font-size:.78rem; text-transform:uppercase; letter-spacing:.5px; color:var(--goldsoft);}
+  tr:last-child td{border-bottom:none;}
+  .tbl-scroll{overflow-x:auto; border:1px solid var(--border); border-radius:12px;}
+  td .si{color:var(--ok); font-weight:700;}
+  td .no{color:var(--gap); font-weight:700;}
+
+  /* Transcripciones */
+  .dialogo{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px; margin:14px 0;}
+  .linea{margin-bottom:12px; display:flex; gap:12px;}
+  .linea .quien{flex:0 0 96px; font-weight:700; font-size:.82rem; padding-top:2px;}
+  .linea.vend .quien{color:var(--brand);}
+  .linea.cli .quien{color:var(--goldsoft);}
+  .linea .texto{flex:1; font-size:.95rem;}
+  .anota{border-radius:10px; padding:9px 14px; font-size:.83rem; margin:2px 0 16px 108px; line-height:1.5;}
+  @media(max-width:640px){.anota{margin-left:0;} .linea .quien{flex-basis:70px;}}
+  .anota.ok{background:rgba(62,207,148,.1); border:1px solid rgba(62,207,148,.4); color:#bfe9d6;}
+  .anota.gap{background:rgba(224,120,86,.1); border:1px solid rgba(224,120,86,.45); color:#f0c9bb;}
+  .anota b{color:var(--text);}
+  body.participante .anota{display:none;}
+  body.participante .solo-facilitador{display:none;}
+
+  /* Feedback */
+  .fb{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px; margin:14px 0;}
+  .fb .eia{display:grid; grid-template-columns:auto 1fr; gap:6px 14px; margin:10px 0; font-size:.9rem;}
+  .fb .eia dt{font-weight:800; color:var(--goldsoft); white-space:nowrap;}
+  .fb .eia dd{color:var(--muted);}
+  .fb .eia dd b{color:var(--text);}
+  .frase{background:var(--surface2); border-left:3px solid var(--gold); border-radius:8px; padding:9px 14px; font-style:italic; font-size:.9rem; margin:10px 0;}
+
+  .compromiso{background:var(--surface); border:1px solid var(--gold); border-radius:14px; padding:18px; margin:12px 0;}
+  .compromiso h4{color:var(--goldsoft);}
+  .ia-box{background:var(--surface2); border-left:3px solid var(--ok); border-radius:8px; padding:10px 14px; font-size:.88rem; margin-top:10px;}
+
+  footer{margin-top:50px; padding-top:20px; border-top:1px solid var(--border); font-size:.8rem; color:var(--muted); text-align:center;}
+
+  @media print{
+    body{background:#fff; color:#1c2340;}
+    nav.tabs{display:none;}
+    section.tab{display:block !important; page-break-before:always;}
+    header.hero{background:#1b2340;}
+    .card,.dialogo,.fb,.compromiso,table{border-color:#bbb; background:#fff; color:#1c2340;}
+    .card p,.lead,.paso p,.fb .eia dd{color:#444;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="logo-row">
+    <svg viewBox="0 0 60 44" aria-hidden="true">
+      <g fill="none" stroke="#e8a951" stroke-width="2.6" stroke-linecap="round">
+        <path d="M6 38 A24 24 0 0 1 54 38"/><path d="M14 38 A16 16 0 0 1 46 38" opacity=".65"/><path d="M22 38 A8 8 0 0 1 38 38" opacity=".4"/>
+      </g>
+      <circle cx="30" cy="38" r="3.4" fill="#e8a951"/>
+      <line x1="2" y1="38" x2="58" y2="38" stroke="#3d4a7a" stroke-width="2"/>
+    </svg>
+    <span class="wordmark">DOMO IA</span>
+  </div>
+  <h1>Capacitación <span class="hl">Método DOMO</span> · Sesión de nivelación</h1>
+  <p>Programa de 45 minutos para equipos de venta <strong style="color:var(--text);">con experiencia</strong>: nivelación teórica express, análisis de una reunión real y compromisos de mejora medibles. Dos versiones: 🏠 Inmobiliario (modelo HOGAR) y 🛡️ Seguros/Financiero.</p>
+  <div class="fichas">
+    <span>⏱️ <b>45 minutos</b> exactos</span>
+    <span>👥 <b>4 a 8 vendedores</b> en ejercicio</span>
+    <span>📍 Presencial o videollamada</span>
+    <span>📦 Genera <b>2 compromisos medibles</b> por vendedor</span>
+    <span>🔍 Seguimiento por <b>Lucas</b>, el auditor IA</span>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="inner">
+    <button data-tab="guia" class="active">📋 Guía del Facilitador</button>
+    <button data-tab="inmo">🏠 Inmobiliario (HOGAR)</button>
+    <button data-tab="seguros">🛡️ Seguros / Financiero</button>
+    <button class="modo" id="modoBtn" title="Oculta las anotaciones y notas del facilitador para proyectar al equipo">👁 Modo participante</button>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<!-- ============ TAB 1: GUÍA ============ -->
+<section class="tab active" id="tab-guia">
+  <h2>Diseño de la sesión</h2>
+  <p class="lead">Esta sesión <strong>no enseña a vender</strong> — los participantes ya venden. Su objetivo es <strong>ponerle nombre, estructura y medida a lo que el equipo ya hace</strong>, detectar las 2-3 brechas de mayor impacto y salir con compromisos que Lucas (el auditor IA) medirá en las reuniones reales de las próximas semanas. La sesión modela el propio método: abre con contrato previo, escucha más de lo que habla y cierra con próximos pasos con fecha.</p>
+
+  <h3>Principios de lenguaje — cómo se habla en esta capacitación</h3>
+  <div class="grid c2">
+    <div class="card"><span class="badge verde">Principio 1</span><h4>La experiencia se respeta</h4><p>Frase guía: <b>"No venimos a enseñarte a vender. Venimos a ponerle nombre y medida a lo que ya haces bien — y a encontrar juntos dónde se te escapan ventas que mereces ganar."</b> Nunca posicionar el método como corrección de carrera.</p></div>
+    <div class="card"><span class="badge verde">Principio 2</span><h4>Conductas, no personas</h4><p>Se habla de lo que pasó en la reunión, jamás de cómo es el vendedor. <b>"La reunión terminó sin próximo paso"</b> ✔ — "eres desordenado para cerrar" ✘.</p></div>
+    <div class="card"><span class="badge verde">Principio 3</span><h4>Evidencia, no impresiones</h4><p>Todo feedback se ancla en un momento específico de la transcripción: minuto, frase, dato. Si no hay evidencia, no hay feedback — hay opinión, y las opiniones no se debaten en esta sesión.</p></div>
+    <div class="card"><span class="badge verde">Principio 4</span><h4>Pocas brechas, bien elegidas</h4><p>Máximo <b>2 compromisos por vendedor</b>. La mejora comercial funciona como el gimnasio: pocos ejercicios con seguimiento vencen a la lista infinita que nadie ejecuta.</p></div>
+  </div>
+
+  <h3>El modelo de feedback: E · I · A</h3>
+  <p class="lead">Todo feedback — del facilitador, de los pares y de Lucas — usa la misma estructura de tres pasos, siempre después de reconocer una fortaleza real:</p>
+  <div class="grid c3">
+    <div class="card"><span class="badge">E · Evidencia</span><p><b>Qué pasó, textual.</b> "En el minuto 12, cuando la clienta dijo que le daba susto la tasa, la conversación siguió con la siguiente propiedad."</p></div>
+    <div class="card"><span class="badge">I · Impacto</span><p><b>Qué costó.</b> "Esa ansiedad quedó viva. Es la misma que después aparece como 'lo vamos a pensar' — y ahí ya no la podemos trabajar."</p></div>
+    <div class="card"><span class="badge">A · Alternativa</span><p><b>La jugada concreta.</b> "La próxima vez, etiquétala: 'parece que la tasa les preocupa'. Nómbrala y se desarma. Practiquémoslo ahora."</p></div>
+  </div>
+
+  <div class="tbl-scroll" style="margin-top:16px;">
+  <table>
+    <thead><tr><th>Evitar ✘</th><th>Usar ✔</th></tr></thead>
+    <tbody>
+      <tr><td>"Eso estuvo mal hecho."</td><td>"Ahí había una puerta abierta — veamos qué habría pasado si..."</td></tr>
+      <tr><td>"Siempre hablas demasiado."</td><td>"En esta reunión hablaste el 68% del tiempo. La meta del método es 40. ¿Qué pregunta habrías hecho en vez del párrafo del minuto 9?"</td></tr>
+      <tr><td>"Tienes que hacer SPIN."</td><td>"Esa pregunta que hiciste en el minuto 4 es exactamente una pregunta de problema. Lo que faltó fue la siguiente: la de implicación. Suena así..."</td></tr>
+      <tr><td>"El método dice que..."</td><td>"Los datos de tus propias reuniones muestran que cuando cuantificas el problema, avanzas al doble de cierres."</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Agenda · 45 minutos exactos</h3>
+  <div class="agenda">
+    <div class="paso"><div class="min">Min 00–05 · Apertura</div><h4>Contrato previo de la sesión (modelando el método)</h4>
+      <p>El facilitador abre igual que una buena reunión de ventas: agenda, tiempo y qué se decide al final. Es la primera demostración práctica del método.</p>
+      <div class="guion">"Tenemos 45 minutos. Vamos a repasar 4 ideas del método en 10 minutos, analizar una reunión real en 15, darnos feedback con una pauta en 10, y salir con 2 compromisos por persona que el sistema va a medir en sus reuniones de las próximas 3 semanas. Si algo de lo que veamos no les hace sentido para su cancha, lo dicen ahí mismo — ¿de acuerdo?"</div>
+    </div>
+    <div class="paso"><div class="min">Min 05–15 · Nivelación teórica express</div><h4>El método en 4 ideas — conectadas a lo que ya hacen</h4>
+      <p>Solo los conceptos que se usarán en el análisis del caso (ver pestaña de cada rubro). Regla de oro: cada concepto se presenta con la fórmula <b>"tú ya haces esto cuando… / el método le pone nombre y lo hace medible"</b>. Nada de historia de las metodologías: eso queda en el documento del modelo para lectura posterior.</p>
+    </div>
+    <div class="paso"><div class="min">Min 15–28 · Caso real</div><h4>Análisis de transcripción con pauta de observación</h4>
+      <p>Se lee la transcripción en voz alta con roles asignados (un participante hace de vendedor, otro de cliente — genera distancia sana: no se evalúa a nadie presente). El resto marca con la pauta: <b>✔ técnica bien ejecutada · ⚠ puerta abierta no usada · ✘ conducta que costó la venta</b>. Al final, puesta en común: primero los ✔, después las brechas.</p>
+      <div class="guion">"Ojo: este vendedor del caso es bueno — igual que ustedes. La gracia no es encontrarle errores, es encontrar las 3 jugadas que le habrían cambiado el resultado. Las mismas 3 que Lucas va a buscar en nuestras reuniones."</div>
+    </div>
+    <div class="paso"><div class="min">Min 28–38 · Feedback estructurado</div><h4>Brechas y jugadas con el modelo E·I·A</h4>
+      <p>El facilitador presenta el feedback modelo (ver cada rubro) y el grupo practica: cada participante formula una brecha del caso en formato E·I·A. Aquí se entrena el lenguaje que después usará el líder con su equipo — y que usa Lucas en sus reportes.</p>
+    </div>
+    <div class="paso"><div class="min">Min 38–45 · Compromisos y cierre</div><h4>2 compromisos medibles por vendedor + fecha de revisión</h4>
+      <p>Cada vendedor elige <b>2 conductas de la pauta</b> como compromisos personales, con meta numérica. Se registran en la tabla de compromisos (entregable). El facilitador cierra modelando el método: próximo paso con fecha.</p>
+      <div class="guion">"Lucas va a medir estas dos conductas en todas sus reuniones desde mañana. En la sesión del [fecha, 3-4 semanas], cada uno va a ver su propio antes/después — con sus números, no con mi opinión. ¿Quedamos así?"</div>
+    </div>
+  </div>
+
+  <h3>Entregables de la sesión</h3>
+  <div class="grid c3">
+    <div class="card"><span class="badge">Entregable 1</span><h4>Pauta personal de reunión</h4><p>Tarjeta con las 5 conductas del método para su rubro (la misma pauta usada en el análisis del caso). Cabe en el teléfono o impresa junto al escritorio.</p></div>
+    <div class="card"><span class="badge">Entregable 2</span><h4>Tabla de compromisos firmada</h4><p>2 compromisos por vendedor con conducta observable, meta numérica y fecha de revisión. Se carga en Domo IA: define qué medirá Lucas.</p></div>
+    <div class="card"><span class="badge">Entregable 3</span><h4>Línea base individual</h4><p>Si ya hay reuniones auditadas: el scorecard actual de cada vendedor (ratio de escucha, % con próximo paso, etc.) — el "antes" contra el que se medirá la mejora.</p></div>
+  </div>
+
+  <h3>Formato estándar del compromiso medible</h3>
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>Campo</th><th>Regla</th><th>Ejemplo</th></tr></thead>
+    <tbody>
+      <tr><td><b>Conducta</b></td><td>Observable en la transcripción — sin interpretación</td><td>"Acordar agenda y decisión al inicio de la reunión"</td></tr>
+      <tr><td><b>Meta</b></td><td>Numérica y alcanzable en 3-4 semanas</td><td>"En 4 de cada 5 reuniones"</td></tr>
+      <tr><td><b>Medición</b></td><td>Automática por Lucas — nunca autorreporte</td><td>"Detección de contrato previo en primeros 5 min"</td></tr>
+      <tr><td><b>Revisión</b></td><td>Fecha fija de la siguiente sesión, agendada hoy</td><td>"Sesión del 12 de agosto, 9:00"</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ============ TAB 2: INMOBILIARIO ============ -->
+<section class="tab" id="tab-inmo">
+  <h2>🏠 Sesión Inmobiliario · Modelo HOGAR</h2>
+  <p class="lead">Audiencia: corredores y ejecutivos inmobiliarios en ejercicio. El caso trabaja las tres brechas más comunes del rubro: mostrar propiedades antes de entender la mudanza, dejar ansiedades sin nombrar y cerrar sin próximo paso.</p>
+
+  <h3>Nivelación express (min 05–15): las 4 ideas</h3>
+  <div class="grid c2">
+    <div class="card"><span class="badge">Idea 1 · fase H</span><h4>Nadie compra una casa: compra una mudanza</h4><p><b>Tú ya lo haces cuando</b> conversas de la familia del cliente antes que de propiedades. El método lo vuelve sistemático: la primera pregunta es siempre <b>"¿qué pasó que los hizo empezar a buscar justo ahora?"</b>. Sin evento gatillador identificado, no se muestran propiedades.</p></div>
+    <div class="card"><span class="badge">Idea 2 · fase O</span><h4>La brecha se dice en números</h4><p><b>Tú ya lo haces cuando</b> comparas arriendo vs. dividendo de pasada. El método lo exige explícito: arriendo actual, dividendo estimado, plusvalía del sector — la brecha en pesos sobre la mesa antes de la primera visita.</p></div>
+    <div class="card"><span class="badge">Idea 3 · fases G y A</span><h4>La ansiedad que no se nombra, mata la venta en la notaría</h4><p><b>Tú ya lo notas</b> cuando el cliente duda. El método le da la herramienta: la etiqueta — <b>"parece que les preocupa comprometerse con un dividendo alto justo ahora"</b>. Nombrarla la desarma; ignorarla la agranda.</p></div>
+    <div class="card"><span class="badge">Idea 4 · regla de oro</span><h4>"Quedamos en contacto" = venta en cuidados intensivos</h4><p>Toda reunión termina con un compromiso concreto y fecha. Es la conducta más fácil de cambiar y la de mayor impacto inmediato en el pipeline — y Lucas la mide en el 100% de las reuniones.</p></div>
+  </div>
+
+  <h3>Pauta de observación del caso (entregable 1)</h3>
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>#</th><th>Conducta HOGAR</th><th>¿Se observó?</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Contrato previo: agenda, tiempo y decisión acordados al inicio</td><td>✔ / ⚠ / ✘</td></tr>
+      <tr><td>2</td><td>Evento gatillador identificado antes de hablar de propiedades</td><td>✔ / ⚠ / ✘</td></tr>
+      <tr><td>3</td><td>Brecha cuantificada: arriendo vs. dividendo + presupuesto real</td><td>✔ / ⚠ / ✘</td></tr>
+      <tr><td>4</td><td>Ansiedades del cliente nombradas (etiqueta de Voss)</td><td>✔ / ⚠ / ✘</td></tr>
+      <tr><td>5</td><td>Cierre con próximo paso concreto y fecha</td><td>✔ / ⚠ / ✘</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Caso: primera reunión de Carolina con Pablo y Fernanda (min 15–28)</h3>
+  <p class="lead solo-facilitador"><b>Nota del facilitador:</b> Carolina es una corredora competente con 8 años de experiencia — el caso está construido así a propósito: rapport excelente y conocimiento de mercado real, con las tres brechas típicas del rubro. Las anotaciones de colores son para tu guía; en pantalla, actívales el "modo participante" y que el grupo las descubra con la pauta.</p>
+
+  <div class="dialogo">
+    <div class="linea vend"><div class="quien">Carolina</div><div class="texto">¡Pablo, Fernanda, qué gusto! Pasen, pasen. ¿Encontraron estacionamiento fácil? Esta cuadra a esta hora es un tema… ¿Un cafecito?</div></div>
+    <div class="anota ok">✔ <b>Rapport genuino y cálido.</b> Fortaleza real de Carolina — se reconoce primero en el feedback. Lo que falta no es calidez: es estructura.</div>
+    <div class="linea cli"><div class="quien">Fernanda</div><div class="texto">Un café, gracias. Estamos un poco perdidos, la verdad — llevamos como un mes mirando portales y nada nos convence.</div></div>
+    <div class="linea vend"><div class="quien">Carolina</div><div class="texto">¡Me pasa con todos mis clientes, los portales marean! Cuéntenme, ¿qué andan buscando? ¿Casa, departamento, cuántos dormitorios?</div></div>
+    <div class="anota gap">✘ <b>Brecha 1 — se saltó el contrato previo y la fase H completa.</b> Sin agenda ni acuerdo de la reunión, y la primera pregunta fue de catálogo ("¿qué buscan?") en vez de la pregunta de la mudanza ("¿qué pasó que los hizo buscar?"). Fernanda acababa de abrir la puerta: "estamos un poco perdidos" era la invitación perfecta para estructurar.</div>
+    <div class="linea cli"><div class="quien">Pablo</div><div class="texto">Departamento, 3 dormitorios idealmente. Es que viene el segundo niño en octubre y donde estamos ya no cabemos. Además el dueño nos subió el arriendo de nuevo…</div></div>
+    <div class="linea vend"><div class="quien">Carolina</div><div class="texto">¡Felicitaciones por ese bebé! Mira, justo tengo varias opciones de 3 dormitorios. Hay uno en Ñuñoa precioso, 82 metros, remodelado, cerca del metro… también uno en Macul que es más grande, 90 metros con terraza, ese está en UF 4.900… y salió uno en La Florida que…</div></div>
+    <div class="anota gap">⚠ <b>Puerta abierta no usada.</b> Pablo entregó el evento gatillador completo (bebé en octubre + arriendo que sube) y Carolina pasó directo al catálogo. Ahí estaba la fase H servida: "¿Cuánto les subió? ¿Y qué plazo real tienen con la llegada del bebé?" — urgencia, presupuesto y línea de tiempo en una sola pregunta.</div>
+    <div class="linea cli"><div class="quien">Fernanda</div><div class="texto">¿UF 4.900? Es que… no sé si estamos para eso. Con las tasas como están nos da un poco de susto meternos en un dividendo grande. Mi mamá dice que esperemos a que bajen.</div></div>
+    <div class="linea vend"><div class="quien">Carolina</div><div class="texto">No, pero las tasas están mucho mejor que el año pasado, de verdad. Y ese departamento vale cada peso. Además tengo otro en Ñuñoa un poco más económico, 78 metros, que también les podría servir. ¿Quieren que agendemos visitas para el fin de semana?</div></div>
+    <div class="anota gap">✘ <b>Brecha 2 — la ansiedad se rebatió en vez de nombrarse.</b> Fernanda expresó miedo (tasas, dividendo, y una tercera decisora: la mamá) y recibió un argumento. El miedo rebatido no desaparece: se esconde. Jugada del método: <b>"Parece que les da susto comprometerse con un dividendo grande justo cuando viene el bebé — y es súper razonable. ¿Les parece que antes de ver nada hagamos los números juntos?"</b> Además: la mamá acaba de entrar a la mesa de decisión y nadie la registró.</div>
+    <div class="linea cli"><div class="quien">Pablo</div><div class="texto">Es que tampoco hemos hablado con el banco todavía. No sabemos bien cuánto nos prestarían.</div></div>
+    <div class="linea vend"><div class="quien">Carolina</div><div class="texto">Ah, eso es fácil, cualquier ejecutivo los atiende. Bueno, igual vayan a ver los departamentos primero para que se enamoren de alguno, y ahí ven el tema del crédito. El de Macul de verdad es espectacular, tiene una terraza que…</div></div>
+    <div class="anota gap">✘ <b>Brecha 3 — orden invertido: visitas antes que números.</b> Sin pre-aprobación ni presupuesto, cada visita es una apuesta a ciegas (fase O ausente). El método invierte: primero la brecha en números — "hoy pagan $680.000 de arriendo que no construye nada; veamos qué dividendo les da el banco y sobre eso elegimos qué visitar" — y las visitas se vuelven certeras.</div>
+    <div class="linea cli"><div class="quien">Fernanda</div><div class="texto">Ya… puede ser. Lo vamos a conversar con más calma y le avisamos, ¿ya?</div></div>
+    <div class="linea vend"><div class="quien">Carolina</div><div class="texto">¡Perfecto! Les mando las fichas de los tres departamentos por WhatsApp y quedamos en contacto. ¡Cualquier cosa me escriben no más!</div></div>
+    <div class="anota gap">✘ <b>Brecha 4 — "quedamos en contacto".</b> La reunión murió sin próximo paso, sin fecha y con la decisión en manos del cliente enfriándose. Cierre del método: <b>"Propongo esto: el martes les mando una simulación con su arriendo actual versus dividendo real, el jueves los llamo 15 minutos para revisarla juntos, y con eso decidimos si agendamos visitas el sábado. ¿Les acomoda el jueves a las 19:00?"</b></div>
+  </div>
+
+  <h3>Feedback modelo (min 28–38) — así se dice</h3>
+  <p class="lead solo-facilitador">Este es el feedback que el facilitador presenta como ejemplo de lenguaje. Nótese el orden: fortaleza real primero, máximo tres brechas en formato E·I·A, y cada una termina en jugada practicable — nunca en diagnóstico.</p>
+  <div class="fb">
+    <span class="badge verde">Primero, lo que funcionó</span>
+    <p style="margin:8px 0 14px;">"Carolina logra en dos minutos lo que a muchos les cuesta meses: que el cliente se sienta en confianza. Fernanda le contó hasta lo que opina su mamá — eso es oro, y es mérito de ella. Y conoce su mercado: tenía tres propiedades pertinentes en la cabeza. Todo lo que viene ahora es para que esa confianza y ese conocimiento <b>se conviertan en cierres</b>."</p>
+    <span class="badge rojo">Brecha 1 · La mudanza no se exploró</span>
+    <dl class="eia">
+      <dt>Evidencia</dt><dd>Pablo entregó el evento gatillador completo — "viene el segundo niño en octubre y nos subieron el arriendo" — y la respuesta fue una lista de tres propiedades.</dd>
+      <dt>Impacto</dt><dd>Sin plazo real (octubre), sin presupuesto y sin saber qué vida imaginan, las tres propiedades fueron disparos a ciegas. Una de UF 4.900 asustó a la clienta y activó la objeción de tasas.</dd>
+      <dt>Alternativa</dt><dd>Regla personal: <b>cero propiedades en la primera media hora.</b> La frase: <em>"Antes de hablar de departamentos, cuéntenme: ¿cómo se imaginan instalados cuando nazca el bebé?"</em></dd>
+    </dl>
+    <span class="badge rojo">Brecha 2 · La ansiedad se rebatió en vez de nombrarse</span>
+    <dl class="eia">
+      <dt>Evidencia</dt><dd>"Nos da susto meternos en un dividendo grande… mi mamá dice que esperemos" → respuesta: "las tasas están mucho mejor que el año pasado".</dd>
+      <dt>Impacto</dt><dd>El susto no se fue: se escondió. Volvió cuatro líneas después como "lo vamos a conversar con calma" — la versión inmobiliaria del "lo voy a pensar". Y la mamá quedó como detractora sin gestionar.</dd>
+      <dt>Alternativa</dt><dd>Etiquetar antes de argumentar: <em>"Parece que les preocupa comprometerse justo cuando la familia crece — y tiene todo el sentido."</em> Recién después, los números. Y a la mamá, sumarla: <em>"¿Qué necesitaría ver tu mamá para quedarse tranquila?"</em></dd>
+    </dl>
+    <span class="badge rojo">Brecha 3 · Cierre sin próximo paso</span>
+    <dl class="eia">
+      <dt>Evidencia</dt><dd>"Les mando las fichas y quedamos en contacto."</dd>
+      <dt>Impacto</dt><dd>El seguimiento quedó en manos del cliente, con una ansiedad viva y una tercera decisora en contra. Probabilidad alta de que esta venta se enfríe sin que nadie sepa por qué.</dd>
+      <dt>Alternativa</dt><dd>Cierre con estructura: simulación el martes, llamada de 15 minutos el jueves 19:00, decisión de visitas para el sábado. <b>El que propone el paso, conduce la venta.</b></dd>
+    </dl>
+  </div>
+
+  <h3>Compromisos sugeridos (min 38–45) — el vendedor elige 2</h3>
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>Compromiso</th><th>Conducta observable</th><th>Meta a 3-4 semanas</th><th>Cómo lo mide Lucas</th></tr></thead>
+    <tbody>
+      <tr><td><b>Mudanza antes que catálogo</b></td><td>Evento gatillador identificado antes de mencionar la primera propiedad</td><td>100% de primeras reuniones</td><td>Detecta si el gatillador aparece en la transcripción antes que la primera propiedad</td></tr>
+      <tr><td><b>Números sobre la mesa</b></td><td>Brecha arriendo vs. dividendo cuantificada en $ y presupuesto/pre-aprobación conversados</td><td>4 de cada 5 reuniones de descubrimiento</td><td>Detección de cifras de brecha y mención de pre-aprobación</td></tr>
+      <tr><td><b>Etiquetar, no rebatir</b></td><td>Ansiedad del cliente nombrada antes de responderla con argumentos</td><td>Toda objeción emocional de la reunión</td><td>Clasifica respuesta a objeción: etiqueta vs. argumento directo</td></tr>
+      <tr><td><b>Cero "quedamos en contacto"</b></td><td>Reunión cerrada con próximo paso, fecha y hora</td><td>100% de las reuniones</td><td>Detección de compromiso con fecha en el cierre</td></tr>
+      <tr><td><b>Escuchar más</b></td><td>Ratio de habla del vendedor</td><td>≤ 45% (desde su línea base actual)</td><td>Medición automática de tiempos de habla</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="ia-box">🔍 <b>Cierre de la sesión (guion):</b> "Cada uno eligió sus 2 conductas. Desde mañana, Lucas las busca en sus reuniones reales — sin nota, sin ranking público: cada uno verá su propio antes/después. Nos vemos el [fecha] a las [hora] para revisar los números. El que mejore sus 2 conductas, va a cerrar más — no porque lo diga yo, sino porque eso es exactamente lo que muestran las reuniones que sí terminan en venta."</div>
+</section>
+
+<!-- ============ TAB 3: SEGUROS ============ -->
+<section class="tab" id="tab-seguros">
+  <h2>🛡️ Sesión Seguros / Financiero</h2>
+  <p class="lead">Audiencia: corredores de seguros y asesores financieros en ejercicio. El caso trabaja las tres brechas más comunes del rubro: presentar la prima antes de dimensionar la exposición, responder la objeción de precio con descuento y dejar pasar la urgencia regulatoria/contractual.</p>
+
+  <h3>Nivelación express (min 05–15): las 4 ideas</h3>
+  <div class="grid c2">
+    <div class="card"><span class="badge">Idea 1</span><h4>No vendes pólizas: vendes exposición cuantificada</h4><p><b>Tú ya lo haces cuando</b> le explicas al cliente qué cubre y qué no. El método lo transforma en herramienta: la <b>auditoría de cobertura</b> — lo que tiene hoy vs. lo que su operación exige, con la diferencia en pesos. Ese número es el producto.</p></div>
+    <div class="card"><span class="badge">Idea 2</span><h4>El miedo motiva, pero también congela</h4><p><b>Tú ya lo viste</b>: el cliente asustado no compra — posterga. La secuencia del método: primero <b>nombrar la ansiedad</b> ("parece que le hace ruido pagar años por algo que ojalá no use"), después la cifra. Emoción antes que número, siempre.</p></div>
+    <div class="card"><span class="badge">Idea 3</span><h4>La prima nunca se defiende con descuento</h4><p>La objeción "está caro" casi nunca es de precio: es de valor no dimensionado. La prima se compara contra la exposición — <b>"¿la prima anual, o el 2% de probabilidad de asumir $200 millones solos?"</b> — no contra otras primas, y jamás con rebaja refleja.</p></div>
+    <div class="card"><span class="badge">Idea 4</span><h4>La normativa es tu urgencia legítima</h4><p><b>Tú ya lo sabes</b>: la CMF, el contrato del mandante, la exigencia del directorio — plazos que corren aunque el cliente no decida. El método lo hace pregunta obligatoria de apertura: <b>"¿qué le están exigiendo hoy sus clientes grandes o el regulador?"</b></p></div>
+  </div>
+
+  <h3>Pauta de observación del caso (entregable 1)</h3>
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>#</th><th>Conducta del método</th><th>¿Se observó?</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Contrato previo: agenda, tiempo y decisión acordados al inicio</td><td>✔ / ⚠ / ✘</td></tr>
+      <tr><td>2</td><td>Urgencia regulatoria/contractual explorada (mandantes, normativa, plazos)</td><td>✔ / ⚠ / ✘</td></tr>
+      <tr><td>3</td><td>Exposición cuantificada en $ antes de hablar de prima</td><td>✔ / ⚠ / ✘</td></tr>
+      <tr><td>4</td><td>Objeción de precio trabajada sin descuento reflejo</td><td>✔ / ⚠ / ✘</td></tr>
+      <tr><td>5</td><td>Todos los decisores mapeados + cierre con próximo paso y fecha</td><td>✔ / ⚠ / ✘</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Caso: reunión de Andrés con Marcela, dueña de una pyme de transporte (min 15–28)</h3>
+  <p class="lead solo-facilitador"><b>Nota del facilitador:</b> Andrés tiene dominio técnico impecable — sus explicaciones son claras y honestas. El caso muestra cómo un asesor técnicamente sólido pierde la venta por secuencia: prima antes que exposición, descuento antes que valor, y una urgencia regalada (el mandante) que pasó de largo.</p>
+
+  <div class="dialogo">
+    <div class="linea vend"><div class="quien">Andrés</div><div class="texto">Marcela, gracias por el tiempo. Revisé lo que conversamos por teléfono y le preparé una propuesta para la flota: responsabilidad civil, daños propios y un adicional de carga. ¿Le parece que se la presente?</div></div>
+    <div class="anota gap">⚠ <b>Apertura directo a la propuesta.</b> Educado y preparado, pero sin contrato previo (agenda/decisión) y — más caro aún — sin diagnóstico: va a presentar cobertura sin haber dimensionado la operación ni la exposición actual de Marcela.</div>
+    <div class="linea cli"><div class="quien">Marcela</div><div class="texto">Ya, veamos. Aunque le adelanto que ando con la billetera apretada — este año ha estado lento, y justo ahora un cliente grande, una minera, me está pidiendo un montón de papeles para renovarme el contrato…</div></div>
+    <div class="linea vend"><div class="quien">Andrés</div><div class="texto">Lo entiendo, el escenario está difícil para todos. Bueno, la propuesta considera sus 12 camiones: RC por 5.000 UF por evento, daños propios con deducible de 10 UF, y la carga hasta 2.000 UF por viaje. La prima anual quedaría en 310 UF, que se puede pagar en cuotas mensuales.</div></div>
+    <div class="anota gap">✘ <b>Brecha 1 — la urgencia regalada pasó de largo.</b> Marcela mencionó que una minera le exige "un montón de papeles" para renovar el contrato — con casi total seguridad, pólizas vigentes con coberturas mínimas. Esa es la urgencia legítima que sostiene toda la venta (mapeo regulatorio/contractual), y quedó enterrada bajo la presentación de la prima. Jugada: <b>"Antes de la propuesta: ¿qué le está pidiendo exactamente la minera? Porque si el contrato depende de eso, partamos por ahí."</b></div>
+    <div class="linea cli"><div class="quien">Marcela</div><div class="texto">¿310 UF al año? Uf. Es harta plata, Andrés. Hoy pago como 180 con mi corredor de siempre, que igual me tiene medio abandonada, pero es bastante más barato…</div></div>
+    <div class="linea vend"><div class="quien">Andrés</div><div class="texto">Sí, entiendo que la diferencia se ve grande. Mire, puedo conversar con la compañía y creo que podríamos dejarla en 280, quizás 270 si tomamos los tres ramos juntos. Y la cobertura es muy superior a la que tiene, eso se lo garantizo.</div></div>
+    <div class="anota gap">✘ <b>Brecha 2 — descuento reflejo.</b> A la primera objeción, la prima bajó 40 UF sin que el cliente diera nada a cambio: se validó que el precio "estaba inflado" y la conversación quedó anclada en prima vs. prima (310 vs. 180), una pelea imposible de ganar. La comparación correcta era prima vs. exposición: ¿qué cubre hoy ese seguro de 180 UF y qué queda descubierto? Sin auditoría de cobertura, "cobertura muy superior" es una frase, no un número.</div>
+    <div class="linea cli"><div class="quien">Marcela</div><div class="texto">Es que igual… nunca hemos tenido un accidente grande, ¿ah? En ocho años, puras cosas chicas. Uno paga y paga y al final no pasa nada.</div></div>
+    <div class="linea vend"><div class="quien">Andrés</div><div class="texto">Toco madera para que siga así. Pero mire, estadísticamente el transporte de carga es de los rubros con más siniestralidad, y un solo evento grande con la RC que tiene ahora la puede dejar muy complicada. Los números no mienten.</div></div>
+    <div class="anota gap">⚠ <b>Ansiedad respondida con estadística.</b> "Uno paga y paga y no pasa nada" es la fuerza del hábito + la ansiedad clásica del rubro — y recibió datos en vez de etiqueta. El dato asusta y congela; la etiqueta abre. Jugada: <b>"Le entiendo perfecto: ocho años pagando algo que nunca ha usado — parece plata perdida, ¿cierto? Es la pregunta correcta. ¿Me deja mostrarle qué pasaría con la empresa si el accidente grande llegara mañana, con lo que tiene hoy?"</b> — y ahí recién la cifra de exposición.</div>
+    <div class="linea cli"><div class="quien">Marcela</div><div class="texto">Ya… mire, déjeme los papeles y lo converso con mi hermano, que es socio mío en esto. Él ve la parte financiera.</div></div>
+    <div class="linea vend"><div class="quien">Andrés</div><div class="texto">Por supuesto, acá le dejo la propuesta impresa y mi tarjeta. Cualquier duda que tenga su hermano, me llama no más. Que le vaya muy bien con lo de la minera.</div></div>
+    <div class="anota gap">✘ <b>Brecha 3 — el decisor financiero apareció al final y quedó sin gestionar.</b> El hermano socio "ve la parte financiera" — es el decisor económico, apareció en el minuto final y la venta interna quedó delegada a Marcela con una propuesta que ella misma encuentra cara. Jugada: <b>"¡Qué bueno saberlo! Justo la parte financiera es donde esta decisión se entiende mejor. ¿Le parece que hagamos una llamada de 20 minutos los tres el jueves? Así su hermano pregunta directo y no le paso a usted la pega de explicar."</b> Y el cierre volvió a ser "me llama no más" — sin fecha.</div>
+  </div>
+
+  <h3>Feedback modelo (min 28–38) — así se dice</h3>
+  <div class="fb">
+    <span class="badge verde">Primero, lo que funcionó</span>
+    <p style="margin:8px 0 14px;">"Andrés domina su producto como pocos: la propuesta estaba bien armada, las coberturas bien elegidas para una flota como esta, y las explicaciones fueron claras y honestas — incluso cuando tocaba decir algo incómodo. Esa solidez técnica es la base de todo. Lo que vamos a trabajar es la <b>secuencia</b>: en qué orden pasan las cosas en la reunión, porque hoy el orden le está costando ventas que técnicamente ya tenía ganadas."</p>
+    <span class="badge rojo">Brecha 1 · La urgencia de la minera pasó de largo</span>
+    <dl class="eia">
+      <dt>Evidencia</dt><dd>Marcela dijo en el minuto 2: "una minera me está pidiendo un montón de papeles para renovarme el contrato". La reunión siguió con la presentación de la prima.</dd>
+      <dt>Impacto</dt><dd>Esa frase valía toda la reunión: si la renovación del contrato exige pólizas, el seguro deja de ser un gasto evitable y pasa a ser la condición para no perder a su cliente más grande. Sin eso, la conversación quedó en "seguro caro en año lento".</dd>
+      <dt>Alternativa</dt><dd>Regla personal: <b>toda mención a un mandante, contrato o regulador detiene la presentación.</b> La frase: <em>"Antes de seguir — ¿qué le está pidiendo exactamente la minera? Si el contrato depende de eso, partamos por ahí."</em></dd>
+    </dl>
+    <span class="badge rojo">Brecha 2 · La prima se defendió con descuento</span>
+    <dl class="eia">
+      <dt>Evidencia</dt><dd>"Es harta plata" → "podríamos dejarla en 280, quizás 270". Cuarenta UF entregadas en 15 segundos, sin contraparte.</dd>
+      <dt>Impacto</dt><dd>El descuento inmediato confirma la sospecha del cliente (el precio estaba inflado) y ancla la conversación en prima contra prima — 270 siempre pierde contra 180. Además: nunca supimos qué cubre el seguro de 180, así que "cobertura superior" quedó como opinión.</dd>
+      <dt>Alternativa</dt><dd>Auditoría de cobertura antes de cualquier cifra: <em>"Hagamos algo mejor que hablar de precio: traigame su póliza actual y le muestro lado a lado qué tiene cubierto y qué está asumiendo usted sin saberlo. La diferencia en pesos es la que importa — no la diferencia de prima."</em></dd>
+    </dl>
+    <span class="badge rojo">Brecha 3 · El decisor financiero quedó fuera de la cancha</span>
+    <dl class="eia">
+      <dt>Evidencia</dt><dd>"Lo converso con mi hermano, que ve la parte financiera" → "cualquier duda me llama no más".</dd>
+      <dt>Impacto</dt><dd>La venta interna quedó en manos de Marcela — que encuentra cara la propuesta — frente al decisor económico, sin material, sin cifra de exposición y sin fecha. Es la receta del silencio de dos semanas.</dd>
+      <dt>Alternativa</dt><dd>Subir al decisor a la cancha con fecha: <em>"¿Hacemos una llamada de 20 minutos los tres el jueves? Así su hermano pregunta directo."</em> Y si no acepta: preparar con Marcela la página única que su hermano necesita ver.</dd>
+    </dl>
+  </div>
+
+  <h3>Compromisos sugeridos (min 38–45) — el vendedor elige 2</h3>
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>Compromiso</th><th>Conducta observable</th><th>Meta a 3-4 semanas</th><th>Cómo lo mide Lucas</th></tr></thead>
+    <tbody>
+      <tr><td><b>Urgencia antes que prima</b></td><td>Pregunta por mandantes/normativa/plazos antes de presentar cualquier propuesta</td><td>100% de reuniones de descubrimiento</td><td>Detecta si la exploración regulatoria/contractual antecede a la primera cifra de prima</td></tr>
+      <tr><td><b>Exposición en pesos</b></td><td>Auditoría de cobertura o cifra de exposición presentada antes de la prima</td><td>4 de cada 5 propuestas</td><td>Orden de aparición: cifra de exposición vs. cifra de prima en la transcripción</td></tr>
+      <tr><td><b>Cero descuento reflejo</b></td><td>Objeción de precio respondida con reencuadre de valor; descuento solo con contraparte explícita</td><td>100% de objeciones de precio</td><td>Clasifica la respuesta a "está caro": reencuadre / descuento inmediato</td></tr>
+      <tr><td><b>Decisores a la cancha</b></td><td>Todos los decisores identificados y con acción concreta (reunión, llamada o material dirigido)</td><td>100% de oportunidades con 2+ decisores</td><td>Detección de decisores mencionados y del plan asociado a cada uno</td></tr>
+      <tr><td><b>Etiquetar el miedo</b></td><td>Ansiedad del cliente nombrada antes de responder con datos</td><td>Toda objeción emocional</td><td>Clasifica respuesta: etiqueta vs. estadística/argumento</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="ia-box">🔍 <b>Cierre de la sesión (guion):</b> "Dos conductas por persona, elegidas por ustedes. Lucas las mide desde mañana en sus reuniones reales — nadie más ve los números individuales, cada uno recibe los suyos. Nos juntamos el [fecha] y revisamos el antes/después. Y un adelanto: en este rubro, la conducta que más rápido mueve la aguja es la del descuento — el día que dejan de regalar 40 UF por reflejo, esa plata pasa directo a su comisión."</div>
+</section>
+
+<footer>
+  <strong>Método DOMO</strong> · Programa de capacitación y nivelación — Diagnosticar · Orquestar · Medir · Optimizar. Los casos y personajes son ficticios, construidos sobre los patrones reales del rubro. © Domo IA 2026.
+</footer>
+
+</div>
+
+<script>
+// Tabs
+const tabs = document.querySelectorAll('nav.tabs button[data-tab]');
+tabs.forEach(btn => btn.addEventListener('click', () => {
+  tabs.forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('section.tab').forEach(s => s.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  window.scrollTo({top:0});
+}));
+
+// Modo participante: oculta anotaciones y notas del facilitador (para proyectar)
+const modoBtn = document.getElementById('modoBtn');
+modoBtn.addEventListener('click', () => {
+  document.body.classList.toggle('participante');
+  const p = document.body.classList.contains('participante');
+  modoBtn.textContent = p ? '🎓 Modo facilitador' : '👁 Modo participante';
+  modoBtn.title = p ? 'Vuelve a mostrar las anotaciones y el análisis' : 'Oculta las anotaciones y notas del facilitador para proyectar al equipo';
+});
+</script>
+</body>
+</html>
