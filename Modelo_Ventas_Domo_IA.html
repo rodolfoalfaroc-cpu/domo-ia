@@ -6,17 +6,17 @@
 <title>Método DOMO — El modelo de ventas de Domo IA</title>
 <style>
   :root{
-    --bg:#f6f7fb; --surface:#ffffff; --surface2:#eef1f8;
-    --text:#1c2333; --muted:#5b6478; --border:#dde2ee;
-    --brand:#2f5fd0; --brand2:#7c3aed; --accent:#0e9f6e; --warn:#d97706;
-    --chip:#e8eefc; --chipText:#2f5fd0;
-    --shadow:0 2px 10px rgba(20,30,60,.08);
+    --bg:#f6f3ec; --surface:#ffffff; --surface2:#f0ebe0;
+    --text:#1c2340; --muted:#5d6478; --border:#e2dccc;
+    --brand:#33508f; --brand2:#d98e3a; --accent:#0e9f6e; --warn:#d97706;
+    --chip:#f3e8d2; --chipText:#a06a1f;
+    --shadow:0 2px 10px rgba(40,40,80,.08);
   }
   [data-theme="dark"]{
-    --bg:#12151d; --surface:#1a1f2b; --surface2:#232a3a;
-    --text:#e8ebf4; --muted:#9aa3b8; --border:#313a4f;
-    --brand:#7ea2f2; --brand2:#b08df5; --accent:#3ecf94; --warn:#f0a44a;
-    --chip:#26334f; --chipText:#9db9f5;
+    --bg:#1b2340; --surface:#252f55; --surface2:#2d3963;
+    --text:#f2ede4; --muted:#a7b0cc; --border:#3d4a7a;
+    --brand:#7e9bde; --brand2:#e8a951; --accent:#3ecf94; --warn:#f0a44a;
+    --chip:#2d3963; --chipText:#f0c384;
     --shadow:0 2px 10px rgba(0,0,0,.35);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -24,10 +24,21 @@
   body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif; background:var(--bg); color:var(--text); line-height:1.6;}
   .wrap{max-width:1080px; margin:0 auto; padding:0 20px 80px;}
 
-  header.hero{background:linear-gradient(135deg,var(--brand),var(--brand2)); color:#fff; padding:44px 20px 56px; text-align:center;}
-  header.hero h1{font-size:1.9rem; margin-bottom:8px;}
-  header.hero p{max-width:760px; margin:0 auto; opacity:.92;}
-  header.hero .tagline{display:inline-block; margin-top:14px; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.35); padding:4px 14px; border-radius:99px; font-size:.85rem;}
+  header.hero{background:radial-gradient(ellipse at 50% 135%, rgba(232,169,81,.28), transparent 62%), radial-gradient(ellipse at 88% -20%, rgba(93,108,150,.35), transparent 55%), #1b2340; color:#f2ede4; padding:40px 20px 52px; text-align:center;}
+  header.hero h1{font-size:1.9rem; margin-bottom:10px;}
+  header.hero p{max-width:780px; margin:0 auto; opacity:.85;}
+  header.hero .tagline{display:inline-block; margin-top:14px; background:rgba(255,255,255,.08); border:1px solid rgba(232,169,81,.4); padding:4px 14px; border-radius:99px; font-size:.85rem;}
+  header.hero .logo-row{display:flex; align-items:center; gap:10px; justify-content:center; margin-bottom:14px;}
+  header.hero .logo-row svg{width:42px; height:auto;}
+  header.hero .wordmark{font-weight:900; letter-spacing:5px; font-size:1.02rem;}
+  .acro{display:flex; gap:6px 18px; justify-content:center; align-items:baseline; flex-wrap:wrap; margin:2px 0 14px;}
+  .acro span{font-weight:700; font-size:clamp(.98rem,2.1vw,1.25rem); letter-spacing:.5px;}
+  .acro span b{font-size:1.9em; font-weight:900; background:linear-gradient(120deg,#f0c384,#d98e3a); -webkit-background-clip:text; background-clip:text; color:transparent; text-shadow:0 0 26px rgba(232,169,81,.35);}
+  .acro .dot{color:rgba(232,169,81,.7); font-size:1.3rem;}
+  header.hero .equipo{margin-top:16px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; font-size:.82rem;}
+  header.hero .equipo span{background:rgba(255,255,255,.07); border:1px solid rgba(232,169,81,.4); border-radius:99px; padding:4px 14px;}
+  header.hero .equipo b{color:#f0c384;}
+  header.hero .equipo .lbl{border:none; background:transparent; color:#a7b0cc; padding:4px 0;}
 
   nav.tabs{position:sticky; top:0; z-index:50; background:var(--surface); border-bottom:1px solid var(--border); box-shadow:var(--shadow);}
   nav.tabs .inner{max-width:1080px; margin:0 auto; display:flex; gap:4px; overflow-x:auto; padding:8px 12px;}
@@ -51,7 +62,7 @@
   .card .autor{font-size:.82rem; color:var(--muted); margin-bottom:10px;}
   .badge{display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.4px; text-transform:uppercase; padding:2px 10px; border-radius:99px; background:var(--chip); color:var(--chipText); margin-bottom:8px;}
   .badge.green{background:rgba(14,159,110,.14); color:var(--accent);}
-  .badge.purple{background:rgba(124,58,237,.12); color:var(--brand2);}
+  .badge.purple{background:rgba(217,142,58,.15); color:var(--brand2);}
   .badge.orange{background:rgba(217,119,6,.14); color:var(--warn);}
 
   details{background:var(--surface); border:1px solid var(--border); border-radius:14px; margin-bottom:12px; overflow:hidden;}
@@ -109,7 +120,7 @@
   .critico b{color:var(--warn);}
   .etapa-mod{display:flex; gap:12px; align-items:baseline; padding:9px 0; border-bottom:1px dashed var(--border); font-size:.92rem;}
   .etapa-mod:last-child{border-bottom:none;}
-  .etapa-mod .el{flex:0 0 28px; height:28px; border-radius:8px; background:var(--brand2); color:#fff; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:.85rem;}
+  .etapa-mod .el{flex:0 0 28px; height:28px; border-radius:8px; background:var(--brand2); color:#1b2340; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:.85rem;}
   .etapa-mod .mods small{display:block; color:var(--muted); font-size:.82rem;}
   .nuevo-chip{display:inline-block; font-size:.68rem; font-weight:800; color:var(--accent); border:1px dashed var(--accent); border-radius:99px; padding:0 8px; margin-left:6px; vertical-align:middle; white-space:nowrap;}
 
@@ -122,7 +133,7 @@
   .tono-btn.active{background:var(--brand); border-color:var(--brand); color:#fff;}
   #motorSvg.filtrado .modg{opacity:.25; transition:opacity .2s;}
   #motorSvg.filtrado .modg.hl{opacity:1;}
-  #motorSvg .modg.hl rect{stroke:var(--brand); stroke-width:2.4; fill:var(--chip);}
+  #motorSvg .modg.hl rect{stroke:var(--brand2); stroke-width:2.4; fill:var(--chip);}
 
   /* Etapas desplegables en la matriz por rubro */
   details.etapa-x{background:transparent; border:none; border-radius:0; margin:0; border-bottom:1px dashed var(--border);}
@@ -182,9 +193,33 @@
 <body data-theme="light">
 
 <header class="hero">
+  <div class="logo-row">
+    <svg viewBox="0 0 60 44" aria-hidden="true">
+      <g fill="none" stroke="#e8a951" stroke-width="2.6" stroke-linecap="round">
+        <path d="M6 38 A24 24 0 0 1 54 38"/>
+        <path d="M14 38 A16 16 0 0 1 46 38" opacity=".65"/>
+        <path d="M22 38 A8 8 0 0 1 38 38" opacity=".4"/>
+      </g>
+      <circle cx="30" cy="38" r="3.4" fill="#e8a951"/>
+      <line x1="2" y1="38" x2="58" y2="38" stroke="#3d4a7a" stroke-width="2"/>
+    </svg>
+    <span class="wordmark">DOMO IA</span>
+  </div>
   <h1>Método DOMO · El método que aprende de cada venta</h1>
-  <p><strong>D</strong>iagnosticar · <strong>O</strong>rquestar · <strong>M</strong>edir · <strong>O</strong>ptimizar. El método comercial de Domo IA, construido sobre 14 obras de referencia en ventas: un motor <strong>V-E-N-D-E</strong> de 30 módulos que se configura para tu rubro — SaaS, Servicios Profesionales, Seguros/Financiero, Automotriz, Industrial e Inmobiliario (modelo <strong>HOGAR</strong>) — y que la IA mide y mejora en cada reunión de tu equipo.</p>
-  <span class="tagline">Marco teórico · Motor V-E-N-D-E · Configuración por rubro · Enfoque generacional · Ejemplos prácticos</span>
+  <div class="acro">
+    <span><b>D</b>iagnosticar</span><span class="dot">·</span>
+    <span><b>O</b>rquestar</span><span class="dot">·</span>
+    <span><b>M</b>edir</span><span class="dot">·</span>
+    <span><b>O</b>ptimizar</span>
+  </div>
+  <p>El método comercial de Domo IA, construido sobre 14 obras de referencia en ventas: un motor <strong>V-E-N-D-E</strong> de 30 módulos que se configura para tu rubro — SaaS, Servicios Profesionales, Seguros/Financiero, Automotriz, Industrial e Inmobiliario (modelo <strong>HOGAR</strong>) — y que la IA mide y mejora en cada reunión de tu equipo.</p>
+  <span class="tagline">Marco teórico · Motor V-E-N-D-E · Configuración por rubro · Lectura de contrapartes · Ejemplos prácticos</span>
+  <div class="equipo">
+    <span class="lbl">El equipo digital que ejecuta el método:</span>
+    <span>📣 <b>Matías</b> — compra medios y afina anuncios</span>
+    <span>💬 <b>Antonia</b> — responde, califica y agenda</span>
+    <span>🔍 <b>Lucas</b> — audita cada reunión y entrena al equipo</span>
+  </div>
 </header>
 
 <nav class="tabs">
@@ -193,7 +228,7 @@
     <button data-tab="hogar">🏠 Modelo HOGAR (Inmobiliario)</button>
     <button data-tab="vende">⚙️ Motor VENDE 2.0</button>
     <button data-tab="rubros">🏭 Configuración por Rubro</button>
-    <button data-tab="generacion">👥 Enfoque Generacional</button>
+    <button data-tab="generacion">👥 Lectura de Contrapartes</button>
     <button data-tab="ejemplos">💬 Ejemplos Prácticos</button>
     <button class="theme" id="themeBtn" title="Cambiar tema">🌙</button>
   </div>
@@ -457,23 +492,23 @@
         </style>
       </defs>
       <!-- Chimenea: R -->
-      <rect class="lay" x="318" y="42" width="44" height="78" rx="4" fill="#0e9f6e"/>
+      <rect class="lay" x="318" y="42" width="44" height="78" rx="4" fill="#e8a951"/>
       <text class="lbl" x="340" y="70" text-anchor="middle">R</text>
       <text class="sub" x="340" y="86" text-anchor="middle">Relación</text>
       <!-- Techo: A -->
-      <polygon class="lay" points="230,18 425,168 35,168" fill="#7c3aed"/>
+      <polygon class="lay" points="230,18 425,168 35,168" fill="#d98e3a"/>
       <text class="lbl" x="230" y="130" text-anchor="middle">A · Acuerdo</text>
       <text class="sub" x="230" y="148" text-anchor="middle">negociación con empatía táctica</text>
       <!-- Muro superior: G -->
-      <rect class="lay" x="60" y="172" width="340" height="56" fill="#2f5fd0"/>
+      <rect class="lay" x="60" y="172" width="340" height="56" fill="#5d7fc9"/>
       <text class="lbl" x="230" y="196" text-anchor="middle">G · Guía</text>
       <text class="sub" x="230" y="214" text-anchor="middle">insight de mercado + plan simple + curaduría</text>
       <!-- Muro inferior: O -->
-      <rect class="lay" x="60" y="232" width="340" height="56" fill="#4577dd"/>
+      <rect class="lay" x="60" y="232" width="340" height="56" fill="#33508f"/>
       <text class="lbl" x="230" y="256" text-anchor="middle">O · Objetivo</text>
       <text class="sub" x="230" y="274" text-anchor="middle">brecha: vida actual → vida deseada, con números</text>
       <!-- Cimiento: H -->
-      <rect class="lay" x="38" y="292" width="384" height="52" rx="6" fill="#1f3f8f"/>
+      <rect class="lay" x="38" y="292" width="384" height="52" rx="6" fill="#1f2c52"/>
       <text class="lbl" x="230" y="314" text-anchor="middle">H · Hallazgo</text>
       <text class="sub" x="230" y="331" text-anchor="middle">el "trabajo": evento gatillador + 4 fuerzas del progreso</text>
     </svg>
@@ -793,7 +828,7 @@
 <!-- ============ TAB 4: CONFIGURACIÓN POR RUBRO ============ -->
 <section class="tab" id="tab-rubros">
   <h2>Configuración por Rubro · 5 macrorubros validados</h2>
-  <p class="lead">Configuraciones del Motor VENDE 2.0 para cinco macrorubros. Cada una define el perfil del comprador, el <strong>punto crítico donde mueren las ventas</strong> de ese mercado, los módulos por etapa y los KPIs que el agente auditor mide. El principio: <strong>el motor V-E-N-D-E es el mismo — lo que cambia es la configuración para tu negocio</strong>. Haz clic en cada etapa de la matriz para ver el detalle y un ejemplo real.</p>
+  <p class="lead">Configuraciones del Motor VENDE 2.0 para cinco macrorubros. Cada una define el perfil del comprador, el <strong>punto crítico donde mueren las ventas</strong> de ese mercado, los módulos por etapa y los KPIs que <strong>Lucas</strong> — el agente auditor de Domo IA — mide en cada reunión. El principio: <strong>el motor V-E-N-D-E es el mismo — lo que cambia es la configuración para tu negocio</strong>. Haz clic en cada etapa de la matriz para ver el detalle y un ejemplo real.</p>
 
   <div class="rubro-nav">
     <button class="rubro-btn active" data-rubro="auto">🚗 Automotriz</button>
@@ -956,8 +991,11 @@
 
 <!-- ============ TAB 5: ENFOQUE GENERACIONAL ============ -->
 <section class="tab" id="tab-generacion">
-  <h2>Aproximación por Generación</h2>
-  <p class="lead">La generación del comprador <strong>no cambia el modelo</strong> — las etapas V-E-N-D-E se mantienen — pero sí cambia el <strong>canal, el ritmo, el tono y la evidencia</strong> que convence. Es una capa de personalización que se aplica <em>sobre</em> el módulo elegido: el mismo Gap Selling se presenta con una planilla comparativa a un Gen X y con un video corto de caso real a un Gen Z. Referencia: "¿Cómo venderle a cada generación?" (@andresbilbao) + investigación de marketing generacional.</p>
+  <h2>Lectura de Contrapartes · Generación y Rol</h2>
+  <p class="lead">Antes de aplicar cualquier módulo del Método DOMO hay que leer a quién tienes al frente — con <strong>dos lentes que se cruzan</strong>. La <strong>generación te dice CÓMO hablarle</strong> (canal, ritmo, tono, evidencia) y el <strong>rol en la mesa te dice QUÉ ponerle delante</strong> (retorno, usabilidad, seguridad, respaldo). Una misma persona se lee con ambos: un decisor económico millennial quiere el mismo caso de negocio que uno boomer — pero por WhatsApp y con casos reales, no en una carpeta impresa.</p>
+
+  <h3>Lente 1 · La generación: cómo hablarle</h3>
+  <p class="lead" style="font-size:.95rem;">La generación no cambia el modelo — las etapas V-E-N-D-E se mantienen — pero sí cambia el canal, el ritmo y la evidencia que convence: el mismo Gap Selling se presenta con una planilla comparativa a un Gen X y con un video corto a un Gen Z. Referencia: "¿Cómo venderle a cada generación?" (@andresbilbao) + investigación de marketing generacional.</p>
 
   <details>
     <summary><span class="badge">1946–1964</span> Baby Boomers — hoy ~62 a 80 años <span class="arrow">▸</span></summary>
@@ -1044,7 +1082,134 @@
 
   <div class="grid c2" style="margin-top:18px;">
     <div class="card"><span class="badge orange">Advertencia</span><h4>La generación es hipótesis, no estereotipo</h4><p style="font-size:.9rem;">Hay boomers que compran por WhatsApp y Gen Z que exigen reunión formal. La generación define la <em>primera jugada</em> (canal y tono de apertura); el individuo define el resto. La regla del modelo: abre con la sintonía generacional y ajusta con lo que la persona te muestre en los primeros 5 minutos.</p></div>
-    <div class="card"><span class="badge green">Domo IA</span><h4>De heurística a dato</h4><p style="font-size:.9rem;">Aquí el sistema convierte la intuición en evidencia: el agente de chat (capa 2) registra la edad aproximada o cohorte del lead, el auditor (capa 4) etiqueta qué sintonía usó el vendedor, y el agente de patrones cruza ambas con los cierres. Al cabo de 2-3 meses sabrás <em>con tus datos</em> si en tu rubro los Gen X realmente cierran más con comparativas — y el configurador dejará de asumir para empezar a saber.</p></div>
+    <div class="card"><span class="badge green">Domo IA</span><h4>De heurística a dato</h4><p style="font-size:.9rem;">El sistema convierte la intuición en evidencia: el agente de chat registra la cohorte del lead, el auditor etiqueta qué sintonía y qué roles trabajó el vendedor, y el agente de patrones cruza todo con los cierres. Al cabo de 2-3 meses sabrás <em>con tus datos</em> qué combinación de lectura cierra más en tu rubro — el modelo deja de asumir y empieza a saber.</p></div>
+  </div>
+
+  <h3>Lente 2 · El rol en la mesa: qué ponerle delante</h3>
+  <p class="lead">En toda venta con más de un interlocutor — un comité B2B, pero también una pareja comprando casa — cada persona juega un <strong>rol</strong> en la decisión (basado en Venta Estratégica de Miller-Heiman y The Challenger Customer). El rol <strong>puede o no hacer match con el patrón generacional</strong>: cuando chocan, <strong>el rol manda en el contenido y la generación solo en la forma</strong>. Despliega cada rol para ver cómo identificarlo y qué darle.</p>
+
+  <details>
+    <summary><span class="badge">Rol 1</span> Decisor económico — el que firma <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Qué quiere:</strong> retorno, control del riesgo y costo de oportunidad. No compra la solución: compra el resultado de negocio y la tranquilidad de no equivocarse.</p>
+      <div class="mini-label">Cómo identificarlo</div>
+      <ul>
+        <li>Pregunta por el precio total, los plazos y el "¿qué pasa si no funciona?".</li>
+        <li>Los demás lo miran antes de responder preguntas de presupuesto.</li>
+        <li>Puede no estar en la primera reunión — y ese es justamente el riesgo.</li>
+      </ul>
+      <div class="mini-label">Qué ponerle delante</div>
+      <p>El caso de negocio con la brecha en pesos (Gap Selling), garantías y condiciones de salida. <strong>Riesgo si lo ignoras:</strong> cerrar con todos menos con él — la venta "aprobada" que nunca se firma.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> ¿el decisor económico fue identificado y contactado antes de presentar la propuesta? ¿La brecha se presentó en cifras cuando él estaba presente?</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="badge">Rol 2</span> Usuario — el que vivirá con la solución <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Qué quiere:</strong> que su día a día mejore, o al menos no empeore. Su pregunta silenciosa es "¿esto me simplifica o me complica la vida?".</p>
+      <div class="mini-label">Cómo identificarlo</div>
+      <ul>
+        <li>Hace preguntas operativas concretas: "¿y cómo se hace tal cosa?".</li>
+        <li>Se fija en detalles de uso que a los demás les parecen menores.</li>
+        <li>En la compra familiar (casa, auto) el usuario son todos — pero con pesos distintos.</li>
+      </ul>
+      <div class="mini-label">Qué ponerle delante</div>
+      <p>Demo del flujo real de su trabajo, prueba directa, testimonios de usuarios como él. <strong>Riesgo si lo ignoras:</strong> el sabotaje silencioso — el usuario que no fue escuchado en la venta se encarga de que la solución "no funcione" después.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> ¿el usuario participó en alguna reunión antes del cierre? ¿Hubo demo del caso de uso real (no genérica)?</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="badge">Rol 3</span> Evaluador técnico — el guardián del "no" <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Qué quiere:</strong> que se cumplan los estándares — seguridad, integración, normativa, especificaciones. Rara vez puede decir que sí, pero <strong>siempre puede decir que no</strong>.</p>
+      <div class="mini-label">Cómo identificarlo</div>
+      <ul>
+        <li>Pide fichas técnicas, certificaciones, detalles de integración.</li>
+        <li>Su lenguaje es de requisitos y cumplimiento, no de beneficios.</li>
+        <li>Aparece "de repente" en la etapa final — si no lo buscaste tú antes.</li>
+      </ul>
+      <div class="mini-label">Qué ponerle delante</div>
+      <p>Validación técnica anticipada (módulo especializado del motor): que pruebe antes de que el comité decida, documentación completa, acceso a tu equipo técnico. <strong>Riesgo si lo ignoras:</strong> el veto tardío que destruye meses de trabajo comercial.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> ¿se ofreció validación técnica antes de la propuesta económica? ¿El rol técnico está mapeado y contactado en la primera mitad del ciclo?</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="badge">Rol 4</span> Influenciador / Movilizador — el que vende por dentro <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Qué quiere:</strong> que el cambio ocurra — y quedar bien parado por haberlo impulsado. No siempre tiene el cargo más alto, pero mueve la decisión en las reuniones donde tú no estás.</p>
+      <div class="mini-label">Cómo identificarlo</div>
+      <ul>
+        <li>Habla en "nosotros" y hace preguntas de implementación, no de evaluación.</li>
+        <li>Te pide material para compartir internamente.</li>
+        <li>Ojo con el falso positivo: el "conversador" simpático que te recibe siempre pero no mueve nada (Challenger Customer).</li>
+      </ul>
+      <div class="mini-label">Qué ponerle delante</div>
+      <p>El kit de venta interna: material por rol, respuestas a las objeciones que enfrentará, y ensayar juntos su presentación. <strong>Riesgo si lo ignoras:</strong> sin movilizador equipado, el consenso interno muere solo — es la causa nº1 de pérdida en comités.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> ¿movilizador identificado (vs. mero conversador)? ¿Se co-creó el plan de venta interna con él?</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="badge">Rol 5</span> Detractor / Escéptico — el que pierde algo con el cambio <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Qué quiere:</strong> que las cosas sigan como están. Casi nunca es irracional: pierde algo con el cambio (poder, comodidad, presupuesto) o se quemó con una compra anterior parecida.</p>
+      <div class="mini-label">Cómo identificarlo</div>
+      <ul>
+        <li>Objeciones que cambian de forma pero no desaparecen al responderlas.</li>
+        <li>Silencio o brazos cruzados en reuniones donde todos asienten.</li>
+        <li>La frase clásica: "ya probamos algo así y no funcionó".</li>
+      </ul>
+      <div class="mini-label">Qué ponerle delante</div>
+      <p>Lo contrario del instinto: <strong>buscarlo temprano, no evitarlo</strong>. Reunión a solas, etiqueta de Voss ("parece que una experiencia anterior los dejó con dudas"), auditoría de acusaciones y un rol en el diseño de la solución. Un detractor escuchado se neutraliza; uno ignorado trabaja en tu contra en cada reunión interna. <strong>Riesgo si lo ignoras:</strong> exactamente eso.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> ¿detractor detectado y abordado directamente? ¿Sus objeciones fueron etiquetadas (Voss) en vez de rebatidas?</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="badge">Rol 6</span> Coach / Aliado interno — el que te muestra el mapa <span class="arrow">▸</span></summary>
+    <div class="body">
+      <p><strong>Qué quiere:</strong> que ganes tú — porque tu éxito lo beneficia personalmente o porque confía en ti. Es quien te cuenta cómo se decide <em>de verdad</em>: quién manda, quién frena, qué pasó con el proveedor anterior.</p>
+      <div class="mini-label">Cómo identificarlo</div>
+      <ul>
+        <li>Te da información que no pediste ("te conviene hablar primero con...").</li>
+        <li>Te corrige la estrategia: "eso no lo presentes así".</li>
+        <li>No confundir con el movilizador: el coach te informa, el movilizador ejecuta por dentro. Pueden ser la misma persona — o no.</li>
+      </ul>
+      <div class="mini-label">Qué ponerle delante</div>
+      <p>Reciprocidad y protección: nunca quemes su información, hazlo quedar bien, y asegúrale un win personal en el resultado (Win-Results de Miller-Heiman). <strong>Riesgo si lo ignoras:</strong> vender a ciegas en una cancha donde todos los demás conocen las reglas.</p>
+      <div class="ia-box">🤖 <strong>Medible por IA:</strong> ¿existe un coach identificado en la oportunidad? ¿La información del mapa de decisión proviene de una fuente interna o son supuestos del vendedor?</div>
+    </div>
+  </details>
+
+  <h3>El cruce de los dos lentes: arma tu jugada</h3>
+  <p class="lead" style="font-size:.95rem;">Elige el rol y la generación de tu contraparte y obtén la jugada combinada. Regla de oro cuando no hay match: <strong>si el comportamiento observado contradice el patrón generacional, manda lo que observas</strong> — el rol define siempre el contenido; la generación, solo la forma.</p>
+  <div class="card">
+    <div style="display:flex; gap:14px; flex-wrap:wrap; margin-bottom:14px;">
+      <div style="flex:1 1 220px;">
+        <label for="selRol" style="font-size:.85rem; font-weight:600; display:block; margin-bottom:4px;">Rol en la mesa</label>
+        <select id="selRol">
+          <option value="decisor">💰 Decisor económico</option>
+          <option value="usuario">👤 Usuario</option>
+          <option value="tecnico">🔧 Evaluador técnico</option>
+          <option value="movilizador">🚀 Influenciador / Movilizador</option>
+          <option value="detractor">🛑 Detractor / Escéptico</option>
+          <option value="coach">🤝 Coach / Aliado interno</option>
+        </select>
+      </div>
+      <div style="flex:1 1 220px;">
+        <label for="selGen" style="font-size:.85rem; font-weight:600; display:block; margin-bottom:4px;">Generación</label>
+        <select id="selGen">
+          <option value="boomer">Baby Boomer (1946-1964)</option>
+          <option value="genx" selected>Generación X (1965-1980)</option>
+          <option value="millennial">Millennial (1981-1996)</option>
+          <option value="genz">Generación Z (1997-2012)</option>
+        </select>
+      </div>
+    </div>
+    <div id="cruceOut"></div>
   </div>
 </section>
 
@@ -1126,9 +1291,8 @@ tabs.forEach(btn => btn.addEventListener('click', () => {
 
 // ---------- Tema ----------
 const themeBtn = document.getElementById('themeBtn');
-const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 function setTheme(t){ document.body.dataset.theme = t; themeBtn.textContent = t === 'dark' ? '☀️' : '🌙'; }
-setTheme(prefersDark ? 'dark' : 'light');
+setTheme('dark'); // identidad Domo IA: navy + dorado (el usuario puede alternar)
 themeBtn.addEventListener('click', () => setTheme(document.body.dataset.theme === 'dark' ? 'light' : 'dark'));
 
 // ---------- Tono por rubro en el diagrama del Motor VENDE ----------
@@ -1161,6 +1325,34 @@ document.querySelectorAll('.rubro-btn').forEach(btn => btn.addEventListener('cli
   document.getElementById('rp-' + btn.dataset.rubro).classList.add('active');
   aplicarTono(btn.dataset.rubro); // sincroniza el tono del diagrama Motor VENDE
 }));
+
+// ---------- Combinador Rol × Generación (Lectura de Contrapartes) ----------
+const ROLES_MESA = {
+  decisor:     {n:"Decisor económico",           que:"El caso de negocio: la brecha en pesos, el retorno esperado y qué lo protege si algo sale mal. No le vendas la solución — véndele el resultado y el control del riesgo.", entregable:"el caso de negocio con la brecha cuantificada y las garantías"},
+  usuario:     {n:"Usuario",                     que:"La respuesta a su pregunta silenciosa: ¿esto me simplifica o me complica el día? Quiere ver su flujo real funcionando, no una presentación genérica.", entregable:"una demo de su caso de uso real y la posibilidad de probar"},
+  tecnico:     {n:"Evaluador técnico",           que:"Cumplimiento verificable: seguridad, integración, normativa y especificaciones. Quiere validar antes de que otros decidan — dale esa oportunidad temprano.", entregable:"la validación técnica anticipada y la documentación completa"},
+  movilizador: {n:"Influenciador / Movilizador", que:"Munición para vender por dentro: material por rol, respuestas a las objeciones que enfrentará y un ensayo de su presentación interna.", entregable:"el kit de venta interna co-creado con él"},
+  detractor:   {n:"Detractor / Escéptico",       que:"Ser escuchado antes que convencido: reconocimiento de su experiencia previa, sus objeciones etiquetadas sin rebatir, y un rol en el diseño de la solución.", entregable:"una conversación temprana a solas y un lugar en el diseño"},
+  coach:       {n:"Coach / Aliado interno",      que:"Reciprocidad y protección: su información jamás se quema, su nombre queda bien parado y el resultado incluye una ganancia personal para él.", entregable:"discreción absoluta y un win personal explícito"}
+};
+const GENS_MESA = {
+  boomer:     {n:"Baby Boomer",   como:"En persona o por teléfono, con formalidad y sin apuro. Respaldo impreso o PDF formal, testimonios de pares de su edad y cero jerga tecnológica.", formato:"en una reunión presencial tranquila, con un respaldo formal por escrito"},
+  genx:       {n:"Generación X",  como:"Por correo con los números por delante y una reunión breve con agenda explícita. Directo, sin entusiasmo inflado, con comparativas y garantías claras.", formato:"por correo con la comparativa en cifras y una reunión corta y puntual"},
+  millennial: {n:"Millennial",    como:"Por WhatsApp o videollamada, con respuesta rápida y transparencia total de precios. Casos reales y reseñas valen más que cualquier brochure.", formato:"por WhatsApp o videollamada, con casos reales y el precio transparente desde el inicio"},
+  genz:       {n:"Generación Z",  como:"Formato visual y breve: video corto o demo asíncrona, por el canal que la persona eligió. Genuino, sin guión corporativo y sin presión de cierre.", formato:"en un video corto o demo asíncrona, breve y sin presión"}
+};
+
+function renderCruce(){
+  const r = ROLES_MESA[document.getElementById('selRol').value];
+  const g = GENS_MESA[document.getElementById('selGen').value];
+  document.getElementById('cruceOut').innerHTML = `
+    <div class="etapa-mod" style="border-bottom:1px dashed var(--border);"><span class="el" style="background:var(--brand);">Q</span><div class="mods"><b>Qué ponerle delante (lo define el rol: ${r.n})</b><small>${r.que}</small></div></div>
+    <div class="etapa-mod" style="border-bottom:1px dashed var(--border);"><span class="el" style="background:var(--brand2);">C</span><div class="mods"><b>Cómo entregárselo (lo define la generación: ${g.n})</b><small>${g.como}</small></div></div>
+    <div class="etapa-mod"><span class="el" style="background:var(--accent);">▶</span><div class="mods"><b>Tu jugada</b><small>Prepara ${r.entregable}, y preséntalo ${g.formato}. Si su comportamiento contradice el patrón generacional, ajusta la forma — el contenido no cambia.</small></div></div>`;
+}
+document.getElementById('selRol').addEventListener('change', renderCruce);
+document.getElementById('selGen').addEventListener('change', renderCruce);
+renderCruce();
 
 // ---------- Desplegables prácticos (fases HOGAR) ----------
 document.querySelectorAll('.teoria-toggle').forEach(btn => btn.addEventListener('click', () => {
