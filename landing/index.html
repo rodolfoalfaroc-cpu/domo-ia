@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DOMOIA | De US$71 a US$8 por reunión agendada</title>
+<meta name="description" content="Instalamos un equipo de agentes IA que pauta, conversa, agenda y audita las reuniones de tu fuerza de venta. Resultados reales del piloto: costo por agenda de US$71 a US$8 en 6 semanas.">
+<meta property="og:title" content="DOMOIA — De US$71 a US$8 por reunión agendada">
+<meta property="og:description" content="Agentes IA que se miden, se corrigen y dejan registro. Habla con Antonia y agenda tu diagnóstico.">
+<meta property="og:type" content="website">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='58' r='34' fill='%23e8a951'/><rect x='10' y='58' width='80' height='6' fill='%231b2340'/></svg>">
+
+<style>
+:root{
+  --navy:#1b2340; --navy-2:#2d3963; --navy-3:#141b33;
+  --teal:#33508f; --green:#3ecf94;
+  --gold:#d98e3a; --gold-2:#e8a951; --amber-ink:#a06a1f;
+  --cream:#f6f3ec; --soft:#f0ebe0; --white:#fff;
+  --ink:#1f283c; --muted:#5d6478; --line:#e2dccc;
+  --wa:#25d366;
+  --shadow:0 18px 44px rgba(27,35,64,.13);
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--cream);color:var(--ink);
+  font-family:'Segoe UI',Helvetica,Arial,sans-serif;line-height:1.5;
+  padding-bottom:84px; /* espacio barra sticky móvil */
+}
+img{max-width:100%}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:56px 0}
+h1,h2,h3{line-height:1.15;margin:0}
+h1{font-size:clamp(30px,6vw,54px);font-weight:700;letter-spacing:-.02em}
+h2{font-size:clamp(24px,4.2vw,38px);font-weight:700;letter-spacing:-.015em}
+h3{font-size:19px;font-weight:700}
+p{margin:0}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold-2);
+}
+.eyebrow.dark-ink{color:var(--amber-ink)}
+.lead{font-size:clamp(16px,2.3vw,19px);color:var(--muted)}
+.dark .lead{color:rgba(255,255,255,.78)}
+.gold{color:var(--gold-2)}
+
+/* ---------- Header ---------- */
+header{
+  position:sticky;top:0;z-index:40;
+  background:rgba(27,35,64,.94);backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(232,169,81,.22);
+}
+.bar{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;letter-spacing:.04em;font-size:17px}
+.logo svg{display:block}
+.logo span small{display:block;font-size:10px;font-weight:600;letter-spacing:.16em;color:var(--gold-2);text-transform:uppercase}
+.header-ctas{display:none;gap:9px;align-items:center}
+@media(min-width:760px){.header-ctas{display:flex}}
+.btn-gold-line{background:transparent;color:var(--gold-2);border:1.5px solid rgba(232,169,81,.55)}
+.btn-gold-line:hover{background:var(--gold-2);color:#221703;border-color:var(--gold-2)}
+
+/* ---------- Botones ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:15px 26px;border-radius:999px;border:0;cursor:pointer;
+  font-size:16px;font-weight:700;text-decoration:none;line-height:1;
+  transition:transform .15s ease,box-shadow .15s ease,background .15s ease;
+}
+.btn:active{transform:translateY(1px)}
+.btn-wa{background:var(--wa);color:#08331b;box-shadow:0 10px 26px rgba(37,211,102,.34)}
+.btn-wa:hover{background:#1fbe5b}
+.btn-gold{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#221703;box-shadow:0 10px 26px rgba(217,142,58,.32)}
+.btn-gold:hover{filter:brightness(1.06)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.42)}
+.btn-ghost:hover{border-color:var(--gold-2);color:var(--gold-2)}
+.btn-ghost-ink{background:transparent;color:var(--navy);border:1.5px solid rgba(27,35,64,.28)}
+.btn-ghost-ink:hover{border-color:var(--gold);color:var(--amber-ink)}
+.btn-sm{padding:11px 20px;font-size:14px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.cta-note{font-size:13.5px;color:var(--muted);display:flex;align-items:center;gap:7px}
+.dark .cta-note{color:rgba(255,255,255,.62)}
+.pulse{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(62,207,148,.7);animation:pulse 2.2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(62,207,148,0)}100%{box-shadow:0 0 0 0 rgba(62,207,148,0)}}
+
+/* ---------- Hero ---------- */
+.hero{
+  color:#fff;padding:52px 0 60px;
+  background:
+    radial-gradient(ellipse at 50% 130%,rgba(232,169,81,.26),transparent 60%),
+    radial-gradient(ellipse at 88% -20%,rgba(93,108,150,.34),transparent 55%),
+    linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 60%,var(--navy-3) 100%);
+}
+.hero h1{margin:16px 0 0}
+.hero .lead{margin-top:18px;max-width:640px}
+.hero .cta-row{margin-top:28px}
+.hero .cta-note{margin-top:14px}
+.stamp{
+  margin-top:30px;padding-top:18px;border-top:1px solid rgba(255,255,255,.16);
+  display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13px;color:rgba(255,255,255,.62)
+}
+.stamp b{color:#fff;font-weight:600}
+
+/* ---------- KPIs ---------- */
+.kpis{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:26px}
+@media(min-width:820px){.kpi-grid{grid-template-columns:repeat(4,1fr);gap:16px}}
+.kpi{
+  background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 18px;position:relative;overflow:hidden;
+}
+.kpi::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:linear-gradient(180deg,var(--gold-2),var(--gold))}
+.kpi .label{font-size:12.5px;color:var(--muted);font-weight:600;min-height:34px}
+.kpi .flow{display:flex;align-items:baseline;gap:8px;margin-top:12px;flex-wrap:wrap}
+.kpi .before{font-size:17px;color:#9aa0ad;text-decoration:line-through;font-weight:600}
+.kpi .arrow{color:var(--gold);font-weight:700}
+.kpi .after{font-size:clamp(26px,5.4vw,34px);font-weight:800;color:var(--navy);letter-spacing:-.02em}
+.kpi .delta{
+  display:inline-block;margin-top:10px;padding:4px 10px;border-radius:999px;
+  background:rgba(62,207,148,.14);color:#12764c;font-size:12.5px;font-weight:700
+}
+.kpi-foot{margin-top:18px;font-size:12.5px;color:var(--muted)}
+
+/* ---------- Problema ---------- */
+.pain-grid{display:grid;gap:14px;margin-top:28px}
+@media(min-width:760px){.pain-grid{grid-template-columns:repeat(3,1fr)}}
+.pain{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 20px;box-shadow:0 4px 16px rgba(27,35,64,.05)
+}
+.pain .num{font-size:clamp(30px,5vw,38px);font-weight:800;color:var(--amber-ink);letter-spacing:-.02em}
+.pain h3{margin:6px 0 8px;font-size:17px}
+.pain p{font-size:14.5px;color:var(--muted)}
+
+/* ---------- Equipo ---------- */
+.team{background:var(--white);border-top:1px solid var(--line)}
+.team-grid{display:grid;gap:12px;margin-top:28px}
+@media(min-width:700px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.team-grid{grid-template-columns:repeat(4,1fr)}}
+.agent{
+  border:1px solid var(--line);border-radius:var(--radius);padding:20px 18px;
+  background:var(--cream);display:flex;flex-direction:column;gap:8px
+}
+.agent.on{background:linear-gradient(160deg,#1b2340,#2d3963);border-color:transparent;color:#fff}
+.avatar{
+  width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#221703;
+  font-weight:800;font-size:17px
+}
+.agent.on .avatar{background:var(--wa);color:#08331b}
+.agent h3{font-size:17px}
+.agent .role{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber-ink)}
+.agent.on .role{color:var(--gold-2)}
+.agent p{font-size:14px;color:var(--muted)}
+.agent.on p{color:rgba(255,255,255,.8)}
+.tagline{margin-top:26px;font-size:15px;color:var(--muted);font-style:italic}
+
+/* ---------- Timeline ---------- */
+.tl{margin-top:30px;border-left:2px solid var(--line);padding-left:22px;display:grid;gap:22px}
+.tl-item{position:relative}
+.tl-item::before{
+  content:"";position:absolute;left:-29px;top:4px;width:12px;height:12px;border-radius:50%;
+  background:var(--gold-2);border:2px solid var(--cream);box-shadow:0 0 0 2px var(--gold-2)
+}
+.tl-date{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber-ink)}
+.tl-item h3{margin:4px 0 4px;font-size:17px}
+.tl-item p{font-size:14.5px;color:var(--muted)}
+.tl-res{display:inline-block;margin-top:7px;font-size:13px;font-weight:700;color:#12764c;background:rgba(62,207,148,.14);padding:3px 10px;border-radius:999px}
+.tl-res.neutral{color:var(--muted);background:rgba(27,35,64,.07)}
+.proof-link{
+  margin-top:26px;display:inline-flex;align-items:center;gap:9px;font-size:14.5px;font-weight:600;
+  color:var(--navy);text-decoration:none;border-bottom:2px solid var(--gold-2);padding-bottom:3px
+}
+.proof-link:hover{color:var(--amber-ink)}
+
+/* ---------- Fit ---------- */
+.fit{background:var(--white);border-top:1px solid var(--line)}
+.fit-grid{display:grid;gap:16px;margin-top:26px}
+@media(min-width:820px){.fit-grid{grid-template-columns:1.25fr .95fr}}
+.card{border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px;background:var(--cream)}
+.card.no{background:#fbfaf6}
+.card h3{margin-bottom:14px}
+.list{list-style:none;padding:0;margin:0;display:grid;gap:11px}
+.list li{display:flex;gap:11px;font-size:14.5px;color:var(--ink)}
+.list li i{
+  flex:0 0 20px;height:20px;border-radius:50%;display:grid;place-items:center;
+  font-style:normal;font-size:12px;font-weight:800;margin-top:1px;
+  background:rgba(62,207,148,.18);color:#12764c
+}
+.card.no .list li{color:var(--muted)}
+.card.no .list li i{background:rgba(27,35,64,.08);color:var(--muted)}
+
+/* ---------- FAQ ---------- */
+details{border-bottom:1px solid var(--line);padding:16px 0}
+details summary{
+  cursor:pointer;font-weight:700;font-size:16px;list-style:none;
+  display:flex;justify-content:space-between;gap:16px;align-items:flex-start
+}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";color:var(--gold);font-size:22px;line-height:1;font-weight:700}
+details[open] summary::after{content:"−"}
+details p{margin-top:11px;font-size:14.5px;color:var(--muted)}
+
+/* ---------- CTA final ---------- */
+.final{
+  color:#fff;text-align:center;
+  background:
+    radial-gradient(ellipse at 50% 120%,rgba(232,169,81,.3),transparent 62%),
+    linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 65%,var(--navy-3) 100%);
+}
+.final h2{margin:14px auto 0;max-width:660px}
+.final .lead{margin:16px auto 0;max-width:560px}
+.final .cta-row{justify-content:center;margin-top:28px}
+.final .cta-note{justify-content:center;margin-top:14px}
+
+/* ---------- Footer ---------- */
+footer{background:var(--navy-3);color:rgba(255,255,255,.55);font-size:13px;padding:26px 0}
+footer a{color:var(--gold-2);text-decoration:none}
+.foot{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-between;align-items:center}
+
+/* ---------- Sticky móvil ---------- */
+.sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  background:rgba(255,255,255,.97);backdrop-filter:blur(10px);
+  border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  display:flex;gap:9px;box-shadow:0 -8px 24px rgba(27,35,64,.1)
+}
+.sticky .btn{flex:1;padding:14px 10px;font-size:14.5px}
+@media(min-width:760px){
+  body{padding-bottom:0}
+  .sticky{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ CONFIGURACIÓN — editar solo estas 3 líneas ═══ -->
+<script>
+const DOMOIA = {
+  whatsapp: "56936956065",                                   // número de Antonia (sin + ni espacios)
+  mensaje : "Hola Antonia, vengo desde la web de DOMOIA y quiero agendar una reunión.",
+  agenda  : "https://calendar.app.google/REEMPLAZAR"         // link de autoagendamiento
+};
+</script>
+<!-- ═════════════════════════════════════════════════ -->
+
+<header>
+  <div class="wrap bar">
+    <a href="#top" class="logo" style="text-decoration:none">
+      <svg width="30" height="30" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M12 66a38 38 0 0 1 76 0z" fill="#e8a951"/>
+        <path d="M50 28v38M22 50h56M32 38h36" stroke="#1b2340" stroke-width="3" opacity=".45"/>
+        <rect x="8" y="66" width="84" height="6" rx="3" fill="#e8a951"/>
+      </svg>
+      <span>DOMOIA<small>Método DOMO</small></span>
+    </a>
+    <div class="header-ctas">
+      <a href="#" data-cta="wa" data-loc="header" class="btn btn-wa btn-sm">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5 0-1.2.1-1.9-.1-.4-.2-1-.4-1.8-.7-3.2-1.4-5.2-4.5-5.4-4.7-.2-.2-1.3-1.7-1.3-3.2S6.2 6.6 6.5 6.3c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5l1 2.4c.1.2.1.4 0 .6l-.4.6-.3.3c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.5.3.1.5.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2.2 1.1c.3.2.5.2.6.4 0 .1 0 .7-.2 1.4"/></svg>
+        Hablar con Antonia
+      </a>
+      <a href="#" data-cta="agenda" data-loc="header" class="btn btn-gold-line btn-sm">Agendar reunión</a>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════ HERO ══════════ -->
+<div id="top" class="hero dark">
+  <div class="wrap">
+    <span class="eyebrow">Piloto real · Inmobiliaria en Santiago</span>
+    <h1>De <span class="gold">US$71</span> a <span class="gold">US$8</span> por reunión agendada.<br>En 6 semanas.</h1>
+    <p class="lead">
+      No cambiamos el equipo de ventas: le instalamos alrededor un domo de agentes IA que
+      <b>pauta, conversa, agenda y audita</b> cada reunión. Cada cambio se mide y queda registrado.
+      Abajo están los números exactos del piloto — no un promedio de industria.
+    </p>
+
+    <div class="cta-row">
+      <a href="#" data-cta="wa" data-loc="hero" class="btn btn-wa">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5 0-1.2.1-1.9-.1-.4-.2-1-.4-1.8-.7-3.2-1.4-5.2-4.5-5.4-4.7-.2-.2-1.3-1.7-1.3-3.2S6.2 6.6 6.5 6.3c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5l1 2.4c.1.2.1.4 0 .6l-.4.6-.3.3c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.5.3.1.5.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2.2 1.1c.3.2.5.2.6.4 0 .1 0 .7-.2 1.4"/></svg>
+        Hablar con Antonia ahora
+      </a>
+      <a href="#" data-cta="agenda" data-loc="hero" class="btn btn-ghost">Ver horarios y agendar</a>
+    </div>
+    <p class="cta-note"><span class="pulse"></span> Antonia responde en segundos, 24/7. Te toma menos de 2 minutos.</p>
+
+    <div class="stamp">
+      <span><b>337</b> leads procesados</span>
+      <span><b>15-jun a 30-jul 2026</b></span>
+      <span><b>54%</b> de los leads llegó fuera de horario comercial</span>
+      <span><b>16</b> reuniones agendadas</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ KPIs ══════════ -->
+<section class="kpis">
+  <div class="wrap">
+    <span class="eyebrow dark-ink">Resultados medidos</span>
+    <h2 style="margin-top:12px">Los mismos avisos. El mismo equipo.<br>Otro resultado.</h2>
+
+    <div class="kpi-grid">
+      <div class="kpi">
+        <p class="label">Costo de pauta por agenda calificada</p>
+        <div class="flow"><span class="before">US$71</span><span class="arrow">→</span><span class="after">US$8</span></div>
+        <span class="delta">↓ 89%</span>
+      </div>
+      <div class="kpi">
+        <p class="label">Leads que contestan la 1ª pregunta</p>
+        <div class="flow"><span class="before">53%</span><span class="arrow">→</span><span class="after">73%</span></div>
+        <span class="delta">+20 pp</span>
+      </div>
+      <div class="kpi">
+        <p class="label">Ritmo de agendamiento semanal</p>
+        <div class="flow"><span class="before">1,1</span><span class="arrow">→</span><span class="after">8,6</span></div>
+        <span class="delta">× 8</span>
+      </div>
+      <div class="kpi">
+        <p class="label">Tasa de agendamiento conversacional</p>
+        <div class="flow"><span class="before">1,5%</span><span class="arrow">→</span><span class="after">8,7%</span></div>
+        <span class="delta">+580%</span>
+      </div>
+    </div>
+
+    <p class="kpi-foot">
+      El último aviso del piloto: <b>US$33 invertidos → 82 conversaciones → 13 reuniones agendadas</b>
+      (US$2,6 por agenda, 15,9% de conversión) en 7 días.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════ PROBLEMA ══════════ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow dark-ink">Por qué pasa</span>
+    <h2 style="margin-top:12px">Tus leads no son malos.<br>Se están cayendo en lugares que nadie mira.</h2>
+
+    <div class="pain-grid">
+      <div class="pain">
+        <div class="num">114</div>
+        <h3>Se quedaron en el saludo</h3>
+        <p>De 213 leads, 114 nunca pasaron del primer mensaje. Nadie lo había contado: se veían como "leads fríos" en la planilla.</p>
+      </div>
+      <div class="pain">
+        <div class="num">54%</div>
+        <h3>Llegan fuera de horario</h3>
+        <p>Más de la mitad escribe de noche, el fin de semana o mientras tu vendedor está en otra reunión. A las 9 AM ya se enfriaron.</p>
+      </div>
+      <div class="pain">
+        <div class="num">89%</div>
+        <h3>No calificaban</h3>
+        <p>Casi 9 de cada 10 que declaraban renta estaban en el tramo equivocado. El problema no era el vendedor: era el tráfico.</p>
+      </div>
+    </div>
+
+    <p class="lead" style="margin-top:26px;max-width:700px">
+      Ninguno de estos tres datos aparece en un reporte de Meta ni en un CRM.
+      Aparecen cuando alguien <b>lee las conversaciones una por una</b> — y eso es exactamente lo que hace DOMOIA todas las semanas.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════ EQUIPO ══════════ -->
+<section class="team">
+  <div class="wrap">
+    <span class="eyebrow dark-ink">Cómo lo hacemos</span>
+    <h2 style="margin-top:12px">Un equipo de agentes digitales que trabaja sin descanso, cubriendo el ciclo completo.</h2>
+
+    <div class="team-grid">
+      <div class="agent">
+        <div class="avatar">M</div>
+        <span class="role">Pauta</span>
+        <h3>Matías</h3>
+        <p>Analiza a tu competencia, arma los ángulos y compra los medios. Corta lo que no convierte antes de quemarte el presupuesto.</p>
+      </div>
+      <div class="agent on">
+        <div class="avatar">A</div>
+        <span class="role">Conversa y agenda</span>
+        <h3>Antonia</h3>
+        <p>Contesta en WhatsApp en segundos, califica con tus criterios y deja la reunión puesta en la agenda del vendedor. 24/7.</p>
+      </div>
+      <div class="agent">
+        <div class="avatar">Am</div>
+        <span class="role">Registra</span>
+        <h3>Amanda</h3>
+        <p>Transcribe cada reunión. Nada de lo que se dijo depende de la memoria ni de las notas de nadie.</p>
+      </div>
+      <div class="agent">
+        <div class="avatar">L</div>
+        <span class="role">Entrena</span>
+        <h3>Lucas</h3>
+        <p>Audita lo transcrito, mide las conductas que cierran y entrega feedback concreto a cada vendedor, con compromisos medibles.</p>
+      </div>
+    </div>
+
+    <p class="tagline">"Que ninguna venta vuelva a depender de la memoria de nadie."</p>
+  </div>
+</section>
+
+<!-- ══════════ CÓMO ══════════ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow dark-ink">Cómo se llega ahí</span>
+    <h2 style="margin-top:12px">No fue un rediseño.<br>Fueron cuatro cambios chicos, medidos uno por uno.</h2>
+
+    <div class="tl">
+      <div class="tl-item">
+        <span class="tl-date">17 de julio</span>
+        <h3>Saludo corto + pregunta de renta con botones</h3>
+        <p>La auditoría detectó los 114 leads atascados en el saludo. Se reemplazó el mensaje largo por uno directo, con botones.</p>
+        <span class="tl-res">+20 pp de respuesta</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">18 de julio</span>
+        <h3>El link de la reunión pasa por WhatsApp, no por correo</h3>
+        <p>El lead ya estaba en WhatsApp. Mandarlo al mail agregaba un paso donde se perdía la mitad.</p>
+        <span class="tl-res">Fricción eliminada</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">21 de julio</span>
+        <h3>Botones de horario "Hoy / Mañana"</h3>
+        <p>Se probó, se midió y casi no movió la aguja. Lo publicamos igual: los tests que fallan también quedan en el registro.</p>
+        <span class="tl-res neutral">Sin efecto (+2 pp)</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">23 de julio</span>
+        <h3>Aviso nuevo por subsidio + filtro de calificación</h3>
+        <p>El problema real era el tráfico. Matías cambió el ángulo del anuncio y Antonia empezó a filtrar por subsidio y DICOM.</p>
+        <span class="tl-res">13 agendas en 7 días</span>
+      </div>
+    </div>
+
+    <a class="proof-link" href="https://roloenrolo.github.io/caso-nuevonorte/auditoria-pocuro.html" target="_blank" rel="noopener">
+      Ver el dashboard completo del caso, con las conversaciones reales →
+    </a>
+  </div>
+</section>
+
+<!-- ══════════ FIT ══════════ -->
+<section class="fit">
+  <div class="wrap">
+    <span class="eyebrow dark-ink">Antes de que agendes</span>
+    <h2 style="margin-top:12px">Preferimos decírtelo ahora.</h2>
+
+    <div class="fit-grid">
+      <div class="card">
+        <h3>Esto funciona si tu empresa…</h3>
+        <ul class="list">
+          <li><i>✓</i> Vende por reuniones: al menos 20 al mes entre todo el equipo.</li>
+          <li><i>✓</i> Tiene entre 2 y 10 vendedores con rendimiento desparejo entre ellos.</li>
+          <li><i>✓</i> Factura desde $20M al mes y su ticket deja margen sobre $300–500 mil.</li>
+          <li><i>✓</i> Ya invierte (o está dispuesta a invertir) en pauta digital.</li>
+          <li><i>✓</i> Acepta que sus reuniones se graben para poder mejorarlas.</li>
+        </ul>
+      </div>
+      <div class="card no">
+        <h3>No es para ti si…</h3>
+        <ul class="list">
+          <li><i>×</i> Vendes e-commerce de ticket bajo, sin reuniones de por medio.</li>
+          <li><i>×</i> No tienes equipo comercial que potenciar.</li>
+          <li><i>×</i> Buscas un chatbot suelto y barato: eso no mueve tus ventas.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FAQ ══════════ -->
+<section>
+  <div class="wrap" style="max-width:780px">
+    <span class="eyebrow dark-ink">Dudas rápidas</span>
+    <h2 style="margin-top:12px;margin-bottom:12px">Lo que todos preguntan</h2>
+
+    <details open>
+      <summary>¿La reunión tiene costo?</summary>
+      <p>No. Es un diagnóstico de 30 minutos. Salimos con tu costo real por reunión agendada, dónde se te están cayendo los leads hoy y si tiene sentido seguir. Si no encajas con lo de arriba, te lo decimos en esa misma llamada.</p>
+    </details>
+    <details>
+      <summary>¿Antonia reemplaza a mis vendedores?</summary>
+      <p>No. Antonia hace lo que ningún vendedor debería estar haciendo: contestar a las 23:40, repetir las mismas cuatro preguntas de calificación y coordinar horarios. Tu vendedor entra cuando la reunión ya está agendada y con la persona correcta.</p>
+    </details>
+    <details>
+      <summary>¿Cuánto demora en estar funcionando?</summary>
+      <p>La primera capa (pauta + conversación + agendamiento) queda operativa en semanas, no en meses. El piloto que ves arriba mostró su primer salto medible al día 32 y el resultado completo a las 6 semanas.</p>
+    </details>
+    <details>
+      <summary>¿Y si mis números no mejoran?</summary>
+      <p>Por eso todo se mide y queda registrado, incluidos los cambios que no funcionan — como los botones de horario del 21 de julio. Vas a ver exactamente qué se cambió, qué día y qué efecto tuvo. Sin reportes de humo.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ══════════ CTA FINAL ══════════ -->
+<section class="final dark">
+  <div class="wrap">
+    <span class="eyebrow">Último paso</span>
+    <h2>¿Cuántas reuniones perdiste este mes sin darte cuenta?</h2>
+    <p class="lead">
+      Antonia te hace tres preguntas y te muestra los horarios disponibles.
+      Si prefieres saltarte la conversación, elige tu hora directamente en el calendario.
+    </p>
+
+    <div class="cta-row">
+      <a href="#" data-cta="wa" data-loc="final" class="btn btn-wa">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5 0-1.2.1-1.9-.1-.4-.2-1-.4-1.8-.7-3.2-1.4-5.2-4.5-5.4-4.7-.2-.2-1.3-1.7-1.3-3.2S6.2 6.6 6.5 6.3c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5l1 2.4c.1.2.1.4 0 .6l-.4.6-.3.3c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.5.3.1.5.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2.2 1.1c.3.2.5.2.6.4 0 .1 0 .7-.2 1.4"/></svg>
+        Hablar con Antonia
+      </a>
+      <a href="#" data-cta="agenda" data-loc="final" class="btn btn-gold">Agendar yo mismo</a>
+    </div>
+    <p class="cta-note"><span class="pulse"></span> Respuesta inmediata · Sin formularios · Sin costo</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>DOMOIA · Método DOMO — Diagnosticar · Orquestar · Medir · Optimizar</span>
+    <span><a href="https://roloenrolo.github.io/caso-nuevonorte/auditoria-pocuro.html" target="_blank" rel="noopener">Caso Nuevo Norte</a> · Cifras del piloto 15-jun a 30-jul 2026</span>
+  </div>
+</footer>
+
+<!-- ══════════ Barra fija móvil ══════════ -->
+<div class="sticky">
+  <a href="#" data-cta="wa" data-loc="sticky" class="btn btn-wa">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5 0-1.2.1-1.9-.1-.4-.2-1-.4-1.8-.7-3.2-1.4-5.2-4.5-5.4-4.7-.2-.2-1.3-1.7-1.3-3.2S6.2 6.6 6.5 6.3c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5l1 2.4c.1.2.1.4 0 .6l-.4.6-.3.3c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.5.3.1.5.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2.2 1.1c.3.2.5.2.6.4 0 .1 0 .7-.2 1.4"/></svg>
+    Hablar con Antonia
+  </a>
+  <a href="#" data-cta="agenda" data-loc="sticky" class="btn btn-ghost-ink">Agendar</a>
+</div>
+
+<script>
+(function () {
+  // ── 1. Arrastra los parámetros de campaña (utm_*, fbclid…) hasta WhatsApp y el calendario
+  var qs = new URLSearchParams(location.search);
+  var tags = [];
+  ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","fbclid","ad_id"].forEach(function (k) {
+    var v = qs.get(k);
+    if (v) tags.push(k.replace("utm_", "") + ":" + v);
+  });
+  var ref = tags.length ? " [" + tags.join(" | ") + "]" : "";
+
+  var waURL = "https://wa.me/" + DOMOIA.whatsapp +
+              "?text=" + encodeURIComponent(DOMOIA.mensaje + ref);
+
+  // Mientras no haya calendario configurado, "Agendar" también entra por WhatsApp
+  var agendaOK = DOMOIA.agenda && DOMOIA.agenda.indexOf("REEMPLAZAR") === -1;
+  var agendaURL = waURL;
+  if (agendaOK) {
+    agendaURL = DOMOIA.agenda;
+    if (tags.length) agendaURL += (agendaURL.indexOf("?") === -1 ? "?" : "&") + qs.toString();
+  }
+
+  // ── 2. Aplica los links a todos los CTA y reporta el evento
+  document.querySelectorAll("[data-cta]").forEach(function (el) {
+    var tipo = el.getAttribute("data-cta");
+    el.href = tipo === "wa" ? waURL : agendaURL;
+    if (tipo === "wa" || !agendaOK) { el.target = "_blank"; el.rel = "noopener"; }
+
+    el.addEventListener("click", function () {
+      var ev = tipo === "wa" ? "Contact" : "Schedule";
+      if (window.fbq) fbq("track", ev, { content_name: "landing-domoia", position: el.getAttribute("data-loc") });
+      if (window.gtag) gtag("event", ev.toLowerCase(), { position: el.getAttribute("data-loc") });
+    });
+  });
+})();
+</script>
+
+<!-- ═══ Pega aquí el Meta Pixel (antes de </body>) para que dispare Contact / Schedule ═══ -->
+
+</body>
+</html>
