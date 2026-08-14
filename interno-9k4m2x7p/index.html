@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<title>DOMO IA · Documentos internos</title>
+<style>
+  :root {
+    --bg:#f4f6fa; --surface:#fff; --ink:#161c33; --ink-2:#333b5e; --muted:#5d6689;
+    --line:#dde1ee; --line-strong:#c3cadf; --navy-deep:#1b2340; --accent:#a9762b; --accent-fill:#e8a951;
+    --warn:#8a6216; --warn-soft:#faf0d9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:#0f1329; --surface:#181e3a; --ink:#eef0f9; --ink-2:#c9cee5; --muted:#98a1c4;
+      --line:#2b3358; --line-strong:#3b446e; --navy-deep:#141a33; --accent:#e8a951; --accent-fill:#e8a951;
+      --warn:#d9ad5c; --warn-soft:#2e2718;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:#0f1329; --surface:#181e3a; --ink:#eef0f9; --ink-2:#c9cee5; --muted:#98a1c4;
+    --line:#2b3358; --line-strong:#3b446e; --navy-deep:#141a33; --accent:#e8a951; --accent-fill:#e8a951;
+    --warn:#d9ad5c; --warn-soft:#2e2718;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body {
+    background:var(--bg); color:var(--ink); min-height:100vh;
+    font-family:"Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    font-size:16.5px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .top { background:var(--navy-deep); border-bottom:3px solid var(--accent-fill); padding:38px 0 32px; }
+  .wrap { max-width:760px; margin:0 auto; padding:0 26px; }
+  .head-grid { display:flex; gap:20px; align-items:center; }
+  .kicker { font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:var(--accent-fill); }
+  h1 { font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif; font-size:1.85rem; font-weight:600; color:#fff; line-height:1.15; margin-top:5px; }
+  main { padding:38px 0 60px; }
+  .doc {
+    display:block; text-decoration:none; background:var(--surface);
+    border:1px solid var(--line); border-left:3px solid var(--accent-fill);
+    border-radius:0 3px 3px 0; padding:20px 24px; margin-bottom:14px;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .doc:hover, .doc:focus-visible { border-left-color:var(--accent); transform:translateX(2px); }
+  .doc .n { font-family:ui-monospace,"Cascadia Mono",Consolas,monospace; font-size:.74rem; letter-spacing:.1em; color:var(--accent); font-weight:700; text-transform:uppercase; }
+  .doc h2 { font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif; font-size:1.25rem; font-weight:600; color:var(--ink); margin:3px 0 5px; }
+  .doc p { font-size:.94rem; color:var(--ink-2); }
+  .doc .meta { font-size:.8rem; color:var(--muted); margin-top:9px; }
+  .aviso { background:var(--warn-soft); border:1px solid var(--line); border-left:3px solid var(--warn); border-radius:0 3px 3px 0; padding:15px 20px; margin-top:26px; }
+  .aviso strong { color:var(--ink); }
+  .aviso p { font-size:.88rem; color:var(--ink-2); }
+  footer { border-top:1px solid var(--line-strong); margin-top:30px; padding-top:16px; font-size:.82rem; color:var(--muted); }
+  :focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <div class="head-grid">
+      <svg width="50" height="50" viewBox="0 0 62 62" fill="none" stroke="#e8a951" stroke-width="1.4" aria-hidden="true" style="flex:0 0 auto">
+        <path d="M4 47a27 27 0 0 1 54 0" />
+        <line x1="2" y1="47" x2="60" y2="47" stroke-width="2" />
+        <path d="M31 20v27M17.5 24.2 44.5 24.2M10.2 34.5h41.6" />
+        <path d="M31 20 13 47M31 20l18 27M20 21.6 20 47M42 21.6 42 47" stroke-opacity=".55" />
+      </svg>
+      <div>
+        <span class="kicker">DOMO IA · Uso interno</span>
+        <h1>Documentos de estrategia comercial</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <a class="doc" href="publico-objetivo.html">
+    <span class="n">Documento 1</span>
+    <h2>A quién le vende DOMO IA</h2>
+    <p>Definición del público objetivo, los cuatro anillos de mercado y cinco buyer personas. Fundamenta la decisión de concentrar la pauta en el vertical inmobiliario.</p>
+    <p class="meta">Versión 1.0 · 13 de agosto de 2026</p>
+  </a>
+
+  <a class="doc" href="plan-meta-ads.html">
+    <span class="n">Documento 2</span>
+    <h2>Máquina de agendamiento</h2>
+    <p>Plan de medios de Meta Ads: doctrina, prerrequisitos técnicos, arquitectura de campaña, calendario día a día, biblioteca de copys, guiones de WhatsApp y ocho prompts operativos.</p>
+    <p class="meta">Versión 1.0 · 13 de agosto de 2026</p>
+  </a>
+
+  <div class="aviso">
+    <p><strong>Confidencial.</strong> Estos documentos contienen presupuesto de pauta, economía del embudo, estructura de precios y análisis competitivo. La carpeta no está enlazada desde el sitio público ni indexada por buscadores, pero cualquiera con esta URL puede leerla: compártela solo con el equipo.</p>
+  </div>
+
+  <footer>
+    <p>DOMO IA · <a href="../" style="color:var(--accent)">Volver al sitio público</a></p>
+  </footer>
+
+</main>
+</body>
+</html>

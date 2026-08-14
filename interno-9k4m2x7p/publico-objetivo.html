@@ -1,0 +1,1133 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Documento interno DOMO IA">
+<style>*{margin:0;padding:0;}img,svg{max-width:100%;}</style>
+<title>Buyer Personas DOMO IA</title>
+<style>
+  :root {
+    --bg: #f4f6fa;
+    --surface: #ffffff;
+    --surface-2: #eceff7;
+    --ink: #161c33;
+    --ink-2: #333b5e;
+    --muted: #5d6689;
+    --line: #dde1ee;
+    --line-strong: #c3cadf;
+    --navy: #232d52;
+    --navy-deep: #1b2340;
+    --accent: #a9762b;
+    --accent-fill: #e8a951;
+    --accent-soft: #f8eeda;
+    --go: #2c7159;
+    --go-soft: #e2f0ea;
+    --stop: #a94334;
+    --stop-soft: #f8e7e4;
+    --warn: #8a6216;
+    --warn-soft: #faf0d9;
+    --shadow: 0 1px 2px rgba(22, 28, 51, .06), 0 8px 24px -16px rgba(22, 28, 51, .28);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1329;
+      --surface: #181e3a;
+      --surface-2: #212847;
+      --ink: #eef0f9;
+      --ink-2: #c9cee5;
+      --muted: #98a1c4;
+      --line: #2b3358;
+      --line-strong: #3b446e;
+      --navy: #232d52;
+      --navy-deep: #141a33;
+      --accent: #e8a951;
+      --accent-fill: #e8a951;
+      --accent-soft: #2e2a1f;
+      --go: #63b995;
+      --go-soft: #1a2f2a;
+      --stop: #e08a7b;
+      --stop-soft: #33201e;
+      --warn: #d9ad5c;
+      --warn-soft: #2e2718;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px -16px rgba(0, 0, 0, .8);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1329;
+    --surface: #181e3a;
+    --surface-2: #212847;
+    --ink: #eef0f9;
+    --ink-2: #c9cee5;
+    --muted: #98a1c4;
+    --line: #2b3358;
+    --line-strong: #3b446e;
+    --navy: #232d52;
+    --navy-deep: #141a33;
+    --accent: #e8a951;
+    --accent-fill: #e8a951;
+    --accent-soft: #2e2a1f;
+    --go: #63b995;
+    --go-soft: #1a2f2a;
+    --stop: #e08a7b;
+    --stop-soft: #33201e;
+    --warn: #d9ad5c;
+    --warn-soft: #2e2718;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px -16px rgba(0, 0, 0, .8);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16.5px;
+    line-height: 1.62;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .serif {
+    font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  }
+
+  .mono {
+    font-family: ui-monospace, "Cascadia Mono", "SF Mono", Consolas, "Liberation Mono", monospace;
+  }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 28px 96px;
+  }
+
+  .col {
+    max-width: 68ch;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    background: var(--navy-deep);
+    color: #eef0f9;
+    border-bottom: 3px solid var(--accent-fill);
+    padding: 44px 0 38px;
+    margin-bottom: 52px;
+  }
+  .masthead .wrap { padding-bottom: 0; }
+  .mast-grid {
+    display: flex;
+    gap: 26px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .mast-mark { flex: 0 0 auto; margin-top: 4px; }
+  .mast-body { flex: 1 1 320px; }
+  .masthead h1 {
+    font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+    font-size: clamp(2rem, 4.4vw, 2.9rem);
+    line-height: 1.1;
+    font-weight: 600;
+    margin: 6px 0 12px;
+    text-wrap: balance;
+    color: #fff;
+  }
+  .masthead p {
+    color: #b9c0dd;
+    margin: 0;
+    max-width: 62ch;
+  }
+  .kicker {
+    font-size: .72rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--accent-fill);
+    margin: 0;
+  }
+  .mast-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(232, 169, 81, .28);
+    font-size: .82rem;
+    color: #9aa3c6;
+  }
+  .mast-meta b { color: #dfe3f2; font-weight: 600; }
+
+  /* ---------- sections ---------- */
+
+  section { margin-bottom: 64px; }
+
+  .eyebrow {
+    font-size: .72rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 0 0 10px;
+  }
+
+  h2 {
+    font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+    font-size: clamp(1.5rem, 3vw, 1.95rem);
+    line-height: 1.2;
+    font-weight: 600;
+    margin: 0 0 8px;
+    text-wrap: balance;
+  }
+  h3 {
+    font-size: 1.12rem;
+    font-weight: 700;
+    margin: 34px 0 10px;
+    letter-spacing: -.01em;
+  }
+  h4 {
+    font-size: .78rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+  p { margin: 0 0 16px; }
+  .lede { color: var(--ink-2); font-size: 1.06rem; }
+  .section-head { border-bottom: 1px solid var(--line-strong); padding-bottom: 16px; margin-bottom: 28px; }
+  .section-head p:last-child { margin-bottom: 0; }
+
+  ul, ol { margin: 0 0 16px; padding-left: 1.25em; }
+  li { margin-bottom: 7px; }
+  li::marker { color: var(--accent); }
+
+  strong { color: var(--ink); font-weight: 650; }
+  em.q {
+    font-style: italic;
+    color: var(--ink-2);
+  }
+
+  /* ---------- verdict ---------- */
+
+  .verdict {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent-fill);
+    border-radius: 3px;
+    padding: 26px 28px;
+    box-shadow: var(--shadow);
+    display: grid;
+    gap: 22px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .verdict-item p { margin: 0; font-size: .95rem; color: var(--ink-2); }
+  .verdict-item .big {
+    font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+    font-size: 1.35rem;
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 6px;
+    display: block;
+    font-weight: 600;
+  }
+
+  /* ---------- tables ---------- */
+
+  .table-scroll { overflow-x: auto; margin: 0 0 18px; border: 1px solid var(--line); border-radius: 3px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; font-size: .92rem; min-width: 620px; }
+  th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  thead th {
+    background: var(--surface-2);
+    font-size: .72rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+    border-bottom: 1px solid var(--line-strong);
+  }
+  tbody tr:last-child td { border-bottom: 0; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; font-family: ui-monospace, "Cascadia Mono", "SF Mono", Consolas, monospace; }
+  tbody tr.total td { background: var(--surface-2); font-weight: 700; color: var(--ink); }
+  .step-n {
+    display: inline-block;
+    width: 1.5em;
+    color: var(--accent);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- chips ---------- */
+
+  .chip {
+    display: inline-block;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    padding: 2px 9px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .chip.alto { background: var(--go-soft); color: var(--go); }
+  .chip.medio { background: var(--warn-soft); color: var(--warn); }
+  .chip.bajo { background: var(--stop-soft); color: var(--stop); }
+
+  /* ---------- tiers ---------- */
+
+  .tiers { display: grid; gap: 16px; }
+  .tier {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 22px 24px 18px;
+    box-shadow: var(--shadow);
+    border-top: 3px solid var(--line-strong);
+  }
+  .tier.t1 { border-top-color: var(--go); }
+  .tier.t2 { border-top-color: var(--accent-fill); }
+  .tier.t3 { border-top-color: var(--muted); }
+  .tier.t4 { border-top-color: var(--stop); }
+  .tier-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+  .tier-head h3 { margin: 0; font-size: 1.08rem; }
+  .tier-budget {
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .tier p { font-size: .95rem; color: var(--ink-2); margin-bottom: 10px; }
+  .tier ul { font-size: .93rem; color: var(--ink-2); margin-bottom: 6px; }
+
+  /* ---------- persona ---------- */
+
+  .persona {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+  .persona-top {
+    background: var(--navy);
+    color: #fff;
+    padding: 20px 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .persona-top h3 {
+    margin: 0;
+    font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  .persona-top .role { display: block; font-size: .86rem; color: #b9c0dd; font-family: "Segoe UI", system-ui, sans-serif; font-weight: 400; margin-top: 3px; }
+  .persona-tag {
+    font-size: .7rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 2px;
+    background: var(--accent-fill);
+    color: #1b2340;
+    white-space: nowrap;
+  }
+  .persona-tag.ghost { background: transparent; color: #e8a951; border: 1px solid rgba(232, 169, 81, .55); }
+  .persona-body {
+    display: grid;
+    grid-template-columns: minmax(230px, 300px) 1fr;
+  }
+  .ficha {
+    background: var(--surface-2);
+    padding: 22px 24px;
+    border-right: 1px solid var(--line);
+    font-size: .88rem;
+  }
+  .ficha dl { margin: 0; display: grid; gap: 13px; }
+  .ficha dt {
+    font-size: .68rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 1px;
+  }
+  .ficha dd { margin: 0; color: var(--ink-2); line-height: 1.45; }
+  .narrativa { padding: 24px 26px 20px; }
+  .narrativa h4 { margin-top: 22px; }
+  .narrativa h4:first-child { margin-top: 0; }
+  .narrativa p, .narrativa ul { font-size: .95rem; color: var(--ink-2); }
+  .narrativa p:last-child, .narrativa ul:last-child { margin-bottom: 0; }
+
+  blockquote {
+    margin: 0 0 16px;
+    padding: 12px 18px;
+    border-left: 3px solid var(--accent-fill);
+    background: var(--accent-soft);
+    border-radius: 0 2px 2px 0;
+    font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--ink);
+  }
+  blockquote p { margin: 0; font-size: 1rem !important; color: var(--ink) !important; }
+  blockquote cite { display: block; font-style: normal; font-family: "Segoe UI", system-ui, sans-serif; font-size: .78rem; color: var(--muted); margin-top: 7px; }
+
+  .hooks { list-style: none; padding: 0; margin: 0 0 16px; display: grid; gap: 9px; }
+  .hooks li {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 10px 14px;
+    font-size: .95rem;
+    color: var(--ink);
+    margin: 0;
+  }
+  .hooks li span {
+    display: block;
+    font-size: .74rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+
+  /* ---------- callout ---------- */
+
+  .callout {
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--stop);
+    background: var(--stop-soft);
+    border-radius: 0 3px 3px 0;
+    padding: 18px 22px;
+    margin: 0 0 20px;
+  }
+  .callout.ok { border-left-color: var(--go); background: var(--go-soft); }
+  .callout.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+  .callout h4 { color: var(--ink); margin-bottom: 6px; }
+  .callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+  .callout p, .callout li { font-size: .94rem; color: var(--ink-2); }
+
+  /* ---------- two-col grid ---------- */
+
+  .duo { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 20px 22px;
+    box-shadow: var(--shadow);
+  }
+  .panel h4 { color: var(--accent); }
+  .panel p:last-child, .panel ul:last-child { margin-bottom: 0; }
+  .panel p, .panel li { font-size: .94rem; color: var(--ink-2); }
+
+  /* ---------- checklist ---------- */
+
+  ol.acciones { list-style: none; padding: 0; counter-reset: paso; display: grid; gap: 12px; }
+  ol.acciones li {
+    counter-increment: paso;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 16px 20px 16px 58px;
+    position: relative;
+    margin: 0;
+    font-size: .95rem;
+    color: var(--ink-2);
+  }
+  ol.acciones li::before {
+    content: counter(paso);
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+    font-size: .95rem;
+    font-weight: 700;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  ol.acciones b { display: block; color: var(--ink); margin-bottom: 2px; }
+
+  hr.rule { border: 0; border-top: 1px solid var(--line-strong); margin: 0 0 26px; }
+
+  footer {
+    border-top: 1px solid var(--line-strong);
+    padding-top: 20px;
+    color: var(--muted);
+    font-size: .85rem;
+  }
+
+  @media (max-width: 720px) {
+    .persona-body { grid-template-columns: 1fr; }
+    .ficha { border-right: 0; border-bottom: 1px solid var(--line); }
+    .wrap { padding: 0 18px 72px; }
+  }
+</style>
+</head>
+<body>
+
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="mast-grid">
+      <div class="mast-mark" aria-hidden="true">
+        <svg width="62" height="62" viewBox="0 0 62 62" fill="none" stroke="#e8a951" stroke-width="1.4">
+          <path d="M4 47a27 27 0 0 1 54 0" />
+          <line x1="2" y1="47" x2="60" y2="47" stroke-width="2" />
+          <path d="M31 20v27M17.5 24.2 44.5 24.2M10.2 34.5h41.6" />
+          <path d="M31 20 13 47M31 20l18 27M20 21.6 20 47M42 21.6 42 47" stroke-opacity=".55" />
+        </svg>
+      </div>
+      <div class="mast-body">
+        <p class="kicker">DOMO IA · Documento de foco comercial</p>
+        <h1>A quién le vende DOMO IA</h1>
+        <p>Definición del público objetivo, cuatro buyer personas y la especificación de audiencias para las campañas de Meta. Escrito para decidir dónde va cada peso de pauta.</p>
+        <div class="mast-meta">
+          <span>Versión <b>1.0</b></span>
+          <span>Fecha <b>13 de agosto de 2026</b></span>
+          <span>Decisión de foco <b>Inmobiliario primero</b></span>
+          <span>Horizonte <b>90 días</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ============ VEREDICTO ============ -->
+  <section>
+    <div class="section-head">
+      <p class="eyebrow">Resumen ejecutivo</p>
+      <h2>El veredicto en cuatro líneas</h2>
+      <p class="lede col">Todo lo que sigue desarrolla esta decisión. Si solo lees una parte del documento, lee este bloque.</p>
+    </div>
+
+    <div class="verdict">
+      <div class="verdict-item">
+        <span class="big">Inmobiliario primero</span>
+        <p>El 100% de la pauta de Meta va a inmobiliarias con sala de ventas y corredoras con 4 o más ejecutivos. Un solo rubro, un solo mensaje, un solo caso de éxito.</p>
+      </div>
+      <div class="verdict-item">
+        <span class="big">Seguros después, y por otra puerta</span>
+        <p>Seguros y asesoría financiera es el segundo vertical, pero se ataca con tu red, LinkedIn y referidos. No con pauta, y no hasta tener el primer caso cerrado.</p>
+      </div>
+      <div class="verdict-item">
+        <span class="big">Meta no vende el plan</span>
+        <p>En Meta se vende el <strong>Diagnóstico DOMO</strong>: cinco reuniones grabadas, informe en 72 horas. El plan de 34 UF se cierra en la segunda reunión, nunca en el anuncio.</p>
+      </div>
+      <div class="verdict-item">
+        <span class="big">10 al mes, pero de entrada</span>
+        <p>Los 10 clientes mensuales son 10 diagnósticos entregados. De ahí salen 3 o 4 contratos de plan al mes, que es lo máximo que hoy puedes entregar bien.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ARITMÉTICA ============ -->
+  <section>
+    <div class="section-head">
+      <p class="eyebrow">La restricción de fondo</p>
+      <h2>Por qué 10 contratos mensuales no es el objetivo correcto</h2>
+      <p class="lede col">No es pesimismo sobre la demanda. Es aritmética de embudo y de capacidad de entrega, y conviene tenerla clara antes de definir a quién le hablamos.</p>
+    </div>
+
+    <div class="col">
+      <p>Vender directamente el plan Vende (34–40 UF/mes, contrato de 6 meses) desde un anuncio frío a un desconocido tiene una tasa de lead a cliente de entre 2% y 4% en este tipo de servicio consultivo. Para 10 contratos mensuales necesitarías del orden de 300 leads y entre 50 y 70 reuniones efectivas al mes: tres o cuatro reuniones diarias sostenidas, con una sola persona vendiendo. Y si lo lograras, el problema recién empieza: cada cliente trae setup, configuración del Método DOMO por rubro, dos capacitaciones y coaching mensual incluido. Diez clientes nuevos al mes son 30 clientes activos al tercer mes y 60 al sexto, todos esperando su sesión de coaching.</p>
+      <p>La salida no es bajar la ambición, es cambiar qué se compra en el anuncio. El <strong>Diagnóstico DOMO</strong> —grabamos cinco reuniones reales del equipo y devolvemos un informe con evidencia textual en 72 horas— es una oferta que sí se puede vender en frío en Meta, y que además hace el trabajo de venta sola: el gerente lee el informe de su propio equipo y la objeción se disuelve.</p>
+    </div>
+
+    <h3>Embudo objetivo con $1.200.000 CLP mensuales de pauta</h3>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Etapa del embudo</th>
+            <th class="num">Tasa</th>
+            <th class="num">Volumen/mes</th>
+            <th>Responsable</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="step-n">1</span>Leads de conversación (WhatsApp) a ~$10.000 c/u</td><td class="num">—</td><td class="num">120</td><td>Matías · pauta</td></tr>
+          <tr><td><span class="step-n">2</span>Leads que califican contra el ICP</td><td class="num">45%</td><td class="num">54</td><td>Antonia · filtro</td></tr>
+          <tr><td><span class="step-n">3</span>Diagnósticos agendados</td><td class="num">40%</td><td class="num">22</td><td>Antonia · agenda</td></tr>
+          <tr><td><span class="step-n">4</span>Diagnósticos efectivamente entregados</td><td class="num">70%</td><td class="num">15</td><td>Rodolfo + Amanda</td></tr>
+          <tr><td><span class="step-n">5</span>Propuestas de plan presentadas</td><td class="num">60%</td><td class="num">9</td><td>Rodolfo</td></tr>
+          <tr class="total"><td><span class="step-n">6</span>Contratos de plan Vende firmados</td><td class="num">35%</td><td class="num">3–4</td><td>Rodolfo</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col">
+      <p><strong>Costo de adquisición:</strong> ~$375.000 CLP por cliente de plan. <strong>Valor del contrato:</strong> 34 UF × 6 meses + setup 25 UF ≈ 229 UF. Aun con la mitad de eficiencia, la relación entre valor y costo de adquisición es cómodamente sana. El cuello de botella no es la plata de pauta: es tu agenda.</p>
+    </div>
+
+    <div class="callout warn">
+      <h4>El techo real son 6 a 8 clientes de plan</h4>
+      <p>Con 3 o 4 cierres mensuales llegas a 20 clientes activos en seis meses. Tus dos necesidades reales —caja y línea base medible para el perfil CORFO de abril/mayo 2027— se satisfacen con 6 a 8 clientes bien instrumentados del mismo rubro. Todo cliente por sobre eso, antes de tener a alguien más entregando, compra riesgo de churn a cambio de facturación.</p>
+    </div>
+  </section>
+
+  <!-- ============ POR QUÉ INMOBILIARIO ============ -->
+  <section>
+    <div class="section-head">
+      <p class="eyebrow">Selección de vertical</p>
+      <h2>Por qué inmobiliario y no seguros, siendo que dominas los dos</h2>
+      <p class="lede col">Los cinco rubros donde tienes credibilidad no son igual de atacables por Meta. Estos son los criterios que deciden, y cómo puntúa cada uno.</p>
+    </div>
+
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Rubro</th>
+            <th>Alcanzable<br>en Meta</th>
+            <th>Puede<br>pagar</th>
+            <th>Vendedores<br>por firma</th>
+            <th>Ciclo de<br>venta</th>
+            <th>Fricción<br>de grabar</th>
+            <th>Activos ya<br>construidos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Inmobiliario</strong><br><span style="color:var(--muted);font-size:.85rem">salas de venta y corretaje</span></td>
+            <td><span class="chip alto">Alto</span></td>
+            <td><span class="chip alto">Alto</span></td>
+            <td><span class="chip alto">4–10</span></td>
+            <td><span class="chip alto">2–5 sem</span></td>
+            <td><span class="chip medio">Media</span></td>
+            <td><span class="chip alto">Alto</span></td>
+          </tr>
+          <tr>
+            <td><strong>Seguros</strong><br><span style="color:var(--muted);font-size:.85rem">corredoras y agencias</span></td>
+            <td><span class="chip alto">Alto</span></td>
+            <td><span class="chip medio">Media</span></td>
+            <td><span class="chip alto">4–12</span></td>
+            <td><span class="chip medio">4–8 sem</span></td>
+            <td><span class="chip bajo">Alta</span></td>
+            <td><span class="chip medio">Media</span></td>
+          </tr>
+          <tr>
+            <td><strong>Inversiones</strong><br><span style="color:var(--muted);font-size:.85rem">asesoría patrimonial</span></td>
+            <td><span class="chip medio">Media</span></td>
+            <td><span class="chip alto">Alto</span></td>
+            <td><span class="chip bajo">1–4</span></td>
+            <td><span class="chip medio">4–8 sem</span></td>
+            <td><span class="chip bajo">Alta</span></td>
+            <td><span class="chip bajo">Bajo</span></td>
+          </tr>
+          <tr>
+            <td><strong>Banca</strong><br><span style="color:var(--muted);font-size:.85rem">fuerzas de venta internas</span></td>
+            <td><span class="chip bajo">Nulo</span></td>
+            <td><span class="chip alto">Alto</span></td>
+            <td><span class="chip alto">50+</span></td>
+            <td><span class="chip bajo">6–18 m</span></td>
+            <td><span class="chip bajo">Muy alta</span></td>
+            <td><span class="chip bajo">Bajo</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col">
+      <h3>Las tres razones que inclinan la balanza</h3>
+      <p><strong>Ya compran Meta y saben leer un costo por lead.</strong> No tienes que educar al inmobiliario sobre pauta digital: gasta entre 2 y 8 millones mensuales entre Meta, Google y portales, y revisa el costo por lead todas las semanas. Eso acorta el discurso de la capa 1 a una sola frase, y hace que tu propio anuncio funcione como demostración del producto que vendes.</p>
+      <p><strong>Tienes los activos listos y la lista comprada con trabajo.</strong> El modelo HOGAR está construido, la capacitación tiene versión inmobiliaria, y la base DS19 te da 39 inmobiliarias con teléfono y correo del área comercial. Ese es un mes de ventaja sobre partir de cero en cualquier otro rubro.</p>
+      <p><strong>El mercado deprimido juega a favor, no en contra.</strong> Con tasas altas y stock alto, el gerente comercial no puede resolver el año comprando más leads: el lead ya le cuesta caro. Su única palanca disponible es convertir mejor lo que ya tiene, que es exactamente lo que vendes. En un mercado caliente nadie te compraría, porque se vende solo.</p>
+      <p>Seguros no queda fuera por falta de dolor —el dolor es idéntico y la cultura de medición es incluso mejor—, sino por dos fricciones que hoy no controlas: <strong>quién firma</strong> (el agente depende de la compañía, y muchas corredoras son de una o dos personas que no llegan al ICP) y <strong>el consentimiento para grabar</strong>, que en un rubro fiscalizado por la CMF exige tener resuelta la política de datos antes de la primera reunión. Ambas cosas son resolubles, y por eso es el vertical número dos; simplemente no es donde debe estar tu presupuesto de pauta este trimestre.</p>
+    </div>
+
+    <div class="callout">
+      <h4>Antes de diciembre de 2026 necesitas política de datos escrita</h4>
+      <p>Todo el producto depende de grabar conversaciones donde participa un tercero: el cliente de tu cliente. La Ley 21.719 de protección de datos personales entra en vigencia en diciembre de 2026 con agencia fiscalizadora y régimen de multas. Conviene verificar la fecha y el alcance exacto con un abogado, pero la implicancia comercial es clara: cualquier corredora regulada o inmobiliaria con área legal te va a preguntar quién es responsable del tratamiento, dónde viven las transcripciones, cuánto duran y cómo se pide el consentimiento. Llegar con eso documentado convierte una objeción en barrera de entrada frente a Vambe y a cualquier competidor improvisado.</p>
+    </div>
+  </section>
+
+  <!-- ============ MAPA DEL PÚBLICO ============ -->
+  <section>
+    <div class="section-head">
+      <p class="eyebrow">Mapa de público</p>
+      <h2>Los cuatro anillos</h2>
+      <p class="lede col">Quién recibe pauta, quién recibe prospección manual, quién espera y a quién hay que sacar activamente de las audiencias.</p>
+    </div>
+
+    <div class="tiers">
+      <div class="tier t1">
+        <div class="tier-head">
+          <h3>Anillo 1 · Núcleo — inmobiliario con equipo</h3>
+          <span class="tier-budget">100% de la pauta</span>
+        </div>
+        <p>Inmobiliarias con sala de ventas propia y corredoras de propiedades con estructura. Es el único público al que le habla la campaña.</p>
+        <ul>
+          <li><strong>Perfil de empresa:</strong> 3 a 8 proyectos activos o cartera de 30+ propiedades; 4 a 10 ejecutivos comerciales; 6 a 15 promesas o cierres mensuales.</li>
+          <li><strong>Economía:</strong> ticket sobre UF 2.000; comisión bruta por unidad entre UF 20 y UF 60; el servicio se paga con una venta adicional al mes.</li>
+          <li><strong>Señal de compra digital:</strong> ya invierte $1,5M+ mensuales entre Meta, Google y portales; tiene fan page de proyecto activa.</li>
+          <li><strong>Geografía:</strong> Región Metropolitana como base; Viña/Valparaíso, Concepción, La Serena y Antofagasta en segunda ola.</li>
+        </ul>
+      </div>
+
+      <div class="tier t2">
+        <div class="tier-head">
+          <h3>Anillo 2 · Expansión — seguros y asesoría financiera</h3>
+          <span class="tier-budget">Prospección directa, sin pauta</span>
+        </div>
+        <p>Corredoras de seguros con 4 o más ejecutivos y agencias de fuerza de venta de vida/APV. Se trabaja con tu red, LinkedIn y referidos mientras el vertical 1 genera el caso de éxito.</p>
+        <ul>
+          <li>Entra a pauta recién cuando existan (a) un caso de éxito con números y (b) la política de consentimiento escrita.</li>
+          <li>La capacitación del Método DOMO, vía OTEC con franquicia SENCE, es la puerta de entrada más barata a este anillo: entra por gerencia de personas cuando comercial dice que no.</li>
+        </ul>
+      </div>
+
+      <div class="tier t3">
+        <div class="tier-head">
+          <h3>Anillo 3 · Institucional — compañías y banca</h3>
+          <span class="tier-budget">Solo red y referidos</span>
+        </div>
+        <p>Subgerencias de fuerza de venta con 200 a 800 vendedores. Contrato marco de alto valor, pero ciclo de 6 a 18 meses con comité, legal y licitación. Es donde tu experiencia vale más y donde Meta no sirve absolutamente de nada.</p>
+        <ul>
+          <li>Regla de asignación de tiempo: máximo una conversación institucional viva a la vez, para no comerse el trimestre persiguiendo un contrato que no llega antes de CORFO.</li>
+        </ul>
+      </div>
+
+      <div class="tier t4">
+        <div class="tier-head">
+          <h3>Anillo 4 · Fuera — excluir de las audiencias</h3>
+          <span class="tier-budget">Exclusión activa</span>
+        </div>
+        <ul>
+          <li><strong>E-commerce y retail de ticket bajo:</strong> no venden por reuniones, no hay nada que auditar.</li>
+          <li><strong>Corredor o agente individual sin equipo:</strong> no puede pagar 34 UF y no genera volumen de reuniones para la capa 5.</li>
+          <li><strong>Empresas con más de 15 vendedores:</strong> compran por licitación y comité; van al anillo 3.</li>
+          <li><strong>Coaches, infoproductores y consultores unipersonales:</strong> atraídos por el lenguaje de "IA para vender más", contaminan el aprendizaje del algoritmo y llenan la agenda de reuniones que no cierran.</li>
+          <li><strong>Cultura anti-grabación declarada:</strong> descalificar en el filtro de Antonia, no en la reunión.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PERSONAS ============ -->
+  <section>
+    <div class="section-head">
+      <p class="eyebrow">Buyer personas</p>
+      <h2>Las cuatro personas del ciclo de venta</h2>
+      <p class="lede col">Una compra, una influye, una puede vetar y una es el mercado de mañana. Los creativos de Meta le hablan solo a la primera; las otras tres explican por qué se cae o se sostiene una venta.</p>
+    </div>
+
+    <!-- PERSONA 1 -->
+    <article class="persona">
+      <div class="persona-top">
+        <div>
+          <h3>Cristián Aravena, 46</h3>
+          <span class="role">Gerente Comercial · inmobiliaria mediana con proyectos DS19 e integración social</span>
+        </div>
+        <span class="persona-tag">Decisor · objetivo #1 de la pauta</span>
+      </div>
+      <div class="persona-body">
+        <div class="ficha">
+          <dl>
+            <dt>Empresa</dt>
+            <dd>Inmobiliaria con 4 proyectos activos en Estación Central, San Miguel e Independencia. Facturación variable, entre $400M y $1.200M mensuales según entregas.</dd>
+            <dt>Equipo a cargo</dt>
+            <dd>7 ejecutivos entre sala de ventas y remoto, 1 jefe de ventas, 1 encargada de post-venta.</dd>
+            <dt>Cómo lo miden</dt>
+            <dd>Unidades promesadas por mes y velocidad de venta del proyecto. Su bono depende de ambas y le reporta al directorio o al mandante.</dd>
+            <dt>Inversión en pauta</dt>
+            <dd>$3–6M mensuales entre Meta, Google, Portalinmobiliario y Toctoc. Trabaja con una agencia que le entrega un reporte mensual que no logra conciliar con sus ventas.</dd>
+            <dt>Herramientas</dt>
+            <dd>Planilla Excel compartida, WhatsApp Business, y un CRM que compró hace dos años y que el equipo llena a medias.</dd>
+            <dt>Dónde está</dt>
+            <dd>Facebook e Instagram varias veces al día (administra las páginas de los proyectos), WhatsApp todo el día, LinkedIn una vez por semana.</dd>
+            <dt>Antigüedad digital</dt>
+            <dd>Alta en consumo, baja en criterio técnico. Sabe qué es un costo por lead; no sabe qué es un evento de conversión.</dd>
+          </dl>
+        </div>
+        <div class="narrativa">
+          <h4>Qué lo despierta a las 3 de la mañana</h4>
+          <p>Cerró el mes con 6 promesas cuando la meta eran 11, y no sabe explicar por qué. Los leads llegaron: fueron 340 el mes pasado. Pero entre el formulario y la visita a sala hay un agujero negro que nadie mide, y cuando pregunta, cada ejecutivo tiene una explicación distinta y ninguna verificable. Dos de sus siete vendedores hacen el 60% de las promesas. Sospecha que los otros cinco están quemando prospectos caros mientras aprenden, pero no tiene ninguna evidencia con la que sostener esa conversación sin que se le arme un conflicto.</p>
+
+          <blockquote>
+            <p>Yo pago cinco millones al mes en publicidad. Lo que no sé es qué pasa después de que el lead entra. Ahí se me apaga la luz.</p>
+            <cite>Frase típica en la primera reunión</cite>
+          </blockquote>
+
+          <h4>Qué ya intentó, y por qué le falló</h4>
+          <ul>
+            <li><strong>Cambiar de agencia dos veces.</strong> Bajó el costo por lead y no subió la venta: el problema nunca estuvo en el lead.</li>
+            <li><strong>Contratar más ejecutivos.</strong> Sumó costo fijo y diluyó los leads entre más gente sin entrenar.</li>
+            <li><strong>Un CRM.</strong> Nadie lo llena, porque llenarlo no le sirve al vendedor, le sirve al jefe.</li>
+            <li><strong>Capacitación motivacional de un día.</strong> El equipo salió entusiasmado el viernes y el lunes vendía exactamente igual.</li>
+          </ul>
+
+          <h4>Eventos que gatillan la compra</h4>
+          <ul>
+            <li>Cierre de mes muy por debajo de meta, especialmente el segundo consecutivo.</li>
+            <li>Lanzamiento de un proyecto nuevo: hay presión y hay presupuesto disponible.</li>
+            <li>Se le va el mejor vendedor y se lleva la cartera en la cabeza.</li>
+            <li>El mandante o el directorio le pide justificar el costo de adquisición por unidad vendida.</li>
+          </ul>
+
+          <h4>Sus objeciones, en orden de aparición</h4>
+          <ul>
+            <li><em class="q">"¿Esto reemplaza a mi agencia?"</em> — No. La capa 1 puede convivir o reemplazar, pero la venta parte por la capa 4, que la agencia no hace ni sabe hacer.</li>
+            <li><em class="q">"Mis ejecutivos no van a querer que los graben."</em> — La objeción real del documento. Ver persona 3.</li>
+            <li><em class="q">"¿Y si el cliente se molesta porque lo grabo?"</em> — Se resuelve con guion de consentimiento y política de datos escrita, no con argumentos.</li>
+            <li><em class="q">"Ya probé capacitación y no pasó nada."</em> — Correcto, y por eso el producto no es una capacitación: es medición continua sobre reuniones reales suyas.</li>
+          </ul>
+
+          <h4>Qué lo hace firmar</h4>
+          <p>Leer el informe de sus propias cinco reuniones, con citas textuales de sus propios vendedores y un número al lado. Ese documento hace toda la venta: pasa de "creo que algo está fallando" a "esto es exactamente lo que está fallando y tiene nombre". La propuesta económica después es un trámite, porque 34 UF mensuales es menos de lo que le cuesta un ejecutivo junior y bastante menos que la comisión de una sola unidad.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- PERSONA 1B -->
+    <article class="persona">
+      <div class="persona-top">
+        <div>
+          <h3>Andrea Sepúlveda, 41</h3>
+          <span class="role">Socia fundadora · corredora de propiedades boutique, 5 corredores</span>
+        </div>
+        <span class="persona-tag ghost">Variante del mismo público · misma campaña</span>
+      </div>
+      <div class="persona-body">
+        <div class="ficha">
+          <dl>
+            <dt>Empresa</dt>
+            <dd>Corredora propia con 60 propiedades en cartera entre venta y arriendo, foco en Ñuñoa, Providencia y La Reina.</dd>
+            <dt>Equipo</dt>
+            <dd>5 corredores a comisión, rotación alta, sin sueldo base. Ella todavía vende y además administra.</dd>
+            <dt>Economía</dt>
+            <dd>4 a 7 cierres mensuales; comisión promedio $2,5M por operación.</dd>
+            <dt>Inversión en pauta</dt>
+            <dd>$600.000 a $1,5M mensuales, la maneja ella misma desde el celular con el botón "Promocionar publicación".</dd>
+            <dt>Dónde está</dt>
+            <dd>Instagram es su vitrina principal y la trabaja en persona, todos los días.</dd>
+          </dl>
+        </div>
+        <div class="narrativa">
+          <h4>En qué se diferencia de Cristián</h4>
+          <p>Andrea es dueña, no gerente: decide sola, firma rápido y no tiene comité, pero es más sensible al precio y su equipo a comisión pura tiene rotación alta. Su dolor no es la conversión de sala de ventas sino que <strong>cada corredor nuevo tarda cuatro meses en cerrar el primero, y la mitad se va antes</strong>. Para ella el valor está en la capa 4 como acelerador de rampa: reducir el tiempo de un corredor nuevo hasta su primera venta.</p>
+          <p>Se le habla en la misma campaña porque comparte el hook central y responde a los mismos creativos, pero la conversación de precio es distinta: entra por el plan Prospecta o por el diagnóstico pagado, no por el plan Vende. Es un cliente de menor ticket que sirve para volumen y aprendizaje del algoritmo, no para la línea base de CORFO.</p>
+          <blockquote>
+            <p>Yo no puedo estar en todas las reuniones de mis corredores. Y cuando me llega el reclamo, ya perdí la propiedad.</p>
+          </blockquote>
+        </div>
+      </div>
+    </article>
+
+    <!-- PERSONA 2 -->
+    <article class="persona">
+      <div class="persona-top">
+        <div>
+          <h3>Paulina Vergara, 49</h3>
+          <span class="role">Dueña de corredora de seguros · vida, APV y generales · 8 ejecutivos</span>
+        </div>
+        <span class="persona-tag ghost">Vertical 2 · prospección directa, sin pauta aún</span>
+      </div>
+      <div class="persona-body">
+        <div class="ficha">
+          <dl>
+            <dt>Empresa</dt>
+            <dd>Corredora inscrita en CMF, 8 ejecutivos, cartera mixta de personas y pymes. Ingresos por comisión más override sobre el equipo.</dd>
+            <dt>Cómo la miden</dt>
+            <dd>Prima nueva mensual y cumplimiento de campañas y concursos de las compañías con las que trabaja.</dd>
+            <dt>Cultura interna</dt>
+            <dd>Ya existe: reunión de producción semanal, tablero de metas, ranking. Es el rubro que <em>más</em> mide de los cuatro.</dd>
+            <dt>Dónde está</dt>
+            <dd>Facebook con alta frecuencia, incluidos grupos cerrados de corredores. WhatsApp y LinkedIn a diario.</dd>
+            <dt>Fricción específica</dt>
+            <dd>Consentimiento del asegurado, deber de asesoría documentado, y la duda de si la compañía permite grabar.</dd>
+          </dl>
+        </div>
+        <div class="narrativa">
+          <h4>Su dolor, que es el mismo con otro traje</h4>
+          <p>El 70% de su producción la hacen dos ejecutivos. Los otros seis flotan cerca del mínimo y ella no sabe si es actitud, cartera o técnica, porque nunca ha estado presente en sus reuniones. Cada ejecutivo nuevo tarda entre seis y nueve meses en producir de forma estable, y casi la mitad se va antes de llegar. Ella misma dejó de vender hace tres años para administrar, y sabe que su propia técnica —la que la hizo buena— nunca se transfirió a nadie.</p>
+          <blockquote>
+            <p>Yo sé exactamente lo que hay que decir en la reunión. El tema es que no me puedo clonar.</p>
+          </blockquote>
+          <h4>Por qué todavía no le pautamos</h4>
+          <p>No por falta de dolor ni de dinero, sino porque las dos primeras preguntas de la reunión —<em class="q">"¿esto lo puedo hacer con lo que dice la CMF?"</em> y <em class="q">"¿quién firma, yo o la compañía?"</em>— hoy no tienen respuesta escrita. Gastar pauta para generar reuniones que se frenan en compliance es quemar presupuesto. En cuanto exista la política de datos y el guion de consentimiento, este vertical se abre, y probablemente convierta mejor que inmobiliario, porque la cultura de medición ya está instalada y no hay que crearla.</p>
+          <h4>Cómo se le llega hoy, sin pauta</h4>
+          <ul>
+            <li>Tu red directa del rubro, que es el activo que ninguna campaña reemplaza.</li>
+            <li>LinkedIn con contenido del Método DOMO, no con mensajes de venta en frío.</li>
+            <li>La capacitación de 45 minutos como caballo de Troya: vía OTEC con franquicia SENCE tiene costo casi nulo para ella y entra por otra puerta del organigrama.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- PERSONA 3 -->
+    <article class="persona">
+      <div class="persona-top">
+        <div>
+          <h3>Marcelo Quiroga, 53</h3>
+          <span class="role">Ejecutivo comercial senior · el que más vende del equipo</span>
+        </div>
+        <span class="persona-tag ghost">No compra · puede vetar la implementación</span>
+      </div>
+      <div class="persona-body">
+        <div class="ficha">
+          <dl>
+            <dt>Rol en la decisión</dt>
+            <dd>Ninguno formal. Poder informal enorme: es el referente del equipo y el jefe lo consulta.</dd>
+            <dt>Antigüedad</dt>
+            <dd>21 años vendiendo. Vio pasar tres CRM, dos consultoras y cinco jefes.</dd>
+            <dt>Qué gana o pierde</dt>
+            <dd>Cree que solo puede perder: su método es su ventaja y su seguridad laboral.</dd>
+            <dt>Riesgo que genera</dt>
+            <dd>Churn en el mes 3. No se opone en la reunión; simplemente "se le olvida" grabar.</dd>
+          </dl>
+        </div>
+        <div class="narrativa">
+          <h4>Por qué esta persona existe en el documento</h4>
+          <p>Es la causa número uno de cancelación en productos de este tipo, y no aparece en ninguna campaña porque no compra nada. El comprador es el jefe; el usuario es Marcelo. Todo el material actual —deck, video, capacitación— le habla al que firma. Si nadie le habla a Marcelo, Marcelo entiende que Amanda y Lucas son una cámara de vigilancia con nombre de persona, y a los 90 días el gerente cancela porque "el equipo no lo usó".</p>
+          <blockquote>
+            <p>Llevo veinte años vendiendo así. Ahora resulta que una máquina me va a decir cómo hablarle a mi cliente.</p>
+          </blockquote>
+          <h4>Qué neutraliza el veto</h4>
+          <ul>
+            <li><strong>La primera sesión de Lucas es sobre lo que hace bien.</strong> El primer informe individual debe abrir con sus fortalezas, con cita textual. Cambia el marco de "me evalúan" a "me reconocen".</li>
+            <li><strong>Feedback privado, ranking nunca público.</strong> El modelo E·I·A ya está construido para esto; el compromiso es que ningún informe individual se comparte con el resto del equipo.</li>
+            <li><strong>Traducir a plata, no a nota.</strong> A Marcelo no le interesa subir de 6,2 a 7,4 en un puntaje; le interesa cerrar dos operaciones más al trimestre.</li>
+            <li><strong>Él es el modelo, no el problema.</strong> La capa 5 aprende de patrones de cierre, y los mejores patrones son los suyos. Nombrarlo como la fuente del estándar del equipo lo convierte en aliado.</li>
+          </ul>
+          <p>Esto no es una campaña: es material de onboarding obligatorio para la primera semana de cada implementación. Sin él, el CAC que calculamos arriba se duplica por churn temprano.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- PERSONA 4 -->
+    <article class="persona">
+      <div class="persona-top">
+        <div>
+          <h3>Ignacio Bustos, 51</h3>
+          <span class="role">Subgerente de fuerza de venta · compañía de seguros o banca</span>
+        </div>
+        <span class="persona-tag ghost">Anillo 3 · red y referidos, nunca pauta</span>
+      </div>
+      <div class="persona-body">
+        <div class="ficha">
+          <dl>
+            <dt>Alcance</dt>
+            <dd>Entre 200 y 800 vendedores repartidos en agencias o sucursales.</dd>
+            <dt>Presupuesto</dt>
+            <dd>Partida anual de capacitación y productividad comercial, definida el año anterior.</dd>
+            <dt>Ciclo de compra</dt>
+            <dd>6 a 18 meses. Comité, legal, seguridad de la información, compras y a veces licitación.</dd>
+            <dt>Requisitos de proveedor</dt>
+            <dd>Antigüedad, referencias comparables, cumplimiento normativo, a veces certificaciones.</dd>
+            <dt>Por qué importa igual</dt>
+            <dd>Un solo contrato marco vale más que todo el año del anillo 1, y es donde tu experiencia en banca y seguros pesa más.</dd>
+          </dl>
+        </div>
+        <div class="narrativa">
+          <h4>Cómo tratarlo sin que consuma el trimestre</h4>
+          <p>Ignacio no se genera con pauta y no se apura con descuentos. Se abre con una referencia personal y avanza con evidencia comparable, que hoy no tienes. Es la razón adicional para concentrar el anillo 1 en un solo rubro: los primeros 6 a 8 casos homogéneos y medidos son exactamente el material que hace posible esta conversación en 2027, además de ser la línea base del perfil CORFO.</p>
+          <p>La regla operativa es de disciplina de tiempo, no de estrategia: <strong>una sola conversación institucional viva a la vez</strong>. Se conocen demasiados casos de fundadores que perdieron un año entero cortejando a una gerencia grande mientras el negocio real esperaba.</p>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============ MENSAJES ============ -->
+  <section>
+    <div class="section-head">
+      <p class="eyebrow">Ángulos de mensaje</p>
+      <h2>Qué le decimos a Cristián</h2>
+      <p class="lede col">En Meta Chile no existe segmentación confiable por cargo B2B: eso es LinkedIn. Acá el que segmenta es el creativo. Cada gancho está escrito para que un gerente comercial inmobiliario se reconozca en la primera línea y para que nadie más se sienta aludido.</p>
+    </div>
+
+    <h3>Los cinco ángulos, por orden de prioridad de prueba</h3>
+    <ul class="hooks">
+      <li><span>Ángulo 1 · El agujero negro post-lead</span>Tus leads no son malos. Se están perdiendo en los primeros cuatro minutos, y nadie en tu equipo te puede decir por qué.</li>
+      <li><span>Ángulo 2 · La comparación interna</span>Mismo proyecto, mismos leads, dos ejecutivos: uno promesa 3 al mes, el otro 8. ¿Sabes exactamente qué hace distinto el que vende?</li>
+      <li><span>Ángulo 3 · El costo invisible (marca)</span>¿Cuántas ventas perdiste este mes sin darte cuenta?</li>
+      <li><span>Ángulo 4 · El precio como ancla</span>Cuatro trabajadores digitales que prospectan, agendan, escuchan cada reunión y entrenan a tu equipo. Cuestan menos que un ejecutivo junior.</li>
+      <li><span>Ángulo 5 · La oferta directa</span>Grabamos cinco reuniones reales de tu equipo. En 72 horas te decimos, con citas textuales, dónde se te está cayendo la venta. Diez cupos este mes.</li>
+    </ul>
+
+    <div class="duo">
+      <div class="panel">
+        <h4>Reglas de copy</h4>
+        <ul>
+          <li>Hablar de <strong>promesas, unidades y sala de ventas</strong>, no de "conversiones" ni "pipeline". El vocabulario es el filtro.</li>
+          <li>Nunca decir "reemplaza a tu equipo". El posicionamiento completo es potenciar, y confundirlo activa la objeción de Marcelo antes de tiempo.</li>
+          <li>Cifras propias del prospecto, no promesas de resultado: "no sabes qué pasa con tus 340 leads" convierte mejor que "aumenta tus ventas 40%".</li>
+          <li>Evitar promesas de resultado numérico sin caso de éxito respaldable: además de ser mal negocio, es terreno de rechazo publicitario.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Formatos a producir</h4>
+        <ul>
+          <li><strong>Video explainer 3D existente</strong>, cortado en versiones de 15 y 30 segundos con gancho en los primeros 3 segundos.</li>
+          <li><strong>Captura del informe de diagnóstico</strong> con datos anonimizados: es el activo que más vende, porque muestra el producto real.</li>
+          <li><strong>Video del propio Rodolfo hablando a cámara</strong> desde la credibilidad del rubro. En un servicio consultivo la cara del fundador rinde más que cualquier animación.</li>
+          <li><strong>Carrusel del Método DOMO</strong>, una lámina por letra.</li>
+          <li>Mínimo 6 creativos genuinamente distintos entre sí, no 6 variaciones de color: Meta agrupa creativos parecidos y les entrega el mismo público.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ META SPEC ============ -->
+  <section>
+    <div class="section-head">
+      <p class="eyebrow">Especificación de campaña</p>
+      <h2>Cómo se traduce esto a Meta</h2>
+      <p class="lede col">Estructura mínima viable para el primer mes. La lógica es simple: audiencias propias primero, porque son las únicas que realmente saben quién es un gerente comercial inmobiliario en Chile.</p>
+    </div>
+
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Conjunto</th>
+            <th>Audiencia</th>
+            <th>Rol</th>
+            <th class="num">% presupuesto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>A · Lista propia</strong></td>
+            <td>Custom Audience desde base DS19 + prioridad A de <span class="mono">prospectos_domoia.xlsx</span></td>
+            <td>Cobertura directa del ICP conocido</td>
+            <td class="num">25%</td>
+          </tr>
+          <tr>
+            <td><strong>B · Lookalike</strong></td>
+            <td>Lookalike 1% Chile sobre la lista propia y sobre quienes vieron 50%+ del video explainer</td>
+            <td>Escala con el patrón correcto</td>
+            <td class="num">40%</td>
+          </tr>
+          <tr>
+            <td><strong>C · Intereses</strong></td>
+            <td>Bienes raíces, inversión inmobiliaria, gestión de ventas, emprendimiento + comportamiento "propietarios de pequeñas empresas" y "administradores de página". Edad 32–58, RM y regiones con proyectos</td>
+            <td>Descubrimiento; el creativo hace el filtro fino</td>
+            <td class="num">20%</td>
+          </tr>
+          <tr>
+            <td><strong>D · Retargeting</strong></td>
+            <td>Visitantes del sitio 30 días, engagers de IG/FB 365 días, quienes abrieron el formulario sin enviarlo</td>
+            <td>Cierre; es donde estará el CPL más bajo</td>
+            <td class="num">15%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warn">
+      <h4>Dos advertencias técnicas antes de cargar nada</h4>
+      <ul>
+        <li><strong>39 registros no alcanzan para una Custom Audience útil.</strong> Meta necesita del orden de mil registros para calzar bien, y un mínimo aproximado de cien coincidencias para generar un lookalike. Hay que engordar la lista antes de subirla: cruzar DS19 con la salida completa del prospector de Google Maps y con las nóminas de selección MINVU 2023–2026 que quedaron pendientes. Esa tarea es prerrequisito de la campaña, no un paralelo.</li>
+        <li><strong>Sin píxel no hay campaña.</strong> El sitio en GitHub Pages y los dos decks HTML necesitan el píxel instalado antes del primer peso de pauta. Sin él no hay optimización por conversión, no hay retargeting, no hay lookalike de compradores y no hay forma de saber si el diagnóstico funciona. Conviene además configurar la API de Conversiones desde el flujo de WhatsApp para no depender solo del navegador.</li>
+      </ul>
+    </div>
+
+    <div class="duo">
+      <div class="panel">
+        <h4>Conversión y evento a optimizar</h4>
+        <p>La conversión primaria es <strong>diagnóstico agendado</strong>, no "lead". Optimizar por lead crudo llena la agenda de curiosos y le enseña al algoritmo a buscar más curiosos. Se define como evento personalizado que dispara Antonia cuando la conversación de WhatsApp llega a fecha confirmada.</p>
+        <p>Destino primario: <strong>conversación a WhatsApp</strong>, donde Antonia califica contra el ICP y agenda. Formulario instantáneo como segundo destino para comparar costo y calidad.</p>
+      </div>
+      <div class="panel">
+        <h4>Exclusiones desde el día uno</h4>
+        <ul>
+          <li>Excluir a quienes ya agendaron, para no pagar dos veces por el mismo prospecto.</li>
+          <li>Excluir intereses de búsqueda de empleo y de compra de vivienda: si no se excluye, la campaña se llena de personas buscando comprar departamento, que es el público de tu cliente y no el tuyo.</li>
+          <li>Excluir menores de 30 años.</li>
+          <li>Lista de descalificados del anillo 4, cargada como audiencia de exclusión y actualizada cada mes con lo que filtre Antonia.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Métricas de control del primer mes</h3>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Indicador</th>
+            <th class="num">Meta</th>
+            <th class="num">Señal de alarma</th>
+            <th>Decisión si se enciende</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Costo por lead de conversación</td><td class="num">&lt; $12.000</td><td class="num">&gt; $20.000</td><td>Cambiar gancho, no audiencia</td></tr>
+          <tr><td>Tasa de calificación contra ICP</td><td class="num">&gt; 40%</td><td class="num">&lt; 25%</td><td>El creativo atrae al público equivocado</td></tr>
+          <tr><td>Costo por diagnóstico agendado</td><td class="num">&lt; $55.000</td><td class="num">&gt; $90.000</td><td>Revisar el filtro y el guion de Antonia</td></tr>
+          <tr><td>Asistencia a diagnóstico agendado</td><td class="num">&gt; 65%</td><td class="num">&lt; 45%</td><td>Falta recordatorio y confirmación previa</td></tr>
+          <tr class="total"><td>Diagnóstico a propuesta</td><td class="num">&gt; 55%</td><td class="num">&lt; 30%</td><td>El problema está en el informe, no en la pauta</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ ACCIONES ============ -->
+  <section>
+    <div class="section-head">
+      <p class="eyebrow">Ejecución</p>
+      <h2>Los siete pasos antes del primer peso de pauta</h2>
+      <p class="lede col">En orden de dependencia. Los cuatro primeros son de esta semana y ninguno toma más de una tarde.</p>
+    </div>
+
+    <ol class="acciones">
+      <li><b>Instalar el píxel de Meta</b>En el sitio de GitHub Pages y en los dos decks HTML. Bloquea todo lo demás. Media hora de trabajo.</li>
+      <li><b>Engordar y cargar la lista propia</b>Cruzar DS19 con el prospector de Google Maps y las nóminas MINVU pendientes hasta superar los mil registros. Subir como Custom Audience y generar el Lookalike 1%.</li>
+      <li><b>Definir el Diagnóstico DOMO como producto</b>Alcance exacto, formato del informe, plazo de 72 horas, precio (gratuito con cupo limitado o 4 UF), y el guion de consentimiento para grabar. Sin esto no hay qué ofrecer en el anuncio.</li>
+      <li><b>Escribir el guion de calificación de Antonia</b>Las cinco preguntas que separan a un prospecto del anillo 1 de un curioso del anillo 4, y la regla de descalificación cortés.</li>
+      <li><b>Producir los seis creativos</b>Los cinco ángulos de la sección anterior, más el corte del video explainer. Genuinamente distintos entre sí.</li>
+      <li><b>Redactar la política de datos y consentimiento</b>Responsable del tratamiento, almacenamiento, plazo de retención y consentimiento del tercero. Necesaria antes de diciembre de 2026, e indispensable para abrir el vertical seguros.</li>
+      <li><b>Preparar el material anti-veto para Marcelo</b>Guion de la primera sesión de Lucas centrada en fortalezas, compromiso escrito de confidencialidad del feedback individual. Se usa en la semana uno de cada implementación.</li>
+    </ol>
+
+    <h3>Decisiones que dependen de ti y no puedo tomar por ti</h3>
+    <div class="duo">
+      <div class="panel">
+        <h4>Presupuesto de pauta</h4>
+        <p>Todo el modelo de embudo asume $1.200.000 CLP mensuales durante al menos tres meses seguidos. Con menos de $700.000 mensuales el algoritmo no sale de la fase de aprendizaje y los números de este documento no aplican.</p>
+      </div>
+      <div class="panel">
+        <h4>Precio del diagnóstico</h4>
+        <p>Gratuito trae más volumen y más ausencias; a 4 UF trae la mitad de agenda y el triple de compromiso. Recomendación: gratuito los primeros 30 días con cupo declarado, para levantar rápido casos y testimonios, y con precio desde el mes dos.</p>
+      </div>
+      <div class="panel">
+        <h4>Quién atiende las reuniones</h4>
+        <p>Quince diagnósticos mensuales son unas 25 horas entre reunión, análisis y presentación del informe. Si eso lo haces solo tú, el techo son 3 o 4 cierres. Si entra tu socio a la entrega, el techo sube a 6 u 8.</p>
+      </div>
+      <div class="panel">
+        <h4>Qué pasa con el plan Prospecta</h4>
+        <p>Es el plan más expuesto a Vambe, que hace lo mismo con financiamiento de Serie A. Conviene dejar de ofrecerlo suelto y usarlo solo como escalón de entrada para perfiles tipo Andrea, nunca como oferta principal en la pauta.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Base de este documento:</strong> ICP definido en julio de 2026, estructura de precios de julio de 2026, arquitectura de cuatro capas y Método DOMO, base DS19 de 114 proyectos y 39 inmobiliarias, prospector de Google Maps de 15 rubros, y el análisis competitivo de Vambe y Samu.ai. Las tasas del embudo son supuestos de mercado que deben reemplazarse por datos propios después del primer mes de pauta. Los montos en UF y CLP son referenciales y deben revisarse contra el valor vigente de la UF.</p>
+    <p>DOMO IA · Documento interno de foco comercial · Versión 1.0 · 13 de agosto de 2026</p>
+  </footer>
+
+</div>
+
+</body>
+</html>

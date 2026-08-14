@@ -1,0 +1,1434 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Documento interno DOMO IA">
+<style>*{margin:0;padding:0;}img,svg{max-width:100%;}</style>
+<title>Plan de Medios DOMO IA</title>
+<style>
+  :root {
+    --bg: #f4f6fa; --surface: #ffffff; --surface-2: #eceff7; --surface-3: #e2e7f2;
+    --ink: #161c33; --ink-2: #333b5e; --muted: #5d6689;
+    --line: #dde1ee; --line-strong: #c3cadf;
+    --navy: #232d52; --navy-deep: #1b2340;
+    --accent: #a9762b; --accent-fill: #e8a951; --accent-soft: #f8eeda;
+    --go: #2c7159; --go-soft: #e2f0ea;
+    --stop: #a94334; --stop-soft: #f8e7e4;
+    --warn: #8a6216; --warn-soft: #faf0d9;
+    --code-bg: #eef1f8; --code-ink: #232d52;
+    --shadow: 0 1px 2px rgba(22,28,51,.06), 0 8px 24px -16px rgba(22,28,51,.28);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1329; --surface: #181e3a; --surface-2: #212847; --surface-3: #29315a;
+      --ink: #eef0f9; --ink-2: #c9cee5; --muted: #98a1c4;
+      --line: #2b3358; --line-strong: #3b446e;
+      --navy: #232d52; --navy-deep: #141a33;
+      --accent: #e8a951; --accent-fill: #e8a951; --accent-soft: #2e2a1f;
+      --go: #63b995; --go-soft: #1a2f2a;
+      --stop: #e08a7b; --stop-soft: #33201e;
+      --warn: #d9ad5c; --warn-soft: #2e2718;
+      --code-bg: #131933; --code-ink: #cdd4ee;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -16px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1329; --surface: #181e3a; --surface-2: #212847; --surface-3: #29315a;
+    --ink: #eef0f9; --ink-2: #c9cee5; --muted: #98a1c4;
+    --line: #2b3358; --line-strong: #3b446e;
+    --navy: #232d52; --navy-deep: #141a33;
+    --accent: #e8a951; --accent-fill: #e8a951; --accent-soft: #2e2a1f;
+    --go: #63b995; --go-soft: #1a2f2a;
+    --stop: #e08a7b; --stop-soft: #33201e;
+    --warn: #d9ad5c; --warn-soft: #2e2718;
+    --code-bg: #131933; --code-ink: #cdd4ee;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -16px rgba(0,0,0,.8);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16.5px; line-height: 1.62; margin: 0; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px 96px; }
+  .col { max-width: 68ch; }
+
+  /* masthead */
+  .masthead { background: var(--navy-deep); color: #eef0f9; border-bottom: 3px solid var(--accent-fill); padding: 44px 0 36px; margin-bottom: 44px; }
+  .masthead .wrap { padding-bottom: 0; }
+  .mast-grid { display: flex; gap: 26px; align-items: flex-start; flex-wrap: wrap; }
+  .mast-mark { flex: 0 0 auto; margin-top: 4px; }
+  .mast-body { flex: 1 1 320px; }
+  .masthead h1 {
+    font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+    font-size: clamp(2rem, 4.4vw, 2.85rem); line-height: 1.1; font-weight: 600;
+    margin: 6px 0 12px; text-wrap: balance; color: #fff;
+  }
+  .masthead p { color: #b9c0dd; margin: 0; max-width: 62ch; }
+  .kicker { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: var(--accent-fill); margin: 0; }
+  .mast-meta { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(232,169,81,.28); font-size: .82rem; color: #9aa3c6; }
+  .mast-meta b { color: #dfe3f2; font-weight: 600; }
+
+  /* sections */
+  section { margin-bottom: 62px; scroll-margin-top: 20px; }
+  .eyebrow { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: var(--accent); margin: 0 0 8px; }
+  h2 { font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-size: clamp(1.5rem, 3vw, 1.95rem); line-height: 1.2; font-weight: 600; margin: 0 0 8px; text-wrap: balance; }
+  h3 { font-size: 1.12rem; font-weight: 700; margin: 32px 0 10px; letter-spacing: -.01em; }
+  h4 { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin: 0 0 10px; }
+  p { margin: 0 0 15px; }
+  .lede { color: var(--ink-2); font-size: 1.05rem; }
+  .section-head { border-bottom: 1px solid var(--line-strong); padding-bottom: 14px; margin-bottom: 26px; }
+  .section-head p:last-child { margin-bottom: 0; }
+  ul, ol { margin: 0 0 15px; padding-left: 1.25em; }
+  li { margin-bottom: 6px; }
+  li::marker { color: var(--accent); }
+  strong { color: var(--ink); font-weight: 650; }
+  code { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: .88em; background: var(--code-bg); color: var(--code-ink); padding: 1px 5px; border-radius: 2px; }
+
+  /* índice */
+  .toc { background: var(--surface); border: 1px solid var(--line); border-radius: 3px; padding: 20px 24px; box-shadow: var(--shadow); margin-bottom: 48px; }
+  .toc ol { columns: 2; column-gap: 34px; margin: 0; padding-left: 1.1em; font-size: .93rem; }
+  .toc a { color: var(--ink-2); text-decoration: none; border-bottom: 1px solid transparent; }
+  .toc a:hover, .toc a:focus-visible { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* tablas */
+  .table-scroll { overflow-x: auto; margin: 0 0 18px; border: 1px solid var(--line); border-radius: 3px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; font-size: .91rem; min-width: 600px; }
+  th, td { text-align: left; padding: 10px 13px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  thead th { background: var(--surface-2); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 700; border-bottom: 1px solid var(--line-strong); }
+  tbody tr:last-child td { border-bottom: 0; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; }
+  tbody tr.total td { background: var(--surface-2); font-weight: 700; color: var(--ink); }
+
+  /* chips */
+  .chip { display: inline-block; font-size: .7rem; font-weight: 700; letter-spacing: .04em; padding: 2px 8px; border-radius: 2px; white-space: nowrap; }
+  .chip.ok { background: var(--go-soft); color: var(--go); }
+  .chip.mid { background: var(--warn-soft); color: var(--warn); }
+  .chip.no { background: var(--stop-soft); color: var(--stop); }
+  .chip.n { background: var(--accent-soft); color: var(--accent); }
+
+  /* paneles */
+  .duo { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(285px, 1fr)); margin-bottom: 18px; }
+  .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 3px; padding: 20px 22px; box-shadow: var(--shadow); }
+  .panel h4 { color: var(--accent); }
+  .panel p, .panel li { font-size: .94rem; color: var(--ink-2); }
+  .panel p:last-child, .panel ul:last-child, .panel ol:last-child { margin-bottom: 0; }
+
+  .callout { border: 1px solid var(--line); border-left: 3px solid var(--accent-fill); background: var(--accent-soft); border-radius: 0 3px 3px 0; padding: 17px 21px; margin: 0 0 20px; }
+  .callout.stop { border-left-color: var(--stop); background: var(--stop-soft); }
+  .callout.go { border-left-color: var(--go); background: var(--go-soft); }
+  .callout.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+  .callout h4 { color: var(--ink); margin-bottom: 6px; }
+  .callout p, .callout li { font-size: .94rem; color: var(--ink-2); }
+  .callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+
+  /* principios */
+  .principios { display: grid; gap: 14px; counter-reset: pr; }
+  .principio { background: var(--surface); border: 1px solid var(--line); border-radius: 3px; padding: 18px 22px 16px 62px; position: relative; box-shadow: var(--shadow); counter-increment: pr; }
+  .principio::before { content: "P" counter(pr); position: absolute; left: 20px; top: 17px; font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: .9rem; font-weight: 700; color: var(--accent); }
+  .principio h3 { margin: 0 0 4px; font-size: 1.02rem; }
+  .principio p { margin: 0; font-size: .94rem; color: var(--ink-2); }
+
+  /* tarjetas de copy */
+  .ad { background: var(--surface); border: 1px solid var(--line); border-radius: 3px; box-shadow: var(--shadow); margin-bottom: 20px; overflow: hidden; }
+  .ad-head { background: var(--navy); color: #fff; padding: 13px 20px; display: flex; justify-content: space-between; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  .ad-head .id { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: .82rem; color: var(--accent-fill); font-weight: 700; letter-spacing: .06em; }
+  .ad-head .ti { font-weight: 650; font-size: 1rem; }
+  .ad-head .fm { font-size: .76rem; color: #b9c0dd; text-transform: uppercase; letter-spacing: .08em; }
+  .ad-body { padding: 18px 20px 14px; }
+  .field { border-bottom: 1px dashed var(--line); padding-bottom: 12px; margin-bottom: 12px; }
+  .field:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+  .field-label { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 5px; }
+  .field-label span { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  .cnt { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: .72rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .cnt.tight { color: var(--warn); }
+  .copy { background: var(--surface-2); border-left: 2px solid var(--accent-fill); padding: 11px 14px; border-radius: 0 2px 2px 0; font-size: .95rem; color: var(--ink); white-space: pre-line; }
+  .ad-note { font-size: .85rem; color: var(--muted); margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+
+  /* prompts */
+  .prompt { background: var(--surface); border: 1px solid var(--line); border-radius: 3px; box-shadow: var(--shadow); margin-bottom: 22px; overflow: hidden; }
+  .prompt-head { background: var(--surface-2); border-bottom: 1px solid var(--line-strong); padding: 12px 18px; display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; align-items: baseline; }
+  .prompt-head .id { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: .8rem; font-weight: 700; color: var(--accent); letter-spacing: .06em; }
+  .prompt-head .ti { font-weight: 650; font-size: .98rem; color: var(--ink); }
+  .prompt-head .use { font-size: .78rem; color: var(--muted); }
+  pre { margin: 0; padding: 16px 18px; background: var(--code-bg); color: var(--code-ink); font-family: ui-monospace, "Cascadia Mono", Consolas, "Liberation Mono", monospace; font-size: .83rem; line-height: 1.55; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word; }
+
+  /* flujo */
+  .flow { display: grid; gap: 10px; margin-bottom: 20px; }
+  .flow-step { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent-fill); border-radius: 0 3px 3px 0; padding: 14px 18px; box-shadow: var(--shadow); }
+  .flow-step .st { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  .flow-step b { display: block; margin: 2px 0 3px; }
+  .flow-step p { margin: 0; font-size: .92rem; color: var(--ink-2); }
+  .flow-arrow { text-align: center; color: var(--line-strong); font-size: 1.1rem; line-height: 1; }
+
+  /* timeline */
+  .dia { border-left: 2px solid var(--line-strong); padding: 0 0 0 22px; margin-left: 8px; }
+  .dia-item { position: relative; padding-bottom: 20px; }
+  .dia-item::before { content: ""; position: absolute; left: -28px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-fill); border: 2px solid var(--bg); }
+  .dia-item.hot::before { background: var(--go); }
+  .dia-item h3 { margin: 0 0 3px; font-size: 1rem; }
+  .dia-item .tag { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: .74rem; color: var(--accent); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+  .dia-item ul { margin: 6px 0 0; font-size: .93rem; color: var(--ink-2); }
+
+  .kpi-row { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-bottom: 20px; }
+  .kpi { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--accent-fill); border-radius: 3px; padding: 15px 17px; box-shadow: var(--shadow); }
+  .kpi .v { font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif; font-size: 1.6rem; font-weight: 600; line-height: 1.1; font-variant-numeric: tabular-nums; display: block; }
+  .kpi .k { font-size: .74rem; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-top: 4px; display: block; }
+  .kpi.g { border-top-color: var(--go); }
+  .kpi.g .v { color: var(--go); }
+
+  hr.rule { border: 0; border-top: 1px solid var(--line-strong); margin: 34px 0 26px; }
+  footer { border-top: 1px solid var(--line-strong); padding-top: 20px; color: var(--muted); font-size: .85rem; }
+  a { color: var(--accent); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media (max-width: 720px) { .wrap { padding: 0 18px 72px; } .toc ol { columns: 1; } }
+</style>
+</head>
+<body>
+
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="mast-grid">
+      <div class="mast-mark" aria-hidden="true">
+        <svg width="62" height="62" viewBox="0 0 62 62" fill="none" stroke="#e8a951" stroke-width="1.4">
+          <path d="M4 47a27 27 0 0 1 54 0" />
+          <line x1="2" y1="47" x2="60" y2="47" stroke-width="2" />
+          <path d="M31 20v27M17.5 24.2 44.5 24.2M10.2 34.5h41.6" />
+          <path d="M31 20 13 47M31 20l18 27M20 21.6 20 47M42 21.6 42 47" stroke-opacity=".55" />
+        </svg>
+      </div>
+      <div class="mast-body">
+        <p class="kicker">DOMO IA · Plan de medios y adquisición</p>
+        <h1>Máquina de agendamiento</h1>
+        <p>Plan completo de Meta Ads para llenar la agenda de Diagnósticos DOMO con leads que se auto-agendan. Incluye arquitectura de campaña, calendario de lanzamiento, biblioteca de copys y los prompts operativos.</p>
+        <div class="mast-meta">
+          <span>Versión <b>1.0</b></span>
+          <span>Fecha <b>13 de agosto de 2026</b></span>
+          <span>Vertical <b>Inmobiliario</b></span>
+          <span>Presupuesto base <b>$1.200.000 CLP/mes</b></span>
+          <span>Primera reunión <b>Día 3</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <nav class="toc" aria-label="Índice">
+    <h4>Contenido</h4>
+    <ol>
+      <li><a href="#doctrina">Doctrina del media buyer</a></li>
+      <li><a href="#semana0">Semana 0: los 11 prerrequisitos</a></li>
+      <li><a href="#motor">El motor de auto-agendamiento</a></li>
+      <li><a href="#arquitectura">Arquitectura de campaña y presupuesto</a></li>
+      <li><a href="#calendario">Calendario de lanzamiento, día a día</a></li>
+      <li><a href="#creativos">Biblioteca de creativos y copys</a></li>
+      <li><a href="#formulario">Formulario de Lead Ads, pantalla por pantalla</a></li>
+      <li><a href="#whatsapp">Guiones de WhatsApp de Antonia</a></li>
+      <li><a href="#secuencias">Página de gracias, recordatorios y rescate</a></li>
+      <li><a href="#prompts">Los 8 prompts operativos</a></li>
+      <li><a href="#medicion">Medición, eventos y tablero</a></li>
+      <li><a href="#optimizacion">Reglas de optimización y escalado</a></li>
+      <li><a href="#riesgos">Riesgos, políticas y errores a evitar</a></li>
+    </ol>
+  </nav>
+
+  <!-- =============== 1. DOCTRINA =============== -->
+  <section id="doctrina">
+    <div class="section-head">
+      <p class="eyebrow">01 · Doctrina</p>
+      <h2>Las siete decisiones que definen este plan</h2>
+      <p class="lede col">Un plan de medios es una cadena de decisiones, no una lista de tareas. Estas siete son las que separan una cuenta que agenda de una que gasta. Todo lo que viene después se deriva de acá.</p>
+    </div>
+
+    <div class="principios">
+      <div class="principio">
+        <h3>Un solo conjunto de anuncios, no tres</h3>
+        <p>Con $40.000 diarios y un costo por lead objetivo de $10.000 salen unos 4 leads al día, es decir 28 por semana. Meta necesita <strong>50 eventos de optimización semanales por conjunto</strong> para salir de fase de aprendizaje. Repartir ese presupuesto en tres conjuntos garantiza que ninguno aprenda nunca y que el costo por lead se estanque alto. Se lanza con un conjunto de prospección y uno chico de retargeting. Se abre un tercero recién cuando el volumen lo permita.</p>
+      </div>
+      <div class="principio">
+        <h3>El creativo es la segmentación</h3>
+        <p>En Chile, Meta no tiene targeting confiable por cargo B2B. El intento de segmentar con intereses angostos reduce el aprendizaje y sube el costo sin mejorar la calidad. La segmentación real se hace con el primer renglón del anuncio: si dice <em>"promesas"</em>, <em>"sala de ventas"</em> y <em>"ejecutivos"</em>, el gerente comercial se detiene y el resto sigue de largo. Público amplio, gancho quirúrgico.</p>
+      </div>
+      <div class="principio">
+        <h3>Se optimiza por agendamiento, no por lead</h3>
+        <p>Optimizar por "lead" le enseña al algoritmo a buscar personas que llenan formularios. Optimizar por <code>Diagnostico_Agendado</code> le enseña a buscar personas que reservan hora. Es la diferencia entre una bandeja llena y una agenda llena. Excepción táctica: los primeros 7 a 10 días se optimiza por lead para acumular señal, y se migra al evento de agendamiento apenas haya volumen.</p>
+      </div>
+      <div class="principio">
+        <h3>La agenda se abre en el anuncio, no en una llamada</h3>
+        <p>Cada paso intermedio entre el clic y la hora reservada pierde entre el 30% y el 50% de la gente. El objetivo es que el prospecto elija bloque horario sin hablar con nadie: pantalla final del formulario con botón al calendario, y WhatsApp automatizado como red de captura para el que no lo hizo. Nadie espera a que "lo llamen mañana".</p>
+      </div>
+      <div class="principio">
+        <h3>Las reuniones de la semana 1 no las trae el algoritmo</h3>
+        <p>Meta tarda entre 3 y 7 días en estabilizarse. Las primeras reuniones salen de audiencias calientes —lista propia, quienes vieron el video, seguidores— y de prospección directa a las 39 inmobiliarias DS19 con el mismo mensaje del anuncio. La pauta fría es el motor de mediano plazo; la semana 1 se gana a mano y con retargeting.</p>
+      </div>
+      <div class="principio">
+        <h3>Seis creativos distintos, no seis variantes de color</h3>
+        <p>Meta agrupa creativos parecidos y les entrega el mismo público, así que seis versiones del mismo aviso compiten entre sí en vez de ampliar alcance. Se lanza con seis piezas genuinamente distintas en formato, gancho y estética: video del fundador, captura del informe, carrusel, texto sobre fondo plano, testimonio y demo de producto.</p>
+      </div>
+      <div class="principio">
+        <h3>Se descalifica antes de la reunión, no dentro</h3>
+        <p>Una agenda llena de gente que no puede pagar es peor que una agenda a medias: consume las horas que sostienen todo el negocio. El formulario y Antonia filtran contra el ICP antes de entregar un bloque horario. La métrica que manda no es el costo por lead, es el <strong>costo por diagnóstico efectivo con empresa calificada</strong>.</p>
+      </div>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi"><span class="v">120</span><span class="k">Leads / mes</span></div>
+      <div class="kpi"><span class="v">22</span><span class="k">Agendados / mes</span></div>
+      <div class="kpi g"><span class="v">15</span><span class="k">Diagnósticos efectivos</span></div>
+      <div class="kpi"><span class="v">$55k</span><span class="k">Costo x agendado</span></div>
+      <div class="kpi g"><span class="v">3–4</span><span class="k">Contratos de plan</span></div>
+    </div>
+  </section>
+
+  <!-- =============== 2. SEMANA 0 =============== -->
+  <section id="semana0">
+    <div class="section-head">
+      <p class="eyebrow">02 · Semana 0</p>
+      <h2>Los once prerrequisitos, antes del primer peso</h2>
+      <p class="lede col">Ninguno toma más de una tarde y todos bloquean. Una campaña lanzada sin los puntos 1 a 5 no se puede optimizar ni escalar, y el dinero gastado no deja aprendizaje aprovechable.</p>
+    </div>
+
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>#</th><th>Prerrequisito</th><th>Qué hay que dejar hecho</th><th>Bloquea</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td><strong>Business Manager y activo publicitario</strong></td><td>Cuenta publicitaria con RUT y facturación en CLP, página de Facebook e Instagram profesional vinculadas, y dos administradores con doble factor activado.</td><td><span class="chip no">Todo</span></td></tr>
+          <tr><td class="num">2</td><td><strong>Dominio verificado</strong></td><td>Verificar el dominio propio en Business Manager. GitHub Pages sirve; conviene además un dominio propio para credibilidad comercial.</td><td><span class="chip no">Eventos y atribución</span></td></tr>
+          <tr><td class="num">3</td><td><strong>Píxel instalado</strong></td><td>Píxel en el sitio, en los dos decks y en la página de gracias. Verificar con el depurador antes de pautar.</td><td><span class="chip no">Optimización</span></td></tr>
+          <tr><td class="num">4</td><td><strong>API de Conversiones</strong></td><td>Envío de eventos desde servidor con <code>event_id</code> para deduplicar contra el píxel. Es lo que sostiene la señal cuando el navegador la bloquea.</td><td><span class="chip mid">Calidad de señal</span></td></tr>
+          <tr><td class="num">5</td><td><strong>Eventos definidos</strong></td><td>Los cinco eventos de la sección 11, con <code>Diagnostico_Agendado</code> priorizado en la configuración de eventos agregados.</td><td><span class="chip no">Optimización</span></td></tr>
+          <tr><td class="num">6</td><td><strong>Calendario de reserva</strong></td><td>Bloques de 45 minutos, mínimo 12 semanales, con confirmación automática, recordatorio y enlace de videollamada. Zona horaria de Santiago y buffer de 15 minutos.</td><td><span class="chip no">Auto-agendamiento</span></td></tr>
+          <tr><td class="num">7</td><td><strong>WhatsApp Business</strong></td><td>Número dedicado, perfil completo, respuestas rápidas y automatización de Antonia. Nunca el número personal.</td><td><span class="chip mid">Rescate de leads</span></td></tr>
+          <tr><td class="num">8</td><td><strong>Lista propia cargada</strong></td><td>DS19 cruzado con el prospector de Google Maps y las nóminas MINVU hasta pasar los 1.000 registros. Subir con teléfono, correo, nombre, ciudad y país, cada campo en su columna.</td><td><span class="chip mid">Lookalike</span></td></tr>
+          <tr><td class="num">9</td><td><strong>Política de privacidad publicada</strong></td><td>URL pública obligatoria para Lead Ads. Debe cubrir grabación de reuniones y tratamiento de datos de terceros.</td><td><span class="chip no">Lead Ads</span></td></tr>
+          <tr><td class="num">10</td><td><strong>Diagnóstico DOMO definido</strong></td><td>Alcance, formato del informe, plazo de 72 horas, precio y guion de consentimiento. Sin esto no hay oferta que pautar.</td><td><span class="chip no">Todo</span></td></tr>
+          <tr><td class="num">11</td><td><strong>Seis creativos producidos</strong></td><td>Las seis piezas de la sección 6, exportadas en 4:5 y 9:16.</td><td><span class="chip no">Lanzamiento</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warn">
+      <h4>La trampa de los formatos</h4>
+      <p>El 80% del inventario de Meta hoy es vertical: Reels, Stories y feed móvil. Un creativo entregado solo en 1:1 pierde la mitad del alcance disponible y sube el costo por resultado sin que se note en el reporte. Todo se produce en <strong>4:5 para feed y 9:16 para Reels y Stories</strong>, con la zona segura respetada: nada importante en el 14% superior ni en el 20% inferior del vertical.</p>
+    </div>
+  </section>
+
+  <!-- =============== 3. MOTOR =============== -->
+  <section id="motor">
+    <div class="section-head">
+      <p class="eyebrow">03 · Arquitectura del flujo</p>
+      <h2>El motor de auto-agendamiento</h2>
+      <p class="lede col">El objetivo declarado es que la mayoría se auto-agende. Eso obliga a diseñar el camino más corto entre ver el anuncio y tener un bloque reservado, y a poner una red de captura para todo el que se caiga en el trayecto.</p>
+    </div>
+
+    <h3>Camino A · Formulario instantáneo con salto al calendario <span class="chip n">Principal · 70% del presupuesto</span></h3>
+    <div class="flow">
+      <div class="flow-step"><span class="st">Paso 1 · En Meta</span><b>El anuncio abre un formulario instantáneo dentro de la app</b><p>Sin salir de Facebook o Instagram, con carga instantánea. Formato "mayor intención", que agrega una pantalla de revisión y sube la calidad del lead entre 20% y 30% a costa de algo de volumen. Es exactamente el intercambio que queremos.</p></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><span class="st">Paso 2 · Calificación</span><b>Cuatro preguntas que filtran contra el ICP</b><p>Tamaño de equipo, volumen de reuniones, inversión publicitaria y disposición a grabar. Las respuestas viajan al CRM y determinan si el lead recibe agenda o descarte cortés.</p></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><span class="st">Paso 3 · El salto</span><b>La pantalla final es un botón al calendario</b><p>Aquí se gana o se pierde el auto-agendamiento. La pantalla de agradecimiento de Meta permite un botón con enlace: dice <em>"Elegir mi hora"</em> y lleva directo a la grilla, con los datos ya precargados por parámetros en la URL.</p></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><span class="st">Paso 4 · Red de captura</span><b>Antonia escribe a los 5 minutos al que no reservó</b><p>Regla dura: si a los 5 minutos no hay hora reservada, sale el WhatsApp automático con dos bloques concretos. La velocidad de contacto es el factor más determinante de conversión de un lead entrante, y a los 30 minutos ya se perdió la mitad.</p></div>
+    </div>
+
+    <h3>Camino B · Clic a WhatsApp <span class="chip n">Secundario · 30% del presupuesto</span></h3>
+    <p class="col">Chile es un país de WhatsApp: para muchos gerentes es más natural escribir que llenar un formulario. El anuncio abre directamente la conversación con un mensaje predefinido; Antonia califica con las mismas cuatro preguntas en tono conversacional y entrega el enlace del calendario. Convierte peor en volumen pero mejor en asistencia, porque el prospecto ya conversó con alguien antes de reservar. Se corre en paralelo desde el día 1 para comparar, no después.</p>
+
+    <div class="callout go">
+      <h4>La métrica que decide entre A y B</h4>
+      <p>No es el costo por lead: es el <strong>costo por diagnóstico efectivamente realizado</strong>. Es esperable que el camino A entregue leads a $8.000 con 55% de asistencia y el camino B leads a $16.000 con 80% de asistencia. Al final del embudo el segundo puede ser más barato. La decisión se toma en el día 14 con datos, nunca antes.</p>
+    </div>
+  </section>
+
+  <!-- =============== 4. ARQUITECTURA =============== -->
+  <section id="arquitectura">
+    <div class="section-head">
+      <p class="eyebrow">04 · Estructura</p>
+      <h2>Arquitectura de campaña y presupuesto</h2>
+      <p class="lede col">Estructura deliberadamente plana. Cada conjunto adicional divide la señal; cada peso concentrado la multiplica.</p>
+    </div>
+
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Campaña</th><th>Objetivo</th><th>Conjunto</th><th>Audiencia</th><th class="num">$/día</th><th class="num">%</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="2"><strong>DOMO · Agenda · Inmob</strong><br><span style="color:var(--muted);font-size:.85rem">Presupuesto de campaña activado</span></td><td rowspan="2">Clientes potenciales</td><td><strong>PROSPECCIÓN</strong></td><td>Advantage+ público, Chile, 30–60 años, con lista propia y Lookalike 1% como sugerencia. Sin bloqueo de intereses.</td><td class="num">24.000</td><td class="num">60%</td></tr>
+          <tr><td><strong>RETARGETING</strong></td><td>Visitantes 30 días + 50% de video 365 días + interacción IG/FB 365 días + formulario abierto sin enviar. Excluye agendados.</td><td class="num">6.000</td><td class="num">15%</td></tr>
+          <tr><td><strong>DOMO · WhatsApp · Inmob</strong></td><td>Mensajes</td><td><strong>CLIC A WA</strong></td><td>Misma audiencia amplia. Optimizado por conversación iniciada.</td><td class="num">10.000</td><td class="num">25%</td></tr>
+          <tr class="total"><td colspan="4">Total diario / mensual</td><td class="num">40.000</td><td class="num">$1,2M</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="duo">
+      <div class="panel">
+        <h4>Convención de nombres</h4>
+        <p>Sin nomenclatura no hay lectura de resultados en el mes 3. Formato obligatorio:</p>
+        <p><code>[Campaña] DOMO_AGENDA_INMOB_2608</code><br>
+        <code>[Conjunto] PROSP_ADV_CL_30-60</code><br>
+        <code>[Anuncio] A03_COSTOINVIS_VID15_9x16_v1</code></p>
+        <p>El anuncio codifica ángulo, formato, proporción y versión. Es lo que permite responder "¿qué ángulo funciona?" en vez de "¿qué anuncio funciona?".</p>
+      </div>
+      <div class="panel">
+        <h4>Configuración fina del conjunto</h4>
+        <ul>
+          <li><strong>Ubicaciones:</strong> automáticas. Excluir Audience Network solo si tras 14 días concentra gasto sin agendamientos.</li>
+          <li><strong>Optimización:</strong> conversiones. Ventana de atribución 7 días clic / 1 día visualización.</li>
+          <li><strong>Puja:</strong> volumen más alto, sin límite de costo, las primeras dos semanas. El límite de costo prematuro asfixia la salida de aprendizaje.</li>
+          <li><strong>Entrega:</strong> estándar, no acelerada.</li>
+          <li><strong>Idioma:</strong> español. Ubicación: Chile, "personas que viven en".</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout stop">
+      <h4>Tres cosas que no se hacen, aunque la interfaz las sugiera</h4>
+      <ul>
+        <li><strong>No duplicar el conjunto ganador para escalar.</strong> Reinicia el aprendizaje y los duplicados compiten entre sí en la misma subasta. Se escala subiendo el presupuesto un 20% cada 48 horas.</li>
+        <li><strong>No tocar nada en las primeras 72 horas.</strong> Cada edición del conjunto reinicia la fase de aprendizaje. La ansiedad del día 2 es el error más caro de este plan.</li>
+        <li><strong>No apilar intereses angostos.</strong> "Gerente comercial" no existe como interés confiable en Chile; apilar diez intereses de nicho reduce la audiencia bajo el mínimo operativo y multiplica el CPM.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =============== 5. CALENDARIO =============== -->
+  <section id="calendario">
+    <div class="section-head">
+      <p class="eyebrow">05 · Ejecución</p>
+      <h2>Calendario de lanzamiento, día a día</h2>
+      <p class="lede col">Diseñado para que existan reuniones en la agenda antes de que Meta termine de aprender. Los días marcados en verde son los que producen reuniones.</p>
+    </div>
+
+    <div class="dia">
+      <div class="dia-item">
+        <span class="tag">Día −3 a −1 · Preparación</span>
+        <h3>Infraestructura y munición</h3>
+        <ul>
+          <li>Prerrequisitos 1 a 11 de la sección 2, en ese orden.</li>
+          <li>Cargar la lista propia y esperar el procesamiento, que toma entre 6 y 24 horas.</li>
+          <li>Crear el Lookalike 1% Chile. Requiere al menos 100 coincidencias; si la lista no llega, usar como semilla a quienes vieron el 50% del video.</li>
+          <li>Publicar 3 posts orgánicos en la página para que no llegue tráfico pagado a un perfil vacío.</li>
+        </ul>
+      </div>
+      <div class="dia-item hot">
+        <span class="tag">Día 1 · Lunes · Encendido caliente</span>
+        <h3>Retargeting y prospección directa, simultáneos</h3>
+        <ul>
+          <li>Activar solo el conjunto <strong>RETARGETING</strong> a $6.000 diarios con los anuncios A07 y A08. Es el público más barato y el que responde primero.</li>
+          <li>Activar la campaña de <strong>WhatsApp</strong> a $10.000 diarios.</li>
+          <li>En paralelo y a mano: 15 llamadas a la lista DS19 con el guion de la sección 8. Esto no depende del algoritmo y es lo que asegura reuniones esta semana.</li>
+          <li>Publicar el video explainer como post orgánico y promocionarlo con $3.000 para alimentar la audiencia de video.</li>
+        </ul>
+      </div>
+      <div class="dia-item hot">
+        <span class="tag">Día 2 · Martes</span>
+        <h3>Prospección fría al aire</h3>
+        <ul>
+          <li>Activar el conjunto <strong>PROSPECCIÓN</strong> a $24.000 diarios con seis creativos: A01 a A06.</li>
+          <li>Optimización temporal por <em>Lead</em>, no por agendamiento: al principio no hay volumen suficiente del evento final.</li>
+          <li>Verificar en el depurador que los eventos llegan. No mirar resultados todavía.</li>
+          <li>Otras 15 llamadas de prospección directa.</li>
+        </ul>
+      </div>
+      <div class="dia-item hot">
+        <span class="tag">Día 3 · Miércoles</span>
+        <h3>Primeras reuniones en agenda</h3>
+        <ul>
+          <li>Deberían existir entre 2 y 5 diagnósticos agendados, mayoritariamente de retargeting y de la prospección manual.</li>
+          <li>Única acción sobre la cuenta: revisar que no haya anuncios rechazados. Nada más se toca.</li>
+        </ul>
+      </div>
+      <div class="dia-item">
+        <span class="tag">Día 4 a 7 · Estabilización</span>
+        <h3>Dejar aprender</h3>
+        <ul>
+          <li>Prohibido editar conjuntos. Se permite pausar un anuncio individual solo si gastó más de $15.000 sin un solo clic en el enlace.</li>
+          <li>Ejecutar los primeros diagnósticos y grabarlos: son la materia prima del creativo A02 y del caso de éxito.</li>
+          <li>Completar las 60 llamadas de prospección directa de la semana.</li>
+        </ul>
+      </div>
+      <div class="dia-item">
+        <span class="tag">Día 8 · Primera revisión</span>
+        <h3>Corte de creativos, no de audiencias</h3>
+        <ul>
+          <li>Apagar todo anuncio cuyo costo por lead supere 3 veces al del mejor. Es la regla del triple.</li>
+          <li>Subir dos creativos nuevos derivados del ángulo ganador: mismo gancho, distinta ejecución.</li>
+          <li>Si hay 30 o más agendamientos acumulados, migrar la optimización a <code>Diagnostico_Agendado</code>.</li>
+        </ul>
+      </div>
+      <div class="dia-item">
+        <span class="tag">Día 14 · Decisión de camino</span>
+        <h3>Formulario contra WhatsApp</h3>
+        <ul>
+          <li>Comparar por costo por diagnóstico efectivo, no por costo por lead.</li>
+          <li>Mover el 70% del presupuesto al camino ganador y dejar el 30% en el otro como cobertura.</li>
+          <li>Primer escalado: si el costo por agendado está bajo $55.000, subir presupuesto 20%.</li>
+        </ul>
+      </div>
+      <div class="dia-item">
+        <span class="tag">Día 15 a 30 · Escalado</span>
+        <h3>Subir sin romper</h3>
+        <ul>
+          <li>Incrementos del 20% cada 48 horas mientras el costo por agendado se mantenga bajo el techo.</li>
+          <li>Refrescar creativos cuando la frecuencia pase de 2,5 en el conjunto de prospección o de 4 en retargeting.</li>
+          <li>Construir un público similar sobre los agendados reales: es la mejor semilla disponible y reemplaza al lookalike de lista fría.</li>
+          <li>Abrir un tercer conjunto solo si el volumen supera 60 leads semanales.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============== 6. CREATIVOS =============== -->
+  <section id="creativos">
+    <div class="section-head">
+      <p class="eyebrow">06 · Munición</p>
+      <h2>Biblioteca de creativos y copys</h2>
+      <p class="lede col">Ocho anuncios completos, listos para cargar. Cada uno indica formato, ángulo y conteo de caracteres. El texto principal se corta alrededor de los 125 caracteres en móvil: los dos primeros renglones tienen que hacer todo el trabajo.</p>
+    </div>
+
+    <div class="ad">
+      <div class="ad-head"><span class="id">A01</span><span class="ti">El agujero negro post-lead</span><span class="fm">Video 15s · 9:16 y 4:5 · Prospección</span></div>
+      <div class="ad-body">
+        <div class="field">
+          <div class="field-label"><span>Texto principal</span><span class="cnt">334 car.</span></div>
+          <div class="copy">Este mes volviste a comprar leads. Y volviste a no saber qué pasó entre el formulario y la visita a sala.
+
+No es tu agencia. No son los leads. Es lo que ocurre dentro de esos 40 minutos que nadie escucha.
+
+Grabamos 5 reuniones reales de tu equipo y en 72 horas te mostramos, con citas textuales, dónde se te cae la venta.
+
+Sin costo. 10 cupos este mes.</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Titular</span><span class="cnt">32 / 40</span></div>
+          <div class="copy">Dónde se cae tu venta, con datos</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Descripción</span><span class="cnt">19 / 30</span></div>
+          <div class="copy">Informe en 72 horas</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Botón</span><span class="cnt">—</span></div>
+          <div class="copy">Reservar</div>
+        </div>
+        <p class="ad-note"><strong>Nota de producción:</strong> los primeros 3 segundos muestran un contador de leads subiendo y un contador de ventas quieto. Sin locución en los primeros 2 segundos: el 85% ve sin sonido, así que el gancho va en texto sobreimpreso grande.</p>
+      </div>
+    </div>
+
+    <div class="ad">
+      <div class="ad-head"><span class="id">A02</span><span class="ti">La comparación interna</span><span class="fm">Imagen o carrusel · 4:5 · Prospección</span></div>
+      <div class="ad-body">
+        <div class="field">
+          <div class="field-label"><span>Texto principal</span><span class="cnt">301 car.</span></div>
+          <div class="copy">Mismo proyecto. Mismos leads. Dos ejecutivos.
+
+Uno promesa 3 al mes. El otro, 8.
+
+La diferencia no es suerte ni carisma: son cuatro o cinco frases concretas que uno dice y el otro no. Están en las grabaciones, solo que nadie las escucha.
+
+Nosotros sí. 5 reuniones de tu equipo, informe en 72 horas, sin costo.</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Titular</span><span class="cnt">27 / 40</span></div>
+          <div class="copy">Por qué uno vende y otro no</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Descripción</span><span class="cnt">22 / 30</span></div>
+          <div class="copy">5 reuniones. 72 horas.</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Botón</span><span class="cnt">—</span></div>
+          <div class="copy">Más información</div>
+        </div>
+        <p class="ad-note"><strong>Nota de producción:</strong> imagen partida en dos con dos columnas de resultados. Sin rostros: cualquier cara reconocible activa la lectura de "publicidad de personas" y baja el clic en público B2B.</p>
+      </div>
+    </div>
+
+    <div class="ad">
+      <div class="ad-head"><span class="id">A03</span><span class="ti">El costo invisible · frase de marca</span><span class="fm">Video 15s · 9:16 · Prospección</span></div>
+      <div class="ad-body">
+        <div class="field">
+          <div class="field-label"><span>Texto principal</span><span class="cnt">288 car.</span></div>
+          <div class="copy">¿Cuántas ventas perdiste este mes sin darte cuenta?
+
+No hablo de las que nunca llegaron. Hablo de las que llegaron, se sentaron frente a tu ejecutivo y se fueron sin que nadie supiera por qué.
+
+Amanda escucha cada reunión. Lucas te dice qué falló y qué hacer distinto.
+
+Diagnóstico gratuito, 5 reuniones.</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Titular</span><span class="cnt">38 / 40</span></div>
+          <div class="copy">Las ventas que no supiste que perdiste</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Descripción</span><span class="cnt">21 / 30</span></div>
+          <div class="copy">Diagnóstico sin costo</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Botón</span><span class="cnt">—</span></div>
+          <div class="copy">Reservar</div>
+        </div>
+        <p class="ad-note"><strong>Nota de producción:</strong> corte del video explainer 3D existente. Se usa el arranque de la frase de marca, se recorta a 15 segundos y se cierra con la oferta. Reutilizar activos ya producidos es lo que permite tener seis creativos distintos en tres días.</p>
+      </div>
+    </div>
+
+    <div class="ad">
+      <div class="ad-head"><span class="id">A04</span><span class="ti">El precio como ancla</span><span class="fm">Carrusel 4 tarjetas · 4:5 · Prospección</span></div>
+      <div class="ad-body">
+        <div class="field">
+          <div class="field-label"><span>Texto principal</span><span class="cnt">331 car.</span></div>
+          <div class="copy">Cuatro trabajadores digitales para tu área comercial:
+
+Matías compra tus medios y arma los anuncios.
+Antonia responde cada lead en segundos y agenda.
+Amanda escucha todas las reuniones.
+Lucas entrena a tu equipo con lo que escuchó.
+
+Trabajan los 7 días. Cuestan menos que un ejecutivo junior.
+
+Parte con un diagnóstico gratuito.</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Titular</span><span class="cnt">29 / 40</span></div>
+          <div class="copy">Menos que un ejecutivo junior</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Descripción</span><span class="cnt">24 / 30</span></div>
+          <div class="copy">Conoce al equipo digital</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Botón</span><span class="cnt">—</span></div>
+          <div class="copy">Más información</div>
+        </div>
+        <p class="ad-note"><strong>Nota de producción:</strong> una tarjeta por trabajador digital, con el ícono del domo y el nombre. Titulares por tarjeta: "Matías · Medios", "Antonia · Agenda", "Amanda · Escucha", "Lucas · Entrena".</p>
+      </div>
+    </div>
+
+    <div class="ad">
+      <div class="ad-head"><span class="id">A05</span><span class="ti">La oferta directa con escasez</span><span class="fm">Imagen · 4:5 y 9:16 · Prospección</span></div>
+      <div class="ad-body">
+        <div class="field">
+          <div class="field-label"><span>Texto principal</span><span class="cnt">318 car.</span></div>
+          <div class="copy">10 cupos de Diagnóstico DOMO para inmobiliarias y corredoras de Santiago.
+
+Cómo funciona: tu equipo graba 5 reuniones con clientes reales. Nosotros las escuchamos. En 72 horas recibes un informe con lo que dijeron, lo que no dijeron y qué cambiar la próxima semana.
+
+Sin costo. Sin compromiso. Sin cambiar nada de lo que ya tienes.</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Titular</span><span class="cnt">33 / 40</span></div>
+          <div class="copy">Diagnóstico DOMO: quedan 10 cupos</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Descripción</span><span class="cnt">19 / 30</span></div>
+          <div class="copy">Agenda en 2 minutos</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Botón</span><span class="cnt">—</span></div>
+          <div class="copy">Reservar</div>
+        </div>
+        <p class="ad-note"><strong>Nota de producción:</strong> captura real del informe de diagnóstico con datos anonimizados. Es el creativo con mayor probabilidad de ganar, porque muestra el producto en vez de describirlo. La escasez debe ser verdadera: si hay 10 cupos, son 10.</p>
+      </div>
+    </div>
+
+    <div class="ad">
+      <div class="ad-head"><span class="id">A06</span><span class="ti">Fundador a cámara</span><span class="fm">Video 30s · 9:16 · Prospección</span></div>
+      <div class="ad-body">
+        <div class="field">
+          <div class="field-label"><span>Texto principal</span><span class="cnt">324 car.</span></div>
+          <div class="copy">Vendí seguros, inversiones y propiedades durante quince años, y en todos lados encontré el mismo problema:
+
+el que dirige el equipo no tiene idea de lo que pasa dentro de la reunión de su vendedor. Opina sobre lo que le cuentan.
+
+Por eso construimos DOMO IA. Te lo muestro con 5 reuniones de tu propio equipo, sin costo.</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Titular</span><span class="cnt">27 / 40</span></div>
+          <div class="copy">Lo construí porque lo sufrí</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Descripción</span><span class="cnt">21 / 30</span></div>
+          <div class="copy">Habla con el fundador</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Botón</span><span class="cnt">—</span></div>
+          <div class="copy">Reservar</div>
+        </div>
+        <p class="ad-note"><strong>Nota de producción:</strong> grabado con celular, luz natural, sin producción. En servicios consultivos de ticket alto la cara del fundador supera consistentemente a la animación: compra confianza, que es exactamente lo que falta en la primera impresión.</p>
+      </div>
+    </div>
+
+    <hr class="rule">
+    <h3>Anuncios de retargeting</h3>
+
+    <div class="ad">
+      <div class="ad-head"><span class="id">A07</span><span class="ti">El pendiente</span><span class="fm">Imagen · 4:5 · Retargeting</span></div>
+      <div class="ad-body">
+        <div class="field">
+          <div class="field-label"><span>Texto principal</span><span class="cnt">265 car.</span></div>
+          <div class="copy">Miraste el diagnóstico y lo dejaste pendiente.
+
+Te tomo 45 minutos y 5 grabaciones que probablemente ya están en el celular de tus ejecutivos.
+
+Lo que recibes de vuelta es el informe que ningún reporte de agencia te va a entregar: qué se dijo, qué faltó y qué corregir.
+
+Quedan cupos esta semana.</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Titular</span><span class="cnt">22 / 40</span></div>
+          <div class="copy">¿Lo dejaste pendiente?</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Descripción</span><span class="cnt">19 / 30</span></div>
+          <div class="copy">Agenda en 2 minutos</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Botón</span><span class="cnt">—</span></div>
+          <div class="copy">Reservar</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad">
+      <div class="ad-head"><span class="id">A08</span><span class="ti">La objeción de frente</span><span class="fm">Video 20s o imagen · 4:5 · Retargeting</span></div>
+      <div class="ad-body">
+        <div class="field">
+          <div class="field-label"><span>Texto principal</span><span class="cnt">347 car.</span></div>
+          <div class="copy">«Mis ejecutivos no van a querer que los graben».
+
+Es la primera objeción, siempre. Y se cae en la primera sesión, por tres razones:
+
+El informe de cada vendedor parte por lo que hace bien, con cita textual.
+Es privado: no se comparte con el resto del equipo.
+Y no mide notas, mide operaciones cerradas.
+
+Pruébalo con 5 reuniones, sin costo.</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Titular</span><span class="cnt">31 / 40</span></div>
+          <div class="copy">La objeción que siempre aparece</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Descripción</span><span class="cnt">18 / 30</span></div>
+          <div class="copy">Cómo lo resolvemos</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Botón</span><span class="cnt">—</span></div>
+          <div class="copy">Más información</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rule">
+    <h3>Copys para la campaña de clic a WhatsApp</h3>
+    <p class="col">Más cortos, porque el objetivo es abrir conversación y no explicar. El mensaje predefinido que se autocompleta en el chat del usuario es la pieza más importante: define el tono de toda la conversación.</p>
+
+    <div class="ad">
+      <div class="ad-head"><span class="id">W01</span><span class="ti">Conversación directa</span><span class="fm">Clic a WhatsApp · 4:5 y 9:16</span></div>
+      <div class="ad-body">
+        <div class="field">
+          <div class="field-label"><span>Texto principal</span><span class="cnt">198 car.</span></div>
+          <div class="copy">Escríbenos "DIAGNÓSTICO" y te devolvemos dos horarios disponibles esta semana.
+
+Grabamos 5 reuniones de tu equipo comercial y en 72 horas te decimos, con citas textuales, dónde se está cayendo la venta.</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Titular</span><span class="cnt">30 / 40</span></div>
+          <div class="copy">Dos horarios, esta misma semana</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Mensaje predefinido del usuario</span><span class="cnt">—</span></div>
+          <div class="copy">Hola, quiero el Diagnóstico DOMO para mi equipo comercial.</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Botón</span><span class="cnt">—</span></div>
+          <div class="copy">Enviar mensaje de WhatsApp</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============== 7. FORMULARIO =============== -->
+  <section id="formulario">
+    <div class="section-head">
+      <p class="eyebrow">07 · Captura</p>
+      <h2>Formulario de Lead Ads, pantalla por pantalla</h2>
+      <p class="lede col">Texto literal para cargar en el creador de formularios. Tipo "mayor intención". Las preguntas de calificación van <em>antes</em> de los datos de contacto: el que no califica abandona antes de entregar su teléfono y no ensucia la señal.</p>
+    </div>
+
+    <div class="ad">
+      <div class="ad-head"><span class="id">F1</span><span class="ti">Pantalla de introducción</span><span class="fm">Formulario de mayor intención</span></div>
+      <div class="ad-body">
+        <div class="field">
+          <div class="field-label"><span>Titular</span><span class="cnt">—</span></div>
+          <div class="copy">Diagnóstico DOMO: 5 reuniones, un informe en 72 horas</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Descripción · formato lista</span><span class="cnt">—</span></div>
+          <div class="copy">Tu equipo graba 5 reuniones con clientes reales.
+Las escuchamos y las analizamos una por una.
+En 72 horas recibes un informe con lo que se dijo, lo que faltó y qué corregir.
+Sin costo y sin compromiso. Solo 10 cupos al mes.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad">
+      <div class="ad-head"><span class="id">F2</span><span class="ti">Preguntas de calificación</span><span class="fm">4 preguntas · opción múltiple</span></div>
+      <div class="ad-body">
+        <div class="field">
+          <div class="field-label"><span>Pregunta 1</span><span class="cnt">Filtra tamaño</span></div>
+          <div class="copy">¿Cuántas personas venden hoy en tu equipo?
+· Solo yo
+· 2 o 3
+· Entre 4 y 10
+· Más de 10</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Pregunta 2</span><span class="cnt">Filtra volumen de reuniones</span></div>
+          <div class="copy">¿Cuántas reuniones o visitas a sala hace tu equipo al mes?
+· Menos de 10
+· Entre 10 y 30
+· Más de 30</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Pregunta 3</span><span class="cnt">Filtra capacidad de pago</span></div>
+          <div class="copy">¿Cuánto inviertes al mes en publicidad digital y portales?
+· Todavía no invierto
+· Menos de $500.000
+· Entre $500.000 y $2.000.000
+· Más de $2.000.000</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Pregunta 4</span><span class="cnt">Filtra viabilidad</span></div>
+          <div class="copy">¿Tu equipo podría grabar sus reuniones con clientes?
+· Sí, sin problema
+· Sí, avisando al cliente
+· No sabría decir
+· No</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Datos de contacto</span><span class="cnt">Autocompletados por Meta</span></div>
+          <div class="copy">Nombre y apellido · Teléfono (WhatsApp) · Correo electrónico · Empresa · Cargo</div>
+        </div>
+        <p class="ad-note"><strong>Regla de puntaje:</strong> califica quien responde "4 a 10" o "más de 10" en la 1, "10 a 30" o "más de 30" en la 2, y cualquier tramo con inversión en la 3. Un "No" en la pregunta 4 descalifica de inmediato, independiente del resto.</p>
+      </div>
+    </div>
+
+    <div class="ad">
+      <div class="ad-head"><span class="id">F3</span><span class="ti">Pantalla final · el salto al calendario</span><span class="fm">Aquí se gana el auto-agendamiento</span></div>
+      <div class="ad-body">
+        <div class="field">
+          <div class="field-label"><span>Titular</span><span class="cnt">—</span></div>
+          <div class="copy">Listo. Ahora elige tu hora.</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Descripción</span><span class="cnt">—</span></div>
+          <div class="copy">Son 45 minutos por videollamada. Llega con el nombre de tus ejecutivos y una idea de cuántas reuniones hacen al mes: con eso partimos.
+Si prefieres, Antonia te escribe por WhatsApp en los próximos minutos.</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Texto del botón</span><span class="cnt">—</span></div>
+          <div class="copy">Elegir mi hora</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Enlace del botón</span><span class="cnt">Con parámetros de autocompletado</span></div>
+          <div class="copy">https://[tu-calendario]/diagnostico-domo?utm_source=meta&utm_medium=leadad&utm_campaign=agenda_inmob&name={{full_name}}&email={{email}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout stop">
+      <h4>El error que anula todo el diseño</h4>
+      <p>Dejar la pantalla final por defecto de Meta, que dice "Gracias, nos pondremos en contacto contigo". Con eso el auto-agendamiento cae a cero y el negocio vuelve a depender de que alguien alcance a llamar. El botón al calendario en la pantalla final no es un detalle de configuración: es el mecanismo completo.</p>
+    </div>
+  </section>
+
+  <!-- =============== 8. WHATSAPP =============== -->
+  <section id="whatsapp">
+    <div class="section-head">
+      <p class="eyebrow">08 · Conversión</p>
+      <h2>Guiones de WhatsApp de Antonia</h2>
+      <p class="lede col">Texto literal, listo para cargar en la automatización. Tono: profesional chileno, sin emojis decorativos, sin signos de exclamación en cadena, sin lenguaje de vendedor. El objetivo de cada mensaje es una sola cosa: que elija un bloque horario.</p>
+    </div>
+
+    <div class="ad">
+      <div class="ad-head"><span class="id">WA-1</span><span class="ti">Rescate a los 5 minutos · lead que no reservó</span><span class="fm">Automático</span></div>
+      <div class="ad-body">
+        <div class="copy">Hola {nombre}, soy Antonia, del equipo de DOMO IA. Vi que pediste información del Diagnóstico DOMO para {empresa}.
+
+Te dejo dos bloques que tengo disponibles:
+· Jueves 11:00
+· Viernes 16:30
+
+¿Alguno te sirve? Si prefieres otro día, te paso la agenda completa: [enlace]</div>
+      </div>
+    </div>
+
+    <div class="ad">
+      <div class="ad-head"><span class="id">WA-2</span><span class="ti">Apertura de conversación · campaña de clic a WhatsApp</span><span class="fm">Automático + calificación</span></div>
+      <div class="ad-body">
+        <div class="field">
+          <div class="field-label"><span>Mensaje 1 · inmediato</span><span class="cnt">—</span></div>
+          <div class="copy">Hola, soy Antonia de DOMO IA. Para reservarte un cupo necesito tres datos rápidos.
+
+¿Cuántas personas venden hoy en tu equipo?</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Mensaje 2 · tras respuesta</span><span class="cnt">—</span></div>
+          <div class="copy">Perfecto. ¿Y cuántas reuniones o visitas a sala hacen entre todos al mes, más o menos?</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Mensaje 3 · tras respuesta</span><span class="cnt">—</span></div>
+          <div class="copy">Última: ¿tu equipo podría grabar algunas de esas reuniones, avisándole al cliente?</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Mensaje 4 · califica</span><span class="cnt">—</span></div>
+          <div class="copy">Calzas con el perfil. Te reservo uno de los 10 cupos de este mes.
+
+Son 45 minutos por videollamada con Rodolfo, que dirigió equipos comerciales en seguros, inversiones e inmobiliario por 15 años.
+
+Elige tu hora acá: [enlace]</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Mensaje 4b · no califica</span><span class="cnt">Descarte cortés</span></div>
+          <div class="copy">Gracias por contarme. El diagnóstico está pensado para equipos de 4 o más vendedores con reuniones frecuentes, así que en tu caso todavía no te rendiría lo que debería.
+
+Te dejo el material del Método DOMO por si te sirve: [enlace]. Y si tu equipo crece, escríbeme y lo vemos.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad">
+      <div class="ad-head"><span class="id">WA-3</span><span class="ti">Confirmación y recordatorios</span><span class="fm">Automáticos</span></div>
+      <div class="ad-body">
+        <div class="field">
+          <div class="field-label"><span>Al reservar</span><span class="cnt">—</span></div>
+          <div class="copy">Listo {nombre}, quedaste para el {día} a las {hora}. Te llega el enlace al correo.
+
+Para aprovechar los 45 minutos, llega con dos datos: cuántos ejecutivos tienes y cuántas reuniones hacen al mes. Nada más.</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>24 horas antes</span><span class="cnt">—</span></div>
+          <div class="copy">{nombre}, mañana a las {hora} tenemos el diagnóstico. Enlace: [link]
+
+¿Lo confirmamos?</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>1 hora antes</span><span class="cnt">—</span></div>
+          <div class="copy">En una hora nos vemos. Acá está el enlace directo: [link]</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad">
+      <div class="ad-head"><span class="id">WA-4</span><span class="ti">No asistió</span><span class="fm">Automático, 20 minutos después</span></div>
+      <div class="ad-body">
+        <div class="copy">{nombre}, te esperé en la videollamada. Entiendo que se te haya cruzado algo, pasa siempre en cierre de mes.
+
+Te dejo dos opciones para reagendar:
+· {opción 1}
+· {opción 2}
+
+Y si prefieres que lo dejemos para más adelante, dímelo y te escribo el próximo mes sin insistir.</div>
+      </div>
+    </div>
+
+    <div class="ad">
+      <div class="ad-head"><span class="id">WA-5</span><span class="ti">Guion de prospección directa · lista DS19</span><span class="fm">Manual, semana 1</span></div>
+      <div class="ad-body">
+        <div class="field">
+          <div class="field-label"><span>Llamada a mesa central</span><span class="cnt">—</span></div>
+          <div class="copy">Buenos días, ¿me comunica con el gerente comercial o el jefe de ventas del proyecto?
+
+Es por un diagnóstico de conversión de sala de ventas que estamos haciendo con 10 inmobiliarias este mes. Mi nombre es Rodolfo Alfaro, de DOMO IA.</div>
+        </div>
+        <div class="field">
+          <div class="field-label"><span>Apertura con el decisor · 20 segundos</span><span class="cnt">—</span></div>
+          <div class="copy">{Nombre}, seré breve. Trabajé quince años dirigiendo equipos comerciales en seguros e inmobiliario, y armamos algo para un problema puntual: nadie sabe qué pasa dentro de la reunión entre el ejecutivo y el cliente.
+
+Este mes estamos tomando 10 inmobiliarias para hacerles un diagnóstico gratuito: graban 5 reuniones, se las analizamos y en 72 horas les entregamos un informe con lo que se dijo y lo que faltó.
+
+¿Te hace sentido que te muestre en 45 minutos cómo funciona, o prefieres que te mande primero un ejemplo del informe?</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============== 9. SECUENCIAS =============== -->
+  <section id="secuencias">
+    <div class="section-head">
+      <p class="eyebrow">09 · Post-clic</p>
+      <h2>Página de gracias, correos y rescate</h2>
+      <p class="lede col">El anuncio consigue la atención; estas piezas consiguen la asistencia. Un diagnóstico agendado que no se presenta cuesta lo mismo que uno que sí.</p>
+    </div>
+
+    <div class="duo">
+      <div class="panel">
+        <h4>Página de confirmación</h4>
+        <p><strong>Titular:</strong> Tu diagnóstico quedó reservado</p>
+        <p><strong>Cuerpo:</strong> Nos vemos el {día} a las {hora}. Te llegó el enlace al correo y un recordatorio por WhatsApp el día anterior.</p>
+        <p><strong>Mientras tanto:</strong> mira los 4 minutos del video que explica cómo trabaja el equipo digital. Llegarás a la reunión con la mitad del camino hecho.</p>
+        <p><strong>Técnico:</strong> esta página dispara el evento <code>Diagnostico_Agendado</code>. Es la única página del sitio que lo hace.</p>
+      </div>
+      <div class="panel">
+        <h4>Correo de confirmación</h4>
+        <p><strong>Asunto:</strong> Tu Diagnóstico DOMO · {día} {hora}</p>
+        <p><strong>Cuerpo:</strong> {Nombre}, quedó agendado. Enlace de la videollamada: {link}</p>
+        <p>Para que rinda, llega con dos datos: cuántos ejecutivos comerciales tienes y cuántas reuniones o visitas hacen al mes. Con eso te muestro dónde se está yendo la venta en un equipo como el tuyo.</p>
+        <p>Si necesitas mover la hora, respondes este correo y listo.</p>
+      </div>
+    </div>
+
+    <h3>Secuencia de rescate · lead calificado que nunca agendó</h3>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Momento</th><th>Canal</th><th>Mensaje</th></tr></thead>
+        <tbody>
+          <tr><td><strong>+5 min</strong></td><td>WhatsApp</td><td>WA-1, con dos bloques concretos. Es el mensaje que más agenda de toda la secuencia.</td></tr>
+          <tr><td><strong>+3 horas</strong></td><td>WhatsApp</td><td>«{nombre}, ¿te sirve que te mande un ejemplo del informe para que veas qué recibirías? Son dos páginas.»</td></tr>
+          <tr><td><strong>Día 2</strong></td><td>Correo</td><td>Asunto: «Un ejemplo de lo que encontramos en 5 reuniones». Envía el informe de muestra anonimizado, con enlace a la agenda al pie.</td></tr>
+          <tr><td><strong>Día 4</strong></td><td>WhatsApp</td><td>«Te quedan 3 de los 10 cupos de este mes. ¿Lo dejamos para el próximo o alcanzamos ahora?»</td></tr>
+          <tr><td><strong>Día 7</strong></td><td>Correo</td><td>Cierre por retirada: «Asumo que no es el momento. Te saco de la lista de este mes y te escribo en {mes+1}. Si cambia algo antes, la agenda queda acá.»</td></tr>
+          <tr class="total"><td><strong>Día 8+</strong></td><td>Meta</td><td>Pasa al conjunto de retargeting con los anuncios A07 y A08 durante 30 días.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- =============== 10. PROMPTS =============== -->
+  <section id="prompts">
+    <div class="section-head">
+      <p class="eyebrow">10 · Automatización</p>
+      <h2>Los ocho prompts operativos</h2>
+      <p class="lede col">Listos para pegar. Los que llevan variables entre llaves se rellenan antes de ejecutar. El P1 y el P2 son los que hacen funcionar a Antonia y a Matías, es decir, las dos capas del producto que este plan pone a trabajar para DOMO IA misma.</p>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-head"><span><span class="id">P1</span> <span class="ti">Antonia · agente de calificación y agendamiento</span></span><span class="use">Prompt de sistema · WhatsApp</span></div>
+      <pre>Eres Antonia, asistente comercial de DOMO IA. Trabajas por WhatsApp con
+gerentes comerciales y dueños de inmobiliarias y corredoras de propiedades
+en Chile.
+
+TU ÚNICO OBJETIVO
+Conseguir que la persona reserve un bloque en el calendario del Diagnóstico
+DOMO. No vendes el plan mensual, no explicas precios, no das consultoría.
+Toda respuesta debe acercar a la reserva o descalificar rápido.
+
+TONO
+Español de Chile, profesional y directo. Frases cortas. Sin emojis. Sin
+signos de exclamación. Nunca uses "genial", "increíble", "perfecto para ti"
+ni lenguaje de vendedor. Escribe como un jefe comercial ocupado le escribe
+a otro: con respeto y sin rodeos.
+
+QUÉ ES EL DIAGNÓSTICO DOMO
+El equipo del cliente graba 5 reuniones reales con clientes. Las analizamos
+y en 72 horas entregamos un informe con citas textuales: qué se dijo, qué
+faltó y qué corregir. Sin costo, 10 cupos al mes. La reunión de entrega es
+por videollamada y dura 45 minutos.
+
+CALIFICACIÓN
+Haz estas preguntas de a una, nunca todas juntas, y espera respuesta:
+1. ¿Cuántas personas venden hoy en tu equipo?
+2. ¿Cuántas reuniones o visitas a sala hacen entre todos al mes?
+3. ¿Tu equipo podría grabar algunas de esas reuniones, avisándole al cliente?
+
+CALIFICA si: 4 o más vendedores Y 10 o más reuniones al mes Y la grabación
+es posible.
+NO CALIFICA si: vende solo, menos de 10 reuniones al mes, o dice que no a
+la grabación. También queda fuera quien tiene más de 15 vendedores: en ese
+caso responde que lo deriva a Rodolfo directamente y pide un correo.
+
+SI CALIFICA
+Confirma en una línea, ofrece dos bloques concretos con día y hora, y
+entrega el enlace del calendario. Nunca preguntes "¿cuándo te acomoda?":
+ofrece siempre dos opciones cerradas.
+
+SI NO CALIFICA
+Agradece, explica en una frase por qué todavía no le rendiría, ofrece el
+material del Método DOMO y cierra. No insistas.
+
+OBJECIONES FRECUENTES
+"¿Cuánto cuesta?" → El diagnóstico no tiene costo. Si después quieren
+trabajar con nosotros lo conversan con Rodolfo en la misma reunión.
+"¿Esto reemplaza a mi agencia?" → No. El diagnóstico es sobre lo que pasa
+en la reunión de venta, no sobre la pauta.
+"Mis vendedores no van a querer que los graben" → Es la duda más común. El
+informe de cada vendedor parte por lo que hace bien y es privado, no se
+comparte con el equipo. Es exactamente uno de los temas de la reunión.
+"Mándame información" → Ofrece un ejemplo del informe de dos páginas Y en
+el mismo mensaje ofrece los dos bloques horarios.
+
+REGLAS DURAS
+- Nunca inventes casos de éxito, cifras de resultados ni nombres de clientes.
+- Nunca prometas porcentajes de mejora.
+- Si preguntan algo que no sabes, di que lo ve Rodolfo en la reunión.
+- Si piden hablar con una persona, ofrece los bloques horarios.
+- Máximo 4 renglones por mensaje.
+- Si no responde en 3 horas, envía UN recordatorio y no más.</pre>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-head"><span><span class="id">P2</span> <span class="ti">Matías · inteligencia competitiva en la biblioteca de anuncios</span></span><span class="use">Semanal · antes de crear creativos</span></div>
+      <pre>Actúa como analista de medios pagados especializado en el mercado chileno.
+
+TAREA
+Analiza los anuncios activos de los siguientes anunciantes en la Biblioteca
+de Anuncios de Meta para Chile: {lista de competidores y de inmobiliarias
+grandes}. Incluye también a quienes venden servicios de marketing o CRM a
+inmobiliarias.
+
+PARA CADA ANUNCIANTE ENTREGA
+1. Cuántos anuncios activos tiene y desde cuándo corren. Un anuncio que
+   lleva más de 30 días activo casi siempre está funcionando: márcalo.
+2. El gancho exacto de los primeros dos renglones, transcrito literal.
+3. Qué problema le atribuye al cliente y qué promete a cambio.
+4. Formato, proporción, y si usa rostro humano, captura de producto o texto
+   sobre fondo.
+5. Llamado a la acción y destino: formulario, WhatsApp o sitio.
+
+LUEGO ENTREGA
+- Los 3 ganchos más repetidos del mercado. Esos son terreno saturado:
+  DOMO IA no debe usarlos.
+- Los 3 espacios vacíos: problemas reales del gerente comercial que nadie
+  está nombrando en su publicidad.
+- 5 ganchos nuevos para DOMO IA que ocupen esos vacíos, en español de Chile,
+  máximo 90 caracteres cada uno, escritos para que un gerente comercial de
+  inmobiliaria se detenga y cualquier otra persona siga de largo.
+
+RESTRICCIONES
+No propongas ganchos con promesas numéricas de resultado. No uses "IA" como
+argumento principal: al comprador le importa el problema, no la tecnología.</pre>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-head"><span><span class="id">P3</span> <span class="ti">Generación de imágenes · las cinco piezas base</span></span><span class="use">Nano Banana / generador de imágenes</span></div>
+      <pre>PIEZA 1 — El agujero negro (ángulo A01)
+Fotografía editorial corporativa, sala de ventas moderna de proyecto
+inmobiliario, vacía, luz de tarde entrando por ventanal. Sobre la mesa, un
+teléfono encendido. Paleta azul marino profundo y ámbar cálido. Composición
+con dos tercios de espacio negativo arriba a la izquierda para texto.
+Realista, sin personas, sin logos, sin texto. Formato vertical 4:5.
+
+PIEZA 2 — La comparación (ángulo A02)
+Composición gráfica minimalista dividida verticalmente en dos mitades.
+Izquierda azul marino profundo, derecha ámbar dorado. Estilo de infografía
+editorial premium, líneas finas, mucho aire. Sin personas, sin texto.
+Vertical 4:5.
+
+PIEZA 3 — El informe (ángulo A05)
+Primer plano cenital de un informe impreso sobre escritorio de madera
+oscura, junto a una taza de café y un cuaderno. El documento se ve
+profesional, con gráficos de barras y bloques de texto desenfocados,
+ilegibles. Luz natural lateral suave. Realismo fotográfico, tono cálido.
+Sin texto legible ni logos. Vertical 4:5.
+
+PIEZA 4 — El equipo digital (ángulo A04, carrusel)
+Cuatro ilustraciones en el mismo estilo: figura geométrica abstracta bajo
+una cúpula geodésica dorada de líneas finas, sobre fondo azul marino
+profundo #1b2340. Estilo isométrico limpio, sombras suaves, acentos en
+ámbar #e8a951. Sin rostros humanos, sin texto. Cuadrado 1:1, cuatro
+variaciones que se lean como una familia.
+
+PIEZA 5 — El domo (marca)
+Cúpula geodésica dorada de líneas finas flotando sobre un plano oscuro,
+con partículas de luz tenues ascendiendo hacia ella. Fondo azul marino
+degradado. Estética sobria y tecnológica, no futurista ni de ciencia
+ficción. Sin texto. Vertical 9:16, con la cúpula en el tercio central para
+respetar zona segura de Reels.
+
+REGLAS COMUNES
+Nada de texto generado dentro de la imagen: el texto se agrega después en
+edición, para controlar tipografía y zona segura. Nada de rostros humanos
+generados. Paleta siempre navy #1b2340 / #232d52 con ámbar #e8a951.</pre>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-head"><span><span class="id">P4</span> <span class="ti">Guion de video vertical de 15 segundos</span></span><span class="use">Producción de creativos</span></div>
+      <pre>Escribe un guion de 15 segundos para un anuncio vertical de Meta dirigido a
+gerentes comerciales de inmobiliarias en Chile.
+
+ÁNGULO: {pegar aquí el ángulo A01 a A06}
+
+FORMATO DE ENTREGA, tabla de cuatro columnas:
+segundo | qué se ve | texto en pantalla | locución
+
+REGLAS
+- Segundos 0 a 3: el gancho completo debe entenderse SIN sonido, en texto
+  grande en pantalla. El 85% ve en silencio.
+- Nada de logo ni de marca antes del segundo 8.
+- Texto en pantalla de máximo 6 palabras por cuadro.
+- Zona segura vertical: nada relevante en el 14% superior ni en el 20%
+  inferior.
+- La oferta y el llamado a la acción entran recién en los últimos 3
+  segundos.
+- Lenguaje del rubro: promesas, sala de ventas, ejecutivos, cierre de mes.
+  Nunca "conversiones", "pipeline" ni "leads calificados".
+- Sin promesas numéricas de resultado.
+
+Entrega además 3 variantes solo del gancho de los primeros 3 segundos, para
+probar por separado.</pre>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-head"><span><span class="id">P5</span> <span class="ti">Multiplicador de copys</span></span><span class="use">Cuando un ángulo gana</span></div>
+      <pre>Este es el anuncio con mejor rendimiento de la cuenta:
+
+{pegar texto principal, titular y descripción del ganador}
+{pegar métricas: costo por lead, tasa de clic, agendamientos}
+
+TAREA
+Genera 6 variantes que mantengan el MISMO mecanismo psicológico y cambien
+la ejecución. No reescribas sinónimos: cambia la estructura.
+
+Las 6 variantes deben ser:
+1. Misma idea contada desde la pérdida en vez de la ganancia.
+2. Misma idea abierta con una pregunta directa.
+3. Misma idea abierta con una escena concreta de un lunes en la sala de
+   ventas.
+4. Misma idea contada como objeción anticipada.
+5. Misma idea en formato lista de tres puntos.
+6. Misma idea en máximo 40 palabras, para Stories.
+
+RESTRICCIONES POR VARIANTE
+- Texto principal: los primeros 125 caracteres deben funcionar solos,
+  porque el resto se corta.
+- Titular: máximo 40 caracteres. Descripción: máximo 30.
+- Español de Chile. Sin emojis. Sin promesas numéricas.
+- Vocabulario del rubro inmobiliario chileno.
+
+Entrega cada variante con su conteo exacto de caracteres.</pre>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-head"><span><span class="id">P6</span> <span class="ti">Revisión semanal de la cuenta</span></span><span class="use">Todos los lunes</span></div>
+      <pre>Actúa como el media buyer a cargo de esta cuenta. Estos son los datos de
+los últimos 7 días, exportados de Meta:
+
+{pegar tabla: campaña, conjunto, anuncio, gasto, impresiones, alcance,
+frecuencia, clics en el enlace, CTR, leads, costo por lead, agendamientos,
+costo por agendamiento}
+
+CONTEXTO
+Objetivo: diagnósticos agendados con empresas que califican.
+Techo de costo por agendamiento: $55.000 CLP.
+Presupuesto diario actual: {monto}.
+
+ENTREGA EN ESTE ORDEN
+1. Un veredicto de una línea: escalar, sostener o corregir.
+2. Los 3 números que importan esta semana y qué dicen. Ignora las métricas
+   de vanidad.
+3. Anuncios a apagar, con la razón. Aplica la regla del triple: se apaga el
+   que cuesta más de 3 veces el mejor, siempre que haya gastado al menos
+   $25.000.
+4. Anuncios a escalar y en qué porcentaje. Máximo 20% cada 48 horas.
+5. Diagnóstico de fatiga: si la frecuencia supera 2,5 en prospección o 4 en
+   retargeting, dilo y propón qué creativo reemplazar.
+6. La UNA acción de esta semana. Solo una.
+
+REGLAS
+- No propongas duplicar conjuntos para escalar.
+- No propongas nuevos conjuntos si el volumen semanal es menor a 50 eventos
+  de optimización.
+- Si un cambio reiniciaría la fase de aprendizaje, dilo explícitamente y
+  evalúa si vale la pena.
+- Si los datos no alcanzan para concluir, dilo en vez de inventar una
+  recomendación.</pre>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-head"><span><span class="id">P7</span> <span class="ti">Amanda + Lucas · informe del Diagnóstico DOMO</span></span><span class="use">Entrega del producto en 72 horas</span></div>
+      <pre>Eres un analista senior de conversaciones comerciales. Recibes las
+transcripciones de 5 reuniones de venta de un equipo inmobiliario chileno.
+
+{pegar transcripciones, identificando vendedor y fecha}
+
+ANALIZA CADA REUNIÓN CONTRA EL MOTOR VENDE
+V · Vincular: ¿construyó confianza antes de mostrar producto?
+E · Explorar: ¿preguntó por la situación real, el plazo y quién más decide?
+N · Narrar: ¿conectó el proyecto con lo que el cliente dijo que necesitaba,
+    o recitó atributos?
+D · Destrabar: ¿nombró la objeción o la esquivó?
+E · Expandir: ¿acordó un próximo paso concreto con fecha?
+
+ENTREGA
+1. Resumen ejecutivo para el gerente, máximo 150 palabras: dónde se pierde
+   la venta en este equipo.
+2. Por vendedor: dos fortalezas con CITA TEXTUAL, y dos brechas con CITA
+   TEXTUAL. Las fortalezas van primero, siempre.
+3. Los 3 momentos exactos de las 5 reuniones donde se perdió la operación,
+   con la frase textual y qué debió decirse en su lugar.
+4. Una tabla de conductas observadas: conducta, cuántos de los 5 vendedores
+   la hicieron, impacto.
+5. Dos compromisos medibles por vendedor para las próximas dos semanas.
+
+REGLAS
+- Formato E·I·A para todo feedback: Evidencia (la cita), Impacto (qué
+  provocó), Alternativa (qué decir en su lugar).
+- Nunca califiques a la persona, solo la conducta. Se dice "esta pregunta
+  no apareció", no "es mal vendedor".
+- Nada de porcentajes inventados. Si algo no está en la transcripción, no
+  existe.
+- Si un vendedor lo hizo bien, dilo con la misma precisión con que señalas
+  una brecha.</pre>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-head"><span><span class="id">P8</span> <span class="ti">Diagnóstico de anuncio rechazado</span></span><span class="use">Cuando Meta rechaza una pieza</span></div>
+      <pre>Meta rechazó este anuncio. Motivo declarado: {pegar motivo exacto}.
+
+Texto del anuncio:
+{pegar texto principal, titular, descripción}
+Descripción del creativo visual: {describir}
+
+TAREA
+1. Identifica qué política específica se estaría infringiendo. Considera:
+   atributos personales, promesas de resultado, categorías especiales,
+   afirmaciones no verificables, uso de marcas de terceros.
+2. Señala la frase o el elemento visual exacto que lo gatilla.
+3. Reescribe el anuncio conservando el mismo gancho y la misma fuerza, sin
+   el elemento problemático.
+4. Indica si conviene apelar o simplemente republicar corregido.
+
+CONTEXTO IMPORTANTE
+Este anuncio ofrece un servicio B2B a empresas inmobiliarias. NO ofrece
+vivienda, arriendo ni crédito a consumidores finales, por lo que no
+corresponde declararlo en categoría especial de vivienda. Si el rechazo se
+basa en eso, es un falso positivo y corresponde apelar.
+
+Una causa frecuente de rechazo es implicar conocimiento de atributos
+personales del lector. "¿Tu equipo vende mal?" lo implica. "Los equipos
+comerciales pierden ventas que nadie mide" no.</pre>
+    </div>
+  </section>
+
+  <!-- =============== 11. MEDICIÓN =============== -->
+  <section id="medicion">
+    <div class="section-head">
+      <p class="eyebrow">11 · Medición</p>
+      <h2>Eventos, etiquetas y tablero</h2>
+      <p class="lede col">Lo que no se mide con un nombre propio no se puede optimizar. Cinco eventos, ni uno más.</p>
+    </div>
+
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Evento</th><th>Cuándo dispara</th><th>Dónde</th><th>Uso</th></tr></thead>
+        <tbody>
+          <tr><td><code>Lead</code></td><td>Se envía el formulario instantáneo o se inicia conversación de WhatsApp</td><td>Meta nativo + API</td><td>Optimización días 1 a 10</td></tr>
+          <tr><td><code>Lead_Calificado</code></td><td>Las respuestas cumplen la regla de puntaje del ICP</td><td>API de Conversiones</td><td>Control de calidad</td></tr>
+          <tr><td><code>Diagnostico_Agendado</code></td><td>Se confirma bloque en el calendario</td><td>Píxel en página de gracias + API</td><td><strong>Optimización principal</strong></td></tr>
+          <tr><td><code>Diagnostico_Realizado</code></td><td>La reunión efectivamente ocurrió</td><td>API, manual o desde el CRM</td><td>Público similar de alta calidad</td></tr>
+          <tr class="total"><td><code>Contrato_Firmado</code></td><td>Se firma un plan</td><td>API con valor en CLP</td><td>Semilla del mejor público similar</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="duo">
+      <div class="panel">
+        <h4>Etiquetas UTM obligatorias</h4>
+        <p><code>utm_source=meta</code><br>
+        <code>utm_medium=leadad</code> o <code>=whatsapp</code> o <code>=trafico</code><br>
+        <code>utm_campaign=agenda_inmob_2608</code><br>
+        <code>utm_content={{ad.name}}</code><br>
+        <code>utm_term={{adset.name}}</code></p>
+        <p>Las macros dinámicas de Meta se rellenan solas y evitan el error de etiquetar a mano. Sin esto, el CRM no puede decir qué anuncio produjo un contrato.</p>
+      </div>
+      <div class="panel">
+        <h4>Tablero semanal · siete números</h4>
+        <ol>
+          <li>Gasto</li>
+          <li>Leads y costo por lead</li>
+          <li>Tasa de calificación contra ICP</li>
+          <li>Agendados y costo por agendado</li>
+          <li>Tasa de asistencia</li>
+          <li>Diagnósticos realizados</li>
+          <li>Propuestas y contratos</li>
+        </ol>
+        <p>Todo lo demás es ruido. El CPM y el CTR se miran solo para diagnosticar un problema ya detectado en estos siete.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============== 12. OPTIMIZACIÓN =============== -->
+  <section id="optimizacion">
+    <div class="section-head">
+      <p class="eyebrow">12 · Operación</p>
+      <h2>Reglas de optimización y escalado</h2>
+      <p class="lede col">Escritas como reglas y no como criterios, para poder ejecutarlas un martes a las 8 de la mañana sin volver a pensarlas.</p>
+    </div>
+
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Situación</th><th>Umbral</th><th>Acción</th></tr></thead>
+        <tbody>
+          <tr><td>Anuncio caro</td><td>Costo por lead superior a 3× el mejor, con más de $25.000 gastados</td><td>Apagar. No editar, no "arreglar".</td></tr>
+          <tr><td>Anuncio sin tracción</td><td>$15.000 gastados, cero clics en el enlace</td><td>Apagar en el día 4.</td></tr>
+          <tr><td>Anuncio ganador</td><td>Costo por agendado bajo el techo durante 3 días</td><td>Subir presupuesto del conjunto 20%. Esperar 48 horas.</td></tr>
+          <tr><td>Fatiga en prospección</td><td>Frecuencia sobre 2,5 en 7 días</td><td>Entrar dos creativos nuevos. No subir presupuesto.</td></tr>
+          <tr><td>Fatiga en retargeting</td><td>Frecuencia sobre 4 en 7 días</td><td>Rotar creativo y acortar la ventana de 30 a 14 días.</td></tr>
+          <tr><td>Fase de aprendizaje limitada</td><td>Menos de 50 eventos semanales por conjunto</td><td>Consolidar conjuntos o cambiar a un evento de optimización más frecuente.</td></tr>
+          <tr><td>Costo subiendo sin razón</td><td>Alza sostenida 3 días</td><td>Revisar competencia en la Biblioteca de Anuncios antes de tocar nada. Muchas veces es estacional.</td></tr>
+          <tr class="total"><td>Calidad cayendo</td><td>Tasa de calificación bajo 25%</td><td>El problema es el creativo, no la audiencia. Endurecer el gancho, no el targeting.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <h4>La regla de la mano quieta</h4>
+      <p>Un cambio por revisión, y una revisión por semana en las primeras cuatro semanas. Cada edición de conjunto reinicia la fase de aprendizaje, que con este presupuesto tarda entre 5 y 7 días en completarse. Una cuenta editada tres veces por semana nunca sale de aprendizaje y entrega resultados permanentemente caros. La excepción son los anuncios individuales, que se pueden pausar sin reiniciar el conjunto.</p>
+    </div>
+  </section>
+
+  <!-- =============== 13. RIESGOS =============== -->
+  <section id="riesgos">
+    <div class="section-head">
+      <p class="eyebrow">13 · Defensa</p>
+      <h2>Riesgos, políticas y errores a evitar</h2>
+    </div>
+
+    <div class="duo">
+      <div class="panel">
+        <h4>Políticas de Meta que importan acá</h4>
+        <ul>
+          <li><strong>Atributos personales.</strong> Nunca escribir en segunda persona algo que implique saber una condición del lector. "¿Tu equipo vende mal?" se rechaza; "los equipos comerciales pierden ventas que nadie mide" pasa.</li>
+          <li><strong>Categoría especial de vivienda.</strong> No corresponde declararla: vendemos un servicio B2B a inmobiliarias, no vivienda a consumidores. Si Meta la marca por sistema, apelar; aceptarla amputaría la segmentación por edad.</li>
+          <li><strong>Promesas de resultado.</strong> Sin caso de éxito verificable, cualquier porcentaje es riesgo de rechazo y de reclamo. Se prometen entregables, no resultados.</li>
+          <li><strong>Cuenta nueva.</strong> Los primeros días hay más revisiones y rechazos. Tener dos creativos de repuesto listos evita quedar sin anuncios activos un fin de semana.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Los cinco errores que matan este plan</h4>
+        <ol>
+          <li><strong>Repartir $40.000 en tres conjuntos.</strong> Garantiza aprendizaje permanente y costo alto.</li>
+          <li><strong>Editar el día 2.</strong> Reinicia todo y quema el presupuesto de la primera semana.</li>
+          <li><strong>Dejar la pantalla final por defecto</strong> del formulario. Anula el auto-agendamiento completo.</li>
+          <li><strong>Contestar los leads al día siguiente.</strong> A los 30 minutos ya se perdió la mitad; el rescate de 5 minutos es innegociable.</li>
+          <li><strong>Aceptar reuniones que no califican</strong> por llenar la agenda. Consume las horas que sostienen la entrega y falsea todos los indicadores del embudo.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="callout stop">
+      <h4>Riesgo transversal: consentimiento y datos</h4>
+      <p>La oferta pautada consiste en grabar reuniones donde participa un tercero, el cliente del cliente. Antes de escalar el gasto conviene tener publicado el guion de consentimiento y la política de tratamiento de datos, tanto por la Ley 21.719 —que entra en vigencia en diciembre de 2026 y cuyo alcance exacto debe verificarse con un abogado— como porque es la objeción que más frena la firma. Un prospecto que pregunta "¿y esto es legal?" y no recibe un documento, no vuelve.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Supuestos que deben reemplazarse con datos propios después de la semana 2:</strong> costo por lead de $10.000, tasa de calificación de 45%, conversión a agendamiento de 40%, asistencia de 70%. Son referencias de mercado para servicios B2B consultivos en Chile, no promesas. El primer mes de pauta existe, entre otras cosas, para reemplazarlas.</p>
+    <p>DOMO IA · Plan de medios y adquisición · Versión 1.0 · 13 de agosto de 2026 · Documento complementario de «A quién le vende DOMO IA»</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
