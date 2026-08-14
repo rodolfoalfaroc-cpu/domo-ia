@@ -148,6 +148,13 @@
   .cnt.tight { color: var(--warn); }
   .copy { background: var(--surface-2); border-left: 2px solid var(--accent-fill); padding: 11px 14px; border-radius: 0 2px 2px 0; font-size: .95rem; color: var(--ink); white-space: pre-line; }
   .ad-note { font-size: .85rem; color: var(--muted); margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+  .gen { margin-top: 14px; padding-top: 13px; border-top: 2px solid var(--accent-fill); }
+  .gen-label { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+  .gen-label span { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  .gen-label .tool { font-size: .72rem; letter-spacing: .04em; text-transform: none; color: var(--muted); font-weight: 400; font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; }
+  .gen pre { font-size: .8rem; line-height: 1.5; border-radius: 2px; margin-bottom: 9px; }
+  .gen pre:last-child { margin-bottom: 0; }
+  .gen .frame { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin: 11px 0 4px; }
 
   /* prompts */
   .prompt { background: var(--surface); border: 1px solid var(--line); border-radius: 3px; box-shadow: var(--shadow); margin-bottom: 22px; overflow: hidden; }
@@ -207,8 +214,8 @@
         <h1>Máquina de agendamiento</h1>
         <p>Plan completo de Meta Ads para llenar la agenda de Diagnósticos DOMO con leads que se auto-agendan. Incluye arquitectura de campaña, calendario de lanzamiento, biblioteca de copys y los prompts operativos.</p>
         <div class="mast-meta">
-          <span>Versión <b>1.0</b></span>
-          <span>Fecha <b>13 de agosto de 2026</b></span>
+          <span>Versión <b>1.1</b></span>
+          <span>Fecha <b>14 de agosto de 2026</b></span>
           <span>Vertical <b>Inmobiliario</b></span>
           <span>Presupuesto base <b>$1.200.000 CLP/mes</b></span>
           <span>Primera reunión <b>Día 3</b></span>
@@ -308,6 +315,7 @@
           <tr><td class="num">7</td><td><strong>WhatsApp Business</strong></td><td>Número dedicado, perfil completo, respuestas rápidas y automatización de Antonia. Nunca el número personal.</td><td><span class="chip mid">Rescate de leads</span></td></tr>
           <tr><td class="num">8</td><td><strong>Lista propia cargada</strong></td><td>DS19 cruzado con el prospector de Google Maps y las nóminas MINVU hasta pasar los 1.000 registros. Subir con teléfono, correo, nombre, ciudad y país, cada campo en su columna.</td><td><span class="chip mid">Lookalike</span></td></tr>
           <tr><td class="num">9</td><td><strong>Política de privacidad publicada</strong></td><td>URL pública obligatoria para Lead Ads. Debe cubrir grabación de reuniones y tratamiento de datos de terceros.</td><td><span class="chip no">Lead Ads</span></td></tr>
+          <tr><td class="num">9b</td><td><strong>Términos de Lead Ads aceptados</strong></td><td>Verificado en la cuenta: la página aparece con <code>leadgen_tos_accepted = false</code>, y con eso <strong>los formularios nativos simplemente no corren</strong>. Se acepta una sola vez, con un usuario administrador, en <code>facebook.com/legal/leadgen/tos</code>.</td><td><span class="chip no">Lead Ads</span></td></tr>
           <tr><td class="num">10</td><td><strong>Diagnóstico DOMO definido</strong></td><td>Alcance, formato del informe, plazo de 72 horas, precio y guion de consentimiento. Sin esto no hay oferta que pautar.</td><td><span class="chip no">Todo</span></td></tr>
           <tr><td class="num">11</td><td><strong>Seis creativos producidos</strong></td><td>Las seis piezas de la sección 6, exportadas en 4:5 y 9:16.</td><td><span class="chip no">Lanzamiento</span></td></tr>
         </tbody>
@@ -491,7 +499,38 @@
     <div class="section-head">
       <p class="eyebrow">06 · Munición</p>
       <h2>Biblioteca de creativos y copys</h2>
-      <p class="lede col">Ocho anuncios completos, listos para cargar. Cada uno indica formato, ángulo y conteo de caracteres. El texto principal se corta alrededor de los 125 caracteres en móvil: los dos primeros renglones tienen que hacer todo el trabajo.</p>
+      <p class="lede col">Ocho anuncios completos, listos para cargar. Cada uno trae texto, titular, descripción, conteo de caracteres y su prompt de imagen. El texto principal se corta alrededor de los 125 caracteres en móvil: los dos primeros renglones tienen que hacer todo el trabajo.</p>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-head"><span><span class="id">P0</span> <span class="ti">Prefijo de estilo · va delante de todos los prompts de esta sección</span></span><span class="use">Pegar antes de cada prompt</span></div>
+      <pre>ESTILO DOMO IA — reglas fijas para toda pieza:
+
+Paleta obligatoria: azul marino profundo #1b2340 y #232d52 como base, ámbar
+dorado #e8a951 como único acento. Neutros fríos, nunca cálidos ni cremas.
+
+Luz: dirigida y de baja temperatura, sombras largas y suaves. Nada de
+iluminación plana de banco de imágenes.
+
+Prohibido en la imagen generada:
+- Texto de cualquier tipo. El texto se agrega después en edición, para
+  controlar tipografía y zona segura.
+- Rostros humanos generados y manos en primer plano.
+- Logos, marcas y pantallas de aplicaciones reconocibles.
+- Estética de ciencia ficción, hologramas, circuitos, cerebros digitales o
+  robots. Nada que grite "esto es sobre inteligencia artificial".
+
+Composición: dejar entre el 40% y el 55% de espacio negativo continuo para
+sobreponer el titular. En vertical 9:16, mantener el sujeto en el tercio
+central: el 14% superior y el 20% inferior los tapa la interfaz de Reels.
+
+Acabado: fotorrealista y editorial, o gráfico geométrico plano. Nunca a
+medio camino entre los dos.</pre>
+    </div>
+
+    <div class="callout">
+      <h4>Por qué ningún prompt genera texto dentro de la imagen</h4>
+      <p>Los generadores todavía deforman las tildes y la eñe, y sobre todo no respetan la zona segura de Reels ni el límite de densidad de texto de Meta. Se genera el fondo limpio y el titular se monta después en el editor, con la tipografía de la marca. Es más rápido de iterar y permite probar seis titulares sobre la misma imagen sin volver a generar nada.</p>
     </div>
 
     <div class="ad">
@@ -519,7 +558,43 @@ Sin costo. 10 cupos este mes.</div>
           <div class="field-label"><span>Botón</span><span class="cnt">—</span></div>
           <div class="copy">Reservar</div>
         </div>
-        <p class="ad-note"><strong>Nota de producción:</strong> los primeros 3 segundos muestran un contador de leads subiendo y un contador de ventas quieto. Sin locución en los primeros 2 segundos: el 85% ve sin sonido, así que el gancho va en texto sobreimpreso grande.</p>
+        <div class="gen">
+          <div class="gen-label"><span>Prompt de imagen · 3 fotogramas</span><span class="tool">Nano Banana · 9:16 y 4:5</span></div>
+          <p class="frame">Fotograma 1 · segundos 0–4 · el gancho</p>
+          <pre>[PREFIJO DE ESTILO]
+
+Fotografía editorial arquitectónica. Interior de una sala de ventas
+inmobiliaria contemporánea, completamente vacía, al final de la tarde. Dos
+sillas de diseño enfrentadas sobre una mesa baja de madera oscura. Sobre la
+mesa, un solo teléfono móvil boca arriba con la pantalla encendida,
+proyectando una tenue luz ámbar sobre la superficie. Al fondo, la maqueta
+de un edificio residencial desenfocada. Ventanal de piso a techo con luz
+azulada de atardecer entrando en diagonal. Sensación de conversación recién
+terminada y de silencio. Encuadre amplio, cámara a la altura de la mesa,
+lente 35mm, profundidad de campo media. Amplio espacio negativo en el
+tercio superior.</pre>
+          <p class="frame">Fotograma 2 · segundos 5–10 · el problema</p>
+          <pre>[PREFIJO DE ESTILO]
+
+Plano cenital de un escritorio de trabajo azul marino profundo. Dos pilas
+de tarjetas de cartón separadas: la de la izquierda, alta y desordenada; la
+de la derecha, de solo tres tarjetas, ordenada y marcada con una fina línea
+ámbar en el canto. Entre ambas, un espacio vacío deliberado. Iluminación
+lateral dura que proyecta sombras largas hacia el borde inferior. Estética
+de bodegón editorial de revista de negocios, minimalista y limpia, sin
+ningún texto ni número sobre las tarjetas.</pre>
+          <p class="frame">Fotograma 3 · segundos 11–15 · la oferta</p>
+          <pre>[PREFIJO DE ESTILO]
+
+Primer plano en ángulo de un informe impreso sobre escritorio de madera
+oscura, iluminado por una lámpara de escritorio de luz cálida y baja.
+Cuatro o cinco páginas ligeramente desplegadas en abanico; se distinguen
+bloques de párrafo y un gráfico de barras, todo deliberadamente
+desenfocado e ilegible. Una de las líneas aparece resaltada con marcador
+ámbar. Al costado, un lápiz y una taza de café. Fotorrealista, tono cálido
+contra fondo azul marino, profundidad de campo muy corta.</pre>
+        </div>
+        <p class="ad-note"><strong>Nota de producción:</strong> los primeros 3 segundos muestran un contador de leads subiendo y un contador de ventas quieto, montados en edición sobre el fotograma 1. Sin locución en los primeros 2 segundos: el 85% ve sin sonido, así que el gancho va en texto sobreimpreso grande.</p>
       </div>
     </div>
 
@@ -548,7 +623,38 @@ Nosotros sí. 5 reuniones de tu equipo, informe en 72 horas, sin costo.</div>
           <div class="field-label"><span>Botón</span><span class="cnt">—</span></div>
           <div class="copy">Más información</div>
         </div>
-        <p class="ad-note"><strong>Nota de producción:</strong> imagen partida en dos con dos columnas de resultados. Sin rostros: cualquier cara reconocible activa la lectura de "publicidad de personas" y baja el clic en público B2B.</p>
+        <div class="gen">
+          <div class="gen-label"><span>Prompt de imagen · versión única y versión carrusel</span><span class="tool">Nano Banana · 4:5</span></div>
+          <p class="frame">Imagen única</p>
+          <pre>[PREFIJO DE ESTILO]
+
+Composición gráfica editorial minimalista dividida exactamente por la mitad
+con una línea vertical fina y nítida. Mitad izquierda: fondo azul marino
+profundo con tres barras horizontales cortas de distinta longitud, en un
+tono azul apenas más claro, apagadas. Mitad derecha: mismo fondo azul
+marino con ocho barras horizontales de igual grosor, en ámbar dorado
+luminoso, con una sutil incandescencia. Ambos grupos alineados a la misma
+línea de base. Estilo de infografía de revista de negocios premium: mucho
+aire, geometría exacta, líneas de un píxel. Sin texto, sin números, sin
+ejes, sin iconos. Tercio superior completamente vacío.</pre>
+          <p class="frame">Carrusel · 3 tarjetas</p>
+          <pre>[PREFIJO DE ESTILO]
+
+Genera tres imágenes que se lean como una familia, mismo fondo azul marino
+profundo, misma retícula, mismo tratamiento de luz:
+
+Tarjeta 1: dos sillas de oficina idénticas enfrentadas a una misma mesa,
+vistas desde arriba en perspectiva isométrica limpia. Una silla proyecta
+una sombra corta, la otra una sombra larga y ámbar. Nada más en el encuadre.
+
+Tarjeta 2: dos caminos paralelos trazados como líneas finas que parten del
+mismo punto en el borde inferior. El izquierdo se corta a mitad de camino;
+el derecho llega arriba y termina en un punto ámbar brillante. Fondo liso.
+
+Tarjeta 3: una cúpula geodésica dorada de líneas finas, cerrada sobre un
+plano azul marino, iluminada desde dentro. Es la tarjeta de cierre de marca.</pre>
+        </div>
+        <p class="ad-note"><strong>Nota de producción:</strong> los números y los nombres de los ejecutivos se montan en edición sobre las barras. Sin rostros: cualquier cara reconocible activa la lectura de "publicidad de personas" y baja el clic en público B2B.</p>
       </div>
     </div>
 
@@ -577,7 +683,30 @@ Diagnóstico gratuito, 5 reuniones.</div>
           <div class="field-label"><span>Botón</span><span class="cnt">—</span></div>
           <div class="copy">Reservar</div>
         </div>
-        <p class="ad-note"><strong>Nota de producción:</strong> corte del video explainer 3D existente. Se usa el arranque de la frase de marca, se recorta a 15 segundos y se cierra con la oferta. Reutilizar activos ya producidos es lo que permite tener seis creativos distintos en tres días.</p>
+        <div class="gen">
+          <div class="gen-label"><span>Prompt de imagen · portada y fotogramas de relleno</span><span class="tool">Nano Banana · 9:16</span></div>
+          <p class="frame">Portada del video · es la miniatura que decide el clic</p>
+          <pre>[PREFIJO DE ESTILO]
+
+Fotografía conceptual sobria. Una silla de sala de ventas vacía, de espaldas
+a la cámara, frente a una mesa donde hay dos tazas de café: una llena y una
+vacía. Luz de ventanal lateral, azulada y fría, con una sola línea de luz
+ámbar cruzando la mesa. Todo el fondo cae a azul marino profundo en sombra.
+Sensación de ausencia y de algo que acaba de irse. Composición vertical con
+el sujeto en el tercio central y amplio vacío arriba y abajo. Fotorrealista,
+lente 50mm, profundidad de campo corta, grano fino de película.</pre>
+          <p class="frame">Fotograma de relleno · para intercalar con el explainer 3D</p>
+          <pre>[PREFIJO DE ESTILO]
+
+Render 3D limpio y sobrio de una cúpula geodésica dorada de estructura fina,
+semitransparente, cubriendo un pequeño paisaje geométrico de bloques azul
+marino que representan edificios abstractos. Partículas de luz muy tenues
+ascendiendo desde los bloques hacia la cúpula. Fondo degradado de azul
+marino profundo a negro azulado. Estética arquitectónica y silenciosa, no
+tecnológica: sin circuitos, sin retículas digitales, sin destellos. Vertical,
+cúpula centrada en el tercio medio.</pre>
+        </div>
+        <p class="ad-note"><strong>Nota de producción:</strong> corte del video explainer 3D existente. Se usa el arranque de la frase de marca, se recorta a 15 segundos y se cierra con la oferta. Estos prompts sirven para la portada y para dos fotogramas de relleno que den aire entre secciones del explainer. Reutilizar activos ya producidos es lo que permite tener seis creativos distintos en tres días.</p>
       </div>
     </div>
 
@@ -609,7 +738,32 @@ Parte con un diagnóstico gratuito.</div>
           <div class="field-label"><span>Botón</span><span class="cnt">—</span></div>
           <div class="copy">Más información</div>
         </div>
-        <p class="ad-note"><strong>Nota de producción:</strong> una tarjeta por trabajador digital, con el ícono del domo y el nombre. Titulares por tarjeta: "Matías · Medios", "Antonia · Agenda", "Amanda · Escucha", "Lucas · Entrena".</p>
+        <div class="gen">
+          <div class="gen-label"><span>Prompt de imagen · 4 tarjetas del carrusel</span><span class="tool">Nano Banana · 1:1</span></div>
+          <pre>[PREFIJO DE ESTILO]
+
+Serie de cuatro ilustraciones isométricas que deben leerse como una familia:
+mismo punto de fuga, misma altura de cámara, mismo fondo azul marino
+profundo #1b2340, mismas sombras suaves proyectadas hacia abajo a la
+derecha, mismo acento ámbar #e8a951. Estilo: render 3D mate de baja
+saturación, bordes limpios, sin texturas ruidosas, sin personajes.
+
+En cada tarjeta, un solo objeto sobre un plano circular elevado, y encima
+del objeto una pequeña cúpula geodésica dorada de líneas finas que lo cubre
+como un domo protector.
+
+Tarjeta 1 — MATÍAS (medios): una diana de tiro vista en perspectiva, con
+tres flechas ámbar clavadas juntas fuera del centro exacto.
+Tarjeta 2 — ANTONIA (agenda): una cuadrícula de calendario flotante en la
+que dos casillas están iluminadas en ámbar y el resto en azul apagado.
+Tarjeta 3 — AMANDA (escucha): una onda de audio esculpida como objeto
+sólido, barras verticales de distinta altura en degradado de azul a ámbar.
+Tarjeta 4 — LUCAS (entrena): tres peldaños ascendentes, con una fina línea
+ámbar que los recorre de abajo hacia arriba y sale por el borde superior.
+
+Sin texto y sin rostros en ninguna de las cuatro.</pre>
+        </div>
+        <p class="ad-note"><strong>Nota de producción:</strong> el nombre y la función se montan en edición sobre cada tarjeta. Titulares por tarjeta: "Matías · Medios", "Antonia · Agenda", "Amanda · Escucha", "Lucas · Entrena". Generar las cuatro en una sola sesión para que compartan iluminación; generadas por separado nunca calzan.</p>
       </div>
     </div>
 
@@ -636,7 +790,33 @@ Sin costo. Sin compromiso. Sin cambiar nada de lo que ya tienes.</div>
           <div class="field-label"><span>Botón</span><span class="cnt">—</span></div>
           <div class="copy">Reservar</div>
         </div>
-        <p class="ad-note"><strong>Nota de producción:</strong> captura real del informe de diagnóstico con datos anonimizados. Es el creativo con mayor probabilidad de ganar, porque muestra el producto en vez de describirlo. La escasez debe ser verdadera: si hay 10 cupos, son 10.</p>
+        <div class="gen">
+          <div class="gen-label"><span>Prompt de imagen · el producto en la mesa</span><span class="tool">Nano Banana · 4:5 y 9:16</span></div>
+          <pre>[PREFIJO DE ESTILO]
+
+Fotografía de producto editorial, plano cenital ligeramente inclinado.
+Sobre un escritorio de madera oscura de veta fina: un informe impreso y
+anillado, abierto en una página doble. En la página izquierda, bloques de
+párrafo; en la derecha, un gráfico de barras y una tabla. Todo el contenido
+está deliberadamente desenfocado e ilegible, sin letras reconocibles. Dos
+líneas del texto aparecen resaltadas con marcador ámbar translúcido y hay
+una anotación manuscrita ilegible al margen.
+
+Alrededor, con aire entre los objetos: una taza de café oscuro, un lápiz
+apoyado en diagonal, y un par de anteojos plegados. Luz de ventana lateral
+suave desde la izquierda, sombras largas hacia la derecha, fondo cayendo a
+azul marino profundo en las esquinas.
+
+Realismo fotográfico, lente 50mm, apertura f/2.8, profundidad de campo
+corta con el gráfico en foco. Un tercio del encuadre libre de objetos para
+sobreponer titular.</pre>
+          <p class="frame">Variante 9:16 para Reels</p>
+          <pre>Misma escena y mismos objetos, recomposición vertical: el informe ocupa el
+tercio central, la taza entra parcialmente por el borde derecho, la parte
+superior queda como superficie de madera vacía en sombra. Nada relevante en
+el 14% superior ni en el 20% inferior.</pre>
+        </div>
+        <p class="ad-note"><strong>Nota de producción:</strong> apenas exista el primer diagnóstico real, esta imagen generada se reemplaza por una <strong>captura del informe verdadero con datos anonimizados</strong>. Es el creativo con mayor probabilidad de ganar, porque muestra el producto en vez de describirlo, y una captura real siempre supera a una recreación. La escasez debe ser verdadera: si hay 10 cupos, son 10.</p>
       </div>
     </div>
 
@@ -663,7 +843,41 @@ Por eso construimos DOMO IA. Te lo muestro con 5 reuniones de tu propio equipo, 
           <div class="field-label"><span>Botón</span><span class="cnt">—</span></div>
           <div class="copy">Reservar</div>
         </div>
-        <p class="ad-note"><strong>Nota de producción:</strong> grabado con celular, luz natural, sin producción. En servicios consultivos de ticket alto la cara del fundador supera consistentemente a la animación: compra confianza, que es exactamente lo que falta en la primera impresión.</p>
+        <div class="gen">
+          <div class="gen-label"><span>Este no se genera: se filma</span><span class="tool">Guía de encuadre + prompt de cierre</span></div>
+          <p class="frame">Guía de rodaje · celular, 3 minutos de trabajo</p>
+          <pre>ENCUADRE
+Vertical 9:16. Plano medio corto: cabeza y hombros, con los ojos en la línea
+del tercio superior. Cámara a la altura de los ojos, nunca por debajo.
+
+FONDO
+Oficina real con profundidad: se ve algo detrás, desenfocado. Nunca pared
+lisa, nunca fondo virtual, nunca librería ordenada de fondo de videollamada.
+
+LUZ
+De frente y natural: sentarse mirando hacia una ventana, con la ventana
+fuera de cuadro. Grabar entre las 10 y las 16 horas. Sin luz cenital de
+oficina, que marca ojeras.
+
+SONIDO
+Audífonos con micrófono o micrófono de solapa. El audio malo mata más
+anuncios de fundador que la imagen mala.
+
+ENTREGA
+Mirar al lente, no a la pantalla. Empezar hablando antes de que arranque la
+grabación y cortar el principio en edición: elimina la cara de "ya estoy
+grabando". Una sola toma, sin cortes, sin guion leído.</pre>
+          <p class="frame">Tarjeta de cierre · últimos 3 segundos</p>
+          <pre>[PREFIJO DE ESTILO]
+
+Composición gráfica de cierre, vertical. Fondo azul marino profundo liso con
+un degradado sutil hacia el centro. Una cúpula geodésica dorada de líneas
+finas, centrada, ocupando un tercio del alto, con una luz tenue en su
+interior. Debajo, superficie oscura reflejante con un reflejo apenas
+insinuado. Sin texto, sin partículas, sin destellos. Espacio limpio bajo la
+cúpula para montar el llamado a la acción en edición.</pre>
+        </div>
+        <p class="ad-note"><strong>Nota de producción:</strong> grabado con celular, luz natural, sin producción. En servicios consultivos de ticket alto la cara del fundador supera consistentemente a la animación: compra confianza, que es exactamente lo que falta en la primera impresión. Generar una cara con IA para este anuncio sería contraproducente y, si se nota, destruye lo único que el anuncio vende.</p>
       </div>
     </div>
 
@@ -695,6 +909,25 @@ Quedan cupos esta semana.</div>
           <div class="field-label"><span>Botón</span><span class="cnt">—</span></div>
           <div class="copy">Reservar</div>
         </div>
+        <div class="gen">
+          <div class="gen-label"><span>Prompt de imagen · el pendiente</span><span class="tool">Nano Banana · 4:5</span></div>
+          <pre>[PREFIJO DE ESTILO]
+
+Fotografía de escritorio, plano cenital cerrado. Una agenda de papel abierta
+en la semana, con la retícula de días y horas visible pero el texto
+manuscrito completamente ilegible y desenfocado. Casi todas las casillas
+están ocupadas por trazos oscuros; dos casillas contiguas quedaron en blanco
+y sobre ellas cae una luz ámbar cálida y focalizada, como si un foco las
+apuntara. El resto de la página está en penumbra azulada.
+
+Al costado, un lápiz apoyado en diagonal y el borde de una taza entrando por
+la esquina. Madera oscura de fondo. Realismo fotográfico, luz dura y
+direccional, contraste alto entre la zona ámbar y el resto. Espacio negativo
+en el tercio superior.
+
+Sin ninguna letra ni número legible en la agenda.</pre>
+        </div>
+        <p class="ad-note"><strong>Nota de producción:</strong> la imagen tiene que leerse en menos de un segundo, porque este público ya vio la marca antes. Dos casillas iluminadas es literalmente la oferta del copy: dos bloques disponibles.</p>
       </div>
     </div>
 
@@ -725,6 +958,25 @@ Pruébalo con 5 reuniones, sin costo.</div>
           <div class="field-label"><span>Botón</span><span class="cnt">—</span></div>
           <div class="copy">Más información</div>
         </div>
+        <div class="gen">
+          <div class="gen-label"><span>Prompt de imagen · la objeción</span><span class="tool">Nano Banana · 4:5</span></div>
+          <pre>[PREFIJO DE ESTILO]
+
+Bodegón fotográfico íntimo, plano cerrado en ángulo bajo. Sobre una mesa de
+reunión de madera oscura, una grabadora de voz pequeña y sobria, de diseño
+limpio, con una única luz indicadora ámbar encendida. Junto a ella, un
+sobre de papel cerrado. Detrás, muy desenfocadas, dos sillas de reunión
+vacías.
+
+La luz entra lateral y baja, dejando la mitad superior del encuadre en
+penumbra azul marino. El conjunto debe transmitir discreción y cuidado, no
+vigilancia: nada de cámaras, nada de ojos, nada de candados evidentes,
+ningún encuadre que sugiera espionaje.
+
+Realismo fotográfico, lente 85mm, profundidad de campo muy corta con foco
+en la luz ámbar de la grabadora. Amplio espacio negativo arriba.</pre>
+        </div>
+        <p class="ad-note"><strong>Nota de producción:</strong> el riesgo de este creativo es que la imagen refuerce el miedo que el copy viene a desactivar. Por eso el sobre cerrado junto a la grabadora: la señal visual es confidencialidad, no control. Si una versión se ve como vigilancia, se descarta aunque el copy sea el mismo.</p>
       </div>
     </div>
 
@@ -753,7 +1005,31 @@ Grabamos 5 reuniones de tu equipo comercial y en 72 horas te decimos, con citas 
           <div class="field-label"><span>Botón</span><span class="cnt">—</span></div>
           <div class="copy">Enviar mensaje de WhatsApp</div>
         </div>
+        <div class="gen">
+          <div class="gen-label"><span>Prompt de imagen · dos horarios</span><span class="tool">Nano Banana · 4:5 y 9:16</span></div>
+          <pre>[PREFIJO DE ESTILO]
+
+Composición gráfica isométrica limpia sobre fondo azul marino profundo. Una
+cuadrícula de calendario semanal flotando levemente sobre el plano, con
+sombra suave debajo. Todas las casillas en azul apagado y sin contenido,
+salvo dos casillas contiguas que se elevan sobre el resto, en ámbar dorado
+sólido, con un ligero brillo en el borde.
+
+Geometría exacta, líneas de un píxel, mucho aire alrededor. Estética de
+producto digital premium, no de ilustración plana genérica. Sin texto, sin
+números, sin nombres de días, sin iconos, sin punteros de mouse, sin
+ninguna interfaz de aplicación reconocible.
+
+Espacio negativo continuo en el tercio superior para montar el titular.</pre>
+        </div>
+        <p class="ad-note"><strong>Nota de producción:</strong> nada de burbujas de chat ni del verde ni del logo de WhatsApp en el creativo. Meta restringe el uso de sus propias marcas en el arte del anuncio y, además, la burbuja de chat es el recurso más quemado del mercado chileno: aparece en la mitad de los anuncios de servicios y ya no detiene a nadie.</p>
       </div>
+    </div>
+
+    <div class="callout go">
+      <h4>Cómo se usan estos prompts sin perder tiempo</h4>
+      <p>Generar cuatro variaciones de cada uno y quedarse con dos: las de mayor contraste entre la zona ámbar y el fondo, que son las que sobreviven al scroll. Después montar el titular en el editor y exportar cada pieza en 4:5 y 9:16. Producir las ocho piezas completas toma cerca de una tarde, y es lo único que separa el plan de estar al aire.</p>
+      <p>Regla de reemplazo: toda imagen generada es un puente. En cuanto exista material real —una sala de ventas fotografiada, una captura del informe verdadero, un testimonio grabado— reemplaza a la generada, porque el material real rinde mejor de manera consistente en este tipo de oferta.</p>
     </div>
   </section>
 
@@ -1010,7 +1286,7 @@ Este mes estamos tomando 10 inmobiliarias para hacerles un diagnóstico gratuito
     <div class="section-head">
       <p class="eyebrow">10 · Automatización</p>
       <h2>Los ocho prompts operativos</h2>
-      <p class="lede col">Listos para pegar. Los que llevan variables entre llaves se rellenan antes de ejecutar. El P1 y el P2 son los que hacen funcionar a Antonia y a Matías, es decir, las dos capas del producto que este plan pone a trabajar para DOMO IA misma.</p>
+      <p class="lede col">Listos para pegar. Los que llevan variables entre llaves se rellenan antes de ejecutar. El P1 y el P2 son los que hacen funcionar a Antonia y a Matías, es decir, las dos capas del producto que este plan pone a trabajar para DOMO IA misma. Los prompts de imagen de cada anuncio no están acá: viven junto a su copy, en la <a href="#creativos">sección 6</a>.</p>
     </div>
 
     <div class="prompt">
@@ -1111,45 +1387,37 @@ argumento principal: al comprador le importa el problema, no la tecnología.</pr
     </div>
 
     <div class="prompt">
-      <div class="prompt-head"><span><span class="id">P3</span> <span class="ti">Generación de imágenes · las cinco piezas base</span></span><span class="use">Nano Banana / generador de imágenes</span></div>
-      <pre>PIEZA 1 — El agujero negro (ángulo A01)
-Fotografía editorial corporativa, sala de ventas moderna de proyecto
-inmobiliario, vacía, luz de tarde entrando por ventanal. Sobre la mesa, un
-teléfono encendido. Paleta azul marino profundo y ámbar cálido. Composición
-con dos tercios de espacio negativo arriba a la izquierda para texto.
-Realista, sin personas, sin logos, sin texto. Formato vertical 4:5.
+      <div class="prompt-head"><span><span class="id">P3</span> <span class="ti">Multiplicador visual · cuando una imagen gana</span></span><span class="use">Los prompts base están en la sección 6</span></div>
+      <pre>Esta es la imagen con mejor rendimiento de la cuenta:
 
-PIEZA 2 — La comparación (ángulo A02)
-Composición gráfica minimalista dividida verticalmente en dos mitades.
-Izquierda azul marino profundo, derecha ámbar dorado. Estilo de infografía
-editorial premium, líneas finas, mucho aire. Sin personas, sin texto.
-Vertical 4:5.
+{adjuntar la imagen}
+{pegar el prompt con que se generó}
+{pegar métricas: costo por lead, tasa de clic, frecuencia actual}
 
-PIEZA 3 — El informe (ángulo A05)
-Primer plano cenital de un informe impreso sobre escritorio de madera
-oscura, junto a una taza de café y un cuaderno. El documento se ve
-profesional, con gráficos de barras y bloques de texto desenfocados,
-ilegibles. Luz natural lateral suave. Realismo fotográfico, tono cálido.
-Sin texto legible ni logos. Vertical 4:5.
+CONTEXTO
+La pieza empezó a fatigarse: la frecuencia va en {número} y el costo por
+resultado subió {porcentaje} en los últimos 7 días. Necesito refrescar el
+creativo SIN perder lo que lo hacía funcionar.
 
-PIEZA 4 — El equipo digital (ángulo A04, carrusel)
-Cuatro ilustraciones en el mismo estilo: figura geométrica abstracta bajo
-una cúpula geodésica dorada de líneas finas, sobre fondo azul marino
-profundo #1b2340. Estilo isométrico limpio, sombras suaves, acentos en
-ámbar #e8a951. Sin rostros humanos, sin texto. Cuadrado 1:1, cuatro
-variaciones que se lean como una familia.
+TAREA
+Primero, en tres líneas: identifica cuál es el elemento visual que
+probablemente hace funcionar esta imagen. No describas la imagen completa,
+aísla el mecanismo: puede ser el contraste, el objeto central, el vacío, el
+ángulo o la sensación de ausencia.
 
-PIEZA 5 — El domo (marca)
-Cúpula geodésica dorada de líneas finas flotando sobre un plano oscuro,
-con partículas de luz tenues ascendiendo hacia ella. Fondo azul marino
-degradado. Estética sobria y tecnológica, no futurista ni de ciencia
-ficción. Sin texto. Vertical 9:16, con la cúpula en el tercio central para
-respetar zona segura de Reels.
+Después, genera 5 prompts nuevos que CONSERVEN ese mecanismo y cambien todo
+lo demás:
+1. Mismo mecanismo, otro objeto protagonista.
+2. Mismo mecanismo, misma escena, ángulo opuesto.
+3. Mismo mecanismo, pasado de fotografía a gráfico geométrico, o al revés.
+4. Mismo mecanismo, plano mucho más cerrado.
+5. Mismo mecanismo, momento del día distinto.
 
-REGLAS COMUNES
-Nada de texto generado dentro de la imagen: el texto se agrega después en
-edición, para controlar tipografía y zona segura. Nada de rostros humanos
-generados. Paleta siempre navy #1b2340 / #232d52 con ámbar #e8a951.</pre>
+RESTRICCIONES
+Aplica íntegro el prefijo de estilo DOMO IA: paleta navy #1b2340 y #232d52
+con ámbar #e8a951, sin texto generado, sin rostros, sin estética de ciencia
+ficción, entre 40% y 55% de espacio negativo continuo.
+Entrega cada prompt listo para pegar, sin explicaciones intercaladas.</pre>
     </div>
 
     <div class="prompt">
@@ -1425,7 +1693,8 @@ comerciales pierden ventas que nadie mide" no.</pre>
 
   <footer>
     <p><strong>Supuestos que deben reemplazarse con datos propios después de la semana 2:</strong> costo por lead de $10.000, tasa de calificación de 45%, conversión a agendamiento de 40%, asistencia de 70%. Son referencias de mercado para servicios B2B consultivos en Chile, no promesas. El primer mes de pauta existe, entre otras cosas, para reemplazarlas.</p>
-    <p>DOMO IA · Plan de medios y adquisición · Versión 1.0 · 13 de agosto de 2026 · Documento complementario de «A quién le vende DOMO IA»</p>
+    <p>DOMO IA · Plan de medios y adquisición · Versión 1.1 · 14 de agosto de 2026 · Documento complementario de «A quién le vende DOMO IA»</p>
+    <p><strong>Cambios en la versión 1.1:</strong> se agregó el prompt de imagen de cada anuncio dentro de la sección 6, con el prefijo de estilo P0 que los encabeza a todos; el P3 pasó de ser una lista de piezas a ser el multiplicador visual que se usa cuando una imagen se fatiga; y se incorporó el prerrequisito 9b, la aceptación de los términos de Lead Ads, que hoy está pendiente en la cuenta y bloquea los formularios nativos.</p>
   </footer>
 
 </div>
