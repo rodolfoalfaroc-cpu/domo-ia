@@ -1,0 +1,564 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Documento interno DOMO IA">
+<style>*{margin:0;padding:0;}img,svg{max-width:100%;}</style>
+<title>Guiones de Rodaje DOMO IA</title>
+<style>
+  :root {
+    --bg:#f4f6fa; --surface:#fff; --surface-2:#eceff7; --surface-3:#e2e7f2;
+    --ink:#161c33; --ink-2:#333b5e; --muted:#5d6689;
+    --line:#dde1ee; --line-strong:#c3cadf;
+    --navy:#232d52; --navy-deep:#1b2340;
+    --accent:#a9762b; --accent-fill:#e8a951; --accent-soft:#f8eeda;
+    --go:#2c7159; --go-soft:#e2f0ea;
+    --stop:#a94334; --stop-soft:#f8e7e4;
+    --warn:#8a6216; --warn-soft:#faf0d9;
+    --code-bg:#eef1f8; --code-ink:#232d52;
+    --shadow:0 1px 2px rgba(22,28,51,.06), 0 8px 24px -16px rgba(22,28,51,.28);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:#0f1329; --surface:#181e3a; --surface-2:#212847; --surface-3:#29315a;
+      --ink:#eef0f9; --ink-2:#c9cee5; --muted:#98a1c4;
+      --line:#2b3358; --line-strong:#3b446e;
+      --navy:#232d52; --navy-deep:#141a33;
+      --accent:#e8a951; --accent-fill:#e8a951; --accent-soft:#2e2a1f;
+      --go:#63b995; --go-soft:#1a2f2a;
+      --stop:#e08a7b; --stop-soft:#33201e;
+      --warn:#d9ad5c; --warn-soft:#2e2718;
+      --code-bg:#131933; --code-ink:#cdd4ee;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -16px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:#0f1329; --surface:#181e3a; --surface-2:#212847; --surface-3:#29315a;
+    --ink:#eef0f9; --ink-2:#c9cee5; --muted:#98a1c4;
+    --line:#2b3358; --line-strong:#3b446e;
+    --navy:#232d52; --navy-deep:#141a33;
+    --accent:#e8a951; --accent-fill:#e8a951; --accent-soft:#2e2a1f;
+    --go:#63b995; --go-soft:#1a2f2a;
+    --stop:#e08a7b; --stop-soft:#33201e;
+    --warn:#d9ad5c; --warn-soft:#2e2718;
+    --code-bg:#131933; --code-ink:#cdd4ee;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -16px rgba(0,0,0,.8);
+  }
+
+  * { box-sizing:border-box; }
+  body { background:var(--bg); color:var(--ink); font-family:"Segoe UI", system-ui, -apple-system, Arial, sans-serif; font-size:16.5px; line-height:1.62; margin:0; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1100px; margin:0 auto; padding:0 28px 96px; }
+  .col { max-width:68ch; }
+
+  .masthead { background:var(--navy-deep); color:#eef0f9; border-bottom:3px solid var(--accent-fill); padding:44px 0 36px; margin-bottom:44px; }
+  .masthead .wrap { padding-bottom:0; }
+  .mast-grid { display:flex; gap:26px; align-items:flex-start; flex-wrap:wrap; }
+  .mast-body { flex:1 1 320px; }
+  .masthead h1 { font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif; font-size:clamp(2rem,4.4vw,2.85rem); line-height:1.1; font-weight:600; margin:6px 0 12px; text-wrap:balance; color:#fff; }
+  .masthead p { color:#b9c0dd; margin:0; max-width:62ch; }
+  .kicker { font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:var(--accent-fill); margin:0; }
+  .mast-meta { display:flex; flex-wrap:wrap; gap:8px 28px; margin-top:22px; padding-top:18px; border-top:1px solid rgba(232,169,81,.28); font-size:.82rem; color:#9aa3c6; }
+  .mast-meta b { color:#dfe3f2; font-weight:600; }
+
+  section { margin-bottom:60px; scroll-margin-top:20px; }
+  .eyebrow { font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:var(--accent); margin:0 0 8px; }
+  h2 { font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif; font-size:clamp(1.5rem,3vw,1.95rem); line-height:1.2; font-weight:600; margin:0 0 8px; text-wrap:balance; }
+  h3 { font-size:1.1rem; font-weight:700; margin:30px 0 10px; }
+  h4 { font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:700; margin:0 0 10px; }
+  p { margin:0 0 15px; }
+  .lede { color:var(--ink-2); font-size:1.05rem; }
+  .section-head { border-bottom:1px solid var(--line-strong); padding-bottom:14px; margin-bottom:26px; }
+  .section-head p:last-child { margin-bottom:0; }
+  ul, ol { margin:0 0 15px; padding-left:1.25em; }
+  li { margin-bottom:6px; }
+  li::marker { color:var(--accent); }
+  strong { color:var(--ink); font-weight:650; }
+  code { font-family:ui-monospace,"Cascadia Mono",Consolas,monospace; font-size:.88em; background:var(--code-bg); color:var(--code-ink); padding:1px 5px; border-radius:2px; }
+  a { color:var(--accent); }
+  :focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+
+  .toc { background:var(--surface); border:1px solid var(--line); border-radius:3px; padding:20px 24px; box-shadow:var(--shadow); margin-bottom:46px; }
+  .toc ol { columns:2; column-gap:34px; margin:0; padding-left:1.1em; font-size:.93rem; }
+  .toc a { color:var(--ink-2); text-decoration:none; border-bottom:1px solid transparent; }
+  .toc a:hover, .toc a:focus-visible { color:var(--accent); border-bottom-color:var(--accent); }
+
+  .duo { display:grid; gap:18px; grid-template-columns:repeat(auto-fit,minmax(285px,1fr)); margin-bottom:18px; }
+  .panel { background:var(--surface); border:1px solid var(--line); border-radius:3px; padding:20px 22px; box-shadow:var(--shadow); }
+  .panel h4 { color:var(--accent); }
+  .panel p, .panel li { font-size:.94rem; color:var(--ink-2); }
+  .panel p:last-child, .panel ul:last-child, .panel ol:last-child { margin-bottom:0; }
+
+  .callout { border:1px solid var(--line); border-left:3px solid var(--accent-fill); background:var(--accent-soft); border-radius:0 3px 3px 0; padding:17px 21px; margin:0 0 20px; }
+  .callout.stop { border-left-color:var(--stop); background:var(--stop-soft); }
+  .callout.go { border-left-color:var(--go); background:var(--go-soft); }
+  .callout.warn { border-left-color:var(--warn); background:var(--warn-soft); }
+  .callout h4 { color:var(--ink); margin-bottom:6px; }
+  .callout p, .callout li { font-size:.94rem; color:var(--ink-2); }
+  .callout p:last-child, .callout ul:last-child { margin-bottom:0; }
+
+  /* guion */
+  .guion { background:var(--surface); border:1px solid var(--line); border-radius:3px; box-shadow:var(--shadow); margin-bottom:34px; overflow:hidden; }
+  .guion-head { background:var(--navy); color:#fff; padding:15px 22px; display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; }
+  .guion-head .id { font-family:ui-monospace,"Cascadia Mono",Consolas,monospace; font-size:.84rem; color:var(--accent-fill); font-weight:700; letter-spacing:.06em; }
+  .guion-head .ti { font-weight:650; font-size:1.08rem; }
+  .guion-head .fm { font-size:.76rem; color:#b9c0dd; text-transform:uppercase; letter-spacing:.08em; }
+  .guion-body { padding:0; }
+
+  .ficha-g { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); background:var(--surface-2); border-bottom:1px solid var(--line-strong); }
+  .ficha-g div { padding:12px 18px; border-right:1px solid var(--line); }
+  .ficha-g div:last-child { border-right:0; }
+  .ficha-g dt { font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-weight:700; }
+  .ficha-g dd { margin:2px 0 0; font-size:.92rem; color:var(--ink); font-weight:600; }
+
+  .table-scroll { overflow-x:auto; }
+  table.gs { border-collapse:collapse; width:100%; font-size:.88rem; min-width:720px; }
+  table.gs th, table.gs td { text-align:left; padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+  table.gs thead th { background:var(--surface-3); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-weight:700; border-bottom:1px solid var(--line-strong); }
+  table.gs tbody tr:last-child td { border-bottom:0; }
+  table.gs td.seg { font-family:ui-monospace,"Cascadia Mono",Consolas,monospace; font-variant-numeric:tabular-nums; white-space:nowrap; color:var(--accent); font-weight:700; font-size:.82rem; width:1%; }
+  table.gs td.txt { font-weight:650; color:var(--ink); background:var(--accent-soft); border-left:2px solid var(--accent-fill); }
+  table.gs td.aud { color:var(--ink-2); font-style:italic; }
+  table.gs tbody tr.cierre td { background:var(--surface-2); }
+  table.gs tbody tr.cierre td.txt { background:var(--accent-soft); }
+
+  .sub { padding:18px 22px; border-top:1px solid var(--line-strong); }
+  .sub h4 { color:var(--accent); }
+  .sub p, .sub li { font-size:.93rem; color:var(--ink-2); }
+  .sub p:last-child, .sub ul:last-child { margin-bottom:0; }
+  .ganchos { list-style:none; padding:0; margin:0; display:grid; gap:8px; }
+  .ganchos li { background:var(--bg); border:1px solid var(--line); border-radius:2px; padding:9px 13px; font-size:.93rem; color:var(--ink); margin:0; }
+  .ganchos li b { display:block; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-weight:700; margin-bottom:2px; }
+
+  .locucion { background:var(--code-bg); border-left:3px solid var(--accent-fill); padding:14px 18px; border-radius:0 2px 2px 0; font-size:.95rem; color:var(--ink); white-space:pre-line; margin-bottom:14px; }
+
+  table.simple { border-collapse:collapse; width:100%; font-size:.91rem; min-width:560px; }
+  table.simple th, table.simple td { text-align:left; padding:10px 13px; border-bottom:1px solid var(--line); vertical-align:top; }
+  table.simple thead th { background:var(--surface-2); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-weight:700; border-bottom:1px solid var(--line-strong); }
+  table.simple tbody tr:last-child td { border-bottom:0; }
+  .box-table { overflow-x:auto; border:1px solid var(--line); border-radius:3px; background:var(--surface); margin-bottom:18px; }
+  td.n, th.n { text-align:right; font-variant-numeric:tabular-nums; font-family:ui-monospace,"Cascadia Mono",Consolas,monospace; }
+
+  .chip { display:inline-block; font-size:.7rem; font-weight:700; padding:2px 8px; border-radius:2px; white-space:nowrap; }
+  .chip.ok { background:var(--go-soft); color:var(--go); }
+  .chip.mid { background:var(--warn-soft); color:var(--warn); }
+  .chip.n { background:var(--accent-soft); color:var(--accent); }
+
+  footer { border-top:1px solid var(--line-strong); padding-top:20px; color:var(--muted); font-size:.85rem; }
+  @media (max-width:720px) { .wrap { padding:0 18px 72px; } .toc ol { columns:1; } }
+</style>
+</head>
+<body>
+
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="mast-grid">
+      <div style="flex:0 0 auto;margin-top:4px" aria-hidden="true">
+        <svg width="62" height="62" viewBox="0 0 62 62" fill="none" stroke="#e8a951" stroke-width="1.4">
+          <path d="M4 47a27 27 0 0 1 54 0" />
+          <line x1="2" y1="47" x2="60" y2="47" stroke-width="2" />
+          <path d="M31 20v27M17.5 24.2 44.5 24.2M10.2 34.5h41.6" />
+          <path d="M31 20 13 47M31 20l18 27M20 21.6 20 47M42 21.6 42 47" stroke-opacity=".55" />
+        </svg>
+      </div>
+      <div class="mast-body">
+        <p class="kicker">DOMO IA · Producción de creativos</p>
+        <h1>Guiones de rodaje</h1>
+        <p>Los seis creativos de prospección, segundo a segundo: qué se ve, qué dice el texto en pantalla y qué dice el audio. Con tres ganchos alternativos por pieza para probar por separado.</p>
+        <div class="mast-meta">
+          <span>Versión <b>1.0</b></span>
+          <span>Fecha <b>14 de agosto de 2026</b></span>
+          <span>Piezas <b>6 videos + 18 ganchos</b></span>
+          <span>Duración total <b>2 min 10 s</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <nav class="toc" aria-label="Índice">
+    <h4>Contenido</h4>
+    <ol>
+      <li><a href="#reglas">Las siete reglas de rodaje</a></li>
+      <li><a href="#a01">A01 · El agujero negro post-lead</a></li>
+      <li><a href="#a02">A02 · La comparación interna</a></li>
+      <li><a href="#a03">A03 · El costo invisible</a></li>
+      <li><a href="#a04">A04 · El equipo digital</a></li>
+      <li><a href="#a05">A05 · La oferta directa</a></li>
+      <li><a href="#a06">A06 · Fundador a cámara</a></li>
+      <li><a href="#orden">Orden de producción y checklist</a></li>
+    </ol>
+  </nav>
+
+  <!-- ============ REGLAS ============ -->
+  <section id="reglas">
+    <div class="section-head">
+      <p class="eyebrow">00 · Antes de grabar</p>
+      <h2>Las siete reglas de rodaje</h2>
+      <p class="lede col">Todas nacen del mismo hecho: el video se ve en vertical, en silencio, mientras alguien baja el dedo. Cada regla existe para sobrevivir a esa situación.</p>
+    </div>
+
+    <div class="duo">
+      <div class="panel">
+        <h4>Regla 1 · El gancho se lee, no se escucha</h4>
+        <p>Cerca del 85% ve sin sonido. Los primeros 3 segundos tienen que funcionar completos como texto en pantalla. Si el gancho depende de la locución, el gancho no existe.</p>
+      </div>
+      <div class="panel">
+        <h4>Regla 2 · Seis palabras por cuadro</h4>
+        <p>El texto en pantalla nunca pasa de seis palabras. Si la idea no cabe, se parte en dos cuadros. Tipografía gruesa, alto contraste, alineada a la izquierda.</p>
+      </div>
+      <div class="panel">
+        <h4>Regla 3 · Zona segura sagrada</h4>
+        <p>Nada relevante en el 14% superior ni en el 20% inferior del vertical: ahí van el nombre de la cuenta, el copy y el botón. Un titular perfecto tapado por el botón vale cero.</p>
+      </div>
+      <div class="panel">
+        <h4>Regla 4 · Corte cada 2 o 3 segundos</h4>
+        <p>Un plano que dura más de 3 segundos pierde al espectador. Si no hay material para cortar, se corta con movimiento: un empuje de cámara, un cambio de escala.</p>
+      </div>
+      <div class="panel">
+        <h4>Regla 5 · Marca al final, nunca al inicio</h4>
+        <p>Ningún logo ni nombre antes del segundo 8. El logo temprano le avisa al cerebro que es publicidad y activa el descarte antes de que el mensaje entre.</p>
+      </div>
+      <div class="panel">
+        <h4>Regla 6 · Subtítulos quemados</h4>
+        <p>Toda locución va subtitulada en el archivo exportado, no confiada a los subtítulos automáticos de Meta, que fallan con nombres propios y con el español de Chile.</p>
+      </div>
+      <div class="panel">
+        <h4>Regla 7 · La oferta en los últimos 3 segundos</h4>
+        <p>Antes solo se instala el problema. Ofrecer temprano convierte el video en un aviso más y deja de ser una observación que al gerente le duele reconocer.</p>
+      </div>
+    </div>
+
+    <h3>Especificación técnica de exportación</h3>
+    <div class="box-table">
+      <table class="simple">
+        <thead><tr><th>Parámetro</th><th>Valor</th><th>Por qué</th></tr></thead>
+        <tbody>
+          <tr><td>Proporción principal</td><td><strong>9:16</strong> · 1080 × 1920</td><td>Reels, Stories y feed móvil, que es el grueso del inventario</td></tr>
+          <tr><td>Proporción secundaria</td><td><strong>4:5</strong> · 1080 × 1350</td><td>Feed de Facebook e Instagram; se re-encuadra, no se estira</td></tr>
+          <tr><td>Códec y contenedor</td><td>H.264, MP4, 30 fps</td><td>Compatibilidad universal y compresión predecible</td></tr>
+          <tr><td>Audio</td><td>AAC estéreo, 128 kbps</td><td>Aunque casi nadie lo escuche, el audio ausente penaliza entrega</td></tr>
+          <tr><td>Miniatura</td><td>Fotograma propio, no automático</td><td>Meta elige mal; la portada decide el clic en feed</td></tr>
+          <tr><td>Duración</td><td>15 a 30 s</td><td>Bajo 15 s no alcanza a instalar el problema; sobre 30 s cae la retención</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warn">
+      <h4>Cómo se lee la tabla de cada guion</h4>
+      <p>La columna <strong>segundo</strong> marca inicio y fin de cada bloque. <strong>Imagen</strong> es lo que se ve, con la referencia al fotograma generado con los prompts de la sección 6 del plan de medios. <strong>Texto en pantalla</strong> va literal, tal cual se monta, resaltado en ámbar. <strong>Audio</strong> es locución o ambiente; lo que va entre comillas se dice, lo demás se describe.</p>
+    </div>
+  </section>
+
+  <!-- ============ A01 ============ -->
+  <section id="a01">
+    <div class="guion">
+      <div class="guion-head"><span class="id">A01</span><span class="ti">El agujero negro post-lead</span><span class="fm">15 segundos · Prospección</span></div>
+      <div class="guion-body">
+        <div class="ficha-g">
+          <div><dt>Duración</dt><dd>15 s</dd></div>
+          <div><dt>Material</dt><dd>3 fotogramas generados</dd></div>
+          <div><dt>Locución</dt><dd>Sí, desde el s. 3</dd></div>
+          <div><dt>Cortes</dt><dd>6</dd></div>
+          <div><dt>Prioridad</dt><dd><span class="chip ok">Producir 1º</span></dd></div>
+        </div>
+        <div class="table-scroll">
+          <table class="gs">
+            <thead><tr><th>Seg.</th><th>Imagen</th><th>Texto en pantalla</th><th>Audio</th></tr></thead>
+            <tbody>
+              <tr><td class="seg">0,0–1,5</td><td>Fotograma 1: sala de ventas vacía al atardecer, teléfono encendido sobre la mesa. Empuje de cámara muy lento hacia el teléfono.</td><td class="txt">340 leads este mes.</td><td class="aud">Silencio. Solo ambiente: sala vacía, un aire acondicionado lejano.</td></tr>
+              <tr><td class="seg">1,5–3,0</td><td>Mismo plano, el empuje continúa. El número anterior se apaga y aparece el segundo, más abajo.</td><td class="txt">6 promesas.</td><td class="aud">Un tono grave y corto marca la aparición del número.</td></tr>
+              <tr><td class="seg">3,0–5,5</td><td>Corte seco al fotograma 2: plano cenital de las dos pilas de tarjetas, la alta y la de tres.</td><td class="txt">¿Y los otros 334?</td><td class="aud">Entra locución: «Trescientos cuarenta leads. Seis promesas.»</td></tr>
+              <tr><td class="seg">5,5–8,0</td><td>Empuje sobre la pila alta hasta que llena el cuadro y queda desenfocada.</td><td class="txt">Nadie escuchó esas reuniones.</td><td class="aud">«Lo que pasó entre medio no lo escuchó nadie.»</td></tr>
+              <tr><td class="seg">8,0–10,5</td><td>Corte al fotograma 3: el informe sobre el escritorio, la lámpara encendida.</td><td class="txt">Nosotros sí.</td><td class="aud">«Grabamos cinco reuniones reales de tu equipo.»</td></tr>
+              <tr><td class="seg">10,5–12,5</td><td>Detalle cerrado de la línea resaltada en ámbar sobre el papel.</td><td class="txt">Informe en 72 horas.</td><td class="aud">«En 72 horas te decimos dónde se te está cayendo la venta.»</td></tr>
+              <tr class="cierre"><td class="seg">12,5–15,0</td><td>Corte a tarjeta de cierre: cúpula geodésica dorada sobre fondo azul marino. Aquí y solo aquí aparece el logo.</td><td class="txt">Diagnóstico sin costo<br>10 cupos</td><td class="aud">«Sin costo. Diez cupos este mes.»</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sub">
+          <h4>Tres ganchos alternativos · segundos 0 a 3</h4>
+          <ul class="ganchos">
+            <li><b>Gancho B · la pregunta</b>¿Sabes qué pasó con tus 340 leads?</li>
+            <li><b>Gancho C · la escena</b>Lunes, 9 de la mañana. Cierre de mes.</li>
+            <li><b>Gancho D · el costo</b>$4.000.000 en pauta. 6 promesas.</li>
+          </ul>
+          <p style="margin-top:12px"><strong>Cómo se prueban:</strong> se sube el mismo video tres veces cambiando solo los primeros 3 segundos, como tres anuncios distintos dentro del mismo conjunto. El resto del video es idéntico, así que la diferencia de resultado se atribuye limpiamente al gancho.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ A02 ============ -->
+  <section id="a02">
+    <div class="guion">
+      <div class="guion-head"><span class="id">A02</span><span class="ti">La comparación interna</span><span class="fm">20 segundos · Prospección</span></div>
+      <div class="guion-body">
+        <div class="ficha-g">
+          <div><dt>Duración</dt><dd>20 s</dd></div>
+          <div><dt>Material</dt><dd>Animación gráfica</dd></div>
+          <div><dt>Locución</dt><dd>Sí, completa</dd></div>
+          <div><dt>Cortes</dt><dd>7</dd></div>
+          <div><dt>Prioridad</dt><dd><span class="chip ok">Producir 2º</span></dd></div>
+        </div>
+        <div class="table-scroll">
+          <table class="gs">
+            <thead><tr><th>Seg.</th><th>Imagen</th><th>Texto en pantalla</th><th>Audio</th></tr></thead>
+            <tbody>
+              <tr><td class="seg">0,0–2,0</td><td>Pantalla azul marino. Aparecen dos siluetas de silla idénticas, lado a lado, en línea fina ámbar. Nada más.</td><td class="txt">Dos ejecutivos.</td><td class="aud">Silencio absoluto. El silencio inicial es parte del gancho.</td></tr>
+              <tr><td class="seg">2,0–4,0</td><td>Sobre cada silla se dibuja una etiqueta vacía. Las dos idénticas.</td><td class="txt">Mismo proyecto. Mismos leads.</td><td class="aud">Entra un pulso rítmico bajo, muy simple.</td></tr>
+              <tr><td class="seg">4,0–7,0</td><td>Desde la base de cada silla crecen barras hacia arriba. La izquierda se detiene en tres; la derecha sigue subiendo hasta ocho y se enciende en ámbar.</td><td class="txt">3 al mes.<br>8 al mes.</td><td class="aud">Locución: «Mismo proyecto. Mismos leads. Uno promesa tres al mes; el otro, ocho.»</td></tr>
+              <tr><td class="seg">7,0–10,0</td><td>Todo se apaga menos la diferencia entre ambas columnas, que queda flotando como un bloque ámbar.</td><td class="txt">La diferencia no es suerte.</td><td class="aud">«La diferencia no es suerte, ni carisma.»</td></tr>
+              <tr><td class="seg">10,0–13,0</td><td>El bloque ámbar se descompone en cuatro líneas horizontales cortas, como frases apiladas.</td><td class="txt">Son 4 frases concretas.</td><td class="aud">«Son cuatro o cinco frases concretas que uno dice y el otro no.»</td></tr>
+              <tr><td class="seg">13,0–16,0</td><td>Corte a fotograma real: el informe abierto sobre el escritorio, con una frase resaltada en ámbar.</td><td class="txt">Están en las grabaciones.</td><td class="aud">«Están en las grabaciones. Solo que nadie las escucha.»</td></tr>
+              <tr class="cierre"><td class="seg">16,0–20,0</td><td>Tarjeta de cierre con la cúpula dorada. Logo.</td><td class="txt">5 reuniones. 72 horas.<br>Sin costo.</td><td class="aud">«Nosotros sí. Cinco reuniones de tu equipo, informe en 72 horas, sin costo.»</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sub">
+          <h4>Tres ganchos alternativos · segundos 0 a 3</h4>
+          <ul class="ganchos">
+            <li><b>Gancho B · la acusación suave</b>Tu mejor vendedor vende el triple. ¿Por qué?</li>
+            <li><b>Gancho C · el dato</b>El 60% de tus promesas las hacen 2 personas.</li>
+            <li><b>Gancho D · la pregunta incómoda</b>¿Qué dice el que vende, que el otro no dice?</li>
+          </ul>
+          <p style="margin-top:12px"><strong>Nota de animación:</strong> esta pieza se arma completa en editor, sin cámara. Las barras que crecen son el único movimiento y tienen que sentirse mecánicas, no rebotar: el rebote lo hace ver como plantilla de redes sociales y le quita seriedad al dato.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ A03 ============ -->
+  <section id="a03">
+    <div class="guion">
+      <div class="guion-head"><span class="id">A03</span><span class="ti">El costo invisible · frase de marca</span><span class="fm">15 segundos · Prospección</span></div>
+      <div class="guion-body">
+        <div class="ficha-g">
+          <div><dt>Duración</dt><dd>15 s</dd></div>
+          <div><dt>Material</dt><dd>Corte del explainer 3D</dd></div>
+          <div><dt>Locución</dt><dd>La existente + cierre nuevo</dd></div>
+          <div><dt>Cortes</dt><dd>5</dd></div>
+          <div><dt>Prioridad</dt><dd><span class="chip ok">Producir 1º</span></dd></div>
+        </div>
+        <div class="table-scroll">
+          <table class="gs">
+            <thead><tr><th>Seg.</th><th>Imagen</th><th>Texto en pantalla</th><th>Audio</th></tr></thead>
+            <tbody>
+              <tr><td class="seg">0,0–3,0</td><td>Portada generada: la silla vacía frente a las dos tazas, una llena y una vacía. Cámara fija, sin movimiento.</td><td class="txt">¿Cuántas ventas perdiste este mes?</td><td class="aud">Silencio. Un solo golpe grave en el segundo 0.</td></tr>
+              <tr><td class="seg">3,0–5,5</td><td>Mismo plano. El texto anterior se desvanece y entra el segundo, más pequeño, debajo.</td><td class="txt">Sin darte cuenta.</td><td class="aud">Entra locución del explainer: «¿Cuántas ventas perdiste este mes sin darte cuenta?»</td></tr>
+              <tr><td class="seg">5,5–8,0</td><td>Corte al fotograma de relleno: la cúpula dorada sobre los bloques azules, partículas ascendiendo.</td><td class="txt">No las que no llegaron.</td><td class="aud">«No hablo de las que nunca llegaron.»</td></tr>
+              <tr><td class="seg">8,0–11,0</td><td>Corte a la silla vacía, ahora en plano más cerrado sobre la taza vacía.</td><td class="txt">Las que se sentaron y se fueron.</td><td class="aud">«Hablo de las que se sentaron frente a tu ejecutivo y se fueron.»</td></tr>
+              <tr class="cierre"><td class="seg">11,0–15,0</td><td>Corte a la secuencia existente del explainer donde aparecen Amanda y Lucas, seguida de tarjeta de cierre con logo.</td><td class="txt">Amanda escucha.<br>Lucas te dice qué falló.</td><td class="aud">«Amanda escucha cada reunión. Lucas te dice qué falló. Diagnóstico sin costo.»</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sub">
+          <h4>Tres ganchos alternativos · segundos 0 a 3</h4>
+          <ul class="ganchos">
+            <li><b>Gancho B · la cifra propia</b>Perdiste ventas este mes. No sabes cuáles.</li>
+            <li><b>Gancho C · el reencuadre</b>Tus leads llegaron. Tus ventas no.</li>
+            <li><b>Gancho D · marca pura</b>Tu próxima venta ya está aprendiendo de esta.</li>
+          </ul>
+          <p style="margin-top:12px"><strong>Ventaja de esta pieza:</strong> es la más barata de producir porque el 60% ya está grabado. Debería estar lista el mismo día. Sirve además para medir si la frase de marca sostiene sola un anuncio, lo que decide si se usa como línea principal en el resto del sistema.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ A04 ============ -->
+  <section id="a04">
+    <div class="guion">
+      <div class="guion-head"><span class="id">A04</span><span class="ti">El equipo digital · precio ancla</span><span class="fm">25 segundos · Prospección</span></div>
+      <div class="guion-body">
+        <div class="ficha-g">
+          <div><dt>Duración</dt><dd>25 s</dd></div>
+          <div><dt>Material</dt><dd>4 tarjetas isométricas</dd></div>
+          <div><dt>Locución</dt><dd>Sí, ritmo rápido</dd></div>
+          <div><dt>Cortes</dt><dd>8</dd></div>
+          <div><dt>Prioridad</dt><dd><span class="chip mid">Producir 3º</span></dd></div>
+        </div>
+        <div class="table-scroll">
+          <table class="gs">
+            <thead><tr><th>Seg.</th><th>Imagen</th><th>Texto en pantalla</th><th>Audio</th></tr></thead>
+            <tbody>
+              <tr><td class="seg">0,0–3,0</td><td>Pantalla azul marino con un solo dato tipográfico grande, centrado. Sin ilustración todavía.</td><td class="txt">Sueldo de un vendedor junior.</td><td class="aud">Silencio.</td></tr>
+              <tr><td class="seg">3,0–5,0</td><td>El texto se desplaza hacia arriba y bajo él aparece una línea ámbar que lo subraya.</td><td class="txt">Por menos de eso:</td><td class="aud">Entra pulso rítmico. Locución: «Por menos de lo que cuesta un vendedor junior.»</td></tr>
+              <tr><td class="seg">5,0–9,0</td><td>Tarjeta 1: la diana con las tres flechas, girando lentamente en isométrico. Aparece la cúpula sobre ella.</td><td class="txt">Matías compra tus medios.</td><td class="aud">«Matías compra tus medios y arma los anuncios.»</td></tr>
+              <tr><td class="seg">9,0–13,0</td><td>Tarjeta 2: la cuadrícula de calendario, dos casillas se encienden en ámbar.</td><td class="txt">Antonia responde y agenda.</td><td class="aud">«Antonia responde cada lead en segundos y agenda la reunión.»</td></tr>
+              <tr><td class="seg">13,0–17,0</td><td>Tarjeta 3: la onda de audio sólida, las barras suben y bajan una sola vez.</td><td class="txt">Amanda escucha todo.</td><td class="aud">«Amanda escucha todas las reuniones.»</td></tr>
+              <tr><td class="seg">17,0–21,0</td><td>Tarjeta 4: los tres peldaños, la línea ámbar los recorre de abajo hacia arriba.</td><td class="txt">Lucas entrena a tu equipo.</td><td class="aud">«Y Lucas entrena a tu equipo con lo que escuchó.»</td></tr>
+              <tr class="cierre"><td class="seg">21,0–25,0</td><td>Las cuatro tarjetas se alejan y se acomodan en cuadrícula bajo una sola cúpula grande. Logo.</td><td class="txt">Trabajan los 7 días.<br>Parte con un diagnóstico.</td><td class="aud">«Trabajan los siete días. Parte con un diagnóstico gratuito.»</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sub">
+          <h4>Tres ganchos alternativos · segundos 0 a 3</h4>
+          <ul class="ganchos">
+            <li><b>Gancho B · la enumeración</b>Cuatro personas que no tienes que contratar.</li>
+            <li><b>Gancho C · el contraste</b>Un vendedor junior cuesta más que esto.</li>
+            <li><b>Gancho D · la pregunta</b>¿Y si tu área comercial trabajara los domingos?</li>
+          </ul>
+          <div class="callout stop" style="margin-top:14px">
+            <h4>Cuidado con esta pieza</h4>
+            <p>Es la que más riesgo tiene de contradecir el posicionamiento. Cuatro trabajadores digitales con nombre humano, presentados a buen precio, se leen fácil como "reemplaza a tu equipo", que es exactamente lo contrario de lo que vende DOMO IA y lo que activa el veto del vendedor senior. Por eso el cierre dice «entrena a tu equipo» y no «hace el trabajo de tu equipo». Si en las pruebas este anuncio trae prospectos que llegan a la reunión buscando despedir gente, se pausa aunque tenga el mejor costo por lead.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ A05 ============ -->
+  <section id="a05">
+    <div class="guion">
+      <div class="guion-head"><span class="id">A05</span><span class="ti">La oferta directa · el informe</span><span class="fm">15 segundos · Prospección</span></div>
+      <div class="guion-body">
+        <div class="ficha-g">
+          <div><dt>Duración</dt><dd>15 s</dd></div>
+          <div><dt>Material</dt><dd>Informe real o generado</dd></div>
+          <div><dt>Locución</dt><dd>Sí, explicativa</dd></div>
+          <div><dt>Cortes</dt><dd>5</dd></div>
+          <div><dt>Prioridad</dt><dd><span class="chip ok">Producir 2º</span></dd></div>
+        </div>
+        <div class="table-scroll">
+          <table class="gs">
+            <thead><tr><th>Seg.</th><th>Imagen</th><th>Texto en pantalla</th><th>Audio</th></tr></thead>
+            <tbody>
+              <tr><td class="seg">0,0–2,5</td><td>Plano cenital del informe cerrado sobre el escritorio. Una mano fuera de cuadro no aparece; el informe simplemente está.</td><td class="txt">Esto es un diagnóstico.</td><td class="aud">Silencio. Ambiente de oficina muy tenue.</td></tr>
+              <tr><td class="seg">2,5–5,5</td><td>El informe se abre en la página doble. Empuje suave hacia el gráfico de barras.</td><td class="txt">De 5 reuniones de tu equipo.</td><td class="aud">Locución: «Tu equipo graba cinco reuniones con clientes reales.»</td></tr>
+              <tr><td class="seg">5,5–8,5</td><td>Detalle de las dos líneas resaltadas en ámbar, con la anotación manuscrita al margen.</td><td class="txt">Con lo que dijeron.</td><td class="aud">«Las escuchamos una por una.»</td></tr>
+              <tr><td class="seg">8,5–11,5</td><td>Corte a otra página del informe, con la tabla de conductas. Empuje lateral lento.</td><td class="txt">Y lo que no dijeron.</td><td class="aud">«En 72 horas recibes esto: qué se dijo, qué faltó y qué cambiar la próxima semana.»</td></tr>
+              <tr class="cierre"><td class="seg">11,5–15,0</td><td>El informe se cierra. Tarjeta de cierre con la cúpula y el logo.</td><td class="txt">Sin costo. 10 cupos.</td><td class="aud">«Sin costo, sin compromiso. Diez cupos este mes.»</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sub">
+          <h4>Tres ganchos alternativos · segundos 0 a 3</h4>
+          <ul class="ganchos">
+            <li><b>Gancho B · escasez</b>Quedan 10 cupos. Esto es lo que recibes.</li>
+            <li><b>Gancho C · el contraste con la agencia</b>Tu agencia no te entrega esto.</li>
+            <li><b>Gancho D · instrucción</b>Graba 5 reuniones. Te devolvemos esto.</li>
+          </ul>
+          <p style="margin-top:12px"><strong>Regla de reemplazo:</strong> mientras no exista un informe real, se graba el generado. En cuanto salga el primer diagnóstico verdadero, se vuelve a grabar esta pieza con el documento real anonimizado. Es el creativo con más probabilidad de ganar y el que más mejora al usar material auténtico.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ A06 ============ -->
+  <section id="a06">
+    <div class="guion">
+      <div class="guion-head"><span class="id">A06</span><span class="ti">Fundador a cámara</span><span class="fm">30 segundos · Prospección</span></div>
+      <div class="guion-body">
+        <div class="ficha-g">
+          <div><dt>Duración</dt><dd>30 s</dd></div>
+          <div><dt>Material</dt><dd>Celular, una toma</dd></div>
+          <div><dt>Locución</dt><dd>Directa a cámara</dd></div>
+          <div><dt>Cortes</dt><dd>2, al final</dd></div>
+          <div><dt>Prioridad</dt><dd><span class="chip ok">Producir 1º</span></dd></div>
+        </div>
+        <div class="table-scroll">
+          <table class="gs">
+            <thead><tr><th>Seg.</th><th>Imagen</th><th>Texto en pantalla</th><th>Audio</th></tr></thead>
+            <tbody>
+              <tr><td class="seg">0,0–3,0</td><td>Plano medio corto, Rodolfo mirando al lente, ya hablando. Sin saludo, sin presentación.</td><td class="txt">15 años vendiendo intangibles.</td><td class="aud">«Vendí seguros, inversiones y propiedades durante quince años.»</td></tr>
+              <tr><td class="seg">3,0–9,0</td><td>Mismo plano, sin cortes. Gesto natural, sin leer.</td><td class="txt">Siempre el mismo problema.</td><td class="aud">«Y en todos lados me encontré con el mismo problema.»</td></tr>
+              <tr><td class="seg">9,0–16,0</td><td>Mismo plano. Aquí baja el ritmo: es la frase que sostiene el anuncio.</td><td class="txt">El jefe no sabe qué pasa en la reunión.</td><td class="aud">«El que dirige el equipo no tiene idea de lo que pasa dentro de la reunión de su vendedor. Opina sobre lo que le cuentan.»</td></tr>
+              <tr><td class="seg">16,0–21,0</td><td>Mismo plano, leve acercamiento en edición para marcar el cambio de tema.</td><td class="txt">Por eso construimos DOMO IA.</td><td class="aud">«Por eso construimos DOMO IA.»</td></tr>
+              <tr><td class="seg">21,0–27,0</td><td>Mismo plano. Cierra mirando fijo al lente.</td><td class="txt">5 reuniones tuyas. Sin costo.</td><td class="aud">«Te lo muestro con cinco reuniones de tu propio equipo, sin costo. Yo mismo te las analizo.»</td></tr>
+              <tr class="cierre"><td class="seg">27,0–30,0</td><td>Corte a la tarjeta de cierre generada: cúpula dorada sobre azul marino. Logo.</td><td class="txt">Diagnóstico DOMO<br>10 cupos este mes</td><td class="aud">Silencio o un acorde bajo de cierre.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sub">
+          <h4>Guion hablado, para memorizar en ideas y no palabra por palabra</h4>
+          <div class="locucion">Vendí seguros, inversiones y propiedades durante quince años. Y en todos lados me encontré con el mismo problema.
+
+El que dirige el equipo no tiene idea de lo que pasa dentro de la reunión de su vendedor. Opina sobre lo que le cuentan.
+
+Por eso construimos DOMO IA.
+
+Te lo muestro con cinco reuniones de tu propio equipo, sin costo. Yo mismo te las analizo.</div>
+          <h4>Tres ganchos alternativos · segundos 0 a 3</h4>
+          <ul class="ganchos">
+            <li><b>Gancho B · la confesión</b>Dirigí equipos comerciales y me equivoqué en esto.</li>
+            <li><b>Gancho C · la observación</b>Ningún gerente sabe qué dicen sus vendedores.</li>
+            <li><b>Gancho D · directo al espectador</b>Si tienes vendedores, esto te va a incomodar.</li>
+          </ul>
+          <div class="callout go" style="margin-top:14px">
+            <h4>Por qué esta pieza importa más que las otras cinco</h4>
+            <p>Es la única que resuelve el problema real de un servicio consultivo vendido en frío: que nadie sabe quién está detrás. Las otras cinco explican el producto; esta compra confianza. En categorías de ticket alto suele ser la que trae los prospectos que efectivamente cierran, aunque no siempre sea la del costo por lead más bajo. Conviene evaluarla por <strong>costo por diagnóstico realizado</strong>, no por costo por lead, o se apaga por error.</p>
+            <p>Grabar cuatro tomas completas seguidas y quedarse con la tercera o la cuarta: las dos primeras siempre salen rígidas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ORDEN ============ -->
+  <section id="orden">
+    <div class="section-head">
+      <p class="eyebrow">07 · Producción</p>
+      <h2>Orden de producción y checklist</h2>
+      <p class="lede col">Tres piezas alcanzan para lanzar. Las otras tres entran en el día 8, cuando ya se sabe qué ángulo funciona y hay con qué comparar.</p>
+    </div>
+
+    <div class="box-table">
+      <table class="simple">
+        <thead><tr><th>Orden</th><th>Pieza</th><th>Esfuerzo</th><th>Depende de</th><th>Cuándo</th></tr></thead>
+        <tbody>
+          <tr><td class="n">1</td><td><strong>A03 · El costo invisible</strong></td><td>Bajo · 60% ya grabado</td><td>Explainer 3D existente</td><td>Día −3</td></tr>
+          <tr><td class="n">2</td><td><strong>A06 · Fundador a cámara</strong></td><td>Bajo · una toma de celular</td><td>Nada</td><td>Día −3</td></tr>
+          <tr><td class="n">3</td><td><strong>A01 · El agujero negro</strong></td><td>Medio · 3 imágenes + montaje</td><td>Prompts de imagen</td><td>Día −2</td></tr>
+          <tr><td class="n">4</td><td><strong>A05 · El informe</strong></td><td>Medio</td><td>Formato del informe definido</td><td>Día −1</td></tr>
+          <tr><td class="n">5</td><td><strong>A02 · La comparación</strong></td><td>Alto · animación completa</td><td>Nada</td><td>Día 8</td></tr>
+          <tr><td class="n">6</td><td><strong>A04 · El equipo digital</strong></td><td>Alto · 4 tarjetas animadas</td><td>Las 4 imágenes isométricas</td><td>Día 8</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <h4>Con qué se puede lanzar</h4>
+      <p>Con A03, A06 y A01 más los dos estáticos de retargeting ya se lanza. Meta no necesita seis creativos el día 1: necesita al menos tres genuinamente distintos para no agrupar todo en el mismo público. Esperar a tener las seis piezas listas retrasa el lanzamiento una semana completa, y esa semana cuesta más que la diferencia de calidad entre tres y seis creativos.</p>
+    </div>
+
+    <h3>Checklist antes de subir cada pieza</h3>
+    <div class="duo">
+      <div class="panel">
+        <h4>Revisión de contenido</h4>
+        <ul>
+          <li>¿El gancho se entiende con el sonido apagado?</li>
+          <li>¿Ningún cuadro pasa de seis palabras?</li>
+          <li>¿La oferta aparece recién en los últimos 3 segundos?</li>
+          <li>¿El logo aparece después del segundo 8?</li>
+          <li>¿Hay algún cuadro que dure más de 3 segundos?</li>
+          <li>¿Alguna frase promete un resultado numérico? Si sí, se saca.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Revisión técnica</h4>
+        <ul>
+          <li>Exportado en 9:16 y en 4:5, re-encuadrado y no estirado.</li>
+          <li>Zona segura respetada en la versión vertical.</li>
+          <li>Subtítulos quemados en el archivo.</li>
+          <li>Miniatura elegida a mano.</li>
+          <li>Audio presente aunque el video sea silencioso.</li>
+          <li>Nombre de archivo con la convención: <code>A03_COSTOINVIS_VID15_9x16_v1</code></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Los tiempos son de montaje, no de rodaje: están escritos para que el editor los ejecute directamente. Las locuciones entre comillas son literales; conviene grabarlas seguidas en una sola sesión para que el tono se mantenga parejo entre piezas.</p>
+    <p>DOMO IA · Guiones de rodaje · Versión 1.0 · 14 de agosto de 2026 · Complementa el plan de medios «Máquina de agendamiento», sección 6</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
