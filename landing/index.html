@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>DOMO IA | De US$71 a US$8 por reunión agendada</title>
-<meta name="description" content="No vendemos software: instalamos un equipo. Siete trabajadores digitales que traen el lead, lo atienden en menos de un minuto, agendan la reunión y la evalúan. Resultados reales del piloto.">
+<meta name="description" content="No vendemos software: instalamos un equipo. Nueve trabajadores digitales que traen el lead, lo atienden en menos de un minuto, agendan la reunión y la evalúan. Números reales, medidos en vivo.">
 <meta property="og:title" content="DOMO IA — De US$71 a US$8 por reunión agendada">
 <meta property="og:description" content="Un equipo de agentes digitales que trabaja sin descanso, cubriendo el ciclo completo. Habla con Antonia y agenda tu diagnóstico.">
 <meta property="og:image" content="https://domo-ia.com/assets/web/og-domo-ia.jpg">
@@ -212,6 +212,10 @@ header{
 .block.hi>p.desc,.block.hi .member p{color:var(--deepMuted)}
 .block.hi .member .cargo{color:var(--deepAmber)}
 .block.hi .member img{border-color:var(--deepBorder)}
+@media(min-width:720px){
+  .block.full{grid-column:1 / -1}
+  .block.full .crew{grid-template-columns:1fr 1fr;gap:18px}
+}
 .tagline{
   margin-top:26px;font-size:16px;color:var(--muted);font-style:italic;
   border-left:3px solid var(--brand2);padding-left:14px;
@@ -332,9 +336,9 @@ const DOMOIA = {
       <span class="eyebrow">Piloto real · Inmobiliaria en Santiago</span>
       <h1>De <span class="amber">US$71</span> a <span class="amber">US$8</span> por reunión agendada.</h1>
       <p class="lead">
-        No vendemos un software: <b>instalamos un equipo</b>. Siete trabajadores digitales
+        No vendemos un software: <b>instalamos un equipo</b>. Nueve trabajadores digitales
         que traen el lead, lo atienden en menos de un minuto, agendan la reunión y después
-        la evalúan. Estos son los números exactos de un piloto de 6 semanas — no un promedio de industria.
+        la evalúan. Estos son los números exactos de una operación real, medidos hoy — no un promedio de industria.
       </p>
 
       <div class="cta-row">
@@ -347,9 +351,9 @@ const DOMOIA = {
       <p class="cta-note"><span class="dot"></span> Antonia responde en menos de un minuto, cualquier día y a cualquier hora.</p>
 
       <div class="stamp">
-        <span><b>337</b> leads procesados</span>
-        <span><b>15-jun a 30-jul 2026</b></span>
-        <span><b>54%</b> llegó fuera de horario</span>
+        <span><b>751</b> leads atendidos</span>
+        <span><b>41</b> reuniones agendadas</span>
+        <span><b>15-jun a 14-ago 2026</b></span>
       </div>
     </div>
 
@@ -394,8 +398,9 @@ const DOMOIA = {
     </div>
 
     <p class="kpi-foot">
-      El último aviso del piloto: <b>US$33 invertidos → 82 conversaciones → 13 reuniones agendadas</b>
-      en 7 días. US$2,6 por agenda, 15,9% de conversión.
+      Y no fue un peak de una semana: en los <b>últimos 30 días</b> la misma operación invirtió
+      <b>US$423</b>, generó <b>528 conversaciones</b> a US$0,80 cada una y agendó <b>29 reuniones</b>.
+      Dos meses después del arranque, la reunión sigue costando <b>US$14,6</b> contra los US$71 del punto de partida.
     </p>
   </div>
 </section>
@@ -413,9 +418,9 @@ const DOMOIA = {
         <p>De 213 leads, 114 nunca pasaron del primer mensaje. Nadie los había contado: en la planilla se veían como "leads fríos".</p>
       </div>
       <div class="pain">
-        <div class="num">54%</div>
+        <div class="num">56%</div>
         <h3>Llegan fuera de horario</h3>
-        <p>Más de la mitad escribe de noche, el fin de semana o mientras tu vendedor está en otra reunión. A las 9 AM ya se enfriaron.</p>
+        <p>Medido sobre 723 conversaciones: más de la mitad escribe de noche, el fin de semana o mientras tu vendedor está en otra reunión. A las 9 AM ya se enfriaron.</p>
       </div>
       <div class="pain">
         <div class="num">89%</div>
@@ -535,6 +540,31 @@ const DOMOIA = {
         </div>
       </div>
 
+      <!-- 05 -->
+      <div class="block full">
+        <span class="block-num">05 · Automatiza</span>
+        <h3>Que lo repetitivo lo haga un flujo, no una persona</h3>
+        <p class="desc">El trabajo manual que hoy ocupa horas de tu equipo —copiar datos, avisar, hacer seguimiento— pasa a ejecutarse solo.</p>
+        <div class="crew">
+          <div class="member">
+            <img src="img/retrato-diego.jpg" alt="Diego, ingeniero de automatizaciones" width="640" height="857" loading="lazy">
+            <div>
+              <span class="cargo">Ingeniero de automatizaciones</span>
+              <h4>Diego</h4>
+              <p>Toma tu pedido en palabras simples y lo convierte en un flujo que funciona, conectando las herramientas que ya usas: WhatsApp, planillas, correo, tu CRM.</p>
+            </div>
+          </div>
+          <div class="member">
+            <img src="img/retrato-sebastian.jpg" alt="Sebastián, control de calidad" width="640" height="857" loading="lazy">
+            <div>
+              <span class="cargo">Control de calidad</span>
+              <h4>Sebastián</h4>
+              <p>Prueba cada entrega de Diego con datos reales antes de que llegue a ti. Si no cumple lo que se pidió, la devuelve. Nada se entrega sin su visto bueno.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <p class="tagline">"Que ninguna venta vuelva a depender de la memoria de nadie."</p>
@@ -572,10 +602,16 @@ const DOMOIA = {
         <p>El problema real era el tráfico. Matías cambió el ángulo del anuncio y Antonia empezó a filtrar por subsidio y DICOM.</p>
         <span class="tl-res">13 agendas en 7 días</span>
       </div>
+      <div class="tl-item">
+        <span class="tl-date">Hoy · 14 de agosto</span>
+        <h3>Dos meses después, la mejora se sostiene</h3>
+        <p>751 conversaciones atendidas, 41 reuniones agendadas y ocho anuncios corriendo en paralelo. El embudo se mide solo y se actualiza todos los días.</p>
+        <span class="tl-res">US$0,80 por conversación</span>
+      </div>
     </div>
 
-    <a class="proof-link" href="https://roloenrolo.github.io/caso-nuevonorte/auditoria-pocuro.html" target="_blank" rel="noopener">
-      Ver el dashboard completo del caso, con las conversaciones reales →
+    <a class="proof-link" href="https://roloenrolo.github.io/embudo-nuevonorte/" target="_blank" rel="noopener">
+      Ver el embudo en vivo, con los números de hoy →
     </a>
   </div>
 </section>
@@ -624,8 +660,8 @@ const DOMOIA = {
       <p>No. Antonia hace lo que ningún vendedor debería estar haciendo: contestar a las 23:40, repetir las mismas cuatro preguntas de calificación y coordinar horarios. Tu vendedor entra cuando la reunión ya está agendada y con la persona correcta.</p>
     </details>
     <details>
-      <summary>¿Tengo que contratar a los siete?</summary>
-      <p>No. Casi todos parten por el bloque comercial —Sofía, Matías, Antonia y Clara—, que es donde hoy se va la plata, y suman el bloque de coaching cuando ya tienen reuniones que evaluar. Ese segundo bloque rinde de verdad desde las 15 reuniones evaluadas en adelante.</p>
+      <summary>¿Tengo que contratar a los nueve?</summary>
+      <p>No. Se contratan por equipos. Casi todos parten por el <b>equipo comercial</b> —Sofía, Matías, Antonia y Clara—, que es donde hoy se va la plata; suman el <b>equipo de coaching</b> —Amanda, Lucas y Laura— cuando ya tienen reuniones que evaluar, que rinde de verdad desde las 15 reuniones en adelante; y el <b>equipo de automatizaciones</b> —Diego y Sebastián— cuando el cuello de botella es el trabajo repetitivo.</p>
     </details>
     <details>
       <summary>¿Y si mis números no mejoran?</summary>
@@ -661,7 +697,8 @@ const DOMOIA = {
     <span>
       <a href="https://domo-ia.com/" target="_blank" rel="noopener">domo-ia.com</a> ·
       <a href="https://domo-ia.com/privacidad/" target="_blank" rel="noopener">Privacidad · Ley 21.719</a> ·
-      <a href="https://roloenrolo.github.io/caso-nuevonorte/auditoria-pocuro.html" target="_blank" rel="noopener">Caso Nuevo Norte</a>
+      <a href="https://roloenrolo.github.io/embudo-nuevonorte/" target="_blank" rel="noopener">Embudo en vivo</a> ·
+      <a href="https://roloenrolo.github.io/caso-nuevonorte/auditoria-pocuro.html" target="_blank" rel="noopener">Auditoría</a>
     </span>
   </div>
 </footer>
