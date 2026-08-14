@@ -3,235 +3,296 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>DOMOIA | De US$71 a US$8 por reunión agendada</title>
-<meta name="description" content="Instalamos un equipo de agentes IA que pauta, conversa, agenda y audita las reuniones de tu fuerza de venta. Resultados reales del piloto: costo por agenda de US$71 a US$8 en 6 semanas.">
-<meta property="og:title" content="DOMOIA — De US$71 a US$8 por reunión agendada">
-<meta property="og:description" content="Agentes IA que se miden, se corrigen y dejan registro. Habla con Antonia y agenda tu diagnóstico.">
+<title>DOMO IA | De US$71 a US$8 por reunión agendada</title>
+<meta name="description" content="No vendemos software: instalamos un equipo. Siete trabajadores digitales que traen el lead, lo atienden en menos de un minuto, agendan la reunión y la evalúan. Resultados reales del piloto.">
+<meta property="og:title" content="DOMO IA — De US$71 a US$8 por reunión agendada">
+<meta property="og:description" content="Un equipo de agentes digitales que trabaja sin descanso, cubriendo el ciclo completo. Habla con Antonia y agenda tu diagnóstico.">
+<meta property="og:image" content="https://domo-ia.com/assets/web/og-domo-ia.jpg">
 <meta property="og:type" content="website">
 <meta name="robots" content="noindex">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='58' r='34' fill='%23e8a951'/><rect x='10' y='58' width='80' height='6' fill='%231b2340'/></svg>">
+<link rel="icon" href="img/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
 <style>
+/* ═══ Tokens de marca DOMO IA (idénticos a domo-ia.com) ═══ */
 :root{
-  --navy:#1b2340; --navy-2:#2d3963; --navy-3:#141b33;
-  --teal:#33508f; --green:#3ecf94;
-  --gold:#d98e3a; --gold-2:#e8a951; --amber-ink:#a06a1f;
-  --cream:#f6f3ec; --soft:#f0ebe0; --white:#fff;
-  --ink:#1f283c; --muted:#5d6478; --line:#e2dccc;
-  --wa:#25d366;
-  --shadow:0 18px 44px rgba(27,35,64,.13);
-  --radius:16px;
+  --bg:#F6F3EC; --surface:#FFFFFF; --surface2:#F0EBE0;
+  --text:#1C2340; --muted:#5D6478; --border:#E2DCCC;
+  --brand:#33508F; --brand2:#D98E3A; --accent:#0E9F6E; --warn:#D97706;
+  --chip:#F3E8D2; --chipText:#A06A1F;
+  --deep:#1B2340; --deepSurface:#252F55; --deepText:#F2EDE4; --deepMuted:#A7B0CC;
+  --deepBorder:#3D4A7A; --deepBrand:#7E9BDE; --deepAmber:#E8A951;
+  --shadow:0 2px 10px rgba(40,40,80,.08);
+  --shadow-lg:0 18px 44px rgba(28,35,64,.14);
+  --radius-pill:99px; --radius-card:14px; --radius-md:12px; --radius-sm:10px; --radius-xs:8px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
-  margin:0;background:var(--cream);color:var(--ink);
-  font-family:'Segoe UI',Helvetica,Arial,sans-serif;line-height:1.5;
-  padding-bottom:84px; /* espacio barra sticky móvil */
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.55;padding-bottom:82px;
 }
-img{max-width:100%}
+img{max-width:100%;display:block}
 .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 20px}
-section{padding:56px 0}
-h1,h2,h3{line-height:1.15;margin:0}
-h1{font-size:clamp(30px,6vw,54px);font-weight:700;letter-spacing:-.02em}
-h2{font-size:clamp(24px,4.2vw,38px);font-weight:700;letter-spacing:-.015em}
-h3{font-size:19px;font-weight:700}
+section{padding:60px 0}
+h1,h2,h3,h4{font-family:"Archivo",system-ui,sans-serif;margin:0;line-height:1.12;letter-spacing:-.02em}
+h1{font-size:clamp(31px,5.6vw,52px);font-weight:800}
+h2{font-size:clamp(25px,4vw,38px);font-weight:700}
+h3{font-size:19px;font-weight:700;letter-spacing:-.01em}
 p{margin:0}
 .eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--gold-2);
+  font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--brand2);
+  display:block;margin-bottom:12px;
 }
-.eyebrow.dark-ink{color:var(--amber-ink)}
-.lead{font-size:clamp(16px,2.3vw,19px);color:var(--muted)}
-.dark .lead{color:rgba(255,255,255,.78)}
-.gold{color:var(--gold-2)}
+.deep .eyebrow{color:var(--deepAmber)}
+.lead{font-size:clamp(16px,2.1vw,18.5px);color:var(--muted);line-height:1.6}
+.deep .lead{color:var(--deepMuted)}
+.amber{color:var(--brand2)}
+.deep .amber{color:var(--deepAmber)}
+.deep{background:var(--deep);color:var(--deepText)}
 
-/* ---------- Header ---------- */
+/* ═══ Header ═══ */
 header{
-  position:sticky;top:0;z-index:40;
-  background:rgba(27,35,64,.94);backdrop-filter:blur(8px);
-  border-bottom:1px solid rgba(232,169,81,.22);
+  position:sticky;top:0;z-index:40;background:rgba(27,35,64,.95);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--deepBorder);
 }
-.bar{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;letter-spacing:.04em;font-size:17px}
-.logo svg{display:block}
-.logo span small{display:block;font-size:10px;font-weight:600;letter-spacing:.16em;color:var(--gold-2);text-transform:uppercase}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:14px;height:62px}
+.mark{
+  display:flex;align-items:center;gap:9px;text-decoration:none;
+  font-family:"Archivo",sans-serif;font-weight:800;font-size:18px;
+  letter-spacing:.01em;color:var(--deepText);
+}
+.mark .ia{color:var(--deepAmber)}
 .header-ctas{display:none;gap:9px;align-items:center}
-@media(min-width:760px){.header-ctas{display:flex}}
-.btn-gold-line{background:transparent;color:var(--gold-2);border:1.5px solid rgba(232,169,81,.55)}
-.btn-gold-line:hover{background:var(--gold-2);color:#221703;border-color:var(--gold-2)}
+@media(min-width:820px){.header-ctas{display:flex}}
 
-/* ---------- Botones ---------- */
+/* ═══ Botones ═══ */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:9px;
-  padding:15px 26px;border-radius:999px;border:0;cursor:pointer;
-  font-size:16px;font-weight:700;text-decoration:none;line-height:1;
-  transition:transform .15s ease,box-shadow .15s ease,background .15s ease;
+  padding:14px 24px;border-radius:var(--radius-pill);border:1.5px solid transparent;
+  font-family:"IBM Plex Sans",sans-serif;font-size:15.5px;font-weight:600;
+  text-decoration:none;line-height:1;cursor:pointer;white-space:nowrap;
+  transition:transform .14s ease,box-shadow .14s ease,background .14s ease,color .14s ease;
 }
 .btn:active{transform:translateY(1px)}
-.btn-wa{background:var(--wa);color:#08331b;box-shadow:0 10px 26px rgba(37,211,102,.34)}
-.btn-wa:hover{background:#1fbe5b}
-.btn-gold{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#221703;box-shadow:0 10px 26px rgba(217,142,58,.32)}
-.btn-gold:hover{filter:brightness(1.06)}
-.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.42)}
-.btn-ghost:hover{border-color:var(--gold-2);color:var(--gold-2)}
-.btn-ghost-ink{background:transparent;color:var(--navy);border:1.5px solid rgba(27,35,64,.28)}
-.btn-ghost-ink:hover{border-color:var(--gold);color:var(--amber-ink)}
-.btn-sm{padding:11px 20px;font-size:14px}
-.cta-row{display:flex;flex-wrap:wrap;gap:12px}
-.cta-note{font-size:13.5px;color:var(--muted);display:flex;align-items:center;gap:7px}
-.dark .cta-note{color:rgba(255,255,255,.62)}
-.pulse{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(62,207,148,.7);animation:pulse 2.2s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(62,207,148,0)}100%{box-shadow:0 0 0 0 rgba(62,207,148,0)}}
-
-/* ---------- Hero ---------- */
-.hero{
-  color:#fff;padding:52px 0 60px;
-  background:
-    radial-gradient(ellipse at 50% 130%,rgba(232,169,81,.26),transparent 60%),
-    radial-gradient(ellipse at 88% -20%,rgba(93,108,150,.34),transparent 55%),
-    linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 60%,var(--navy-3) 100%);
+.btn-wa{background:var(--accent);color:#fff;box-shadow:0 8px 22px rgba(14,159,110,.28)}
+.btn-wa:hover{background:#0c8a5f}
+.btn-amber{background:var(--brand2);color:#fff;box-shadow:0 8px 22px rgba(217,142,58,.3)}
+.btn-amber:hover{background:#c47e2d}
+.btn-line{background:transparent;color:var(--deepAmber);border-color:rgba(232,169,81,.5)}
+.btn-line:hover{background:var(--deepAmber);color:var(--deep)}
+.btn-line-ink{background:transparent;color:var(--text);border-color:var(--border)}
+.btn-line-ink:hover{border-color:var(--brand2);color:var(--chipText)}
+.btn-sm{padding:11px 18px;font-size:14px}
+.cta-row{display:flex;flex-wrap:wrap;gap:11px}
+.cta-note{
+  display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--muted);
+  font-family:"IBM Plex Mono",monospace;
 }
-.hero h1{margin:16px 0 0}
-.hero .lead{margin-top:18px;max-width:640px}
-.hero .cta-row{margin-top:28px}
+.deep .cta-note{color:var(--deepMuted)}
+.dot{
+  width:8px;height:8px;border-radius:50%;background:var(--accent);flex:0 0 auto;
+  box-shadow:0 0 0 0 rgba(14,159,110,.65);animation:pulse 2.3s infinite;
+}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(14,159,110,0)}100%{box-shadow:0 0 0 0 rgba(14,159,110,0)}}
+
+/* ═══ Hero ═══ */
+.hero{padding:54px 0 58px;position:relative;overflow:hidden}
+.hero::after{
+  content:"";position:absolute;inset:auto 0 -40% 0;height:70%;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 100%,rgba(232,169,81,.18),transparent 62%);
+}
+.hero-grid{display:grid;gap:34px;align-items:center;position:relative;z-index:1}
+@media(min-width:900px){.hero-grid{grid-template-columns:1.15fr .85fr;gap:46px}}
+.hero h1{margin:0}
+.hero .lead{margin-top:18px;max-width:600px}
+.hero .cta-row{margin-top:26px}
 .hero .cta-note{margin-top:14px}
 .stamp{
-  margin-top:30px;padding-top:18px;border-top:1px solid rgba(255,255,255,.16);
-  display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13px;color:rgba(255,255,255,.62)
+  margin-top:28px;padding-top:18px;border-top:1px solid var(--deepBorder);
+  display:flex;flex-wrap:wrap;gap:8px 24px;font-size:13px;color:var(--deepMuted);
+  font-family:"IBM Plex Mono",monospace;
 }
-.stamp b{color:#fff;font-weight:600}
+.stamp b{color:var(--deepText);font-weight:600}
+/* Retrato Antonia en hero */
+.hero-card{
+  position:relative;max-width:330px;margin:0 auto;width:100%;
+  border-radius:var(--radius-card);overflow:visible;
+}
+.hero-card img{
+  border-radius:var(--radius-card);border:1px solid var(--deepBorder);
+  background:var(--bg);box-shadow:var(--shadow-lg);width:100%;height:auto;
+}
+.chat{
+  position:absolute;left:-14px;bottom:26px;max-width:225px;
+  background:var(--surface);color:var(--text);border-radius:14px 14px 14px 4px;
+  padding:11px 14px;box-shadow:var(--shadow-lg);font-size:13.5px;line-height:1.4;
+}
+.chat b{font-weight:600}
+.chat .meta{
+  display:flex;align-items:center;gap:6px;margin-top:6px;
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.06em;
+}
+.hero-badge{
+  position:absolute;right:-6px;top:16px;background:var(--brand2);color:#fff;
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;padding:7px 12px;border-radius:var(--radius-pill);
+  box-shadow:var(--shadow-lg);
+}
 
-/* ---------- KPIs ---------- */
-.kpis{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+/* ═══ KPIs ═══ */
+.kpis{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:26px}
-@media(min-width:820px){.kpi-grid{grid-template-columns:repeat(4,1fr);gap:16px}}
+@media(min-width:860px){.kpi-grid{grid-template-columns:repeat(4,1fr);gap:14px}}
 .kpi{
-  background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-card);
   padding:20px 18px;position:relative;overflow:hidden;
 }
-.kpi::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:linear-gradient(180deg,var(--gold-2),var(--gold))}
-.kpi .label{font-size:12.5px;color:var(--muted);font-weight:600;min-height:34px}
-.kpi .flow{display:flex;align-items:baseline;gap:8px;margin-top:12px;flex-wrap:wrap}
-.kpi .before{font-size:17px;color:#9aa0ad;text-decoration:line-through;font-weight:600}
-.kpi .arrow{color:var(--gold);font-weight:700}
-.kpi .after{font-size:clamp(26px,5.4vw,34px);font-weight:800;color:var(--navy);letter-spacing:-.02em}
+.kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--brand2)}
+.kpi .label{font-size:12.5px;color:var(--muted);min-height:36px;line-height:1.35}
+.kpi .flow{display:flex;align-items:baseline;gap:8px;margin-top:10px;flex-wrap:wrap}
+.kpi .before{font-size:17px;color:#9AA0AD;text-decoration:line-through;font-family:"IBM Plex Mono",monospace}
+.kpi .arrow{color:var(--brand2);font-weight:700}
+.kpi .after{font-family:"Archivo",sans-serif;font-size:clamp(27px,5vw,34px);font-weight:800;color:var(--text)}
 .kpi .delta{
-  display:inline-block;margin-top:10px;padding:4px 10px;border-radius:999px;
-  background:rgba(62,207,148,.14);color:#12764c;font-size:12.5px;font-weight:700
+  display:inline-block;margin-top:10px;padding:4px 11px;border-radius:var(--radius-pill);
+  background:rgba(14,159,110,.12);color:#0B7A54;font-size:12.5px;font-weight:600;
+  font-family:"IBM Plex Mono",monospace;
 }
-.kpi-foot{margin-top:18px;font-size:12.5px;color:var(--muted)}
+.kpi-foot{
+  margin-top:18px;font-size:13.5px;color:var(--muted);
+  background:var(--chip);border-radius:var(--radius-md);padding:14px 16px;
+}
+.kpi-foot b{color:var(--chipText)}
 
-/* ---------- Problema ---------- */
-.pain-grid{display:grid;gap:14px;margin-top:28px}
+/* ═══ Problema ═══ */
+.pain-grid{display:grid;gap:13px;margin-top:26px}
 @media(min-width:760px){.pain-grid{grid-template-columns:repeat(3,1fr)}}
-.pain{
-  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
-  padding:22px 20px;box-shadow:0 4px 16px rgba(27,35,64,.05)
-}
-.pain .num{font-size:clamp(30px,5vw,38px);font-weight:800;color:var(--amber-ink);letter-spacing:-.02em}
+.pain{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-card);padding:22px 20px;box-shadow:var(--shadow)}
+.pain .num{font-family:"Archivo",sans-serif;font-size:clamp(31px,5vw,38px);font-weight:800;color:var(--chipText)}
 .pain h3{margin:6px 0 8px;font-size:17px}
 .pain p{font-size:14.5px;color:var(--muted)}
 
-/* ---------- Equipo ---------- */
-.team{background:var(--white);border-top:1px solid var(--line)}
-.team-grid{display:grid;gap:12px;margin-top:28px}
-@media(min-width:700px){.team-grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1000px){.team-grid{grid-template-columns:repeat(4,1fr)}}
-.agent{
-  border:1px solid var(--line);border-radius:var(--radius);padding:20px 18px;
-  background:var(--cream);display:flex;flex-direction:column;gap:8px
+/* ═══ Bloques + agentes ═══ */
+.equipo{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.blocks{display:grid;gap:14px;margin-top:28px}
+@media(min-width:720px){.blocks{grid-template-columns:repeat(2,1fr)}}
+.block{
+  background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-card);
+  padding:22px 20px;display:flex;flex-direction:column;
 }
-.agent.on{background:linear-gradient(160deg,#1b2340,#2d3963);border-color:transparent;color:#fff}
-.avatar{
-  width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
-  background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#221703;
-  font-weight:800;font-size:17px
+.block-num{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--brand2);display:flex;align-items:center;gap:8px;
 }
-.agent.on .avatar{background:var(--wa);color:#08331b}
-.agent h3{font-size:17px}
-.agent .role{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber-ink)}
-.agent.on .role{color:var(--gold-2)}
-.agent p{font-size:14px;color:var(--muted)}
-.agent.on p{color:rgba(255,255,255,.8)}
-.tagline{margin-top:26px;font-size:15px;color:var(--muted);font-style:italic}
+.block-num::after{content:"";flex:1;height:1px;background:var(--border)}
+.block h3{margin:8px 0 6px;font-size:21px}
+.block>p.desc{font-size:14.5px;color:var(--muted);margin-bottom:16px}
+.crew{display:grid;gap:14px;margin-top:auto}
+.member{display:flex;gap:13px;align-items:flex-start}
+.member img{
+  flex:0 0 auto;width:62px;height:62px;border-radius:50%;object-fit:cover;
+  object-position:50% 10%;background:var(--surface2);border:1px solid var(--border);
+}
+.member .cargo{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--brand2);
+}
+.member h4{font-size:16.5px;font-weight:700;margin:1px 0 3px}
+.member p{font-size:13.8px;color:var(--muted);line-height:1.45}
+.block.hi{background:var(--deep);border-color:var(--deep);color:var(--deepText)}
+.block.hi .block-num{color:var(--deepAmber)}
+.block.hi .block-num::after{background:var(--deepBorder)}
+.block.hi>p.desc,.block.hi .member p{color:var(--deepMuted)}
+.block.hi .member .cargo{color:var(--deepAmber)}
+.block.hi .member img{border-color:var(--deepBorder)}
+.tagline{
+  margin-top:26px;font-size:16px;color:var(--muted);font-style:italic;
+  border-left:3px solid var(--brand2);padding-left:14px;
+}
 
-/* ---------- Timeline ---------- */
-.tl{margin-top:30px;border-left:2px solid var(--line);padding-left:22px;display:grid;gap:22px}
+/* ═══ Timeline ═══ */
+.tl{margin-top:28px;border-left:2px solid var(--border);padding-left:22px;display:grid;gap:22px}
 .tl-item{position:relative}
 .tl-item::before{
-  content:"";position:absolute;left:-29px;top:4px;width:12px;height:12px;border-radius:50%;
-  background:var(--gold-2);border:2px solid var(--cream);box-shadow:0 0 0 2px var(--gold-2)
+  content:"";position:absolute;left:-29px;top:5px;width:11px;height:11px;border-radius:50%;
+  background:var(--brand2);box-shadow:0 0 0 3px var(--bg);
 }
-.tl-date{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber-ink)}
-.tl-item h3{margin:4px 0 4px;font-size:17px}
+.tl-date{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--chipText)}
+.tl-item h3{margin:4px 0;font-size:17px}
 .tl-item p{font-size:14.5px;color:var(--muted)}
-.tl-res{display:inline-block;margin-top:7px;font-size:13px;font-weight:700;color:#12764c;background:rgba(62,207,148,.14);padding:3px 10px;border-radius:999px}
-.tl-res.neutral{color:var(--muted);background:rgba(27,35,64,.07)}
-.proof-link{
-  margin-top:26px;display:inline-flex;align-items:center;gap:9px;font-size:14.5px;font-weight:600;
-  color:var(--navy);text-decoration:none;border-bottom:2px solid var(--gold-2);padding-bottom:3px
+.tl-res{
+  display:inline-block;margin-top:7px;font-family:"IBM Plex Mono",monospace;font-size:12px;
+  font-weight:500;color:#0B7A54;background:rgba(14,159,110,.12);padding:4px 11px;border-radius:var(--radius-pill);
 }
-.proof-link:hover{color:var(--amber-ink)}
+.tl-res.neutral{color:var(--muted);background:var(--surface2)}
+.proof-link{
+  margin-top:26px;display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:600;
+  color:var(--brand);text-decoration:none;border-bottom:2px solid var(--brand2);padding-bottom:3px;
+}
+.proof-link:hover{color:var(--chipText)}
 
-/* ---------- Fit ---------- */
-.fit{background:var(--white);border-top:1px solid var(--line)}
-.fit-grid{display:grid;gap:16px;margin-top:26px}
-@media(min-width:820px){.fit-grid{grid-template-columns:1.25fr .95fr}}
-.card{border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px;background:var(--cream)}
-.card.no{background:#fbfaf6}
+/* ═══ Fit ═══ */
+.fit{background:var(--surface);border-top:1px solid var(--border)}
+.fit-grid{display:grid;gap:15px;margin-top:26px}
+@media(min-width:840px){.fit-grid{grid-template-columns:1.2fr .95fr}}
+.card{border:1px solid var(--border);border-radius:var(--radius-card);padding:24px 22px;background:var(--bg)}
+.card.no{background:var(--surface2)}
 .card h3{margin-bottom:14px}
 .list{list-style:none;padding:0;margin:0;display:grid;gap:11px}
-.list li{display:flex;gap:11px;font-size:14.5px;color:var(--ink)}
+.list li{display:flex;gap:11px;font-size:14.5px}
 .list li i{
   flex:0 0 20px;height:20px;border-radius:50%;display:grid;place-items:center;
-  font-style:normal;font-size:12px;font-weight:800;margin-top:1px;
-  background:rgba(62,207,148,.18);color:#12764c
+  font-style:normal;font-size:12px;font-weight:700;margin-top:2px;
+  background:rgba(14,159,110,.15);color:#0B7A54;
 }
 .card.no .list li{color:var(--muted)}
-.card.no .list li i{background:rgba(27,35,64,.08);color:var(--muted)}
+.card.no .list li i{background:rgba(28,35,64,.09);color:var(--muted)}
 
-/* ---------- FAQ ---------- */
-details{border-bottom:1px solid var(--line);padding:16px 0}
-details summary{
-  cursor:pointer;font-weight:700;font-size:16px;list-style:none;
-  display:flex;justify-content:space-between;gap:16px;align-items:flex-start
+/* ═══ FAQ ═══ */
+details{border-bottom:1px solid var(--border);padding:16px 0}
+summary{
+  cursor:pointer;font-family:"Archivo",sans-serif;font-weight:700;font-size:16.5px;
+  list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:flex-start;
 }
-details summary::-webkit-details-marker{display:none}
-details summary::after{content:"+";color:var(--gold);font-size:22px;line-height:1;font-weight:700}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--brand2);font-size:22px;line-height:1}
 details[open] summary::after{content:"−"}
 details p{margin-top:11px;font-size:14.5px;color:var(--muted)}
 
-/* ---------- CTA final ---------- */
-.final{
-  color:#fff;text-align:center;
-  background:
-    radial-gradient(ellipse at 50% 120%,rgba(232,169,81,.3),transparent 62%),
-    linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 65%,var(--navy-3) 100%);
+/* ═══ CTA final ═══ */
+.final{text-align:center;position:relative;overflow:hidden}
+.final::after{
+  content:"";position:absolute;inset:auto 0 -50% 0;height:80%;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 100%,rgba(232,169,81,.22),transparent 62%);
 }
-.final h2{margin:14px auto 0;max-width:660px}
-.final .lead{margin:16px auto 0;max-width:560px}
-.final .cta-row{justify-content:center;margin-top:28px}
+.final .wrap{position:relative;z-index:1}
+.final h2{margin:0 auto;max-width:640px}
+.final .lead{margin:16px auto 0;max-width:540px}
+.final .cta-row{justify-content:center;margin-top:26px}
 .final .cta-note{justify-content:center;margin-top:14px}
 
-/* ---------- Footer ---------- */
-footer{background:var(--navy-3);color:rgba(255,255,255,.55);font-size:13px;padding:26px 0}
-footer a{color:var(--gold-2);text-decoration:none}
-.foot{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-between;align-items:center}
+/* ═══ Footer ═══ */
+footer{background:var(--deep);color:var(--deepMuted);font-size:13px;padding:26px 0;border-top:1px solid var(--deepBorder)}
+footer a{color:var(--deepAmber);text-decoration:none}
+footer a:hover{text-decoration:underline}
+.foot{display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:space-between;align-items:center}
 
-/* ---------- Sticky móvil ---------- */
+/* ═══ Barra fija móvil ═══ */
 .sticky{
-  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;gap:9px;
   background:rgba(255,255,255,.97);backdrop-filter:blur(10px);
-  border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));
-  display:flex;gap:9px;box-shadow:0 -8px 24px rgba(27,35,64,.1)
+  border-top:1px solid var(--border);box-shadow:0 -6px 22px rgba(28,35,64,.1);
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
 }
-.sticky .btn{flex:1;padding:14px 10px;font-size:14.5px}
-@media(min-width:760px){
-  body{padding-bottom:0}
-  .sticky{display:none}
-}
+.sticky .btn{flex:1;padding:14px 8px;font-size:14.5px}
+@media(min-width:820px){body{padding-bottom:0}.sticky{display:none}}
 </style>
 </head>
 <body>
@@ -239,58 +300,66 @@ footer a{color:var(--gold-2);text-decoration:none}
 <!-- ═══ CONFIGURACIÓN — editar solo estas 3 líneas ═══ -->
 <script>
 const DOMOIA = {
-  whatsapp: "56936956065",                                   // número de Antonia (sin + ni espacios)
-  mensaje : "Hola Antonia, vengo desde la web de DOMOIA y quiero agendar una reunión.",
-  agenda  : "https://calendar.app.google/REEMPLAZAR"         // link de autoagendamiento
+  whatsapp: "56936956065",
+  mensaje : "Hola Antonia, vengo del anuncio de DOMO IA y quiero agendar un diagnóstico.",
+  agenda  : "https://calendar.app.google/REEMPLAZAR"
 };
 </script>
-<!-- ═════════════════════════════════════════════════ -->
 
 <header>
   <div class="wrap bar">
-    <a href="#top" class="logo" style="text-decoration:none">
-      <svg width="30" height="30" viewBox="0 0 100 100" aria-hidden="true">
-        <path d="M12 66a38 38 0 0 1 76 0z" fill="#e8a951"/>
-        <path d="M50 28v38M22 50h56M32 38h36" stroke="#1b2340" stroke-width="3" opacity=".45"/>
-        <rect x="8" y="66" width="84" height="6" rx="3" fill="#e8a951"/>
+    <a class="mark" href="#top" aria-label="DOMO IA — inicio">
+      <svg width="26" height="26" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <path d="M 15 78 A 42 42 0 1 1 85 78" stroke="#F2EDE4" stroke-width="17" stroke-linecap="round" fill="none"/>
+        <circle cx="50" cy="74" r="13" fill="#D98E3A"/>
       </svg>
-      <span>DOMOIA<small>Método DOMO</small></span>
+      <span>DOMO<span class="ia">&nbsp;IA</span></span>
     </a>
     <div class="header-ctas">
       <a href="#" data-cta="wa" data-loc="header" class="btn btn-wa btn-sm">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5 0-1.2.1-1.9-.1-.4-.2-1-.4-1.8-.7-3.2-1.4-5.2-4.5-5.4-4.7-.2-.2-1.3-1.7-1.3-3.2S6.2 6.6 6.5 6.3c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5l1 2.4c.1.2.1.4 0 .6l-.4.6-.3.3c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.5.3.1.5.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2.2 1.1c.3.2.5.2.6.4 0 .1 0 .7-.2 1.4"/></svg>
         Hablar con Antonia
       </a>
-      <a href="#" data-cta="agenda" data-loc="header" class="btn btn-gold-line btn-sm">Agendar reunión</a>
+      <a href="#" data-cta="agenda" data-loc="header" class="btn btn-line btn-sm">Agendar diagnóstico</a>
     </div>
   </div>
 </header>
 
 <!-- ══════════ HERO ══════════ -->
-<div id="top" class="hero dark">
-  <div class="wrap">
-    <span class="eyebrow">Piloto real · Inmobiliaria en Santiago</span>
-    <h1>De <span class="gold">US$71</span> a <span class="gold">US$8</span> por reunión agendada.<br>En 6 semanas.</h1>
-    <p class="lead">
-      No cambiamos el equipo de ventas: le instalamos alrededor un domo de agentes IA que
-      <b>pauta, conversa, agenda y audita</b> cada reunión. Cada cambio se mide y queda registrado.
-      Abajo están los números exactos del piloto — no un promedio de industria.
-    </p>
+<div id="top" class="hero deep">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Piloto real · Inmobiliaria en Santiago</span>
+      <h1>De <span class="amber">US$71</span> a <span class="amber">US$8</span> por reunión agendada.</h1>
+      <p class="lead">
+        No vendemos un software: <b>instalamos un equipo</b>. Siete trabajadores digitales
+        que traen el lead, lo atienden en menos de un minuto, agendan la reunión y después
+        la evalúan. Estos son los números exactos de un piloto de 6 semanas — no un promedio de industria.
+      </p>
 
-    <div class="cta-row">
-      <a href="#" data-cta="wa" data-loc="hero" class="btn btn-wa">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5 0-1.2.1-1.9-.1-.4-.2-1-.4-1.8-.7-3.2-1.4-5.2-4.5-5.4-4.7-.2-.2-1.3-1.7-1.3-3.2S6.2 6.6 6.5 6.3c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5l1 2.4c.1.2.1.4 0 .6l-.4.6-.3.3c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.5.3.1.5.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2.2 1.1c.3.2.5.2.6.4 0 .1 0 .7-.2 1.4"/></svg>
-        Hablar con Antonia ahora
-      </a>
-      <a href="#" data-cta="agenda" data-loc="hero" class="btn btn-ghost">Ver horarios y agendar</a>
+      <div class="cta-row">
+        <a href="#" data-cta="wa" data-loc="hero" class="btn btn-wa">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5 0-1.2.1-1.9-.1-.4-.2-1-.4-1.8-.7-3.2-1.4-5.2-4.5-5.4-4.7-.2-.2-1.3-1.7-1.3-3.2S6.2 6.6 6.5 6.3c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5l1 2.4c.1.2.1.4 0 .6l-.4.6-.3.3c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.5.3.1.5.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2.2 1.1c.3.2.5.2.6.4 0 .1 0 .7-.2 1.4"/></svg>
+          Hablar con Antonia
+        </a>
+        <a href="#" data-cta="agenda" data-loc="hero" class="btn btn-line">Agendar diagnóstico</a>
+      </div>
+      <p class="cta-note"><span class="dot"></span> Antonia responde en menos de un minuto, cualquier día y a cualquier hora.</p>
+
+      <div class="stamp">
+        <span><b>337</b> leads procesados</span>
+        <span><b>15-jun a 30-jul 2026</b></span>
+        <span><b>54%</b> llegó fuera de horario</span>
+      </div>
     </div>
-    <p class="cta-note"><span class="pulse"></span> Antonia responde en segundos, 24/7. Te toma menos de 2 minutos.</p>
 
-    <div class="stamp">
-      <span><b>337</b> leads procesados</span>
-      <span><b>15-jun a 30-jul 2026</b></span>
-      <span><b>54%</b> de los leads llegó fuera de horario comercial</span>
-      <span><b>16</b> reuniones agendadas</span>
+    <div class="hero-card">
+      <span class="hero-badge">En línea 24/7</span>
+      <img src="img/retrato-antonia.jpg" alt="Antonia, la recepcionista digital de DOMO IA" width="640" height="857" fetchpriority="high">
+      <div class="chat">
+        <b>Antonia:</b> Hola 👋 Para agendar necesito solo 3 datos. ¿Cuántos vendedores tiene tu equipo?
+        <span class="meta"><span class="dot" style="width:6px;height:6px"></span> Respondió en 12 segundos</span>
+      </div>
     </div>
   </div>
 </div>
@@ -298,8 +367,8 @@ const DOMOIA = {
 <!-- ══════════ KPIs ══════════ -->
 <section class="kpis">
   <div class="wrap">
-    <span class="eyebrow dark-ink">Resultados medidos</span>
-    <h2 style="margin-top:12px">Los mismos avisos. El mismo equipo.<br>Otro resultado.</h2>
+    <span class="eyebrow">Resultados medidos</span>
+    <h2>Los mismos avisos. El mismo equipo.<br>Otro resultado.</h2>
 
     <div class="kpi-grid">
       <div class="kpi">
@@ -326,7 +395,7 @@ const DOMOIA = {
 
     <p class="kpi-foot">
       El último aviso del piloto: <b>US$33 invertidos → 82 conversaciones → 13 reuniones agendadas</b>
-      (US$2,6 por agenda, 15,9% de conversión) en 7 días.
+      en 7 días. US$2,6 por agenda, 15,9% de conversión.
     </p>
   </div>
 </section>
@@ -334,14 +403,14 @@ const DOMOIA = {
 <!-- ══════════ PROBLEMA ══════════ -->
 <section>
   <div class="wrap">
-    <span class="eyebrow dark-ink">Por qué pasa</span>
-    <h2 style="margin-top:12px">Tus leads no son malos.<br>Se están cayendo en lugares que nadie mira.</h2>
+    <span class="eyebrow">Por qué pasa</span>
+    <h2>Tus leads no son malos.<br>Se caen en lugares que nadie mira.</h2>
 
     <div class="pain-grid">
       <div class="pain">
         <div class="num">114</div>
         <h3>Se quedaron en el saludo</h3>
-        <p>De 213 leads, 114 nunca pasaron del primer mensaje. Nadie lo había contado: se veían como "leads fríos" en la planilla.</p>
+        <p>De 213 leads, 114 nunca pasaron del primer mensaje. Nadie los había contado: en la planilla se veían como "leads fríos".</p>
       </div>
       <div class="pain">
         <div class="num">54%</div>
@@ -355,61 +424,134 @@ const DOMOIA = {
       </div>
     </div>
 
-    <p class="lead" style="margin-top:26px;max-width:700px">
-      Ninguno de estos tres datos aparece en un reporte de Meta ni en un CRM.
-      Aparecen cuando alguien <b>lee las conversaciones una por una</b> — y eso es exactamente lo que hace DOMOIA todas las semanas.
+    <p class="lead" style="margin-top:24px;max-width:720px">
+      Ninguno de estos tres datos aparece en un reporte de Meta ni en un CRM. Aparecen cuando alguien
+      <b>lee las conversaciones una por una</b> — y eso es lo que hace este equipo todas las semanas.
     </p>
   </div>
 </section>
 
-<!-- ══════════ EQUIPO ══════════ -->
-<section class="team">
+<!-- ══════════ CÓMO LO HACEMOS ══════════ -->
+<section class="equipo" id="equipo">
   <div class="wrap">
-    <span class="eyebrow dark-ink">Cómo lo hacemos</span>
-    <h2 style="margin-top:12px">Un equipo de agentes digitales que trabaja sin descanso, cubriendo el ciclo completo.</h2>
+    <span class="eyebrow">Cómo lo hacemos</span>
+    <h2>Un equipo de agentes digitales que trabaja sin descanso, cubriendo el ciclo completo.</h2>
+    <p class="lead" style="margin-top:14px;max-width:640px">
+      Cada trabajador digital tiene nombre, cargo y una sola tarea que hace bien.
+      Se instalan por bloques: puedes empezar por uno y sumar el resto cuando lo necesites.
+    </p>
 
-    <div class="team-grid">
-      <div class="agent">
-        <div class="avatar">M</div>
-        <span class="role">Pauta</span>
-        <h3>Matías</h3>
-        <p>Analiza a tu competencia, arma los ángulos y compra los medios. Corta lo que no convierte antes de quemarte el presupuesto.</p>
+    <div class="blocks">
+
+      <!-- 01 -->
+      <div class="block">
+        <span class="block-num">01 · Atrae</span>
+        <h3>Que llegue el lead correcto</h3>
+        <p class="desc">La pauta deja de comprar clics baratos y empieza a comprar conversaciones que terminan en reunión.</p>
+        <div class="crew">
+          <div class="member">
+            <img src="img/retrato-sofia.jpg" alt="Sofía, diseñadora" width="640" height="857" loading="lazy">
+            <div>
+              <span class="cargo">Diseñadora</span>
+              <h4>Sofía</h4>
+              <p>Produce las piezas y variantes de tus avisos con tu marca, para que siempre haya algo nuevo que probar.</p>
+            </div>
+          </div>
+          <div class="member">
+            <img src="img/retrato-matias.jpg" alt="Matías, media buyer" width="640" height="857" loading="lazy">
+            <div>
+              <span class="cargo">Media buyer</span>
+              <h4>Matías</h4>
+              <p>Revisa cada mañana cómo rindió cada anuncio y mueve el presupuesto a los que traen leads que contestan.</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="agent on">
-        <div class="avatar">A</div>
-        <span class="role">Conversa y agenda</span>
-        <h3>Antonia</h3>
-        <p>Contesta en WhatsApp en segundos, califica con tus criterios y deja la reunión puesta en la agenda del vendedor. 24/7.</p>
+
+      <!-- 02 -->
+      <div class="block hi">
+        <span class="block-num">02 · Atiende</span>
+        <h3>Que ninguno se enfríe esperando</h3>
+        <p class="desc">Aquí es donde se ganaba o se perdía la reunión en el piloto. Antonia es la que te va a contestar si escribes ahora.</p>
+        <div class="crew">
+          <div class="member">
+            <img src="img/retrato-antonia.jpg" alt="Antonia, recepcionista digital y SDR" width="640" height="857" loading="lazy">
+            <div>
+              <span class="cargo">Recepcionista · SDR</span>
+              <h4>Antonia</h4>
+              <p>Contesta los WhatsApp nuevos en menos de un minuto, a cualquier hora. Califica con los criterios que tú definas —presupuesto, renta, plazo, comuna— y agenda la reunión directo en el calendario. Retoma al lead que quedó tibio y deriva a un humano los casos que tú marcaste.</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="agent">
-        <div class="avatar">Am</div>
-        <span class="role">Registra</span>
-        <h3>Amanda</h3>
-        <p>Transcribe cada reunión. Nada de lo que se dijo depende de la memoria ni de las notas de nadie.</p>
+
+      <!-- 03 -->
+      <div class="block">
+        <span class="block-num">03 · Mide</span>
+        <h3>Que la reunión deje registro y nota</h3>
+        <p class="desc">Lo que pasó en la reunión deja de depender de la memoria del vendedor y pasa a ser un dato comparable.</p>
+        <div class="crew">
+          <div class="member">
+            <img src="img/retrato-amanda.jpg" alt="Amanda, notas de reunión" width="640" height="857" loading="lazy">
+            <div>
+              <span class="cargo">Notas de reunión</span>
+              <h4>Amanda</h4>
+              <p>Toma nota de cada reunión y deja el resumen ordenado el mismo día: lo acordado, las objeciones y el próximo paso.</p>
+            </div>
+          </div>
+          <div class="member">
+            <img src="img/retrato-lucas.jpg" alt="Lucas, evaluador de ventas" width="640" height="857" loading="lazy">
+            <div>
+              <span class="cargo">Evaluador de ventas</span>
+              <h4>Lucas</h4>
+              <p>Evalúa cada reunión con una rúbrica profesional y le pone nota: descubrimiento, manejo de objeciones y cierre.</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="agent">
-        <div class="avatar">L</div>
-        <span class="role">Entrena</span>
-        <h3>Lucas</h3>
-        <p>Audita lo transcrito, mide las conductas que cierran y entrega feedback concreto a cada vendedor, con compromisos medibles.</p>
+
+      <!-- 04 -->
+      <div class="block">
+        <span class="block-num">04 · Aprende</span>
+        <h3>Que la próxima semana sea mejor que esta</h3>
+        <p class="desc">El circuito se cierra: lo que se aprende en las conversaciones vuelve a la pauta y a tus vendedores.</p>
+        <div class="crew">
+          <div class="member">
+            <img src="img/retrato-clara.jpg" alt="Clara, auditora de conversaciones" width="640" height="857" loading="lazy">
+            <div>
+              <span class="cargo">Mejora continua</span>
+              <h4>Clara</h4>
+              <p>Cada semana encuentra las conversaciones donde se estaba por agendar y no se agendó, y las convierte en mejoras concretas. Le avisa a Matías qué anuncio trae mensajes pero no reuniones.</p>
+            </div>
+          </div>
+          <div class="member">
+            <img src="img/retrato-laura.jpg" alt="Laura, coach comercial" width="640" height="857" loading="lazy">
+            <div>
+              <span class="cargo">Coach comercial</span>
+              <h4>Laura</h4>
+              <p>Junta los patrones de todas las reuniones evaluadas y entrena a tus vendedores con ejemplos de tu propia operación, no con teoría.</p>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
 
     <p class="tagline">"Que ninguna venta vuelva a depender de la memoria de nadie."</p>
   </div>
 </section>
 
-<!-- ══════════ CÓMO ══════════ -->
+<!-- ══════════ CASO ══════════ -->
 <section>
   <div class="wrap">
-    <span class="eyebrow dark-ink">Cómo se llega ahí</span>
-    <h2 style="margin-top:12px">No fue un rediseño.<br>Fueron cuatro cambios chicos, medidos uno por uno.</h2>
+    <span class="eyebrow">El caso, semana a semana</span>
+    <h2>No fue un rediseño.<br>Fueron cuatro cambios chicos, medidos uno por uno.</h2>
 
     <div class="tl">
       <div class="tl-item">
         <span class="tl-date">17 de julio</span>
-        <h3>Saludo corto + pregunta de renta con botones</h3>
-        <p>La auditoría detectó los 114 leads atascados en el saludo. Se reemplazó el mensaje largo por uno directo, con botones.</p>
+        <h3>Saludo corto y pregunta de renta con botones</h3>
+        <p>Clara detectó los 114 leads atascados en el saludo. Se reemplazó el mensaje largo por uno directo, con botones.</p>
         <span class="tl-res">+20 pp de respuesta</span>
       </div>
       <div class="tl-item">
@@ -421,12 +563,12 @@ const DOMOIA = {
       <div class="tl-item">
         <span class="tl-date">21 de julio</span>
         <h3>Botones de horario "Hoy / Mañana"</h3>
-        <p>Se probó, se midió y casi no movió la aguja. Lo publicamos igual: los tests que fallan también quedan en el registro.</p>
+        <p>Se probó, se midió y casi no movió la aguja. Lo dejamos publicado igual: los tests que fallan también quedan en el registro.</p>
         <span class="tl-res neutral">Sin efecto (+2 pp)</span>
       </div>
       <div class="tl-item">
         <span class="tl-date">23 de julio</span>
-        <h3>Aviso nuevo por subsidio + filtro de calificación</h3>
+        <h3>Aviso nuevo por subsidio y filtro de calificación</h3>
         <p>El problema real era el tráfico. Matías cambió el ángulo del anuncio y Antonia empezó a filtrar por subsidio y DICOM.</p>
         <span class="tl-res">13 agendas en 7 días</span>
       </div>
@@ -441,18 +583,18 @@ const DOMOIA = {
 <!-- ══════════ FIT ══════════ -->
 <section class="fit">
   <div class="wrap">
-    <span class="eyebrow dark-ink">Antes de que agendes</span>
-    <h2 style="margin-top:12px">Preferimos decírtelo ahora.</h2>
+    <span class="eyebrow">Antes de que agendes</span>
+    <h2>Preferimos decírtelo ahora.</h2>
 
     <div class="fit-grid">
       <div class="card">
         <h3>Esto funciona si tu empresa…</h3>
         <ul class="list">
           <li><i>✓</i> Vende por reuniones: al menos 20 al mes entre todo el equipo.</li>
-          <li><i>✓</i> Tiene entre 2 y 10 vendedores con rendimiento desparejo entre ellos.</li>
+          <li><i>✓</i> Tiene entre 2 y 10 vendedores, con rendimiento desparejo entre ellos.</li>
           <li><i>✓</i> Factura desde $20M al mes y su ticket deja margen sobre $300–500 mil.</li>
-          <li><i>✓</i> Ya invierte (o está dispuesta a invertir) en pauta digital.</li>
-          <li><i>✓</i> Acepta que sus reuniones se graben para poder mejorarlas.</li>
+          <li><i>✓</i> Ya invierte —o está dispuesta a invertir— en pauta digital.</li>
+          <li><i>✓</i> Acepta registrar sus reuniones para poder mejorarlas.</li>
         </ul>
       </div>
       <div class="card no">
@@ -470,36 +612,36 @@ const DOMOIA = {
 <!-- ══════════ FAQ ══════════ -->
 <section>
   <div class="wrap" style="max-width:780px">
-    <span class="eyebrow dark-ink">Dudas rápidas</span>
-    <h2 style="margin-top:12px;margin-bottom:12px">Lo que todos preguntan</h2>
+    <span class="eyebrow">Dudas rápidas</span>
+    <h2 style="margin-bottom:10px">Lo que todos preguntan</h2>
 
     <details open>
       <summary>¿La reunión tiene costo?</summary>
-      <p>No. Es un diagnóstico de 30 minutos. Salimos con tu costo real por reunión agendada, dónde se te están cayendo los leads hoy y si tiene sentido seguir. Si no encajas con lo de arriba, te lo decimos en esa misma llamada.</p>
+      <p>No. Es un diagnóstico de 30 minutos donde medimos tu embudo real: cuántos leads llegan, cuántos contestas y cuántos terminan en reunión. Sin ese número no hay promesa. Si no encajas con lo de arriba, te lo decimos en esa misma llamada.</p>
     </details>
     <details>
       <summary>¿Antonia reemplaza a mis vendedores?</summary>
       <p>No. Antonia hace lo que ningún vendedor debería estar haciendo: contestar a las 23:40, repetir las mismas cuatro preguntas de calificación y coordinar horarios. Tu vendedor entra cuando la reunión ya está agendada y con la persona correcta.</p>
     </details>
     <details>
-      <summary>¿Cuánto demora en estar funcionando?</summary>
-      <p>La primera capa (pauta + conversación + agendamiento) queda operativa en semanas, no en meses. El piloto que ves arriba mostró su primer salto medible al día 32 y el resultado completo a las 6 semanas.</p>
+      <summary>¿Tengo que contratar a los siete?</summary>
+      <p>No. Casi todos parten por el bloque comercial —Sofía, Matías, Antonia y Clara—, que es donde hoy se va la plata, y suman el bloque de coaching cuando ya tienen reuniones que evaluar. Ese segundo bloque rinde de verdad desde las 15 reuniones evaluadas en adelante.</p>
     </details>
     <details>
       <summary>¿Y si mis números no mejoran?</summary>
-      <p>Por eso todo se mide y queda registrado, incluidos los cambios que no funcionan — como los botones de horario del 21 de julio. Vas a ver exactamente qué se cambió, qué día y qué efecto tuvo. Sin reportes de humo.</p>
+      <p>Por eso todo se mide y queda registrado, incluidos los cambios que no funcionan —como los botones de horario del 21 de julio—. Cada semana recibes el embudo medido: qué entró, qué costó y qué se corrigió. Lo que no se mide, no se cobra ni se promete.</p>
     </details>
   </div>
 </section>
 
 <!-- ══════════ CTA FINAL ══════════ -->
-<section class="final dark">
+<section class="final deep">
   <div class="wrap">
     <span class="eyebrow">Último paso</span>
     <h2>¿Cuántas reuniones perdiste este mes sin darte cuenta?</h2>
     <p class="lead">
       Antonia te hace tres preguntas y te muestra los horarios disponibles.
-      Si prefieres saltarte la conversación, elige tu hora directamente en el calendario.
+      Si prefieres saltarte la conversación, elige tu hora directamente.
     </p>
 
     <div class="cta-row">
@@ -507,41 +649,41 @@ const DOMOIA = {
         <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5 0-1.2.1-1.9-.1-.4-.2-1-.4-1.8-.7-3.2-1.4-5.2-4.5-5.4-4.7-.2-.2-1.3-1.7-1.3-3.2S6.2 6.6 6.5 6.3c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5l1 2.4c.1.2.1.4 0 .6l-.4.6-.3.3c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.5.3.1.5.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2.2 1.1c.3.2.5.2.6.4 0 .1 0 .7-.2 1.4"/></svg>
         Hablar con Antonia
       </a>
-      <a href="#" data-cta="agenda" data-loc="final" class="btn btn-gold">Agendar yo mismo</a>
+      <a href="#" data-cta="agenda" data-loc="final" class="btn btn-amber">Agendar diagnóstico</a>
     </div>
-    <p class="cta-note"><span class="pulse"></span> Respuesta inmediata · Sin formularios · Sin costo</p>
+    <p class="cta-note"><span class="dot"></span> Respuesta inmediata · Sin formularios · Sin costo</p>
   </div>
 </section>
 
 <footer>
   <div class="wrap foot">
-    <span>DOMOIA · Método DOMO — Diagnosticar · Orquestar · Medir · Optimizar</span>
-    <span><a href="https://roloenrolo.github.io/caso-nuevonorte/auditoria-pocuro.html" target="_blank" rel="noopener">Caso Nuevo Norte</a> · Cifras del piloto 15-jun a 30-jul 2026</span>
+    <span>DOMO IA · Diagnosticar · Orquestar · Medir · Optimizar</span>
+    <span>
+      <a href="https://domo-ia.com/" target="_blank" rel="noopener">domo-ia.com</a> ·
+      <a href="https://domo-ia.com/privacidad/" target="_blank" rel="noopener">Privacidad · Ley 21.719</a> ·
+      <a href="https://roloenrolo.github.io/caso-nuevonorte/auditoria-pocuro.html" target="_blank" rel="noopener">Caso Nuevo Norte</a>
+    </span>
   </div>
 </footer>
 
-<!-- ══════════ Barra fija móvil ══════════ -->
 <div class="sticky">
   <a href="#" data-cta="wa" data-loc="sticky" class="btn btn-wa">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5 0-1.2.1-1.9-.1-.4-.2-1-.4-1.8-.7-3.2-1.4-5.2-4.5-5.4-4.7-.2-.2-1.3-1.7-1.3-3.2S6.2 6.6 6.5 6.3c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5l1 2.4c.1.2.1.4 0 .6l-.4.6-.3.3c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.5.3.1.5.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2.2 1.1c.3.2.5.2.6.4 0 .1 0 .7-.2 1.4"/></svg>
     Hablar con Antonia
   </a>
-  <a href="#" data-cta="agenda" data-loc="sticky" class="btn btn-ghost-ink">Agendar</a>
+  <a href="#" data-cta="agenda" data-loc="sticky" class="btn btn-line-ink">Agendar</a>
 </div>
 
 <script>
 (function () {
-  // ── 1. Arrastra los parámetros de campaña (utm_*, fbclid…) hasta WhatsApp y el calendario
-  var qs = new URLSearchParams(location.search);
-  var tags = [];
+  // 1. Arrastra los parámetros de campaña hasta WhatsApp y el calendario
+  var qs = new URLSearchParams(location.search), tags = [];
   ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","fbclid","ad_id"].forEach(function (k) {
     var v = qs.get(k);
     if (v) tags.push(k.replace("utm_", "") + ":" + v);
   });
   var ref = tags.length ? " [" + tags.join(" | ") + "]" : "";
-
-  var waURL = "https://wa.me/" + DOMOIA.whatsapp +
-              "?text=" + encodeURIComponent(DOMOIA.mensaje + ref);
+  var waURL = "https://wa.me/" + DOMOIA.whatsapp + "?text=" + encodeURIComponent(DOMOIA.mensaje + ref);
 
   // Mientras no haya calendario configurado, "Agendar" también entra por WhatsApp
   var agendaOK = DOMOIA.agenda && DOMOIA.agenda.indexOf("REEMPLAZAR") === -1;
@@ -551,12 +693,11 @@ const DOMOIA = {
     if (tags.length) agendaURL += (agendaURL.indexOf("?") === -1 ? "?" : "&") + qs.toString();
   }
 
-  // ── 2. Aplica los links a todos los CTA y reporta el evento
+  // 2. Aplica los links y reporta el evento
   document.querySelectorAll("[data-cta]").forEach(function (el) {
     var tipo = el.getAttribute("data-cta");
     el.href = tipo === "wa" ? waURL : agendaURL;
     if (tipo === "wa" || !agendaOK) { el.target = "_blank"; el.rel = "noopener"; }
-
     el.addEventListener("click", function () {
       var ev = tipo === "wa" ? "Contact" : "Schedule";
       if (window.fbq) fbq("track", ev, { content_name: "landing-domoia", position: el.getAttribute("data-loc") });
@@ -566,7 +707,7 @@ const DOMOIA = {
 })();
 </script>
 
-<!-- ═══ Pega aquí el Meta Pixel (antes de </body>) para que dispare Contact / Schedule ═══ -->
+<!-- ═══ Pega aquí el Meta Pixel para que dispare Contact / Schedule ═══ -->
 
 </body>
 </html>
