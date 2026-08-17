@@ -180,7 +180,7 @@
         <h1>Las 22:47</h1>
         <p>Validación de la propuesta de lanzamiento, análisis de ángulos en el mercado chileno y estadounidense, y las cuatro piezas completas: dos anuncios, un carrusel y un video.</p>
         <div class="mast-meta">
-          <span>Versión <b>1.1</b></span>
+          <span>Versión <b>1.2</b></span>
           <span>Fecha <b>17 de agosto de 2026</b></span>
           <span>Verticales <b>Inmobiliario y seguros</b></span>
           <span>Piezas <b>4 + variantes</b></span>
@@ -200,6 +200,7 @@
       <li><a href="#oferta">Qué se ofrece en el anuncio</a></li>
       <li><a href="#angulos">Ángulos: Chile contra Estados Unidos</a></li>
       <li><a href="#verticales">Ángulos por vertical</a></li>
+      <li><a href="#visual">Sistema visual: claro, no oscuro</a></li>
       <li><a href="#piezas">Las cuatro piezas</a></li>
       <li><a href="#estructura">Estructura y medición</a></li>
       <li><a href="#pendiente">Lo que necesito de ti</a></li>
@@ -438,12 +439,124 @@
     </div>
   </section>
 
+  <!-- ============ SISTEMA VISUAL ============ -->
+  <section id="visual">
+    <div class="section-head">
+      <p class="eyebrow">06 · Sistema visual</p>
+      <h2>Por qué las imágenes van claras, no oscuras</h2>
+      <p class="lede col">Los primeros prompts de este documento partían de una identidad que ya no es la vigente. Acá está la corrección, con el porqué.</p>
+    </div>
+
+    <div class="callout stop">
+      <h4>Qué pasó</h4>
+      <p>Construí los prompts sobre la identidad de julio: azul marino profundo como fondo, dorado como acento, estética sobria y de alto contraste. Esa era la paleta de la presentación a inversionistas y del video. <strong>El sitio ya no funciona así.</strong> Al revisarlo, domo-ia.com es un sistema claro: fondo crema cálido, luz natural diurna, personajes 3D amables y azul como color de marca. La sensación es de simpleza y cercanía, no de sofisticación. Los prompts anteriores producían piezas que se veían bien, pero que no se parecían al lugar al que llevan.</p>
+    </div>
+
+    <h3>La paleta real, tomada del sitio</h3>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Token</th><th>Valor</th><th>Rol</th><th>Uso en creativos</th></tr></thead>
+        <tbody>
+          <tr><td><code>--bg</code></td><td>#F6F3EC</td><td>Fondo dominante</td><td>Crema cálido. Es el suelo de casi toda pieza.</td></tr>
+          <tr><td><code>--surface</code></td><td>#FFFFFF</td><td>Tarjetas</td><td>Blanco puro para bloques sobre el crema.</td></tr>
+          <tr><td><code>--brand</code></td><td>#33508F</td><td><strong>Color de marca</strong></td><td>Azul medio. Es el color de DOMO IA, no el dorado.</td></tr>
+          <tr><td><code>--text</code></td><td>#1C2340</td><td>Tinta</td><td>El azul marino es <em>texto y sombra</em>, no fondo.</td></tr>
+          <tr><td><code>--brand2</code></td><td>#D98E3A</td><td>Acento cálido</td><td>Ámbar más profundo que el dorado del deck, legible sobre claro.</td></tr>
+          <tr><td><code>--accent</code></td><td>#0E9F6E</td><td>Señal positiva</td><td>Verde. Para marcar "esto mejoró".</td></tr>
+          <tr class="total"><td><code>--deep</code> · <code>--deepAmber</code></td><td>#1B2340 · #E8A951</td><td>Superficie oscura</td><td>Existe en el sistema, pero como excepción puntual, no como base.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="col">Tipografía del sitio: <strong>IBM Plex Sans</strong>. Las piezas deben usarla, no una tipografía distinta: el reconocimiento entre anuncio y destino se juega tanto en la letra como en el color.</p>
+
+    <h3>Tres razones por las que tienes razón</h3>
+    <div class="duo">
+      <div class="panel">
+        <h4>El anuncio y el destino deben ser el mismo lugar</h4>
+        <p>Alguien ve una pieza oscura y elegante, hace clic y aterriza en un sitio claro, cálido y con personajes 3D. Ese medio segundo de desconcierto se paga en conversión. La coherencia entre creativo y destino es de las pocas variables de diseño que mueve el número de verdad.</p>
+      </div>
+      <div class="panel">
+        <h4>Oscuro promete otra categoría</h4>
+        <p>Azul marino con dorado es el código visual de banca privada, seguros de alto patrimonio, estudios jurídicos y relojes. Comunica exclusividad y precio alto. Para servicios de IA el código dominante es claro y aireado, porque lo que se promete es <em>claridad</em>. Si tu oferta es "por fin vas a ver lo que pasa en tu embudo", un fondo oscuro contradice la promesa.</p>
+      </div>
+      <div class="panel">
+        <h4>La elegancia encarece antes de la reunión</h4>
+        <p>En una categoría que nadie conoce y con una oferta gratuita, verse caro agrega fricción. Claro y simple se lee como accesible y entendible, que es exactamente lo que necesita un primer contacto. La sofisticación es un buen problema para el año dos.</p>
+      </div>
+    </div>
+
+    <h3>Lo que sí defiendo del planteamiento oscuro</h3>
+    <div class="col">
+      <p>Dos cosas, y conviene separarlas de lo anterior.</p>
+      <p><strong>La noche no es un estilo, es el contenido.</strong> En P2 y en el arranque de P4 la escena ocurre a las 22:47. Ahí la oscuridad no es una decisión estética sino el asunto del anuncio: un teléfono encendido en una casa a oscuras y nadie del otro lado. Pasar esas piezas a fondo claro destruye la idea. Se quedan oscuras, pero <strong>cambia el tipo de oscuridad</strong>: en vez de negro de lujo, una casa real con lámpara cálida, madera y plantas, usando los tokens oscuros del propio sitio. Es la misma marca de noche, no otra marca.</p>
+      <p><strong>Una pieza clara puede desaparecer en el feed.</strong> Es el riesgo real de ir claro: el crema #F6F3EC contra la interfaz blanca de Instagram puede fundirse y no detener a nadie. La solución no es oscurecer, es <strong>meter un ancla de contraste dentro de la pieza</strong>: un bloque de azul de marca, un personaje con volumen, o fotografía con mucha variación de luz. Toda pieza clara debe tener una zona de color saturado que ocupe al menos un cuarto del encuadre.</p>
+    </div>
+
+    <div class="callout go">
+      <h4>La regla que reemplaza a la anterior</h4>
+      <p><strong>El fondo lo decide el contenido, no la marca.</strong> Claro por defecto. Oscuro solo cuando la escena ocurre de noche. Como consecuencia, cuando en el feed aparezca una pieza oscura de DOMO IA, esa oscuridad significa algo. Eso marca más que teñir todo del mismo color.</p>
+    </div>
+
+    <div class="callout warn">
+      <h4>Un activo que estaba descartando por error</h4>
+      <p>Mis prompts prohibían rostros humanos. Esa regla es correcta para fotografía generada, donde una cara falsa se nota y arruina la pieza, pero <strong>no aplica a los personajes 3D del sitio</strong>, que son lo más reconocible que tiene la marca y ya están producidos. Antonia con audífonos, Matías con su megáfono, Lucas con la pauta: eso hace en un segundo el trabajo de explicar que son trabajadores con cargo. La regla corregida es: nada de rostros fotorrealistas generados, personajes 3D estilizados siempre que se pueda.</p>
+    </div>
+  </section>
+
   <!-- ============ PIEZAS ============ -->
   <section id="piezas">
     <div class="section-head">
-      <p class="eyebrow">06 · Producción</p>
+      <p class="eyebrow">07 · Producción</p>
       <h2>Las cuatro piezas</h2>
       <p class="lede col">Copys completos con conteo de caracteres, prompts de imagen y guion del video. Cada pieza indica su variante para seguros. Titular hasta 40 caracteres, descripción hasta 30, y los primeros 125 del texto principal son los únicos que se ven sin desplegar.</p>
+    </div>
+
+    <div class="ad">
+      <div class="ad-head"><span class="id">P0</span><span class="ti">Prefijo de estilo</span><span class="fm">Va delante de todos los prompts</span></div>
+      <div class="ad-job"><b>Reemplaza</b> · al prefijo de la sección 6 del plan de medios, que estaba construido sobre la identidad anterior.</div>
+      <div class="ad-body">
+        <pre>ESTILO DOMO IA — reglas fijas para toda pieza
+
+FONDO
+Claro por defecto: crema cálido #F6F3EC o blanco #FFFFFF. Solo se usa fondo
+oscuro cuando la escena ocurre literalmente de noche.
+
+COLOR
+Azul #33508F es el color de marca: se usa en bloques, objetos y superficies.
+Azul marino #1C2340 solo como tinta y sombra profunda, nunca como fondo.
+Ámbar #D98E3A como único acento cálido. Verde #0E9F6E permitido para señalar
+que algo mejoró.
+
+LUZ
+Natural y diurna, entrando de lado por una ventana grande. Cálida y
+abundante. Sombras suaves y largas. Nunca luz dura, nunca claroscuro
+dramático, nunca contraluz.
+
+MATERIALES DEL MUNDO DOMO IA
+Madera clara, plantas, vidrio, textiles neutros, oficinas reales y luminosas.
+Prohibido: mármol, metal cepillado, superficies negras, cuero oscuro.
+
+ESTILO
+Render 3D estilizado y amable, de animación contemporánea: volúmenes
+redondeados, acabado mate, saturación media. Los personajes son parte del
+sistema: figuras de oficina estilizadas, expresivas y cálidas, nunca
+fotorrealistas.
+
+PROHIBIDO
+Texto de cualquier tipo dentro de la imagen. Logos. Rostros fotorrealistas.
+Estética de lujo en negro y dorado. Hologramas, circuitos, robots, cerebros
+digitales, retículas azul neón sobre negro.
+
+COMPOSICIÓN
+Entre 40% y 55% de espacio libre continuo para montar el titular. En 9:16 el
+sujeto va en el tercio central: el 14% superior y el 20% inferior los tapa la
+interfaz.
+
+ANCLA DE CONTRASTE
+Toda pieza clara debe incluir una zona de color saturado —azul de marca o un
+personaje con volumen— que ocupe al menos un cuarto del encuadre. Sin eso, el
+crema se funde con la interfaz blanca del feed y la pieza no detiene a nadie.</pre>
+      </div>
     </div>
 
     <!-- P1 -->
@@ -485,26 +598,37 @@ Amanda toma nota de cada entrevista, Lucas la evalúa y Laura entrena a tus ases
         </div>
         <div class="gen">
           <div class="gen-label"><span>Prompt de imagen</span><span class="tool">Nano Banana · 4:5 y 9:16</span></div>
-          <pre>Ilustración isométrica limpia sobre fondo azul marino profundo #1b2340.
-Nueve plintos circulares elevados de distinta altura, dispuestos en una
-formación ordenada como un organigrama visto en perspectiva. Sobre cada
-plinto, un objeto distinto y sencillo que representa un oficio: una diana,
-una cuadrícula de calendario, una onda de audio sólida, unos peldaños, una
-lupa, una paleta, un cuaderno, un engranaje, una casilla de verificación.
+          <pre>[PREFIJO DE ESTILO]
 
-Cubriendo el conjunto completo, una cúpula geodésica dorada #e8a951 de
-líneas muy finas y semitransparente, como un domo que contiene a todo el
-equipo.
+Ilustración 3D estilizada de una oficina abierta y luminosa, vista en
+perspectiva isométrica suave, tipo corte de maqueta arquitectónica. Fondo y
+suelo en crema cálido #F6F3EC. Luz de día entrando por un ventanal lateral
+grande a la izquierda.
 
-Estilo: render 3D mate, baja saturación, sombras suaves proyectadas hacia
-abajo a la derecha, acabado de producto premium. Sin personajes, sin
-rostros, sin texto de ningún tipo, sin logos. Iluminación fría con un solo
-foco cálido ámbar sobre la cúpula.
+Dentro, nueve puestos de trabajo dispuestos en una retícula ordenada y
+aireada. En cada puesto, un personaje 3D estilizado de oficina —variedad de
+edades y apariencias, ropa de trabajo en azules y neutros cálidos— haciendo
+una tarea distinta y reconocible: uno con audífonos de contact center, otro
+señalando un gráfico, otro con un cuaderno de notas, otro con una tableta de
+dibujo, otro con una lupa sobre una hoja, otro con un megáfono pequeño, otro
+frente a un tablero de flujo, otro revisando una lista, otro con un
+cronómetro.
 
-Composición con el 45% superior del encuadre libre para montar el titular.
-Versión 9:16: mantener toda la formación dentro del tercio central.</pre>
+Los escritorios, sillas y elementos estructurales en azul #33508F. Plantas
+de interior y madera clara repartidas. Un solo detalle ámbar #D98E3A en cada
+puesto para ligarlos entre sí.
+
+Sobre toda la oficina, arqueándose de lado a lado, una cúpula geodésica de
+líneas finas azul #33508F, semitransparente, apenas insinuada.
+
+Acabado mate, sombras suaves y cálidas, saturación media. Sin texto de
+ningún tipo, sin logos, sin rostros fotorrealistas.
+
+Composición: el 45% superior del encuadre libre para el titular. Versión
+9:16: comprimir la oficina en el tercio central manteniendo los nueve
+puestos visibles.</pre>
         </div>
-        <p class="ad-note"><strong>Por qué esta pieza abre la campaña:</strong> es la que responde la pregunta que hoy nadie tiene contestada. Nueve objetos bajo un domo se entiende en un segundo y sin leer, que es exactamente lo que se necesita en el feed.</p>
+        <p class="ad-note"><strong>Por qué esta pieza abre la campaña:</strong> es la que responde la pregunta que hoy nadie tiene contestada. Nueve personas trabajando bajo un domo se entiende en un segundo y sin leer, y hace visible de golpe la frase "no vendemos un software, instalamos un equipo". Los personajes son el ancla de contraste que evita que el crema se funda con el feed.</p>
       </div>
     </div>
 
@@ -551,22 +675,28 @@ Es otro rubro, pero el patrón es el mismo: el que cotiza un seguro pregunta en 
         </div>
         <div class="gen">
           <div class="gen-label"><span>Prompt de imagen</span><span class="tool">Nano Banana · 4:5 y 9:16</span></div>
-          <pre>Fotografía editorial nocturna, plano cerrado en ángulo. Sobre un velador o
-mesa lateral de madera oscura, un teléfono móvil boca arriba con la pantalla
-encendida, proyectando una luz ámbar cálida hacia arriba que ilumina apenas
-el entorno. Todo el resto de la escena está en penumbra azul marino profunda:
-se intuye una habitación en silencio, de noche.
+          <pre>[PREFIJO DE ESTILO — con la excepción de fondo: esta escena es de noche]
 
-La pantalla del teléfono se ve encendida pero su contenido está
-completamente ilegible y desenfocado: ninguna interfaz reconocible, ningún
-texto, ningún icono de aplicación.
+Ilustración 3D estilizada, mismo lenguaje amable y de volúmenes redondeados,
+pero ambientada de noche. Living de una casa real y acogedora: sofá de tela
+clara, mesa lateral de madera clara, una planta de interior, un cuadro
+apenas visible. Nada de lujo, nada de mármol ni superficies negras.
 
-Sensación buscada: alguien escribió y del otro lado no hay nadie.
+Sobre la mesa lateral, un teléfono móvil boca arriba con la pantalla
+encendida, proyectando un halo ámbar cálido #E8A951 que ilumina la madera y
+el borde del sofá. El contenido de la pantalla es completamente ilegible: sin
+interfaz, sin texto, sin iconos reconocibles.
 
-Realismo fotográfico, lente 50mm, apertura f/1.8, profundidad de campo muy
-corta, grano fino. Fuerte contraste entre el halo ámbar del teléfono y la
-oscuridad azulada alrededor. Dos tercios superiores del encuadre en negro
-azulado limpio, disponibles para el titular y la cifra.</pre>
+El resto de la habitación en penumbra azul marino #1B2340, pero con los
+objetos aún legibles: se distinguen las formas, no es negro. Una lámpara de
+pie apagada al fondo.
+
+No hay nadie en la escena. Esa ausencia es el punto: alguien escribió y del
+otro lado no hay nadie.
+
+Acabado mate, sombras suaves. Contraste entre el halo ámbar del teléfono y
+la penumbra azulada. Dos tercios superiores del encuadre despejados para el
+titular y la cifra.</pre>
         </div>
         <p class="ad-note"><strong>Nota de cumplimiento:</strong> el texto atribuye siempre los números al piloto y a esa corredora, nunca al lector. La corredora no se nombra ni se insinúa. Antes de publicar, conviene dejar el informe del piloto listo para mostrar si alguien lo pide.</p>
       </div>
@@ -592,37 +722,37 @@ Acá te muestro el recorrido completo, paso por paso, desde que alguien ve el an
               <div class="n">Tarjeta 1 · Portada</div>
               <div class="t">Del anuncio a la reunión</div>
               <div class="d">Descripción: <strong>Sin horario de oficina</strong></div>
-              <div class="img">Imagen: la cúpula dorada cerrada sobre fondo azul marino, con una línea ámbar que la atraviesa de izquierda a derecha, insinuando un recorrido.</div>
+              <div class="img">Imagen: la cúpula azul sobre plataforma blanca y fondo crema, con una cinta azul que la atraviesa de izquierda a derecha, insinuando un recorrido.</div>
             </div>
             <div class="card">
               <div class="n">Tarjeta 2 · Atrae</div>
               <div class="t">Sofía y Matías traen la gente</div>
               <div class="d">Descripción: <strong>Avisos y presupuesto</strong></div>
-              <div class="img">Imagen: diana isométrica con tres flechas ámbar agrupadas, bajo cúpula.</div>
+              <div class="img">Imagen: dos personajes 3D, uno con megáfono y otro frente a un panel de gráficos, junto a una diana con tres flechas ámbar.</div>
             </div>
             <div class="card">
               <div class="n">Tarjeta 3 · Atiende</div>
               <div class="t">Antonia contesta en menos de 1 minuto</div>
               <div class="d">Descripción: <strong>Califica y agenda</strong></div>
-              <div class="img">Imagen: cuadrícula de calendario con dos casillas encendidas en ámbar.</div>
+              <div class="img">Imagen: personaje 3D con audífonos de contact center junto a un calendario con dos casillas encendidas en ámbar.</div>
             </div>
             <div class="card">
               <div class="n">Tarjeta 4 · Mide</div>
               <div class="t">Amanda anota, Lucas evalúa</div>
               <div class="d">Descripción: <strong>Cada reunión, con rúbrica</strong></div>
-              <div class="img">Imagen: onda de audio sólida en degradado de azul a ámbar.</div>
+              <div class="img">Imagen: dos personajes 3D en una mesa, uno tomando notas y otro con lupa, sobre una onda de audio sólida.</div>
             </div>
             <div class="card">
               <div class="n">Tarjeta 5 · Aprende</div>
               <div class="t">Clara audita, Laura entrena</div>
               <div class="d">Descripción: <strong>El sistema mejora solo</strong></div>
-              <div class="img">Imagen: tres peldaños ascendentes con una línea ámbar que los recorre y sale por arriba.</div>
+              <div class="img">Imagen: dos personajes 3D frente a tres peldaños ascendentes, con una cinta ámbar que los recorre.</div>
             </div>
             <div class="card">
               <div class="n">Tarjeta 6 · Cierre</div>
               <div class="t">Medimos tu embudo real</div>
               <div class="d">Descripción: <strong>45 min, sin costo</strong> · Texto de apoyo en la tarjeta: «Te mostramos dónde aportan y dónde no. Puedes partir por un equipo.»</div>
-              <div class="img">Imagen: las cinco imágenes anteriores en miniatura bajo una sola cúpula grande.</div>
+              <div class="img">Imagen: los nueve personajes juntos sobre la plataforma, bajo una sola cúpula azul grande.</div>
             </div>
           </div>
         </div>
@@ -632,28 +762,37 @@ Acá te muestro el recorrido completo, paso por paso, desde que alguien ve el an
         </div>
         <div class="gen">
           <div class="gen-label"><span>Prompt de imagen · las 6 tarjetas en una sola sesión</span><span class="tool">Nano Banana · 1:1</span></div>
-          <pre>Genera seis ilustraciones que se lean como una familia: mismo punto de fuga
-isométrico, misma altura de cámara, mismo fondo azul marino profundo
-#1b2340, mismas sombras suaves hacia abajo a la derecha, mismo acento ámbar
-#e8a951, mismo acabado de render 3D mate y baja saturación.
+          <pre>[PREFIJO DE ESTILO]
 
-En cada una, un solo objeto centrado sobre un plinto circular elevado, y
-sobre el objeto una pequeña cúpula geodésica dorada de líneas finas.
+Genera seis ilustraciones que se lean como una familia: mismo punto de fuga
+isométrico suave, misma altura de cámara, mismo fondo crema cálido #F6F3EC,
+misma luz de día entrando por la izquierda, mismas sombras suaves y cálidas
+hacia la derecha, mismo acabado 3D mate de saturación media.
 
-1. Una cúpula cerrada, sin objeto dentro, atravesada por una línea ámbar
-   continua que entra por la izquierda y sale por la derecha.
-2. Una diana de tiro en perspectiva con tres flechas ámbar agrupadas.
-3. Una cuadrícula de calendario flotante con exactamente dos casillas
-   contiguas encendidas en ámbar y el resto en azul apagado.
-4. Una onda de audio esculpida como objeto sólido: barras verticales de
-   distinta altura en degradado de azul a ámbar.
-5. Tres peldaños ascendentes con una línea ámbar que los recorre de abajo
-   hacia arriba y continúa más allá del borde superior.
-6. Los cinco objetos anteriores reducidos y ordenados en cuadrícula, todos
-   bajo una única cúpula dorada grande que los cubre.
+En cada una, la escena ocurre sobre una plataforma circular blanca elevada,
+con una pequeña cúpula geodésica azul #33508F de líneas finas arqueándose
+por encima.
 
-Sin texto, sin rostros, sin logos en ninguna. Generar las seis en una sola
-sesión: generadas por separado no calzan la iluminación.</pre>
+1. La plataforma vacía, atravesada de izquierda a derecha por una cinta
+   continua azul #33508F que entra por un borde y sale por el otro, como un
+   recorrido.
+2. Dos personajes 3D estilizados de oficina: uno con un megáfono pequeño,
+   otro frente a un panel de gráficos simples. Junto a ellos, una diana con
+   tres flechas ámbar #D98E3A agrupadas.
+3. Una personaje 3D con audífonos de contact center, sonriente, junto a una
+   cuadrícula de calendario flotante donde dos casillas contiguas están
+   encendidas en ámbar y el resto en azul claro.
+4. Dos personajes 3D sentados a una mesa: uno tomando notas en un cuaderno,
+   otro revisando una hoja con una lupa. Sobre la mesa, una onda de audio
+   esculpida como objeto sólido en azul con crestas ámbar.
+5. Dos personajes 3D frente a tres peldaños ascendentes, uno señalando hacia
+   arriba. Una cinta ámbar recorre los peldaños y sale por el borde superior.
+6. Los nueve personajes juntos en grupo compacto sobre la plataforma, bajo
+   una única cúpula azul grande que los cubre a todos.
+
+Sin texto, sin logos, sin rostros fotorrealistas en ninguna. Generar las seis
+en una sola sesión: generadas por separado no calzan ni la iluminación ni el
+diseño de los personajes.</pre>
         </div>
         <p class="ad-note"><strong>Nota de formato:</strong> las tarjetas 2 a 5 reutilizan las imágenes del anuncio A04 del plan de medios. Producir el carrusel cuesta casi nada si esas piezas ya existen.</p>
       </div>
@@ -694,11 +833,11 @@ Empieza por medir tu embudo real: 45 minutos y te mostramos en qué puntos un tr
               <tbody>
                 <tr><td class="seg">0,0–3,0</td><td>Habitación a oscuras. Teléfono sobre el velador con la pantalla encendida, halo ámbar. Cámara fija.</td><td class="txt">22:47</td><td class="aud">Silencio. Solo el zumbido corto de una notificación.</td></tr>
                 <tr><td class="seg">3,0–6,0</td><td>Mismo plano. La pantalla se apaga sola y la habitación queda completamente a oscuras.</td><td class="txt">Alguien preguntó por tu proyecto.</td><td class="aud">Silencio total tras la notificación.</td></tr>
-                <tr><td class="seg">6,0–10,0</td><td>Corte a oficina vacía de madrugada, escritorios ordenados, luz azulada de ventanal.</td><td class="txt">Tu equipo lo ve mañana a las 9.</td><td class="aud">Entra locución: «A las 22:47 alguien preguntó por tu proyecto. Tu ejecutivo lo va a ver mañana a las nueve.»</td></tr>
-                <tr><td class="seg">10,0–14,0</td><td>Plano cenital: tres teléfonos sobre una mesa, dos con pantalla encendida en ámbar y uno apagado.</td><td class="txt">Ya le escribió a otros dos.</td><td class="aud">«Para entonces esa persona ya le escribió a otras dos empresas.»</td></tr>
+                <tr><td class="seg">6,0–10,0</td><td>Corte al fotograma 2: la misma oficina luminosa, vacía, con luz dorada de primera hora entrando de lado.</td><td class="txt">Tu equipo lo ve mañana a las 9.</td><td class="aud">Entra locución: «A las 22:47 alguien preguntó por tu proyecto. Tu ejecutivo lo va a ver mañana a las nueve.»</td></tr>
+                <tr><td class="seg">10,0–14,0</td><td>Fotograma 3: plano cenital, tres teléfonos sobre mesa de madera clara, dos encendidos en ámbar y uno apagado con sombra más larga.</td><td class="txt">Ya le escribió a otros dos.</td><td class="aud">«Para entonces esa persona ya le escribió a otras dos empresas.»</td></tr>
                 <tr><td class="seg">14,0–18,0</td><td>Los dos teléfonos encendidos se acercan y el apagado queda atrás, fuera de foco.</td><td class="txt">Se queda con el que contesta.</td><td class="aud">«Y se queda conversando con la que le contestó.»</td></tr>
-                <tr><td class="seg">18,0–24,0</td><td>Corte a gráfico limpio: una barra ámbar creciendo hasta ocupar poco más de la mitad del ancho, sobre fondo azul marino.</td><td class="txt">406 conversaciones.<br>54% fuera de horario.</td><td class="aud">«En un piloto de siete semanas medimos 406 conversaciones. El 54% llegó fuera de horario.»</td></tr>
-                <tr><td class="seg">24,0–30,0</td><td>Corte a la cúpula dorada sobre azul marino. Aquí y solo aquí aparece el logo.</td><td class="txt">Antonia contesta siempre.<br>Medimos tu embudo, sin costo.</td><td class="aud">«Antonia contesta a cualquier hora, califica y agenda. Partamos midiendo tu embudo real: 45 minutos, sin costo.»</td></tr>
+                <tr><td class="seg">18,0–24,0</td><td>Corte a gráfico limpio sobre fondo crema: una barra ámbar creciendo hasta pasar la mitad del ancho, con el resto en azul claro.</td><td class="txt">406 conversaciones.<br>54% fuera de horario.</td><td class="aud">«En un piloto de siete semanas medimos 406 conversaciones. El 54% llegó fuera de horario.»</td></tr>
+                <tr><td class="seg">24,0–30,0</td><td>Fotograma 4: los nueve personajes bajo la cúpula azul, fondo crema. Aquí y solo aquí aparece el logo.</td><td class="txt">Antonia contesta siempre.<br>Medimos tu embudo, sin costo.</td><td class="aud">«Antonia contesta a cualquier hora, califica y agenda. Partamos midiendo tu embudo real: 45 minutos, sin costo.»</td></tr>
               </tbody>
             </table>
           </div>
@@ -711,36 +850,59 @@ D · La escena inmobiliaria: Sábado, 21:30. Preguntan por el departamento.</div
         </div>
         <div class="gen">
           <div class="gen-label"><span>Prompt de imagen · fotogramas del video</span><span class="tool">Nano Banana · 9:16</span></div>
-          <p class="frame">Fotograma 1 · el teléfono de noche · segundos 0 a 6</p>
-          <pre>Fotografía nocturna íntima, vertical. Habitación en penumbra casi total,
-azul marino profundo. Sobre un velador de madera oscura, un teléfono móvil
-boca arriba con la pantalla encendida proyectando un halo ámbar cálido hacia
-el techo. El contenido de la pantalla es completamente ilegible y
-desenfocado: sin interfaz, sin texto, sin iconos reconocibles.
+          <p class="frame">Fotograma 1 · el teléfono de noche · segundos 0 a 6 <span class="chip n">Escena nocturna</span></p>
+          <pre>[PREFIJO DE ESTILO — excepción de fondo: esta escena es de noche]
 
-Al borde del encuadre se intuye el canto de una cama y un vaso de agua, casi
-invisibles en la oscuridad. Realismo fotográfico, lente 35mm, f/1.4,
-profundidad de campo muy corta, grano fino. El teléfono en el tercio central;
-tercio superior e inferior en negro azulado limpio.</pre>
-          <p class="frame">Fotograma 2 · la oficina vacía · segundos 6 a 10</p>
-          <pre>Fotografía arquitectónica de interior, vertical. Oficina comercial vacía de
-madrugada: escritorios ordenados en fila, sillas metidas, pantallas apagadas.
-Luz azulada fría entrando por un ventanal de piso a techo al fondo. Ninguna
-persona. Ninguna luz encendida salvo una señalética tenue muy lejana.
+Ilustración 3D estilizada, vertical. Living de una casa acogedora de noche:
+sofá de tela clara, mesa lateral de madera clara, una planta, un cojín caído.
+Sin nadie en la escena.
 
-Sensación de tiempo detenido y de nadie de guardia. Realismo fotográfico,
-lente 24mm, gran profundidad de campo, composición simétrica con el pasillo
-central como eje. Tercio superior libre.</pre>
+Sobre la mesa lateral, un teléfono móvil boca arriba con la pantalla
+encendida proyectando un halo ámbar cálido #E8A951 sobre la madera. Contenido
+de pantalla completamente ilegible: sin interfaz, sin texto, sin iconos.
+
+El resto en penumbra azul marino #1B2340, pero con los objetos aún legibles:
+se distinguen las formas, no es negro. Acabado mate, sombras suaves.
+
+El teléfono en el tercio central; tercio superior e inferior despejados.</pre>
+          <p class="frame">Fotograma 2 · la oficina al amanecer · segundos 6 a 10 <span class="chip ok">Vuelve la luz</span></p>
+          <pre>[PREFIJO DE ESTILO]
+
+Ilustración 3D estilizada, vertical. La misma oficina luminosa del sistema,
+pero vacía y muy temprano: escritorios azul #33508F ordenados en fila, sillas
+metidas, plantas, madera clara. Luz de primera hora entrando dorada y baja
+por el ventanal lateral, alargando las sombras sobre el suelo crema.
+
+Ninguna persona. Un solo teléfono olvidado sobre un escritorio, con la
+pantalla apagada.
+
+El contraste con el fotograma anterior es el punto: la noche pasó, la luz
+volvió, y recién ahora alguien va a ver el mensaje. Tercio superior libre.</pre>
           <p class="frame">Fotograma 3 · los tres teléfonos · segundos 10 a 18</p>
-          <pre>Plano cenital cerrado sobre una superficie de madera oscura. Tres teléfonos
-móviles idénticos dispuestos en fila con separación regular. Los dos de la
-izquierda tienen la pantalla encendida con luz ámbar cálida; el de la derecha
-está completamente apagado y en sombra.
+          <pre>[PREFIJO DE ESTILO]
 
-Sin manos, sin personas, sin interfaces legibles. Iluminación lateral dura
-que proyecta tres sombras paralelas. Estética de bodegón editorial de revista
-de negocios, minimalista, mucho aire entre objetos. Fondo cayendo a azul
-marino en los bordes.</pre>
+Plano cenital cerrado sobre una mesa de madera clara, fondo crema cálido
+#F6F3EC. Tres teléfonos móviles idénticos dispuestos en fila con separación
+regular, en carcasas neutras.
+
+Los dos de la izquierda tienen la pantalla encendida con luz ámbar cálida
+#D98E3A; el de la derecha está apagado, gris y con una sombra más larga que
+los otros dos.
+
+Sin manos, sin personas, sin interfaces legibles. Luz de día lateral suave,
+tres sombras paralelas. Composición de bodegón limpio, mucho aire entre
+objetos. Acabado 3D mate.</pre>
+          <p class="frame">Fotograma 4 · cierre · segundos 24 a 30</p>
+          <pre>[PREFIJO DE ESTILO]
+
+Ilustración 3D estilizada, vertical, fondo crema cálido #F6F3EC. Sobre una
+plataforma circular blanca, los nueve personajes de oficina en grupo
+compacto, de pie, mirando al frente con expresión amable. Bajo una cúpula
+geodésica azul #33508F de líneas finas que los cubre a todos.
+
+Luz de día cálida y pareja. Un detalle ámbar #D98E3A en la base de la
+plataforma. Amplio espacio limpio bajo el grupo para montar el llamado a la
+acción en edición.</pre>
         </div>
         <p class="ad-note"><strong>Por qué esta pieza es la apuesta:</strong> no explica el producto, pone al gerente adentro de la escena. La cifra del 54% llega recién en el segundo 18, cuando el problema ya se sintió. Ese orden —primero la escena, después el dato— es lo que separa un anuncio que se recuerda de uno que se salta.</p>
       </div>
@@ -750,7 +912,7 @@ marino en los bordes.</pre>
   <!-- ============ ESTRUCTURA ============ -->
   <section id="estructura">
     <div class="section-head">
-      <p class="eyebrow">07 · Operación</p>
+      <p class="eyebrow">08 · Operación</p>
       <h2>Estructura y medición de la primera campaña</h2>
       <p class="lede col">Misma arquitectura del plan de medios, con un ajuste: como esta campaña también enseña una categoría, hay que mirar una métrica adicional.</p>
     </div>
@@ -789,7 +951,7 @@ marino en los bordes.</pre>
   <!-- ============ PENDIENTE ============ -->
   <section id="pendiente">
     <div class="section-head">
-      <p class="eyebrow">08 · Preguntas</p>
+      <p class="eyebrow">09 · Preguntas</p>
       <h2>Lo respondido y lo que sigue abierto</h2>
       <p class="lede col">Cuatro de las seis preguntas quedaron cerradas y ya están aplicadas en las piezas de arriba. Las dos que faltan no bloquean la producción, pero sí el lanzamiento.</p>
     </div>
@@ -833,7 +995,8 @@ marino en los bordes.</pre>
     <p><strong>Fuentes de este documento:</strong> el sitio domo-ia.com, el correo de presentación y la auditoría del piloto de 7 semanas, más investigación de mercado sobre tiempos de respuesta a leads y posicionamiento de la categoría de trabajadores digitales en Estados Unidos, y datos públicos del mercado inmobiliario chileno 2026. Las cifras del piloto pertenecen a un caso real y deben citarse siempre con su contexto y sin identificar a la empresa.</p>
     <p><strong>Corrección respecto de documentos anteriores:</strong> en «A quién le vende DOMO IA» se afirmó que el mercado inmobiliario chileno estaba deprimido. Los datos de 2026 muestran lo contrario: ventas en fuerte recuperación, proyección de crecimiento entre 8% y 14%, y tasas hipotecarias en torno al 4,0%–4,5%. Lo que permanece alto es el stock. El ángulo correcto es la competencia por el comprador que sí está circulando, no la escasez de compradores.</p>
     <p><strong>Cambios en la versión 1.1:</strong> el caso se cita como «un broker inmobiliario» con autorización; el diagnóstico queda definido como medición del embudo real, reemplazando el cierre de las cuatro piezas; se agrega la sección 3 con la arquitectura de equipos y la decisión de no anclar precio; y se confirma que la cara pública es solo Rodolfo.</p>
-    <p>DOMO IA · Campaña de lanzamiento · Versión 1.1 · 17 de agosto de 2026</p>
+    <p><strong>Cambios en la versión 1.2:</strong> se revisó domo-ia.com y se corrigió el sistema visual completo. Los prompts estaban construidos sobre la identidad de julio (fondo azul marino, dorado, estética sobria); el sitio vigente es claro, cálido y con azul #33508F como color de marca. Se reescribieron el prefijo de estilo y los cuatro prompts, se incorporaron los personajes 3D como activo de marca, y se estableció la regla de que el fondo lo decide el contenido: claro por defecto, oscuro solo cuando la escena es de noche.</p>
+    <p>DOMO IA · Campaña de lanzamiento · Versión 1.2 · 17 de agosto de 2026</p>
   </footer>
 
 </div>
